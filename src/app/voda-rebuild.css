@@ -273,8 +273,8 @@
   padding-top: clamp(150px, 14vw, 200px);
   padding-bottom: clamp(190px, 17vw, 250px);
   /* Top and bottom both bow outward, symmetrical about the centre. */
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,6 C25,0 75,0 100,6 L100,94 C75,100 25,100 0,94 Z' fill='%23fff'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,6 C25,0 75,0 100,6 L100,94 C75,100 25,100 0,94 Z' fill='%23fff'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,12 C0,3 100,3 100,12 L100,88 C100,97 0,97 0,88 Z' fill='%23fff'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,12 C0,3 100,3 100,12 L100,88 C100,97 0,97 0,88 Z' fill='%23fff'/%3E%3C/svg%3E");
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
@@ -999,8 +999,8 @@
 
 /* Curved bottom edge, matching the treatment on .voda-response. */
 .voda-reviews {
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,0 L100,0 L100,100 C75,86 25,86 0,100 Z' fill='%23fff'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,0 L100,0 L100,100 C75,86 25,86 0,100 Z' fill='%23fff'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,0 L100,0 L100,100 C100,91 0,91 0,100 Z' fill='%23fff'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,0 L100,0 L100,100 C100,91 0,91 0,100 Z' fill='%23fff'/%3E%3C/svg%3E");
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
@@ -1753,6 +1753,78 @@
   .voda-stat-grid{gap:10px}
 }
 
+/* Seam bridge: extends from the separate navy panel over the photograph. */
+.voda-proof-panel{overflow:visible}
+.voda-proof-panel:before{
+  content:"";
+  position:absolute;
+  z-index:1;
+  top:-220px;
+  left:0;
+  width:100%;
+  height:221px;
+  display:block;
+  pointer-events:none;
+  opacity:1;
+  background:linear-gradient(to bottom,transparent 0%,rgba(7,29,53,.035) 18%,rgba(7,29,53,.11) 38%,rgba(7,29,53,.27) 58%,rgba(7,29,53,.52) 75%,rgba(7,29,53,.78) 89%,var(--navy) 100%);
+  -webkit-mask-image:none;
+  mask-image:none;
+}
+
+/* Final lower-transition authority. */
+.voda-proof-panel:before{display:none}
+.voda-photo-banner:after{
+  content:"";
+  position:absolute;
+  z-index:1;
+  inset:0;
+  display:block;
+  pointer-events:none;
+  background:linear-gradient(to bottom,transparent 82%,rgba(7,29,53,.06) 88%,rgba(7,29,53,.2) 93%,rgba(7,29,53,.48) 97%,var(--navy) 100%);
+}
+.voda-proof-panel{padding-top:38px}
+@media(max-width:600px){.voda-proof-panel{padding-top:44px}}
+
+/* Continue only the safe bottom-carpet crop through the separate panel. */
+.voda-proof-panel{
+  background-color:var(--navy);
+  background-image:linear-gradient(rgba(7,29,53,.24),rgba(7,29,53,.36)),url('/restoration-proof-wide-v4.png');
+  background-repeat:no-repeat;
+  background-position:center,center bottom;
+  background-size:cover,auto 1900px;
+}
+@media(max-width:600px){
+  .voda-proof-panel{
+    background-position:center,center bottom;
+    background-size:cover,auto 1000px;
+  }
+}
+
+/* Reference-matched lower transition: preserve the photographed carpet and
+   equipment, then resolve to navy only along the image's final edge. */
+.voda-proof-panel:before{display:none}
+.voda-photo-banner:after{
+  content:"";
+  position:absolute;
+  z-index:1;
+  inset:0;
+  display:block;
+  pointer-events:none;
+  background:linear-gradient(to bottom,transparent 68%,rgba(7,29,53,.035) 76%,rgba(7,29,53,.1) 84%,rgba(7,29,53,.24) 91%,rgba(7,29,53,.5) 96%,var(--navy) 100%);
+}
+
+/* Desktop/tablet results overlap. Kept separate from the mobile composition. */
+@media(min-width:601px){
+  .voda-work{background:transparent}
+  .voda-proof{margin-top:-430px}
+  .voda-photo-banner img{
+    object-position:center top;
+    transform:translateY(72px);
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.08) 8%,rgba(0,0,0,.34) 17%,rgba(0,0,0,.68) 27%,rgba(0,0,0,.9) 35%,#000 42%,#000 100%);
+    mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.08) 8%,rgba(0,0,0,.34) 17%,rgba(0,0,0,.68) 27%,rgba(0,0,0,.9) 35%,#000 42%,#000 100%);
+  }
+}
+
 /* Wide assurance cards with a single custom vector language. */
 .voda-stat-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:1080px}
 .voda-proof-panel .voda-wrap{width:min(1160px,calc(100% - 48px));margin-inline:auto}
@@ -1791,6 +1863,32 @@
 
 @media(max-width:900px){.voda-stat-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.voda-stat-grid{grid-template-columns:1fr}.voda-stat-grid>div{min-height:108px}}
+
+/* Mobile-only results composition. Desktop remains intentionally unchanged. */
+@media(max-width:600px){
+  .voda-work{padding-bottom:0;background:transparent}
+  .voda-proof{margin-top:-218px}
+  .voda-photo-banner{height:700px}
+  .voda-photo-banner img{
+    object-position:center top;
+    transform:translateY(44px);
+    object-position:50% center;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.26) 5%,rgba(0,0,0,.7) 12%,#000 20%,#000 100%);
+    mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.26) 5%,rgba(0,0,0,.7) 12%,#000 20%,#000 100%);
+  }
+  .voda-photo-banner:after{
+    background:linear-gradient(to bottom,transparent 59%,rgba(7,29,53,.05) 68%,rgba(7,29,53,.16) 77%,rgba(7,29,53,.36) 87%,rgba(7,29,53,.68) 96%,var(--navy) 100%);
+  }
+  .voda-proof-panel{padding-top:58px;background:var(--navy)}
+  .voda-proof-panel:before{
+    height:170px;
+    opacity:.1;
+    background-size:auto 520px;
+    background-position:center bottom;
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.35) 34%,transparent 100%);
+    mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.35) 34%,transparent 100%);
+  }
+}
 
 /* Results-to-proof composition: two real layers, matching the reference.
    The photograph starts behind the comparison cards; the proof panel remains
@@ -2466,8 +2564,8 @@
 /* Curved top AND bottom. The top bows upward into the light section; the
    bottom keeps the existing concave arc toward the carousel buttons. */
 .voda-reviews {
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,10 C25,0 75,0 100,10 L100,100 C75,86 25,86 0,100 Z' fill='%23fff'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,10 C25,0 75,0 100,10 L100,100 C75,86 25,86 0,100 Z' fill='%23fff'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,12 C0,3 100,3 100,12 L100,100 C100,91 0,91 0,100 Z' fill='%23fff'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,12 C0,3 100,3 100,12 L100,100 C100,91 0,91 0,100 Z' fill='%23fff'/%3E%3C/svg%3E");
 }
 
 /* The why-choose CTA sits just above the join; keep it clear of the curve. */
@@ -2530,13 +2628,22 @@
   .voda-hero-image { object-position: 58% 32%; }
 }
 
+/* Under 700px the frame is much narrower, so it has to sit further right
+   or the technician (~75% across the photo) falls outside the crop. */
+@media (max-width: 700px) {
+  .voda-hero-image { object-position: 72% 38%; }
+}
+
 /* ── Response: deepen the render / photo overlap ────────────────────────
    The render was clear of the readout but had drifted low against the
    circle, so it read as sitting below the photo rather than cutting into
    it. Raising it puts the machines across the circle's lower arc, which
-   is the intended conflict — while the readout stays clear underneath. */
-.voda-equipment {
-  top: 34%;
+   is the intended conflict — while the readout stays clear underneath.
+
+   Scoped to >700px: on mobile the render is bottom-anchored (top:auto),
+   and setting `top` there knocked it out of frame. */
+@media (min-width: 701px) {
+  .voda-equipment { top: 34%; }
 }
 
 /* ── Work: ground ───────────────────────────────────────────────────────
@@ -2580,3 +2687,4 @@
 }
 
 .voda-work > .voda-wrap { position: relative; z-index: 1; }
+
