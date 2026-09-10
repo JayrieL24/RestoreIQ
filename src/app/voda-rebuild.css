@@ -3170,3 +3170,52 @@
   padding-top: clamp(120px, 11vw, 168px);
   padding-bottom: clamp(124px, 11vw, 172px);
 }
+
+/* ── Before/after showcase: larger ──────────────────────────────────────
+   The cards read small against the section around them. Wider container,
+   taller sliders and proportionally scaled furniture (handle, labels,
+   caption) so the comparison is easier to actually use. */
+.voda-transform-wrap {
+  width: min(1320px, calc(100% - 48px));
+}
+
+.ba-showcase {
+  width: min(1320px, 100%);
+}
+
+.ba-showcase-grid {
+  gap: clamp(20px, 2vw, 30px);
+}
+
+.ba-case .ba-slider {
+  height: clamp(230px, 22vw, 330px);
+}
+
+.ba-case h3 {
+  padding: 22px 16px 23px;
+  font-size: 18px;
+}
+
+/* Handle and labels scale with the larger frame. */
+.ba-case .ba-divider span {
+  width: 46px;
+  height: 46px;
+  font-size: 20px;
+}
+
+.ba-case .ba-label {
+  bottom: 13px;
+  min-width: 88px;
+  padding: 8px 14px;
+  font-size: 9.5px;
+}
+
+.ba-case .ba-before-label { left: 13px; }
+.ba-case .ba-after-label { right: 13px; }
+
+@media (max-width: 760px) {
+  .ba-case .ba-slider { height: clamp(210px, 56vw, 280px); }
+  .ba-case h3 { padding: 18px 14px 19px; font-size: 16px; }
+  .ba-case .ba-divider span { width: 40px; height: 40px; font-size: 17px; }
+}
+
