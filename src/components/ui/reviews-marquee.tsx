@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { MoveHorizontal, Star } from "lucide-react";
 import { useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
@@ -190,9 +190,62 @@ export function ReviewsMarquee({ className }: { className?: string }) {
     return () => cancelAnimationFrame(raf);
   }, [span, reduceMotion]);
 
-  const move = (dir: number) => {
+  // Drag-to-scrub. The RAF loop already owns `offset`, so a drag just
+  // writes into it directly and lets the loop keep rendering; releasing
+  // hands the residual velocity to `nudge` so the strip glides to a stop
+  // instead of halting dead.
+  const drag = React.useRef<{ id: number; x: number; last: number; v: number } | null>(null);
+  const [dragging, setDragging] = React.useState(false);
+  // Set once the visitor has actually swiped, so the hint can retire.
+  const [swiped, setSwiped] = React.useState(false);
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    // Ignore secondary buttons; let text selection work with a modifier.
+    if (e.button !== 0) return;
+    drag.current = { id: e.pointerId, x: e.clientX, last: e.clientX, v: 0 };
+    paused.current = true;
+    setDragging(true);
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+  };
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    const d = drag.current;
+    if (!d || d.id !== e.pointerId) return;
+    const dx = e.clientX - d.last;
+    d.last = e.clientX;
+    d.v = dx;
+    // Dragging right should reveal earlier cards, so subtract.
+    offset.current -= dx;
+    if (reduceMotion && trackRef.current && span) {
+      offset.current = ((offset.current % span) + span) % span;
+      trackRef.current.style.transform = `translate3d(${-offset.current}px,0,0)`;
+    }
+    if (!swiped && Math.abs(e.clientX - d.x) > 24) setSwiped(true);
+  };
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+    e.preventDefault();
     const card = trackRef.current?.firstElementChild as HTMLElement | null;
-    nudge.current += dir * (card ? card.offsetWidth + 28 : 360);
+    const step = card ? card.offsetWidth + 28 : 360;
+    const dir = e.key === "ArrowRight" ? 1 : -1;
+    if (reduceMotion && trackRef.current && span) {
+      offset.current = ((offset.current + dir * step) % span + span) % span;
+      trackRef.current.style.transform = `translate3d(${-offset.current}px,0,0)`;
+    } else {
+      nudge.current += dir * step;
+    }
+    if (!swiped) setSwiped(true);
+  };
+
+  const endDrag = (e: React.PointerEvent) => {
+    const d = drag.current;
+    if (!d || d.id !== e.pointerId) return;
+    // Carry the last frame's velocity into the existing nudge easing.
+    if (!reduceMotion) nudge.current -= d.v * 8;
+    drag.current = null;
+    paused.current = false;
+    setDragging(false);
   };
 
   // Doubled so the loop has a seamless second copy to scroll into.
@@ -211,12 +264,20 @@ export function ReviewsMarquee({ className }: { className?: string }) {
       </div>
 
       <div
-        className="voda-marquee-viewport"
+        className={cn("voda-marquee-viewport", dragging && "is-dragging")}
         ref={viewportRef}
         onMouseEnter={() => (paused.current = true)}
         onMouseLeave={() => (paused.current = false)}
         onFocusCapture={() => (paused.current = true)}
         onBlurCapture={() => (paused.current = false)}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onKeyDown={onKeyDown}
+        tabIndex={0}
+        role="region"
+        aria-label="Customer reviews — use arrow keys or swipe to browse"
       >
         <div className="voda-marquee-track" ref={trackRef}>
           {loop.map((review, i) => (
@@ -229,14 +290,12 @@ export function ReviewsMarquee({ className }: { className?: string }) {
         </div>
       </div>
 
-      <div className="voda-marquee-controls">
-        <button type="button" onClick={() => move(-1)} aria-label="Previous reviews">
-          <ChevronLeft aria-hidden />
-        </button>
-        <button type="button" onClick={() => move(1)} aria-label="Next reviews">
-          <ChevronRight aria-hidden />
-        </button>
-      </div>
+      {/* Affordance rather than controls: the strip is drag/swipe scrubbed,
+          so this says so and retires once the visitor has done it. */}
+      <p className={cn("voda-marquee-hint", swiped && "is-used")} aria-hidden>
+        <MoveHorizontal />
+        Swipe to explore reviews
+      </p>
     </div>
   );
 }
