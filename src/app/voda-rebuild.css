@@ -3843,6 +3843,38 @@ html { scroll-padding-top: 96px; }
 .voda-proof-curve { display: block; }
 .voda-why::after { display: none; }
 
+@media (min-width: 701px) {
+  /* The curve above ends in pure white. Start this section on the same
+     white, lower the decorative color pools, then reveal them gradually
+     so the join cannot read as a horizontal cutoff. */
+  .voda-why {
+    background:
+      radial-gradient(46% 38% at 6% 30%, rgba(190,222,244,.42), transparent 70%),
+      radial-gradient(42% 34% at 96% 38%, rgba(198,227,246,.36), transparent 70%),
+      radial-gradient(52% 40% at 18% 96%, rgba(186,219,242,.34), transparent 72%),
+      linear-gradient(180deg, #fff 0%, #fbfdfe 42%, #f6fbfd 74%, #eef7fc 100%);
+  }
+
+  .voda-why::after {
+    display: block;
+    inset: 0 0 auto;
+    z-index: 0;
+    width: 100%;
+    height: clamp(150px, 13vw, 210px);
+    transform: none;
+    background: linear-gradient(180deg,
+      #fff 0%,
+      #fff 24%,
+      rgba(255,255,255,.94) 48%,
+      rgba(255,255,255,.62) 70%,
+      transparent 100%);
+    filter: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+    pointer-events: none;
+  }
+}
+
 @media (max-width: 700px) {
   .voda-why {
     margin-top: 0;
