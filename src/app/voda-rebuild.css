@@ -2959,3 +2959,113 @@
   .voda-stat-toggle svg { transition: none; }
 }
 
+/* ── Response actions: clear of the bottom curve ────────────────────────
+   MOBILE ONLY. The row wrapped, dropping "See how restoration works" onto
+   its own line at the left edge — which is exactly where the bottom arc
+   cuts deepest (the mask clips from 88% of section height at the sides,
+   vs 94.75% at the centre). The link was being sliced by the curve.
+
+   Keeping both actions on one centred line moves them inward, where the
+   curve is shallowest, and extra bottom padding lifts the whole row out
+   of the cut zone. */
+@media (max-width: 700px) {
+  .voda-response-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 26px;
+  }
+
+  .voda-response-actions .voda-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .voda-response-link {
+    align-self: center;
+    white-space: nowrap;
+  }
+
+  /* Lift the actions clear of the arc: the side edges are clipped from
+     88% of the section height, so the row needs more room beneath it. */
+  .voda-response { padding-bottom: clamp(150px, 26vw, 210px); }
+}
+
+/* ── Reviews marquee: swipe affordance ──────────────────────────────────
+   The prev/next buttons are replaced by drag-to-scrub on the strip
+   itself, so what is needed here is a signal that it can be swiped —
+   not a control. The hint fades out once the visitor has actually
+   swiped, since by then it has done its job. */
+.voda-marquee-controls { display: none; }
+
+.voda-marquee-viewport {
+  /* Horizontal drag belongs to the strip; vertical scroll stays with the
+     page, so a swipe down the page is never captured here. */
+  touch-action: pan-y;
+  cursor: grab;
+  /* A drag should not select the quote text under the pointer. */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.voda-marquee-viewport.is-dragging { cursor: grabbing; }
+
+.voda-marquee-viewport:focus { outline: none; }
+
+.voda-marquee-viewport:focus-visible {
+  outline: 2px solid rgba(85,220,227,.75);
+  outline-offset: -3px;
+}
+
+.voda-marquee-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  position: relative;
+  z-index: 3;
+  margin: 20px 0 0;
+  color: #8fb0c4;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  transition: opacity .4s ease;
+}
+
+.voda-marquee-hint.is-used { opacity: 0; }
+
+.voda-marquee-hint svg {
+  width: 17px;
+  height: 17px;
+  color: #55dce3;
+  animation: voda-swipe-nudge 2.4s ease-in-out infinite;
+}
+
+@keyframes voda-swipe-nudge {
+  0%, 100% { transform: translateX(-3px); }
+  50%      { transform: translateX(3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voda-marquee-hint svg { animation: none; }
+  .voda-marquee-hint { transition: none; }
+}
+
+/* Final proof seam bridge. No photographed content is repeated here. */
+.voda-proof-panel{overflow:visible}
+.voda-proof-panel:before{
+  content:"";
+  position:absolute;
+  z-index:1;
+  top:-220px;
+  left:0;
+  width:100%;
+  height:221px;
+  display:block;
+  pointer-events:none;
+  opacity:1;
+  background:linear-gradient(to bottom,transparent 0%,rgba(7,29,53,.035) 18%,rgba(7,29,53,.11) 38%,rgba(7,29,53,.27) 58%,rgba(7,29,53,.52) 75%,rgba(7,29,53,.78) 89%,var(--navy) 100%);
+  -webkit-mask-image:none;
+  mask-image:none;
+}
+
