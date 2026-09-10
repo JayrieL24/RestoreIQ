@@ -1,7 +1,9 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { Phone } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
@@ -142,8 +144,15 @@ export function Faq() {
         </div>
 
         <div className="voda-faq-cta">
-          <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>
-            Call {site.phone}
+          <Link className="voda-faq-cta-alt" href="/#contact">
+            Book a demo
+          </Link>
+          <a
+            className="voda-faq-cta-call"
+            href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}
+          >
+            <Phone aria-hidden />
+            {site.phone}
           </a>
         </div>
       </div>

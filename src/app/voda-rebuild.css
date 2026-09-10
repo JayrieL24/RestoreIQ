@@ -3116,3 +3116,52 @@
       var(--navy) 100%);
   }
 }
+
+/* ── FAQ: CTA pair ──────────────────────────────────────────────────────
+   "Book a demo" leads as the solid navy button; the call sits beside it
+   as a white pill with a blue outline, carrying a dark-blue icon and
+   number. Both override the base `.voda-faq-cta a` fill. */
+.voda-faq-cta {
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* Solid navy — inherits the base rule, so only the class hook is needed. */
+.voda-faq-cta .voda-faq-cta-alt {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 34px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 750;
+  letter-spacing: .01em;
+  transition: background .2s, transform .2s;
+}
+
+.voda-faq-cta .voda-faq-cta-alt:hover {
+  background: #0d3a63;
+  transform: translateY(-1px);
+}
+
+/* White pill, blue outline, dark-blue content. */
+.voda-faq-cta a.voda-faq-cta-call {
+  gap: 10px;
+  border: 2.5px solid var(--navy);
+  background: #fff;
+  color: var(--navy);
+}
+
+.voda-faq-cta a.voda-faq-cta-call:hover {
+  border-color: #0a2340;
+  background: #f4fafd;
+  transform: translateY(-1px);
+}
+
+.voda-faq-cta a.voda-faq-cta-call svg {
+  width: 16px;
+  height: 16px;
+  color: var(--navy);
+}
+
