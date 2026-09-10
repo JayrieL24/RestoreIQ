@@ -2850,3 +2850,112 @@
   }
 }
 
+/* ── Response feature list ──────────────────────────────────────────────
+   The list moved into its own component, so `.voda-feature-list` has to
+   pick up every rule previously written against `.voda-response-copy ul`.
+   Inheriting by selector keeps desktop byte-identical to before. */
+.voda-response-copy .voda-feature-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px 30px;
+  margin-top: 38px;
+  padding: 0;
+  list-style: none;
+}
+
+/* Restated: the class selector outranks the older `ul` breakpoints, so
+   the 950px two-column tablet layout must be repeated here. */
+@media (max-width: 950px) {
+  .voda-response-copy .voda-feature-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 26px;
+  }
+}
+
+/* The toggle is mobile-only; desktop shows all six and never needs it. */
+.voda-feature-toggle { display: none; }
+
+@media (max-width: 700px) {
+  /* One column ran to ~540px of scroll. Show three, collapse the rest. */
+  .voda-response-copy .voda-feature-list {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin-top: 30px;
+  }
+
+  /* Hidden, not removed: the rows stay in the DOM for search engines and
+     screen readers, and `aria-expanded` on the button describes state. */
+  .voda-feature-list .voda-feature-extra { display: none; }
+  .voda-feature-list.is-expanded .voda-feature-extra { display: grid; }
+
+  .voda-feature-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 16px;
+    padding: 10px 16px;
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 999px;
+    background: rgba(255,255,255,.06);
+    color: #7fe3ef;
+    font-size: 12px;
+    font-weight: 700;
+    transition: background .25s ease;
+  }
+
+  .voda-feature-toggle:hover { background: rgba(255,255,255,.12); }
+
+  .voda-feature-toggle svg {
+    width: 15px;
+    height: 15px;
+    transition: transform .28s ease;
+  }
+
+  .voda-feature-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voda-feature-toggle svg { transition: none; }
+}
+
+/* ── Trust grid: mobile collapse ────────────────────────────────────────
+   Six cards stack to one column below 700px and run long, so the last
+   three collapse behind a toggle — same pattern as the response feature
+   list. Cards stay in the DOM, hidden with CSS. */
+.voda-stat-toggle { display: none; }
+
+@media (max-width: 700px) {
+  .voda-stat-grid .voda-stat-extra { display: none; }
+  .voda-stat-grid.is-expanded .voda-stat-extra { display: grid; }
+
+  .voda-stat-toggle {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 7px;
+    margin: 16px auto 0;
+    padding: 10px 16px;
+    border: 1px solid rgba(11,66,102,.22);
+    border-radius: 999px;
+    background: rgba(255,255,255,.9);
+    color: #0b6fb5;
+    font-size: 12px;
+    font-weight: 700;
+    transition: background .25s ease;
+  }
+
+  .voda-stat-toggle:hover { background: #fff; }
+
+  .voda-stat-toggle svg {
+    width: 15px;
+    height: 15px;
+    transition: transform .28s ease;
+  }
+
+  .voda-stat-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voda-stat-toggle svg { transition: none; }
+}
+
