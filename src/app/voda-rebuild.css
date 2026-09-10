@@ -3796,8 +3796,14 @@ html { scroll-padding-top: 96px; }
 .voda-nav-menu svg { width: 18px; height: 18px; }
 .voda-header.is-scrolled .voda-nav-menu { border-color: #d3e4ec; background: #fff; }
 
-.voda-mobile-sheet { display: flex!important; width: min(390px, 92vw)!important; flex-direction: column; padding: 22px 18px 18px!important; border-left: 1px solid #d5e6ed!important; background: #f8fcfe!important; box-shadow: -20px 0 50px rgba(7,29,53,.16)!important; }
-.voda-mobile-sheet header { padding-right: 42px; }
+.voda-mobile-sheet { display: flex!important; width: min(390px, 92vw)!important; flex-direction: column; padding: 22px 18px max(18px, env(safe-area-inset-bottom))!important; border-left: 1px solid #d5e6ed!important; background: #f8fcfe!important; box-shadow: -20px 0 50px rgba(7,29,53,.16)!important; }
+/* SheetHeader renders a div, not a <header>; keep the wordmark row flush with the nav and clear of the close button. */
+.voda-mobile-sheet [data-slot="sheet-header"] { padding: 0 56px 0 0; }
+/* The stock close control is a 16px icon at 70% opacity: invisible on the off-white drawer and too small to tap. */
+.voda-mobile-sheet .voda-mobile-sheet-close { top: 30px; right: 18px; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #cfe3ea; border-radius: 12px; background: #fff; color: #123b55; opacity: 1; box-shadow: 0 6px 16px rgba(7,29,53,.08); transition: background .2s ease, transform .2s ease; }
+.voda-mobile-sheet .voda-mobile-sheet-close:hover { background: #e9f8fb; }
+.voda-mobile-sheet .voda-mobile-sheet-close:active { transform: scale(.95); }
+.voda-mobile-sheet .voda-mobile-sheet-close svg { width: 18px; height: 18px; }
 .voda-mobile-drawer-wordmark { display: block; width: 180px; height: auto; }
 .voda-mobile-sheet-kicker { margin: 30px 0 8px; color: #6b8394; font-size: 10px; font-weight: 800; letter-spacing: .14em; line-height: 1.2; text-transform: uppercase; }
 .voda-mobile-nav { display: grid; gap: 0; padding: 0; border-top: 1px solid #dbe8ed; }
@@ -3962,6 +3968,8 @@ html { scroll-padding-top: 96px; }
 }
 .voda-float-call svg { width: 24px; height: 24px; }
 .voda-float-call:active { transform: scale(.94); }
+/* Out of the way while the drawer is open, or it floats over the drawer's own buttons. */
+.voda-float-call.is-hidden { display: none; }
 
 @media (max-width: 700px) {
   .voda-float-call { display: grid; }

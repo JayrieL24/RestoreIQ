@@ -86,7 +86,7 @@ export function SiteHeader() {
                   <MenuIcon className="size-5" />
                 </button>
               </SheetTrigger>
-              <SheetContent className="voda-mobile-sheet" side="right">
+              <SheetContent className="voda-mobile-sheet" closeClassName="voda-mobile-sheet-close" side="right">
                 <SheetHeader>
                   <SheetTitle className="text-left">
                     <Image
@@ -128,7 +128,7 @@ export function SiteHeader() {
       </header>
 
       {/* Mobile-only floating call button, bottom-right of the screen. */}
-      <a className="voda-float-call" href={tel} aria-label={`Call ${site.phone}`}>
+      <a className={`voda-float-call${open ? " is-hidden" : ""}`} href={tel} aria-label={`Call ${site.phone}`}>
         <PhoneIcon aria-hidden />
       </a>
     </>
