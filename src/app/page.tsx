@@ -1,12 +1,13 @@
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, BadgeCheck, Clock3, FileText, Gauge, Home, MapPin, Phone, ShieldCheck, Siren } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BadgeCheck, Clock3, MapPin, Phone, Siren } from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
+import { ResponseFeatureList } from "@/components/response-feature-list";
+import { TrustFeatureGrid } from "@/components/trust-feature-grid";
 import { Faq } from "@/components/sections/faq";
 import { ReviewsMarquee } from "@/components/ui/reviews-marquee";
 import { site } from "@/lib/site";
 import { RestorationServiceIcon } from "@/components/restoration-service-icon";
 import { BeforeAfterShowcase } from "@/components/before-after-showcase";
-import { TrustFeatureIcon } from "@/components/trust-feature-icon";
 import { WhyChoose } from "@/components/sections/why-choose";
 
 const real = "/Real-life-images/";
@@ -70,14 +71,7 @@ export default function HomePage() {
           <h2>We find the water<br/><em>you cannot see.</em></h2>
           <p>We map moisture through floors, walls, and finishes, then build a drying plan around what the readings show &mdash; not around what is easiest to reach.</p>
 
-          <ul>
-            <li><Gauge/><span><b>Measured drying</b>Daily readings, written down and explained.</span></li>
-            <li><ShieldCheck/><span><b>Protected home</b>Careful containment and clean working practices.</span></li>
-            <li><Clock3/><span><b>One point of contact</b>The same team from first call to final repair.</span></li>
-            <li><Home/><span><b>Home &amp; commercial</b>Both handled in house, never subcontracted.</span></li>
-            <li><BadgeCheck/><span><b>Certified crews</b>Trained and working to current standard.</span></li>
-            <li><FileText/><span><b>Insurer ready</b>Documentation prepared the way carriers expect.</span></li>
-          </ul>
+          <ResponseFeatureList />
 
           <div className="voda-response-actions">
             <a className="voda-btn" href="tel:+15550100199"><Phone aria-hidden/>Get emergency help</a>
@@ -98,14 +92,7 @@ export default function HomePage() {
       <div className="voda-proof-panel">
         <div className="voda-wrap">
           <Reveal className="voda-heading light-heading"><span className="voda-eyebrow cyan">Why homeowners trust RestoreIQ</span><h2>Trusted expertise for every restoration need.</h2></Reveal>
-          <div className="voda-stat-grid">
-            <div><span className="voda-stat-icon"><TrustFeatureIcon type="response"/></span><p><b>Rapid response</b><span>Clear next steps from the first call</span></p></div>
-            <div><span className="voda-stat-icon"><TrustFeatureIcon type="drying"/></span><p><b>Verified drying</b><span>Moisture readings guide every decision</span></p></div>
-            <div><span className="voda-stat-icon"><TrustFeatureIcon type="home"/></span><p><b>Whole-home care</b><span>Damage controlled and finishes restored</span></p></div>
-            <div><span className="voda-stat-icon"><TrustFeatureIcon type="claims"/></span><p><b>Claim support</b><span>Organized records for your insurer</span></p></div>
-            <div><span className="voda-stat-icon"><TrustFeatureIcon type="tools"/></span><p><b>Professional tools</b><span>Equipment selected for actual conditions</span></p></div>
-            <div><span className="voda-stat-icon"><TrustFeatureIcon type="crew"/></span><p><b>Accountable crew</b><span>One team responsible through completion</span></p></div>
-          </div>
+          <TrustFeatureGrid />
         </div>
         <svg className="voda-proof-curve" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18C260 2 475 0 720 34C965 68 1180 42 1440 14V100H0Z"/></svg>
       </div>
