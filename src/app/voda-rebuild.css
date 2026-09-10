@@ -3303,3 +3303,30 @@
   .ba-showcase-grid { gap: 26px; }
   .ba-showcase { margin-top: clamp(44px, 9vw, 64px); }
 }
+
+/* ── FAQ: masonry columns ───────────────────────────────────────────────
+   As a two-column grid, opening a card reserved that height for the whole
+   row — stretching its neighbour, or leaving a gap beside it. Grid rows
+   cannot avoid this. Multi-column has no rows: cards flow down the first
+   column then the second, so an open card pushes only what is below it in
+   its own column and nothing else moves. */
+.voda-faq-list {
+  display: block;
+  columns: 2;
+  column-gap: 14px;
+  width: min(1080px, 100%);
+  margin: 0 auto;
+}
+
+.voda-faq-item {
+  /* Never split a card across the column boundary. */
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  /* Multi-column items are block-level; the gap becomes bottom margin. */
+  margin-bottom: 14px;
+}
+
+@media (max-width: 760px) {
+  .voda-faq-list { columns: 1; }
+}
