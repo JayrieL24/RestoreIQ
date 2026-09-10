@@ -2688,3 +2688,165 @@
 
 .voda-work > .voda-wrap { position: relative; z-index: 1; }
 
+/* ── Service cards: mobile height ───────────────────────────────────────
+   MOBILE ONLY (max-width: 700px). Desktop and tablet framing are
+   deliberately untouched.
+
+   The cards ran tall on phones. min-height alone would not shorten them —
+   the icon plus the vertical margins set the real floor — so the internal
+   rhythm comes down with it. Roughly -15% overall. */
+@media (max-width: 700px) {
+  .voda-service-card,
+  .voda-service-card.active {
+    min-height: 197px;
+    padding: 20px 14px 19px;
+  }
+
+  .voda-service-card .voda-service-icon {
+    width: 60px;
+    height: 60px;
+    border-width: 5px;
+  }
+
+  .voda-service-card .voda-service-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .voda-service-card small { margin-top: 15px; }
+  .voda-service-card h3 { margin-top: 7px; }
+  .voda-service-card p { margin-top: 8px; }
+}
+
+/* ── Response section: mobile layout ────────────────────────────────────
+   MOBILE ONLY (max-width: 700px). Desktop framing is untouched.
+
+   On a phone the column stacks, and the pieces were fighting: the render
+   was 104% of the column width (wider than the viewport), the visual box
+   was 520px while the circular photo alone needs the full column width,
+   and the badge and readout sat on top of both.
+
+   Composition here: photo, then the readout tucked under its lower edge,
+   then the render sitting below the photo rather than across it. The
+   badge moves onto the photo's top-right where there is room. */
+@media (max-width: 700px) {
+  .voda-response-visual {
+    min-height: 0;
+    /* The readout below now carries the space the render's overhang
+       needs, so reserving it here as well would double the gap. */
+    padding-bottom: 0;
+  }
+
+  /* Photo keeps the full column width and stays square. */
+  .voda-round-photo {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 1;
+    border-width: 5px;
+  }
+
+  .voda-ring {
+    inset: -10px -10px auto -10px;
+    border-width: 2.5px;
+  }
+
+  /* Readout now owns the top band, so the badge sits lower on the right
+     edge; at 360px the two collided when both were at the top. */
+  .voda-badge {
+    top: 96px;
+    right: 12px;
+    bottom: auto;
+    width: 92px;
+    height: 92px;
+    border-width: 4px;
+  }
+
+  .voda-badge b { font-size: 17px; }
+  .voda-badge small { font-size: 8px; max-width: 66px; }
+
+  /* Below the equipment render, on clear ground — clear of the
+     technician's face in the photo above and of the machines. */
+  .voda-readout {
+    position: static;
+    inset: auto;
+    width: fit-content;
+    /* Clears the render's overhang: its height, less the 28px it tucks
+       into the photo, plus a gap. */
+    margin: calc((min(270px, 78vw - 23.4px) / 1.5) - 56px + 22px
+                 - (100vw - 30px) * 0.05) auto 0;
+    padding: 7px 11px;
+    gap: 9px;
+    border-radius: 11px;
+  }
+
+  .voda-readout b { font-size: 14px; }
+  .voda-readout small { font-size: 9px; }
+  .voda-readout-tag { padding: 3px 7px; font-size: 8px; }
+  .voda-readout-dot { width: 7px; height: 7px; box-shadow: 0 0 0 4px rgba(255,107,87,.18); }
+
+  /* .voda-equipment is a child of the section, not of the visual column,
+     so absolute positioning anchored it to the whole section — parking it
+     below the copy. On mobile it joins the grid's flow instead, ordered
+     directly after the visual column, so it always lands under the photo
+     regardless of padding or column width. */
+  .voda-response-grid {
+    position: relative;
+    gap: 0;
+  }
+
+  .voda-equipment {
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    /* The grid is the positioning parent (position:relative above), and
+       on mobile its first child is the square photo — so the photo's
+       height is the column width, and this lands 84px into its base. */
+    top: calc(100vw - 30px - 56px);
+    width: min(270px, 78%);
+    height: calc(min(270px, 78%) / 1.5);
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  /* The section no longer needs deep padding for a bottom-bleeding render. */
+  .voda-response { padding-bottom: clamp(96px, 16vw, 130px); }
+}
+
+/* Final mobile results lock. Keep after all legacy responsive rules. */
+@media(max-width:600px){
+  .voda-work{padding-bottom:0}
+  .voda-proof{margin-top:-184px}
+  .voda-photo-banner{height:700px}
+  .voda-photo-banner img{
+    object-position:50% center;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.26) 5%,rgba(0,0,0,.7) 12%,#000 20%,#000 100%);
+    mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.26) 5%,rgba(0,0,0,.7) 12%,#000 20%,#000 100%);
+  }
+  .voda-photo-banner:after{background:linear-gradient(to bottom,transparent 52%,rgba(7,29,53,.04) 60%,rgba(7,29,53,.11) 68%,rgba(7,29,53,.24) 76%,rgba(7,29,53,.43) 84%,rgba(7,29,53,.68) 91%,rgba(7,29,53,.88) 97%,var(--navy) 100%)}
+  .voda-proof-panel{padding-top:58px;background:var(--navy)}
+  .voda-proof-panel:before{display:none}
+}
+
+/* Results overlap — final cascade authority. */
+@media(min-width:601px){
+  .voda-work{background:transparent}
+  .voda-proof{margin-top:-430px}
+  .voda-photo-banner img{
+    object-position:center top;
+    transform:translateY(72px);
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.08) 8%,rgba(0,0,0,.34) 17%,rgba(0,0,0,.68) 27%,rgba(0,0,0,.9) 35%,#000 42%,#000 100%);
+    mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.08) 8%,rgba(0,0,0,.34) 17%,rgba(0,0,0,.68) 27%,rgba(0,0,0,.9) 35%,#000 42%,#000 100%);
+  }
+}
+@media(max-width:600px){
+  .voda-work{background:transparent}
+  .voda-proof{margin-top:-320px}
+  .voda-photo-banner img{
+    object-position:center top;
+    transform:translateY(44px);
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.2) 4%,rgba(0,0,0,.58) 10%,rgba(0,0,0,.88) 16%,#000 22%,#000 100%);
+    mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.2) 4%,rgba(0,0,0,.58) 10%,rgba(0,0,0,.88) 16%,#000 22%,#000 100%);
+  }
+}
+
