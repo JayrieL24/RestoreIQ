@@ -3509,6 +3509,8 @@
   font-size: 12px;
 }
 
+.voda-area-more { display: none; }
+
 .voda-area-help a {
   color: #075f7d;
   font-weight: 760;
@@ -3675,6 +3677,36 @@
   .voda-area-list button {
     min-height: 42px;
     font-size: 11.5px;
+  }
+
+  .voda-area-list:not(.is-expanded) .voda-area-extra { display: none; }
+
+  .voda-area-more {
+    display: inline-flex;
+    width: 100%;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 14px;
+    border: 1px solid rgba(8,120,183,.22);
+    border-radius: 999px;
+    background: rgba(255,255,255,.82);
+    color: #075f7d;
+    font-size: 12px;
+    font-weight: 780;
+    box-shadow: 0 8px 22px rgba(7,29,53,.06);
+    cursor: pointer;
+  }
+
+  .voda-area-more svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .voda-area-more:focus-visible {
+    outline: 3px solid rgba(19,203,211,.38);
+    outline-offset: 3px;
   }
 
   .voda-area-map-wrap {

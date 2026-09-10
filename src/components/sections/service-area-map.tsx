@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ArrowUpRight, LocateFixed, MapPin } from "lucide-react";
+import { ArrowUpRight, ChevronDown, ChevronUp, LocateFixed, MapPin } from "lucide-react";
 
 import { serviceAreas } from "@/lib/service-areas";
 import { site } from "@/lib/site";
@@ -11,11 +11,15 @@ type MapActions = {
   reset: () => void;
 };
 
+const newburyParkIndex = serviceAreas.findIndex(({ name }) => name === "Newbury Park");
+const mobileVisibleAreaCount = newburyParkIndex >= 0 ? newburyParkIndex + 1 : 10;
+
 export function ServiceAreaMap() {
   const mapElement = React.useRef<HTMLDivElement>(null);
   const actions = React.useRef<MapActions | null>(null);
   const [selected, setSelected] = React.useState<number | null>(null);
   const [status, setStatus] = React.useState<"loading" | "ready" | "unavailable">("loading");
+  const [showAllAreas, setShowAllAreas] = React.useState(false);
 
   React.useEffect(() => {
     const element = mapElement.current;
@@ -121,9 +125,15 @@ export function ServiceAreaMap() {
           <h2 id="coverage-heading">Local crews across Camarillo and the surrounding coast.</h2>
           <p>Select a community to locate it on the map.</p>
 
-          <ul className="voda-area-list">
+          <ul
+            id="service-area-list"
+            className={`voda-area-list${showAllAreas ? " is-expanded" : ""}`}
+          >
             {serviceAreas.map((area, index) => (
-              <li key={area.name}>
+              <li
+                key={area.name}
+                className={index >= mobileVisibleAreaCount ? "voda-area-extra" : undefined}
+              >
                 <button
                   type="button"
                   disabled={status === "loading"}
@@ -137,6 +147,21 @@ export function ServiceAreaMap() {
               </li>
             ))}
           </ul>
+
+          <button
+            type="button"
+            className="voda-area-more"
+            aria-expanded={showAllAreas}
+            aria-controls="service-area-list"
+            onClick={() => setShowAllAreas((visible) => !visible)}
+          >
+            <span>
+              {showAllAreas
+                ? "Show fewer areas"
+                : `See ${serviceAreas.length - mobileVisibleAreaCount} more areas`}
+            </span>
+            {showAllAreas ? <ChevronUp aria-hidden /> : <ChevronDown aria-hidden />}
+          </button>
 
           <p className="voda-area-help">
             Don&apos;t see your location? <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>Call {site.phone}</a>
