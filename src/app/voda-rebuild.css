@@ -3069,3 +3069,50 @@
   mask-image:none;
 }
 
+/* ── Proof banner: framing ──────────────────────────────────────────────
+   DESKTOP (>600px). Three requirements had to hold at once:
+     - the technician's face clear of the cards above,
+     - the top fade dissolved before he appears,
+     - the carpet still running into the panel below.
+
+   Solved by geometry rather than by eye. The photo is 1536x1024 (1.5:1)
+   with the cap top at ~16% and the carpet from ~62%. `cover` scales it to
+   the banner width, so the head's position is fixed relative to the frame
+   — the only way to move the figure down is to translate the image inside
+   the banner and let the banner clip. At 0.72vw tall with a 12% shift the
+   head lands at 27% of banner height and the carpet band holds at 31%,
+   consistent at every viewport width. */
+@media (min-width: 601px) {
+  .voda-photo-banner {
+    height: clamp(820px, 72vw, 1560px);
+    overflow: hidden;
+  }
+
+  .voda-photo-banner img {
+    object-position: center top;
+    /* Pushes the figure down the frame; the banner clips the overhang. */
+    transform: translateY(6%);
+    /* Ramp ends at 22%, above the head at 27%, and is stepped finely so it
+       dissolves across the flat wall instead of banding. */
+    -webkit-mask-image: radial-gradient(140% 32% at 50% -4%,
+      transparent 0%, transparent 38%, rgba(0,0,0,.12) 52%,
+      rgba(0,0,0,.34) 62%, rgba(0,0,0,.58) 71%, rgba(0,0,0,.78) 79%,
+      rgba(0,0,0,.92) 88%, #000 100%);
+    mask-image: radial-gradient(140% 32% at 50% -4%,
+      transparent 0%, transparent 38%, rgba(0,0,0,.12) 52%,
+      rgba(0,0,0,.34) 62%, rgba(0,0,0,.58) 71%, rgba(0,0,0,.78) 79%,
+      rgba(0,0,0,.92) 88%, #000 100%);
+  }
+
+  /* Resolves into the panel over carpet, not over wall. */
+  .voda-photo-banner:after {
+    background: linear-gradient(to bottom,
+      transparent 62%,
+      rgba(7,29,53,.05) 72%,
+      rgba(7,29,53,.16) 80%,
+      rgba(7,29,53,.36) 87%,
+      rgba(7,29,53,.62) 93%,
+      rgba(7,29,53,.86) 97%,
+      var(--navy) 100%);
+  }
+}
