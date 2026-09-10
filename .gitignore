@@ -1,0 +1,27 @@
+node_modules
+.next
+out
+build
+.DS_Store
+*.pem
+.env*
+!.env.example
+.vercel
+next-env.d.ts
+tsconfig.tsbuildinfo
+
+# Working scratch screenshots from design passes — not referenced by src/
+/hero-clean.png
+/hero-clean-final.png
+/hero-cyclone.png
+/hero-object.png
+/hero-object-final.png
+/hero-split.png
+/page-desktop.png
+/page-full.png
+/testimonial-check.png
+/testimonial-profiles-check.png
+/testimonial-profiles-thumb.jpg
+
+# pnpm content-addressable store
+.pnpm-store/

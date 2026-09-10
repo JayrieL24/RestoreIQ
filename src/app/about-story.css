@@ -1,0 +1,1781 @@
+.ri-story{background:#fff;padding:100px 0 110px;scroll-margin-top:90px}
+.ri-story-layout{width:min(1400px,calc(100% - 80px));margin-inline:auto;display:grid;grid-template-columns:1.16fr 1fr;align-items:center;gap:clamp(48px,6vw,94px)}
+.ri-story-visual{position:relative;min-width:0;padding:0 0 20px 48px}
+.ri-story-mosaic{display:grid;grid-template-columns:1.8fr 1fr;grid-template-rows:500px 44px;overflow:hidden;border-radius:22px;background:#e5e9e9}
+.ri-story-portrait,.ri-story-detail{position:relative;min-width:0;overflow:hidden}
+.ri-story-portrait img{object-position:68% center}
+.ri-story-detail{border-left:4px solid #fff}
+.ri-story-detail img{object-position:28% center}
+.ri-story-detail:after{content:"";position:absolute;inset:50% 0 0;background:linear-gradient(transparent,#071d3599)}
+.ri-story-detail>span{position:absolute;z-index:1;bottom:22px;left:16px;right:12px;font-size:12px;color:#fff;font-weight:550}
+.ri-story-caption{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:#09283d;color:#fff}
+.ri-story-caption>span{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.02em}
+.ri-story-caption i{width:6px;height:6px;background:#8ed2f2;border-radius:50%}
+.ri-story-caption>svg{width:17px;height:17px;color:#a7dcf4}
+.ri-story-inset{position:absolute;left:0;bottom:78px;width:47%;height:192px;border:4px solid #fff;border-radius:13px;overflow:hidden;box-shadow:0 14px 30px #071d351f}
+.ri-story-inset img{object-position:55% 55%}
+.ri-story-inset:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,#071d35cc)}
+.ri-story-inset>div{position:absolute;z-index:1;inset:auto 12px 11px;display:flex;align-items:center;justify-content:space-between;gap:8px;color:#fff;font-size:11px;font-weight:550}
+.ri-story-inset svg{width:30px;height:30px;padding:7px;border-radius:50%;color:#071d35;background:#ffd21c}
+.ri-story-eyebrow{display:inline-block;border:1px solid #bdcfd7;border-radius:30px;box-shadow:inset 2px 0 #17445b;padding:5px 13px;background:#edf3f5;color:#244552;font-size:12px;line-height:1.2;font-weight:650}
+.ri-story-copy h2{margin-top:21px;color:#101c27;font-size:clamp(36px,3.7vw,56px);line-height:1.05;letter-spacing:-.055em;font-weight:650}
+.ri-story-copy>p{max-width:515px;margin-top:20px;color:#5c666d;font-size:15px;line-height:1.75}
+.ri-story-highlights{display:flex;flex-wrap:wrap;gap:25px;margin-top:32px}
+.ri-story-highlights>div{display:flex;align-items:center;gap:12px}
+.ri-story-ring{display:grid;place-items:center;flex-shrink:0;width:64px;height:64px;border:3px solid #17495b;border-right-color:#bedce7;border-radius:50%;font-size:17px;font-weight:750;letter-spacing:-.04em;color:#143a4b}
+.ri-story-highlights strong,.ri-story-highlights small{display:block}
+.ri-story-highlights strong{font-size:12px;font-weight:750;color:#173948}
+.ri-story-highlights small{margin-top:5px;color:#65727a;font-size:11px}
+.ri-story-button{display:inline-flex;align-items:center;justify-content:center;gap:17px;margin-top:30px;padding:15px 23px;border-radius:30px;background:#ffd21c;color:#111c23;font-size:12px;font-weight:750;transition:background .2s,transform .2s}
+.ri-story-button svg{width:16px;height:16px}
+.ri-story-button:hover{background:#ffe15b;transform:translateY(-2px)}
+.ri-story-button:focus-visible{outline:3px solid #0a78b8;outline-offset:4px}
+@media(min-width:1600px){.ri-story-mosaic{grid-template-rows:540px 44px}}
+@media(max-width:1100px){.ri-story-layout{width:calc(100% - 48px);gap:40px;grid-template-columns:1.05fr 1fr}.ri-story-visual{padding-left:25px}.ri-story-mosaic{grid-template-rows:420px 40px}.ri-story-inset{height:160px;width:54%}.ri-story-highlights{gap:18px}.ri-story-ring{width:53px;height:53px;font-size:15px}.ri-story-highlights>div{gap:9px}.ri-story-highlights strong{font-size:11px}}
+@media(max-width:800px){.ri-story{padding:65px 0 75px}.ri-story-layout{grid-template-columns:1fr;gap:30px;max-width:620px;width:calc(100% - 36px)}.ri-story-visual{padding-left:24px}.ri-story-mosaic{grid-template-rows:430px 40px}.ri-story-inset{width:46%;height:170px}.ri-story-copy h2{font-size:44px}.ri-story-copy>p{max-width:none}.ri-story-highlights{gap:28px}.ri-story-highlights strong{font-size:12px}}
+@media(max-width:430px){.ri-story-mosaic{grid-template-rows:340px 38px;border-radius:15px}.ri-story-inset{height:135px;width:52%;bottom:69px}.ri-story-detail>span{font-size:10px;left:10px}.ri-story-copy h2{font-size:38px}.ri-story-highlights{gap:16px}.ri-story-highlights strong{font-size:10px}.ri-story-highlights small{font-size:10px}.ri-story-ring{width:49px;height:49px}.ri-story-inset>div{font-size:9px}}
+
+/* ── Story section ground ───────────────────────────────────────────────
+   The section was flat #fff while its neighbours carry texture. Three
+   layers: a warm off-white base, soft tonal drifts in the site's blue with
+   a single warm accent, and a fine measurement grid that suits the copy
+   without competing with the photo mosaic. */
+.ri-story {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #fbfcfb;
+}
+
+.ri-story::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(44% 46% at 6% 14%, rgba(212,226,237,.52), transparent 68%),
+    radial-gradient(36% 40% at 94% 28%, rgba(255,224,138,.15), transparent 66%),
+    radial-gradient(52% 46% at 74% 98%, rgba(204,221,234,.46), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f7f9fa 48%, #fbfcfb 100%);
+}
+
+.ri-story::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(17,21,22,.042) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,21,22,.042) 1px, transparent 1px);
+  background-size: 78px 78px;
+  -webkit-mask-image: radial-gradient(86% 78% at 50% 46%, #000 10%, transparent 84%);
+  mask-image: radial-gradient(86% 78% at 50% 46%, #000 10%, transparent 84%);
+}
+
+/* ── Shared light-section ground ────────────────────────────────────────
+   Every light section carries the same three-layer treatment: a warm
+   off-white base, soft tonal drifts, and a fine measurement grid. Each
+   ground bleeds past its own top and bottom edges and fades there, so
+   neighbouring sections cross-dissolve instead of meeting at a seam.
+
+   The dark sections (.ri-proof, .ri-testimonials) and the hero are
+   deliberately excluded. */
+.ri-service-section,
+.ri-case-section,
+.ri-process-section,
+.faq,
+.ri-final {
+  position: relative;
+  isolation: isolate;
+  background: #fbfcfb;
+}
+
+.ri-service-section::before,
+.ri-case-section::before,
+.ri-process-section::before,
+.faq::before,
+.ri-final::before {
+  content: "";
+  position: absolute;
+  inset: -140px 0;
+  z-index: -2;
+  pointer-events: none;
+  background: linear-gradient(180deg, #ffffff 0%, #f7f9fa 48%, #fbfcfb 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 140px, #000 calc(100% - 140px), transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 140px, #000 calc(100% - 140px), transparent 100%);
+}
+
+.ri-service-section::after,
+.ri-case-section::after,
+.ri-process-section::after,
+.faq::after,
+.ri-final::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(17,21,22,.042) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,21,22,.042) 1px, transparent 1px);
+  background-size: 78px 78px;
+  -webkit-mask-image: radial-gradient(86% 78% at 50% 46%, #000 10%, transparent 84%);
+  mask-image: radial-gradient(86% 78% at 50% 46%, #000 10%, transparent 84%);
+}
+
+/* Tonal drifts, positioned differently per section so the page does not
+   read as one repeated tile as you scroll. */
+.ri-service-section::before {
+  background:
+    radial-gradient(42% 44% at 88% 16%, rgba(212,226,237,.5), transparent 68%),
+    radial-gradient(34% 38% at 8% 62%, rgba(255,224,138,.13), transparent 66%),
+    linear-gradient(180deg, #ffffff 0%, #f7f9fa 48%, #fbfcfb 100%);
+}
+
+.ri-case-section::before {
+  background:
+    radial-gradient(46% 46% at 12% 22%, rgba(204,221,234,.5), transparent 70%),
+    radial-gradient(38% 40% at 90% 74%, rgba(212,226,237,.44), transparent 68%),
+    linear-gradient(180deg, #fbfcfb 0%, #f6f9fa 50%, #ffffff 100%);
+}
+
+.ri-process-section::before {
+  background:
+    radial-gradient(40% 42% at 78% 12%, rgba(255,224,138,.14), transparent 66%),
+    radial-gradient(48% 46% at 18% 84%, rgba(208,223,236,.48), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f7f9fa 52%, #fbfcfb 100%);
+}
+
+
+
+.ri-final::before {
+  background:
+    radial-gradient(50% 46% at 50% 6%, rgba(210,225,237,.5), transparent 70%),
+    radial-gradient(40% 40% at 88% 88%, rgba(255,224,138,.13), transparent 66%),
+    linear-gradient(180deg, #fbfcfb 0%, #f6f9fa 54%, #f1f5f7 100%);
+}
+
+/* The story section already had this ground; give it the same edge bleed
+   so it blends with its neighbours rather than stopping hard. */
+.ri-story::before {
+  inset: -140px 0;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 140px, #000 calc(100% - 140px), transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 140px, #000 calc(100% - 140px), transparent 100%);
+}
+
+/* ── Edge corrections ───────────────────────────────────────────────────
+   Page order: hero, story, service, PROOF(dark), case, process,
+   TESTIMONIALS(dark), nearby, journal, final(dark).
+
+   A light ground must not bleed onto a dark neighbour — it washes over the
+   dark section's edge and makes it fade in from white. Each section below
+   only bleeds on the side that meets another light section. */
+
+/* Service sits above dark Proof: bleed up only. */
+.ri-service-section::before {
+  inset: -140px 0 0;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 140px, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 140px, #000 100%);
+}
+
+/* Case sits below dark Proof: bleed down only. */
+.ri-case-section::before {
+  inset: 0 0 -140px;
+  -webkit-mask-image: linear-gradient(180deg, #000 0, #000 calc(100% - 140px), transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0, #000 calc(100% - 140px), transparent 100%);
+}
+
+/* Process sits above dark Testimonials: bleed up only. */
+.ri-process-section::before {
+  inset: -140px 0 0;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 140px, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 140px, #000 100%);
+}
+
+/* FAQ sits between dark Testimonials and the dark final CTA: no bleed on
+   either edge, or the light ground washes over both dark neighbours. */
+.faq::before {
+  inset: 0;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+
+/* The final CTA is a dark section, so it takes no light ground at all. */
+.ri-final {
+  background: transparent;
+  isolation: auto;
+}
+
+.ri-final::before,
+.ri-final::after {
+  content: none;
+}
+
+/* ── Side weight + centred pattern ──────────────────────────────────────
+   Heavier light-blue at the left and right margins, and the grid pulled
+   into a tighter centre column so it is faint at the sides and clearly
+   readable in the middle. */
+
+/* Grid: tighter, stronger core, faded well before the edges. */
+.ri-story::after,
+.ri-service-section::after,
+.ri-case-section::after,
+.ri-process-section::after,
+.faq::after {
+  background-image:
+    linear-gradient(rgba(17,21,22,.085) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,21,22,.085) 1px, transparent 1px);
+  background-size: 74px 74px;
+  -webkit-mask-image:
+    radial-gradient(46% 62% at 50% 50%, #000 0%, rgba(0,0,0,.55) 46%, rgba(0,0,0,.14) 72%, transparent 90%);
+  mask-image:
+    radial-gradient(46% 62% at 50% 50%, #000 0%, rgba(0,0,0,.55) 46%, rgba(0,0,0,.14) 72%, transparent 90%);
+}
+
+/* Sides: a strong blue wash down each margin, on top of the per-section
+   drifts so every light section reads the same way. */
+.ri-story > .ri-side-wash,
+.ri-service-section::before,
+.ri-case-section::before,
+.ri-process-section::before,
+.faq::before,
+.ri-story::before {
+  background-image:
+    linear-gradient(90deg,
+      rgba(150,196,230,.5) 0%,
+      rgba(178,213,238,.26) 9%,
+      rgba(206,228,244,.08) 18%,
+      transparent 30%,
+      transparent 70%,
+      rgba(206,228,244,.08) 82%,
+      rgba(178,213,238,.26) 91%,
+      rgba(150,196,230,.5) 100%),
+    linear-gradient(180deg, #ffffff 0%, #f7f9fa 48%, #fbfcfb 100%);
+}
+
+/* Keep each section's own accent drift layered above the side wash. */
+.ri-service-section::before {
+  background-image:
+    radial-gradient(42% 44% at 88% 16%, rgba(212,226,237,.5), transparent 68%),
+    radial-gradient(34% 38% at 8% 62%, rgba(255,224,138,.13), transparent 66%),
+    linear-gradient(90deg,
+      rgba(150,196,230,.5) 0%, rgba(178,213,238,.26) 9%,
+      rgba(206,228,244,.08) 18%, transparent 30%, transparent 70%,
+      rgba(206,228,244,.08) 82%, rgba(178,213,238,.26) 91%,
+      rgba(150,196,230,.5) 100%),
+    linear-gradient(180deg, #ffffff 0%, #f7f9fa 48%, #fbfcfb 100%);
+}
+
+.ri-case-section::before {
+  background-image:
+    radial-gradient(46% 46% at 12% 22%, rgba(204,221,234,.44), transparent 70%),
+    radial-gradient(38% 40% at 90% 74%, rgba(212,226,237,.4), transparent 68%),
+    linear-gradient(90deg,
+      rgba(150,196,230,.5) 0%, rgba(178,213,238,.26) 9%,
+      rgba(206,228,244,.08) 18%, transparent 30%, transparent 70%,
+      rgba(206,228,244,.08) 82%, rgba(178,213,238,.26) 91%,
+      rgba(150,196,230,.5) 100%),
+    linear-gradient(180deg, #fbfcfb 0%, #f6f9fa 50%, #ffffff 100%);
+}
+
+.ri-process-section::before {
+  background-image:
+    radial-gradient(40% 42% at 78% 12%, rgba(255,224,138,.14), transparent 66%),
+    radial-gradient(48% 46% at 18% 84%, rgba(208,223,236,.44), transparent 70%),
+    linear-gradient(90deg,
+      rgba(150,196,230,.5) 0%, rgba(178,213,238,.26) 9%,
+      rgba(206,228,244,.08) 18%, transparent 30%, transparent 70%,
+      rgba(206,228,244,.08) 82%, rgba(178,213,238,.26) 91%,
+      rgba(150,196,230,.5) 100%),
+    linear-gradient(180deg, #ffffff 0%, #f7f9fa 52%, #fbfcfb 100%);
+}
+
+.faq::before {
+  background-image:
+    radial-gradient(44% 44% at 6% 18%, rgba(212,226,237,.42), transparent 68%),
+    radial-gradient(40% 42% at 94% 62%, rgba(204,221,234,.4), transparent 68%),
+    linear-gradient(90deg,
+      rgba(150,196,230,.5) 0%, rgba(178,213,238,.26) 9%,
+      rgba(206,228,244,.08) 18%, transparent 30%, transparent 70%,
+      rgba(206,228,244,.08) 82%, rgba(178,213,238,.26) 91%,
+      rgba(150,196,230,.5) 100%),
+    linear-gradient(180deg, #fbfcfb 0%, #f7fafb 50%, #ffffff 100%);
+}
+
+
+.ri-story::before {
+  background-image:
+    radial-gradient(44% 46% at 6% 14%, rgba(212,226,237,.46), transparent 68%),
+    radial-gradient(36% 40% at 94% 28%, rgba(255,224,138,.15), transparent 66%),
+    linear-gradient(90deg,
+      rgba(150,196,230,.5) 0%, rgba(178,213,238,.26) 9%,
+      rgba(206,228,244,.08) 18%, transparent 30%, transparent 70%,
+      rgba(206,228,244,.08) 82%, rgba(178,213,238,.26) 91%,
+      rgba(150,196,230,.5) 100%),
+    linear-gradient(180deg, #ffffff 0%, #f7f9fa 48%, #fbfcfb 100%);
+}
+
+/* A percentage-radius radial mask on a very wide, short box flattens out —
+   it measured a constant 35 contrast edge to edge. An explicit horizontal
+   ramp in pixels gives a real centre-weighted falloff. */
+.ri-story::after,
+.ri-service-section::after,
+.ri-case-section::after,
+.ri-process-section::after,
+.faq::after {
+  background-image:
+    linear-gradient(rgba(17,21,22,.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,21,22,.13) 1px, transparent 1px);
+  background-size: 74px 74px;
+  -webkit-mask-image: linear-gradient(90deg,
+    transparent 0,
+    rgba(0,0,0,.06) 14%,
+    rgba(0,0,0,.35) 28%,
+    #000 44%,
+    #000 56%,
+    rgba(0,0,0,.35) 72%,
+    rgba(0,0,0,.06) 86%,
+    transparent 100%);
+  mask-image: linear-gradient(90deg,
+    transparent 0,
+    rgba(0,0,0,.06) 14%,
+    rgba(0,0,0,.35) 28%,
+    #000 44%,
+    #000 56%,
+    rgba(0,0,0,.35) 72%,
+    rgba(0,0,0,.06) 86%,
+    transparent 100%);
+}
+
+/* ── Services card grid ─────────────────────────────────────────────────
+   3×3 grid: the featured photo spans two columns on the first row, six
+   service cards fill the rest. One card carries the dark navy highlight,
+   mirroring the reference's focal tile. */
+.ri-svc-grid {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.6vw, 22px);
+  margin-top: clamp(44px, 5vw, 72px);
+}
+
+.ri-svc-photo {
+  position: relative;
+  grid-column: span 2;
+  grid-row: span 2;
+  min-height: clamp(260px, 30vw, 380px);
+  overflow: hidden;
+  border-radius: 14px;
+  background: #e9edec;
+}
+
+.ri-svc-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(142px, 12.5vw, 166px);
+  padding: clamp(16px, 1.5vw, 20px);
+  border: 1px solid #e7eaea;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(17,21,22,.03), 0 10px 26px rgba(17,21,22,.045);
+  transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+.ri-svc-card:hover {
+  transform: translateY(-3px);
+  border-color: #d8dedd;
+  box-shadow: 0 1px 2px rgba(17,21,22,.04), 0 18px 40px rgba(17,21,22,.09);
+}
+
+.ri-svc-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: var(--yellow);
+  color: #14181a;
+}
+
+.ri-svc-icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.ri-svc-card h3 {
+  margin: 22px 0 0;
+  color: #12161a;
+  font-size: 17px;
+  font-weight: 620;
+  letter-spacing: -.02em;
+}
+
+.ri-svc-card p {
+  margin: 9px 0 0;
+  color: #7c8489;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+/* Rule plus index, as in the reference. */
+.ri-svc-foot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 22px;
+  color: #9aa1a5;
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ri-svc-foot i {
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: #c9cfce;
+}
+
+/* The one highlighted tile. */
+.ri-svc-card.is-feature {
+  border-color: transparent;
+  background: var(--deep-water, #071d35);
+  box-shadow: 0 18px 44px rgba(7,29,53,.28);
+}
+
+.ri-svc-card.is-feature h3 { color: #fff; }
+.ri-svc-card.is-feature p { color: #a9c0d4; }
+.ri-svc-card.is-feature .ri-svc-foot { color: #8aa5bd; }
+.ri-svc-card.is-feature .ri-svc-foot i { background: rgba(255,255,255,.28); }
+
+.ri-svc-arrow {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.14);
+  color: #fff;
+}
+
+.ri-svc-arrow svg { width: 15px; height: 15px; }
+
+@media (max-width: 900px) {
+  .ri-svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ri-svc-photo { grid-column: span 2; }
+}
+
+@media (max-width: 600px) {
+  .ri-svc-grid { grid-template-columns: 1fr; }
+  .ri-svc-photo { grid-column: span 1; min-height: 240px; }
+}
+
+
+/* On the narrow breakpoint the photo returns to a single row. */
+@media (max-width: 900px) {
+  .ri-svc-photo { grid-row: span 1; }
+}
+
+
+/* Compact cards so the heading, photo and all five cards fit one screen. */
+.ri-svc-grid { gap: clamp(11px, 1.1vw, 15px); }
+
+.ri-svc-photo { min-height: clamp(220px, 23vw, 300px); }
+
+.ri-svc-icon { width: 38px; height: 38px; border-radius: 11px; }
+.ri-svc-icon svg { width: 18px; height: 18px; }
+
+.ri-svc-card h3 { margin-top: 15px; font-size: 15.5px; }
+.ri-svc-card p { margin-top: 6px; font-size: 12.5px; line-height: 1.5; }
+.ri-svc-foot { padding-top: 14px; font-size: 11.5px; }
+.ri-svc-foot i { width: 26px; }
+
+.ri-svc-arrow { top: 13px; right: 13px; width: 29px; height: 29px; }
+.ri-svc-arrow svg { width: 13px; height: 13px; }
+
+.ri-service-section { padding-block: clamp(52px, 5.5vw, 80px); }
+
+/* Scoped to the services section only — this was shrinking every centred
+   heading on the page, leaving the case section out of step with the
+   proof (67px) and story (56px) headings. */
+.ri-service-section .ri-centered-heading h2 { font-size: clamp(30px, 3.4vw, 46px); }
+
+.ri-case-section .ri-centered-heading h2 {
+  font-size: clamp(36px, 4.6vw, 62px);
+  font-weight: 650;
+  line-height: 1.04;
+  letter-spacing: -.055em;
+}
+
+/* The cards were pure #fff on a near-white ground, so they vanished into
+   it. A visible border, a cooler tint and a real shadow lift them off. */
+.ri-svc-card {
+  border: 1px solid #dbe2e4;
+  background: linear-gradient(180deg, #ffffff, #fafcfd);
+  box-shadow:
+    0 1px 2px rgba(20,40,60,.05),
+    0 6px 16px rgba(20,40,60,.06),
+    0 18px 34px rgba(20,40,60,.05);
+}
+
+.ri-svc-card:hover {
+  border-color: #b9c9d3;
+  box-shadow:
+    0 1px 2px rgba(20,40,60,.06),
+    0 12px 26px rgba(20,40,60,.1),
+    0 28px 52px rgba(20,40,60,.08);
+}
+
+/* Tighter again so the section clears a shorter viewport. */
+.ri-svc-card { min-height: clamp(128px, 11vw, 150px); }
+.ri-svc-photo { min-height: clamp(200px, 20vw, 262px); }
+.ri-svc-card h3 { margin-top: 13px; font-size: 15px; }
+.ri-svc-foot { padding-top: 12px; }
+.ri-service-section { padding-block: clamp(44px, 4.4vw, 64px); }
+.ri-svc-grid { margin-top: clamp(30px, 3.2vw, 46px); }
+
+/* Final trim so the section clears an 800px-tall viewport. */
+.ri-service-section { padding-block: clamp(36px, 3.6vw, 54px); }
+.ri-svc-photo { min-height: clamp(190px, 18.5vw, 240px); }
+.ri-svc-card { min-height: clamp(120px, 10.2vw, 140px); }
+
+
+/* ── Full-viewport services section ─────────────────────────────────────
+   The section measured 821px against a 950px viewport. Rather than pad it
+   out with dead space, it now fills 100svh with the grid stretching to
+   take up the slack. */
+.ri-service-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100svh;
+  padding-block: clamp(48px, 5vw, 76px);
+}
+
+.ri-service-section > .ri-shell {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  /* A flex child stretches by default, which was blowing past .ri-shell's
+     max-width and running the grid to both screen edges. */
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* Rows share the extra height instead of leaving a gap at the bottom. */
+.ri-svc-grid {
+  flex: 1;
+  grid-auto-rows: minmax(0, 1fr);
+  min-height: 0;
+}
+
+.ri-svc-card,
+.ri-svc-photo {
+  height: 100%;
+}
+
+/* Caps so the cards never balloon on very tall screens. */
+.ri-svc-card { min-height: clamp(120px, 10.2vw, 150px); }
+.ri-svc-photo { min-height: clamp(190px, 18.5vw, 260px); }
+
+@media (max-width: 900px) {
+  /* Stacked layout is taller than a screen by nature; let it flow. */
+  .ri-service-section {
+    display: block;
+    min-height: 0;
+  }
+
+  .ri-svc-grid { grid-auto-rows: auto; }
+  .ri-svc-card, .ri-svc-photo { height: auto; }
+}
+
+/* On shorter viewports the fixed min-heights pushed the section past the
+   screen. Let them shrink so it still fits exactly. */
+@media (min-width: 901px) and (max-height: 860px) {
+  .ri-service-section { padding-block: clamp(28px, 3vw, 44px); }
+  .ri-svc-card { min-height: 0; }
+  .ri-svc-photo { min-height: 0; }
+  .ri-svc-grid { margin-top: clamp(20px, 2.4vw, 32px); }
+  .ri-svc-card h3 { margin-top: 10px; font-size: 14.5px; }
+  .ri-svc-card p { margin-top: 5px; font-size: 12px; }
+  .ri-svc-foot { padding-top: 10px; }
+  .ri-svc-icon { width: 34px; height: 34px; border-radius: 10px; }
+  .ri-svc-icon svg { width: 16px; height: 16px; }
+}
+
+/* ── Proof: alternating rows with layered frames ────────────────────────
+   Copy and image swap sides row to row. Each image sits on an offset
+   backing panel with a smaller photo overlapping the corner, giving the
+   stacked depth from the reference. */
+.ri-proof-rows {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(38px, 4.2vw, 62px);
+  margin-top: clamp(38px, 4vw, 58px);
+}
+
+.ri-proof-row {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr;
+  align-items: center;
+  gap: clamp(36px, 5vw, 88px);
+}
+
+.ri-proof-row.is-flip .ri-proof-copy { order: 2; }
+
+.ri-proof-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: var(--yellow);
+  color: #14181a;
+}
+
+.ri-proof-icon svg { width: 21px; height: 21px; }
+
+.ri-proof-copy h3 {
+  margin: 20px 0 0;
+  color: #fff;
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 620;
+  letter-spacing: -.028em;
+  line-height: 1.16;
+}
+
+.ri-proof-copy p {
+  max-width: 42ch;
+  margin: 12px 0 0;
+  color: #9fb6c9;
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* Stage holds the three stacked layers. */
+.ri-proof-stage {
+  position: relative;
+  aspect-ratio: 16 / 10;
+}
+
+/* Offset panel behind the photo. */
+.ri-proof-backing {
+  position: absolute;
+  inset: -14px -14px 26px 26px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.ri-proof-row.is-flip .ri-proof-backing {
+  inset: -14px 26px 26px -14px;
+}
+
+.ri-proof-frame {
+  position: absolute;
+  inset: 0 0 40px 0;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 12px;
+  background: #0d1f33;
+  box-shadow: 0 26px 60px rgba(2,12,24,.5);
+}
+
+/* Small photo overlapping the lower corner. */
+.ri-proof-inset {
+  position: absolute;
+  right: 4%;
+  bottom: 0;
+  width: clamp(150px, 19vw, 208px);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 10px;
+  background: #0d1f33;
+  box-shadow: 0 20px 44px rgba(2,12,24,.55);
+}
+
+.ri-proof-row.is-flip .ri-proof-inset {
+  right: auto;
+  left: 4%;
+}
+
+.ri-proof-inset span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 16px 10px 8px;
+  background: linear-gradient(180deg, transparent, rgba(4,14,26,.88));
+  color: #dbe9f4;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .ri-proof-row {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .ri-proof-row.is-flip .ri-proof-copy { order: 0; }
+  .ri-proof-inset { width: 42%; }
+}
+
+/* Drying curve behind the proof section: moisture content falling to dry
+   standard over five days. It illustrates "measured work" rather than
+   sitting there as generic texture, and stays faint enough to read as
+   background. */
+.ri-proof { position: relative; isolation: isolate; overflow: hidden; }
+
+.ri-proof-plot {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("/patterns/drying-curve.svg");
+  background-repeat: repeat-x;
+  background-position: center 62%;
+  background-size: auto 78%;
+  opacity: .3;
+  -webkit-mask-image: radial-gradient(78% 82% at 50% 56%, #000 18%, transparent 88%);
+  mask-image: radial-gradient(78% 82% at 50% 56%, #000 18%, transparent 88%);
+}
+
+/* ── Case studies: floating cards that bleed off both sides ─────────────
+   Two tiles on a rail wider than the container, so they run past the
+   screen edges. The text card overlaps the photo's lower edge, matching
+   the reference's stacked look. */
+.ri-case-rail {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 2.6vw, 40px);
+  /* True full-bleed: the rail spans the viewport, so the cards run to
+     both screen edges rather than sitting inside the container. */
+  width: min(1180px, calc(100% - 48px));
+  margin: clamp(28px, 3vw, 44px) auto 0;
+  padding-inline: 0;
+  padding-bottom: clamp(36px, 3.4vw, 54px);
+}
+
+.ri-case-tile {
+  position: relative;
+  padding-bottom: clamp(62px, 5.6vw, 78px);
+}
+
+.ri-case-photo {
+  position: relative;
+  aspect-ratio: 16 / 8.4;
+  overflow: hidden;
+  border: 1px solid #e2e6e5;
+  border-radius: 16px;
+  background: #e9edec;
+}
+
+/* Date badge, as in the reference. */
+.ri-case-date {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: grid;
+  justify-items: center;
+  padding: 9px 13px 8px;
+  border-radius: 11px;
+  background: var(--yellow);
+  color: #14181a;
+  line-height: 1;
+}
+
+.ri-case-date b { font-size: 19px; font-weight: 700; letter-spacing: -.03em; }
+.ri-case-date i { margin-top: 3px; font-size: 9.5px; font-weight: 700; font-style: normal; letter-spacing: .08em; }
+.ri-case-date small { margin-top: 4px; font-size: 9px; opacity: .68; }
+
+/* Body card overlaps the photo's bottom edge and sits inset from the left. */
+.ri-case-body {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: clamp(20px, 3.4vw, 54px);
+  padding: clamp(13px, 1.3vw, 17px) clamp(15px, 1.5vw, 20px);
+  border: 1px solid #e2e6e5;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(20,40,60,.05), 0 16px 38px rgba(20,40,60,.1);
+}
+
+.ri-case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: #8d9499;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.ri-case-meta span { display: inline-flex; align-items: center; gap: 6px; }
+.ri-case-meta svg { width: 13px; height: 13px; }
+
+.ri-case-body h3 {
+  margin: 8px 0 0;
+  color: #12161a;
+  font-size: clamp(14.5px, 1.2vw, 16.5px);
+  font-weight: 620;
+  line-height: 1.35;
+  letter-spacing: -.02em;
+}
+
+.ri-case-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 33px;
+  margin-top: 12px;
+  padding: 0 17px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: #14181a;
+  font-size: 12px;
+  font-weight: 650;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.ri-case-more svg { width: 13px; height: 13px; }
+
+.ri-case-more:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(196,160,10,.3);
+}
+
+/* Mobile: stack, drop the bleed, and let the body card sit under the photo
+   rather than overlapping it — overlap gets cramped on a narrow screen. */
+@media (max-width: 900px) {
+  .ri-case-rail {
+    grid-template-columns: 1fr;
+    /* Keep the full-bleed width but pad inward, so the cards stay centred
+       instead of inheriting a lopsided margin from the desktop rule. */
+    width: min(100%, calc(100% - 32px));
+    margin-inline: auto;
+    padding-inline: 0;
+    gap: 28px;
+    padding-bottom: 0;
+  }
+
+  .ri-case-tile { padding-bottom: 0; }
+
+  .ri-case-photo { aspect-ratio: 16 / 10; }
+
+  .ri-case-body {
+    position: relative;
+    z-index: 2;
+    margin: -18px 12px 0;
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ri-case-body { margin: -16px 8px 0; padding: 16px; }
+  .ri-case-meta { gap: 12px; font-size: 11px; }
+}
+
+/* Third card centres beneath the first two: it spans both columns and is
+   capped to a single card's width, so the row reads as 2-over-1 rather
+   than one stretched tile. */
+.ri-case-item:nth-child(3) {
+  grid-column: 1 / -1;
+  width: calc(50% - clamp(20px, 2.6vw, 40px) / 2);
+  margin-inline: auto;
+}
+
+@media (max-width: 900px) {
+  .ri-case-item:nth-child(3) {
+    width: 100%;
+  }
+}
+
+/* ── Proof rows: taller images, fuller copy ─────────────────────────────
+   The 16/10 stage left the images short against the copy column. A taller
+   ratio balances the two now that each row carries a lead line and three
+   supporting points. */
+.ri-proof-stage {
+  /* Balanced against the copy column, which runs ~310px with the lead
+     line and three points. */
+  aspect-ratio: 16 / 9.4;
+}
+
+.ri-proof-lead {
+  max-width: 40ch;
+  margin: 14px 0 0;
+  color: #cfe0ee;
+  font-size: 14.5px;
+  font-weight: 560;
+  line-height: 1.6;
+}
+
+.ri-proof-points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ri-proof-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  color: #9fb6c9;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.ri-proof-points svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  padding: 3px;
+  border-radius: 50%;
+  background: rgba(255,210,28,.16);
+  color: var(--yellow);
+}
+
+/* The inset photo grows with the taller frame. */
+.ri-proof-inset {
+  width: clamp(160px, 21vw, 232px);
+}
+
+@media (max-width: 900px) {
+  .ri-proof-stage { aspect-ratio: 4 / 3; }
+  .ri-proof-points { gap: 9px; }
+}
+
+/* ── CTA band ───────────────────────────────────────────────────────────
+   Full-bleed light panel with a tinted ground, sitting between the light
+   sections either side. Copy left, actions right. */
+.ri-process-section {
+  padding-block: 0;
+}
+
+.ri-cta-band {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-block: clamp(52px, 5.6vw, 88px);
+  overflow: hidden;
+  border-block: 0;
+  background:
+    radial-gradient(42% 58% at 40% 34%, rgba(255,255,255,.24), transparent 72%),
+    linear-gradient(180deg, #ffd21c 0%, #fdc90b 54%, #f7c008 100%);
+}
+
+/* Same measurement grid as the other light sections, kept to the centre. */
+.ri-cta-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(66,48,2,.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(66,48,2,.09) 1px, transparent 1px);
+  background-size: 74px 74px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, rgba(0,0,0,.3) 26%, #000 46%, #000 54%, rgba(0,0,0,.3) 74%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, rgba(0,0,0,.3) 26%, #000 46%, #000 54%, rgba(0,0,0,.3) 74%, transparent 100%);
+}
+
+.ri-cta-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.06fr .94fr;
+  align-items: center;
+  gap: clamp(32px, 4.6vw, 76px);
+}
+
+.ri-process-section .ri-cta-copy h2 {
+  margin: 16px 0 0;
+  color: #12161a;
+  font-size: clamp(32px, 3.9vw, 54px);
+  font-weight: 650;
+  line-height: 1.04;
+  letter-spacing: -.05em;
+}
+
+.ri-cta-copy p {
+  max-width: 46ch;
+  margin: 16px 0 0;
+  color: #5d6c74;
+  font-size: 15px;
+  line-height: 1.68;
+}
+
+.ri-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.ri-cta-actions .ri-button-yellow {
+  height: 52px;
+  padding: 0 26px;
+  border-radius: 999px;
+  font-size: 14.5px;
+  font-weight: 650;
+  box-shadow: 0 12px 26px rgba(196,160,10,.26);
+}
+
+.ri-cta-actions svg { width: 16px; height: 16px; }
+
+.ri-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #17546f;
+  font-size: 14px;
+  font-weight: 620;
+  transition: color .25s ease;
+}
+
+.ri-cta-secondary:hover { color: #0d3d54; }
+
+.ri-cta-points {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ri-cta-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  color: #4f6069;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.ri-cta-points svg {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  margin-top: 1px;
+  padding: 3px;
+  border-radius: 50%;
+  background: rgba(196,160,10,.16);
+  color: #a8850a;
+}
+
+@media (max-width: 900px) {
+  .ri-cta-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+
+/* Yellow band: everything switches to dark ink, and the primary button
+   inverts to dark-on-yellow so it still reads as the main action. */
+.ri-cta-band .ri-kicker {
+  color: #6b5203;
+}
+
+.ri-cta-band .ri-kicker::before {
+  background: #493800;
+}
+
+.ri-process-section .ri-cta-copy h2 {
+  color: #16130a;
+}
+
+.ri-cta-copy p {
+  color: #5c4d13;
+}
+
+.ri-cta-actions .ri-button-yellow {
+  background: #16130a;
+  color: #ffd21c;
+  box-shadow: 0 12px 28px rgba(40,30,2,.28);
+}
+
+.ri-cta-actions .ri-button-yellow:hover {
+  background: #241f10;
+}
+
+.ri-cta-secondary {
+  color: #3d3208;
+}
+
+.ri-cta-secondary:hover {
+  color: #16130a;
+}
+
+.ri-cta-points li {
+  color: #4b3f10;
+}
+
+.ri-cta-points svg {
+  background: rgba(22,19,10,.14);
+  color: #16130a;
+}
+
+
+/* Heavier type so the band carries weight, and darker ink now that the
+   edges are shaded. */
+.ri-cta-band .ri-kicker {
+  color: #3d2f02;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.ri-process-section .ri-cta-copy h2 {
+  color: #0f0d05;
+  font-weight: 800;
+  letter-spacing: -.055em;
+}
+
+.ri-cta-copy p {
+  color: #1a1508;
+  font-weight: 520;
+  font-size: 15.5px;
+}
+
+.ri-cta-points li {
+  color: #14100a;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.ri-cta-points svg {
+  background: rgba(15,13,5,.2);
+  color: #0f0d05;
+}
+
+.ri-cta-secondary {
+  color: #241d04;
+  font-weight: 750;
+}
+
+.ri-cta-actions .ri-button-yellow {
+  font-weight: 750;
+  box-shadow: 0 14px 32px rgba(20,15,2,.4);
+}
+
+
+/* Stacked ring outlines anchored off the right edge, sitting behind the
+   actions. Built from hard-stop radial gradients so each ring is a thin
+   line rather than a soft glow. */
+.ri-cta-band::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: min(760px, 62vw);
+  aspect-ratio: 1;
+  transform: translate(28%, -50%);
+  pointer-events: none;
+  background:
+    radial-gradient(circle, transparent 0 15.4%, rgba(15,13,5,.16) 15.4% 15.7%, transparent 15.7%),
+    radial-gradient(circle, transparent 0 23.4%, rgba(15,13,5,.15) 23.4% 23.7%, transparent 23.7%),
+    radial-gradient(circle, transparent 0 31.4%, rgba(15,13,5,.14) 31.4% 31.7%, transparent 31.7%),
+    radial-gradient(circle, transparent 0 39.4%, rgba(15,13,5,.13) 39.4% 39.7%, transparent 39.7%),
+    radial-gradient(circle, transparent 0 47.4%, rgba(15,13,5,.11) 47.4% 47.7%, transparent 47.7%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 26%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 26%, #000 100%);
+}
+
+/* Content sits above the rings. */
+.ri-cta-inner { z-index: 1; }
+
+@media (max-width: 900px) {
+  .ri-cta-band::after {
+    width: min(560px, 96vw);
+    opacity: .7;
+  }
+}
+
+/* ── Testimonials: ground ───────────────────────────────────────────────
+   Same drying-curve plot as the proof section so the two dark bands read
+   as a pair, plus a light pool on the left behind the heading that fades
+   out by the centre. */
+.ri-testimonials {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.ri-testimonials::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image: url("/patterns/drying-curve.svg");
+  background-repeat: repeat-x;
+  background-position: center 58%;
+  background-size: auto 72%;
+  opacity: .26;
+  -webkit-mask-image: radial-gradient(76% 80% at 50% 54%, #000 16%, transparent 88%);
+  mask-image: radial-gradient(76% 80% at 50% 54%, #000 16%, transparent 88%);
+}
+
+/* Light from the left, gone by the middle. */
+.ri-testimonials::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(58% 78% at 2% 30%, rgba(126,178,220,.24), transparent 68%),
+    radial-gradient(38% 52% at 14% 8%, rgba(255,210,28,.09), transparent 66%),
+    linear-gradient(90deg, rgba(146,192,232,.14) 0%, rgba(146,192,232,.05) 26%, transparent 52%);
+}
+
+/* ── Testimonials: fill the viewport ────────────────────────────────────
+   Was 796px in a 950px screen with 190px of padding doing the work. Now a
+   flex column at 100svh so the content distributes instead of the padding
+   carrying dead space. */
+.ri-testimonials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100svh;
+  padding-block: clamp(56px, 6vw, 88px);
+}
+
+.ri-testimonials > .ri-shell {
+  display: flex;
+  width: min(1180px, calc(100% - 48px));
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  margin-inline: auto;
+}
+
+.ri-testimonial-lead {
+  max-width: 46ch;
+  margin: 18px 0 0;
+  color: #9fb6c9;
+  font-size: 15.5px;
+  line-height: 1.66;
+}
+
+/* Grid was capped at 1024px inside an 1180px container, leaving side gaps
+   and cramping the cards. */
+.ri-testimonials .grid {
+  max-width: none;
+}
+
+.ri-testimonials figure {
+  min-height: clamp(250px, 26vh, 320px);
+}
+
+@media (min-width: 901px) and (max-height: 880px) {
+  .ri-testimonials { padding-block: clamp(26px, 3.2vw, 44px); }
+  .ri-testimonial-facts { margin-top: 20px; padding-top: 18px; }
+  .ri-testimonial-lead { margin-top: 12px; }
+  .ri-testimonials figure { min-height: 0; }
+  .ri-testimonial-lead { font-size: 14.5px; }
+}
+
+@media (max-width: 900px) {
+  .ri-testimonials {
+    display: block;
+    min-height: 0;
+  }
+}
+
+/* Heading detail sits under the eyebrow, filling the width beside it. */
+.ri-testimonial-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.4vw, 40px);
+  margin-top: clamp(26px, 3vw, 38px);
+  padding-top: clamp(22px, 2.4vw, 30px);
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.ri-testimonial-facts div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.ri-testimonial-facts b {
+  min-width: 62px;
+  color: #ffd21c;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.ri-testimonial-facts span {
+  color: #9fb6c9;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+
+/* The heading block spans the container so its supporting detail uses the
+   full width rather than leaving ~630px empty beside it. */
+.ri-testimonial-heading {
+  max-width: none;
+}
+
+.ri-testimonial-lead {
+  max-width: 62ch;
+}
+
+.ri-testimonial-facts b {
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .ri-testimonial-facts { grid-template-columns: 1fr; gap: 14px; }
+}
+
+/* Same left-side light gradient as the testimonials section, so the two
+   dark bands share one treatment. The drying curve stays on .ri-proof-plot
+   at z-index -1; this sits behind it. */
+.ri-proof::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(58% 78% at 2% 30%, rgba(126,178,220,.24), transparent 68%),
+    radial-gradient(38% 52% at 14% 8%, rgba(255,210,28,.09), transparent 66%),
+    linear-gradient(90deg, rgba(146,192,232,.14) 0%, rgba(146,192,232,.05) 26%, transparent 52%);
+}
+
+/* Vertical wordmark down the right edge, echoing the hero's faded
+   "RESTORE". Sits behind the content and is decorative only. */
+.ri-proof-word {
+  position: absolute;
+  top: 50%;
+  right: clamp(-14px, -0.6vw, -4px);
+  z-index: -1;
+  display: block;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  color: rgba(255,255,255,.028);
+  /* Dissolves toward the outer edge and both ends, so it reads as a
+     watermark rather than a legible word. */
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 26%, #000 74%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 26%, #000 74%, transparent 100%);
+  font-size: clamp(72px, 9vw, 150px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.04em;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 1100px) {
+  .ri-proof-word { display: none; }
+}
+
+
+
+/* ── Estimate calculator ────────────────────────────────────────────────
+   Interactive replacement for the case-study cards, which repeated the
+   proof section. Inputs left, live result right. */
+.ri-calc-lede {
+  max-width: 52ch;
+  margin: 16px auto 0;
+  color: #5d6c74;
+  font-size: 15.5px;
+  line-height: 1.68;
+}
+
+.ri-calc {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: stretch;
+  gap: clamp(18px, 2.4vw, 32px);
+  margin-top: clamp(38px, 4.4vw, 62px);
+}
+
+.ri-calc-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(22px, 2.6vw, 32px);
+  padding: clamp(24px, 2.8vw, 36px);
+  border: 1px solid #dbe2e4;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fff, #fafcfd);
+  box-shadow: 0 1px 2px rgba(20,40,60,.05), 0 12px 30px rgba(20,40,60,.06);
+}
+
+.ri-calc-field { display: flex; flex-direction: column; gap: 12px; }
+
+.ri-calc-field label,
+.ri-calc-field legend,
+.ri-calc-label {
+  padding: 0;
+  color: #12161a;
+  font-size: 14.5px;
+  font-weight: 620;
+  letter-spacing: -.01em;
+}
+
+/* Stepper */
+.ri-calc-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  padding: 5px;
+  border: 1px solid #dbe2e4;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.ri-calc-stepper button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f2f5f6;
+  color: #12161a;
+  transition: background .2s ease;
+}
+
+.ri-calc-stepper button:hover:not(:disabled) { background: #ffd21c; }
+.ri-calc-stepper button:disabled { opacity: .35; cursor: not-allowed; }
+.ri-calc-stepper svg { width: 16px; height: 16px; }
+
+.ri-calc-stepper output {
+  min-width: 44px;
+  text-align: center;
+  color: #12161a;
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Category options */
+.ri-calc-options { display: flex; flex-direction: column; gap: 8px; }
+
+.ri-calc-option {
+  padding: 13px 15px;
+  border: 1px solid #dbe2e4;
+  border-radius: 12px;
+  background: #fff;
+  text-align: left;
+  transition: border-color .2s ease, background .2s ease;
+}
+
+.ri-calc-option b {
+  display: block;
+  color: #12161a;
+  font-size: 14px;
+  font-weight: 620;
+}
+
+.ri-calc-option small {
+  display: block;
+  margin-top: 3px;
+  color: #7c8489;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.ri-calc-option:hover { border-color: #b9c9d3; }
+
+.ri-calc-option.is-active {
+  border-color: #16130a;
+  background: #fffdf2;
+  box-shadow: inset 0 0 0 1px #16130a;
+}
+
+/* Yes / no toggle */
+.ri-calc-toggle {
+  display: inline-flex;
+  gap: 4px;
+  width: fit-content;
+  padding: 4px;
+  border: 1px solid #dbe2e4;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.ri-calc-toggle button {
+  min-width: 76px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  color: #5d6c74;
+  font-size: 13.5px;
+  font-weight: 620;
+  transition: background .2s ease, color .2s ease;
+}
+
+.ri-calc-toggle button.is-active { background: #16130a; color: #ffd21c; }
+
+/* Result panel */
+.ri-calc-result {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 2.8vw, 36px);
+  border-radius: 18px;
+  color: #fff;
+  background: radial-gradient(circle at 24% 12%, #0a5790 0, #062b55 46%, #04172f 88%);
+  box-shadow: 0 20px 48px rgba(6,26,48,.24);
+}
+
+.ri-calc-result-label {
+  color: #8fd0f5;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.ri-calc-figure {
+  margin: 14px 0 0;
+  color: #fff;
+  font-size: clamp(30px, 3.4vw, 46px);
+  font-weight: 700;
+  letter-spacing: -.045em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.ri-calc-figure i { color: #6ba7d4; font-style: normal; }
+
+.ri-calc-days {
+  margin: 12px 0 0;
+  color: #a8c4da;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ri-calc-note {
+  display: flex;
+  gap: 10px;
+  margin: auto 0 0;
+  padding-top: 22px;
+  color: #8fa9c0;
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.ri-calc-note svg { flex: none; width: 15px; height: 15px; margin-top: 2px; color: #ffd21c; }
+
+.ri-calc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.14);
+}
+
+.ri-calc-actions .ri-button-yellow {
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.ri-calc-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #9fd2f2;
+  font-size: 13.5px;
+  font-weight: 620;
+  transition: color .2s ease;
+}
+
+.ri-calc-secondary:hover { color: #fff; }
+.ri-calc-secondary svg { width: 14px; height: 14px; }
+
+@media (max-width: 900px) {
+  .ri-calc { grid-template-columns: 1fr; }
+}
+
+/* Breakdown fills the gap between the figure and the disclaimer, and
+   explains what the range is actually made of. */
+.ri-calc-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: clamp(20px, 2.4vw, 28px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ri-calc-lines li {
+  padding: 13px 0;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.ri-calc-lines li:last-child { border-bottom: 1px solid rgba(255,255,255,.1); }
+
+.ri-calc-lines b {
+  display: block;
+  color: #e4eef7;
+  font-size: 13.5px;
+  font-weight: 620;
+}
+
+.ri-calc-lines small {
+  display: block;
+  margin-top: 3px;
+  color: #8fa9c0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* The note no longer needs to be pushed down by auto margin. */
+.ri-calc-note { margin-top: clamp(18px, 2vw, 24px); }
+
+/* The range is the whole point of the panel, but it read as an ordinary
+   heading. Bigger, in the brand yellow, on its own raised plate. */
+.ri-calc-figure {
+  display: block;
+  margin: 14px 0 0;
+  padding: clamp(16px, 1.8vw, 22px) clamp(18px, 2vw, 26px);
+  border: 1px solid rgba(255,210,28,.28);
+  border-radius: 16px;
+  background:
+    radial-gradient(120% 140% at 12% 0%, rgba(255,210,28,.16), transparent 62%),
+    rgba(255,255,255,.05);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+  color: #ffd21c;
+  font-size: clamp(34px, 3.9vw, 52px);
+  font-weight: 800;
+  letter-spacing: -.05em;
+  line-height: 1.02;
+}
+
+.ri-calc-figure i {
+  color: rgba(255,210,28,.5);
+  font-weight: 600;
+}
+
+.ri-calc-result-label {
+  color: #ffd21c;
+  opacity: .8;
+}
+
+.ri-calc-days {
+  margin-top: 14px;
+  color: #b6cee0;
+}
+
+/* ── Coverage zones ─────────────────────────────────────────────────────
+   Numbered rows with hairline dividers: a quiet, text-led beat between the
+   photo-heavy proof section above and the yellow CTA below. */
+.ri-zone-lede {
+  max-width: 56ch;
+  margin: 16px auto 0;
+  color: #5d6c74;
+  font-size: 15.5px;
+  line-height: 1.68;
+}
+
+.ri-zones {
+  max-width: 900px;
+  margin: clamp(38px, 4.4vw, 62px) auto 0;
+  border-top: 1px solid #dbe2e4;
+}
+
+.ri-zone {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(18px, 2.6vw, 38px);
+  padding: clamp(20px, 2.4vw, 28px) 0;
+  border-bottom: 1px solid #dbe2e4;
+  transition: background .25s ease;
+}
+
+.ri-zone:hover { background: rgba(255,255,255,.5); }
+
+.ri-zone-no {
+  color: #b3bcc0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  font-variant-numeric: tabular-nums;
+}
+
+.ri-zone-body h3 {
+  margin: 0;
+  color: #12161a;
+  font-size: clamp(17px, 1.6vw, 21px);
+  font-weight: 640;
+  letter-spacing: -.022em;
+}
+
+.ri-zone-body p {
+  margin: 5px 0 0;
+  max-width: 52ch;
+  color: #7c8489;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.ri-zone-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  border: 1px solid #dbe2e4;
+  border-radius: 999px;
+  background: #fff;
+  color: #12161a;
+  font-size: 13px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.ri-zone-time svg { width: 14px; height: 14px; color: #a8850a; }
+
+.ri-zone-foot {
+  margin-top: clamp(26px, 3vw, 38px);
+  text-align: center;
+}
+
+.ri-zone-foot p {
+  margin: 0;
+  color: #6b767c;
+  font-size: 14.5px;
+}
+
+.ri-zone-foot a {
+  color: #17546f;
+  font-weight: 680;
+  transition: color .2s ease;
+}
+
+.ri-zone-foot a:hover { color: #0d3d54; }
+
+@media (max-width: 700px) {
+  .ri-zone {
+    grid-template-columns: auto 1fr;
+    row-gap: 12px;
+  }
+
+  .ri-zone-time { grid-column: 2; justify-self: start; }
+}

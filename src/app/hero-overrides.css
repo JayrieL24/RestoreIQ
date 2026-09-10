@@ -1,0 +1,1688 @@
+.reference-hero {
+  position: relative;
+  /* Fills the viewport, less the fixed 80px header. min-height keeps short
+     landscape windows from crushing the content. */
+  min-height: 100svh;
+  overflow: hidden;
+  /* Deep at the crown, opening out to white at the horizon. The stops are
+     weighted so the headline band (~140-290px) lands on mid-tones that
+     still carry dark navy type; the deep values stay above and behind it. */
+  background:
+    linear-gradient(180deg,
+      #1b4f7d 0%,
+      #2f76a3 5%,
+      #5ea3cc 11%,
+      #8ecbe8 17%,
+      #b4dcf1 24%,
+      #cfeafa 34%,
+      #ddf1fc 48%,
+      #ebf7fd 66%,
+      #f4fafd 85%,
+      #f2f9fd 100%);
+}
+
+/* Corner falloff — keeps the crown from reading as a flat printed band
+   and pulls the eye toward the centre where the product sits. */
+.reference-hero > .sky-depth {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(130% 34% at 50% -10%, rgba(9,44,77,.5), transparent 64%),
+    radial-gradient(56% 22% at 0% -2%, rgba(12,52,88,.34), transparent 70%),
+    radial-gradient(56% 22% at 100% 0%, rgba(12,52,88,.3), transparent 70%),
+    radial-gradient(62% 34% at 50% 34%, rgba(255,255,255,.26), transparent 72%);
+}
+
+/* Cumulus bank with volume. Each billow is a pair: a shadowed underside
+   in cool blue sitting slightly low, and a lit crown in white sitting
+   slightly high. That offset is what makes them read as three-dimensional
+   forms rather than flat white blobs. */
+.cyclone-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    /* lit crowns */
+    radial-gradient(19% 14% at 6% 79%, rgba(255,255,255,.97), transparent 66%),
+    radial-gradient(15% 12% at 18% 73%, rgba(255,255,255,.9), transparent 64%),
+    radial-gradient(23% 16% at 30% 83%, rgba(255,255,255,.98), transparent 66%),
+    radial-gradient(14% 11% at 44% 75%, rgba(255,255,255,.84), transparent 64%),
+    radial-gradient(21% 15% at 57% 85%, rgba(255,255,255,.96), transparent 66%),
+    radial-gradient(16% 12% at 70% 77%, rgba(255,255,255,.88), transparent 64%),
+    radial-gradient(22% 16% at 84% 84%, rgba(255,255,255,.97), transparent 66%),
+    radial-gradient(17% 13% at 97% 76%, rgba(255,255,255,.9), transparent 64%),
+    /* shadowed undersides, nudged down and out */
+    radial-gradient(20% 11% at 7% 87%, rgba(96,146,186,.36), transparent 70%),
+    radial-gradient(24% 12% at 31% 91%, rgba(96,146,186,.34), transparent 70%),
+    radial-gradient(22% 11% at 58% 93%, rgba(96,146,186,.32), transparent 70%),
+    radial-gradient(23% 12% at 85% 92%, rgba(96,146,186,.3), transparent 70%),
+    linear-gradient(180deg, transparent 64%, rgba(255,255,255,.5) 89%, #fff 100%);
+  filter: blur(10px);
+}
+
+/* Finer cloud pass — breaks up banding the big billows leave behind. */
+.reference-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(26% 15% at 24% 76%, rgba(255,255,255,.58), transparent 70%),
+    radial-gradient(24% 14% at 56% 81%, rgba(255,255,255,.52), transparent 68%),
+    radial-gradient(26% 15% at 86% 72%, rgba(255,255,255,.48), transparent 70%);
+  filter: blur(22px);
+}
+
+/* Caustics. Painted directly rather than through soft-light: that blend
+   mode needs mid-tones to register and computed to near-nothing against
+   a pale sky. Two elliptical sets drift across each other, and where they
+   overlap the sky brightens — the read is water light, not fog. */
+.sky-caustics {
+  position: absolute;
+  inset: -12%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .85;
+  background:
+    radial-gradient(15% 4.5% at 20% 26%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(12% 3.6% at 46% 20%, rgba(255,255,255,.78), transparent 58%),
+    radial-gradient(17% 5% at 74% 30%, rgba(255,255,255,.86), transparent 60%),
+    radial-gradient(11% 3.4% at 90% 18%, rgba(255,255,255,.72), transparent 58%),
+    radial-gradient(14% 4.2% at 12% 46%, rgba(255,255,255,.66), transparent 60%),
+    radial-gradient(13% 4% at 60% 50%, rgba(255,255,255,.6), transparent 60%),
+    radial-gradient(10% 3.2% at 33% 40%, rgba(255,255,255,.58), transparent 58%),
+    radial-gradient(12% 3.6% at 84% 52%, rgba(255,255,255,.56), transparent 58%),
+    /* centre + lower field: brighter cores over a paler ground need more
+       contrast than the upper sky to register at all */
+    radial-gradient(16% 4.6% at 26% 60%, rgba(150,196,226,.5), transparent 62%),
+    radial-gradient(13% 3.8% at 52% 64%, rgba(150,196,226,.46), transparent 60%),
+    radial-gradient(15% 4.4% at 78% 58%, rgba(150,196,226,.48), transparent 62%),
+    radial-gradient(12% 3.6% at 8% 68%, rgba(150,196,226,.4), transparent 60%),
+    radial-gradient(17% 5% at 40% 72%, rgba(150,196,226,.44), transparent 62%),
+    radial-gradient(14% 4.2% at 68% 76%, rgba(150,196,226,.4), transparent 60%),
+    radial-gradient(13% 3.8% at 92% 70%, rgba(150,196,226,.36), transparent 60%);
+  filter: blur(9px);
+  animation: caustic-drift 74s ease-in-out infinite alternate;
+}
+
+.sky-caustics.layer-b {
+  opacity: .6;
+  background:
+    radial-gradient(19% 5.5% at 34% 34%, rgba(255,255,255,.8), transparent 60%),
+    radial-gradient(16% 4.6% at 66% 42%, rgba(255,255,255,.7), transparent 58%),
+    radial-gradient(17% 5% at 8% 34%, rgba(255,255,255,.62), transparent 60%),
+    radial-gradient(15% 4.4% at 88% 46%, rgba(255,255,255,.66), transparent 58%),
+    radial-gradient(14% 4.2% at 50% 60%, rgba(255,255,255,.5), transparent 60%),
+    radial-gradient(20% 6% at 20% 70%, rgba(142,190,222,.42), transparent 62%),
+    radial-gradient(18% 5.4% at 62% 66%, rgba(142,190,222,.4), transparent 62%),
+    radial-gradient(19% 5.6% at 86% 78%, rgba(142,190,222,.34), transparent 62%);
+  filter: blur(15px);
+  animation: caustic-drift-b 96s ease-in-out infinite alternate;
+}
+
+/* Refracted ripple bands — the horizontal striations you get looking up
+   through a water surface. Repeating gradients keep this a few bytes. */
+.sky-caustics.layer-b::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .62;
+  background:
+    repeating-linear-gradient(
+      98deg,
+      transparent 0 26px,
+      rgba(255,255,255,.34) 26px 30px,
+      transparent 30px 62px),
+    repeating-linear-gradient(
+      82deg,
+      transparent 0 44px,
+      rgba(146,192,224,.26) 44px 47px,
+      transparent 47px 96px),
+    repeating-linear-gradient(
+      91deg,
+      transparent 0 60px,
+      rgba(146,192,224,.2) 60px 64px,
+      transparent 64px 132px);
+  filter: blur(3px);
+  -webkit-mask-image: radial-gradient(96% 88% at 50% 48%, #000 34%, transparent 92%);
+  mask-image: radial-gradient(96% 88% at 50% 48%, #000 34%, transparent 92%);
+}
+
+/* Mid-band: the 40-55% zone measured flattest of all (stddev 1.8). These
+   are wider, softer drifts than the caustics so they add substance behind
+   the copy without competing with it for attention. */
+.sky-midfield {
+  position: absolute;
+  right: -6%;
+  left: -6%;
+  top: 26%;
+  z-index: 1;
+  height: 44%;
+  pointer-events: none;
+  background:
+    radial-gradient(30% 30% at 16% 30%, rgba(140,188,222,.3), transparent 70%),
+    radial-gradient(26% 26% at 44% 54%, rgba(152,198,228,.26), transparent 68%),
+    radial-gradient(32% 32% at 72% 24%, rgba(140,188,222,.28), transparent 70%),
+    radial-gradient(24% 24% at 92% 58%, rgba(152,198,228,.24), transparent 68%),
+    radial-gradient(22% 22% at 30% 76%, rgba(146,192,224,.24), transparent 68%),
+    radial-gradient(11% 3.4% at 58% 38%, rgba(255,255,255,.72), transparent 60%),
+    radial-gradient(9% 2.8% at 24% 58%, rgba(255,255,255,.66), transparent 60%),
+    radial-gradient(12% 3.6% at 84% 44%, rgba(255,255,255,.6), transparent 60%);
+  filter: blur(16px);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+  animation: mid-drift 108s ease-in-out infinite alternate;
+}
+
+@keyframes mid-drift {
+  from { transform: translate3d(1.4%, 0, 0) scale(1.03); }
+  to   { transform: translate3d(-1.6%, 0, 0) scale(1); }
+}
+
+/* Lower field: the base was a flat white wash (stddev ~1.2 measured).
+   This adds shallow-water shimmer and settled haze so the bottom third
+   carries the same material quality as the crown. */
+.sky-shallows {
+  position: absolute;
+  right: -8%;
+  bottom: -18%;
+  left: -8%;
+  z-index: 1;
+  height: 74%;
+  pointer-events: none;
+  background:
+    /* broad tonal drifts — stops the white reading as paper */
+    radial-gradient(38% 26% at 14% 40%, rgba(138,186,220,.3), transparent 68%),
+    radial-gradient(34% 24% at 46% 28%, rgba(150,196,226,.26), transparent 66%),
+    radial-gradient(40% 28% at 78% 44%, rgba(138,186,220,.28), transparent 68%),
+    radial-gradient(30% 22% at 96% 24%, rgba(150,196,226,.22), transparent 66%),
+    /* shimmer glints riding on top of them */
+    radial-gradient(9% 2.6% at 22% 52%, rgba(255,255,255,.9), transparent 62%),
+    radial-gradient(7% 2.2% at 44% 60%, rgba(255,255,255,.82), transparent 60%),
+    radial-gradient(10% 2.8% at 66% 48%, rgba(255,255,255,.86), transparent 62%),
+    radial-gradient(8% 2.4% at 86% 58%, rgba(255,255,255,.78), transparent 60%),
+    radial-gradient(7% 2.2% at 12% 66%, rgba(255,255,255,.74), transparent 60%);
+  filter: blur(13px);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 24%, #000 56%, transparent 82%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 24%, #000 56%, transparent 82%);
+  animation: shallow-drift 88s ease-in-out infinite alternate;
+}
+
+/* Horizontal striations across the base, angled with the light. */
+.sky-shallows::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .5;
+  background:
+    repeating-linear-gradient(
+      94deg,
+      transparent 0 34px,
+      rgba(255,255,255,.42) 34px 38px,
+      transparent 38px 80px),
+    repeating-linear-gradient(
+      87deg,
+      transparent 0 52px,
+      rgba(134,182,216,.24) 52px 56px,
+      transparent 56px 118px);
+  filter: blur(4px);
+  -webkit-mask-image: radial-gradient(84% 74% at 50% 46%, #000 22%, transparent 88%);
+  mask-image: radial-gradient(84% 74% at 50% 46%, #000 22%, transparent 88%);
+}
+
+@keyframes shallow-drift {
+  from { transform: translate3d(-1.6%, 0, 0) scale(1); }
+  to   { transform: translate3d(1.8%, 0, 0) scale(1.04); }
+}
+
+/* Cloud bank drifts too, slower still, so the whole sky breathes. */
+.cyclone-veil {
+  animation: cloud-drift 120s ease-in-out infinite alternate;
+}
+
+@keyframes cloud-drift {
+  from { transform: translate3d(-1.1%, 0, 0); }
+  to   { transform: translate3d(1.1%, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky-caustics,
+  .sky-caustics.layer-b,
+  .sky-shallows,
+  .sky-midfield,
+  .cyclone-veil {
+    animation: none;
+  }
+}
+
+.hero-split {
+  position: relative;
+  min-height: calc(100svh - 80px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(32px, 4vw, 72px);
+  /* Vertical padding scales with viewport height so short laptop windows
+     still fit the hero in one screen instead of overshooting. */
+  padding-top: clamp(88px, 11vh, 116px);
+  padding-bottom: clamp(32px, 7vh, 72px);
+}
+
+/* One coherent left-hand column: eyebrow, headline, copy, actions. */
+.hero-left {
+  position: relative;
+  z-index: 6;
+  min-height: 0;
+  text-align: left;
+}
+
+.reference-hero .hero-left .trust-pill {
+  display: inline-flex;
+  border-color: rgba(255,255,255,.6);
+  background: rgba(255,255,255,.62);
+  color: #1d5b83;
+  backdrop-filter: blur(10px);
+}
+
+.reference-hero .hero-left h1 {
+  position: static;
+  width: auto;
+  max-width: 13ch;
+  margin: 24px 0 0;
+  color: #10314f;
+  font-family: var(--font-display);
+  font-size: clamp(62px, 6.9vw, 104px);
+  font-weight: 400;
+  line-height: .99;
+  letter-spacing: -.022em;
+}
+
+.reference-hero .hero-left h1 span {
+  display: inline-block;
+  color: #0d6ba8;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+
+.reference-hero .hero-left .hero-copy {
+  position: static;
+  width: auto;
+  max-width: 40ch;
+  margin: 26px 0 0;
+  color: #2c5876;
+  font-family: var(--font-sans);
+  font-size: 19px;
+  line-height: 1.62;
+}
+
+.hero-left .hero-actions {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  /* globals centres .hero-actions; this column is left-aligned throughout. */
+  justify-content: flex-start;
+  gap: 12px;
+  margin: 30px 0 0;
+}
+
+.hero-left .hero-actions .primary-cta {
+  height: 56px;
+  padding: 0 30px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, #0b87db, #0a6aae);
+  box-shadow: 0 14px 30px rgba(9,94,158,.28);
+  font-size: 15px;
+  backdrop-filter: none;
+}
+
+.hero-left .hero-actions .primary-cta:hover {
+  background: linear-gradient(135deg, #0d93ea, #0b74bd);
+  box-shadow: 0 18px 38px rgba(9,94,158,.34);
+  transform: translateY(-1px);
+}
+
+.hero-left .hero-actions .outline-cta {
+  display: inline-flex;
+  height: 56px;
+  padding: 0 28px;
+  border: 1px solid rgba(255,255,255,.75);
+  border-radius: 999px;
+  background: rgba(255,255,255,.6);
+  color: #14547f;
+  font-size: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.hero-left .hero-actions .outline-cta:hover {
+  background: rgba(255,255,255,.9);
+}
+
+.hero-assurances {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 30px;
+  color: #38637f;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hero-assurances span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hero-assurances svg {
+  width: 15px;
+  color: #0b86d4;
+}
+
+.hero-split > div:last-child {
+  position: relative;
+  z-index: 5;
+  top: auto;
+  left: auto;
+  width: auto;
+  margin-left: 0;
+}
+
+.object-stage {
+  position: relative;
+  height: clamp(500px, 68vh, 660px);
+  /* Pulled slightly left of centre so the right-hand card has room to sit
+     inside the viewport instead of overhanging it. */
+  margin-right: 84px;
+}
+
+.object-aura {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  width: 540px;
+  height: 540px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.5), rgba(255,255,255,.12) 52%, transparent 72%);
+  filter: blur(14px);
+}
+
+.hero-object {
+  position: absolute;
+  z-index: 2;
+  top: -46px;
+  left: 50%;
+  width: clamp(340px, 30vw, 452px);
+  height: auto;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 30px 32px rgba(42,67,85,.18));
+  /* The source cutout ends abruptly mid-forearm. Fading the last stretch
+     lets the arm dissolve into the cloud bank instead of showing a cut. */
+  -webkit-mask-image: linear-gradient(180deg, #000 72%, rgba(0,0,0,.55) 88%, transparent 99%);
+  mask-image: linear-gradient(180deg, #000 72%, rgba(0,0,0,.55) 88%, transparent 99%);
+}
+
+/* Frosted-glass stat cards floating around the hero object. These carry
+   the reference's visual interest — the product shot alone reads empty. */
+.float-metric {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 17px;
+  border: 1px solid rgba(255,255,255,.75);
+  border-radius: 16px;
+  background: rgba(255,255,255,.62);
+  box-shadow:
+    0 18px 44px rgba(40,74,104,.13),
+    0 1px 0 rgba(255,255,255,.9) inset;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  white-space: nowrap;
+}
+
+.float-metric b,
+.float-metric small {
+  display: block;
+}
+
+.float-metric b {
+  color: #12385c;
+  font-size: 15px;
+  font-weight: 620;
+  letter-spacing: -.02em;
+}
+
+.float-metric small {
+  margin-top: 2px;
+  color: #6d8ba4;
+  font-size: 10px;
+  letter-spacing: .01em;
+}
+
+.float-metric > svg {
+  width: 19px;
+  height: 19px;
+  color: #0b86d4;
+}
+
+/* Left card: sparkline of moisture readings. */
+.metric-left {
+  top: 104px;
+  left: -128px;
+}
+
+.spark-lines {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 26px;
+}
+
+.spark-lines i {
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #4cc0f2, #0b86d4);
+}
+
+.spark-lines i:nth-child(1) { height: 38%; }
+.spark-lines i:nth-child(2) { height: 66%; }
+.spark-lines i:nth-child(3) { height: 100%; }
+.spark-lines i:nth-child(4) { height: 54%; }
+
+/* Right card: circular drying-progress dial. */
+.metric-right {
+  top: 248px;
+  right: -84px;
+}
+
+.metric-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* 68% sweep, matching the value in the label. */
+  background: conic-gradient(#0b86d4 0turn .68turn, rgba(11,134,212,.14) .68turn 1turn);
+}
+
+.metric-ring::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.92);
+}
+
+.metric-ring span {
+  position: relative;
+  z-index: 1;
+  color: #12385c;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Bottom card: the headline finding, nearest the viewer. */
+.metric-bottom {
+  bottom: 96px;
+  left: -76px;
+}
+
+@media (max-width: 1180px) {
+  .object-stage { margin-right: 40px; }
+  .metric-left  { left: -62px; }
+  .metric-right { right: -40px; }
+  .metric-bottom { left: -30px; }
+}
+
+/* Horizon: dissolves the cloud bank into the white section below so the
+   hero has no visible seam. Sits above the art but below the copy. */
+.reference-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 300px;
+  pointer-events: none;
+  /* The hero clips at its own edge, so the whole transition has to finish
+     inside it: this drives the ground to the next section's exact starting
+     tint (#f2f9fd) well before the boundary. */
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(245,251,253,.45) 40%,
+    rgba(242,249,253,.85) 72%,
+    #f2f9fd 92%,
+    #f2f9fd 100%);
+}
+
+@media (max-width: 1024px) {
+  .reference-hero,
+  .hero-split {
+    /* Stacked layout is taller than the viewport; let content set height. */
+    min-height: 0;
+  }
+
+  /* Stack: copy first, product beneath it. */
+  .hero-split {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-top: 128px;
+    padding-bottom: 40px;
+  }
+
+  .reference-hero .hero-left h1 {
+    max-width: 15ch;
+    font-size: clamp(54px, 9vw, 86px);
+  }
+
+  .reference-hero .hero-left .hero-copy {
+    max-width: 52ch;
+  }
+
+  .object-stage {
+    height: 560px;
+    margin-right: 0;
+  }
+
+  .hero-object {
+    width: 400px;
+  }
+
+  .metric-left   { top: 70px;  left: 2%; }
+  .metric-right  { top: 190px; right: 2%; }
+  .metric-bottom { bottom: 70px; left: 6%; }
+}
+
+@media (max-width: 640px) {
+  .hero-split {
+    padding-top: 116px;
+  }
+
+  .reference-hero .hero-left h1 {
+    max-width: 12ch;
+    font-size: clamp(44px, 12.5vw, 62px);
+  }
+
+  .reference-hero .hero-left .hero-copy {
+    font-size: 15px;
+  }
+
+  .hero-left .hero-actions .primary-cta,
+  .hero-left .hero-actions .outline-cta {
+    flex: 1 1 100%;
+    height: 48px;
+  }
+
+  .object-stage {
+    height: 460px;
+  }
+
+  .hero-object {
+    width: 300px;
+    top: -18px;
+  }
+
+  /* Cards shrink and tuck in so they never leave the viewport. */
+  .float-metric {
+    padding: 10px 13px;
+    gap: 9px;
+    border-radius: 13px;
+  }
+
+  .float-metric b { font-size: 13px; }
+  .float-metric small { font-size: 9px; }
+
+  .metric-left   { top: 34px;  left: 0; }
+  .metric-right  { top: 150px; right: 0; }
+  .metric-bottom { bottom: 34px; left: 2%; }
+}
+
+/* Services: interactive clip-path stack. */
+.service-stack {
+  margin-top: clamp(48px, 6vw, 88px);
+}
+
+@media (max-width: 768px) {
+  .service-stack .font-\[family-name\:var\(--font-display\)\] {
+    font-size: 34px;
+  }
+}
+
+/* Section headings share the hero's display face. */
+.reference-page .section-heading h2,
+.reference-page .network-heading h2,
+.reference-page .cta-copy h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(40px, 4.4vw, 66px);
+  letter-spacing: -.02em;
+  line-height: 1.06;
+}
+
+/* ── Accreditation wall ─────────────────────────────────────────────────
+   Sits directly below the hero. No background of its own so the hero's
+   white horizon flows straight through into the services section. */
+.accreditation-wall {
+  padding: clamp(56px, 7vw, 96px) 0 clamp(64px, 8vw, 104px);
+}
+
+.wall-header {
+  text-align: center;
+}
+
+.wall-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 0;
+  color: #7c93a7;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.wall-rule {
+  width: clamp(28px, 6vw, 56px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #cfdde8);
+}
+
+.wall-rule:last-child {
+  background: linear-gradient(90deg, #cfdde8, transparent);
+}
+
+.reference-page .accreditation-wall h2 {
+  margin: 18px 0 0;
+  color: #10314f;
+  font-family: var(--font-display);
+  font-size: clamp(34px, 3.6vw, 52px);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -.02em;
+}
+
+.wall-lede {
+  max-width: 52ch;
+  margin: 16px auto 0;
+  color: #54748c;
+  font-size: 16px;
+  line-height: 1.66;
+}
+
+.wall-grid {
+  display: grid;
+  /* Four verified marks: one even row on desktop. */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: clamp(32px, 4vw, 56px) clamp(24px, 3.4vw, 60px);
+  margin: clamp(40px, 5vw, 64px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Muted by default; true brand colour on hover or keyboard focus. */
+.logo-mark {
+  filter: grayscale(1);
+  opacity: .72;
+  transition: filter .35s ease, opacity .35s ease, transform .35s ease;
+}
+
+.logo-mark:hover,
+.logo-mark:focus-visible {
+  filter: grayscale(0);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .wall-grid {
+    /* Two balanced rows rather than 3+1. */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .wall-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .wall-lede {
+    font-size: 15px;
+  }
+}
+
+/* Touch devices never depend on hover to read the marks. */
+
+/* ── Section grounds ────────────────────────────────────────────────────
+   Each light section carries a faint tint that fades to white at both
+   edges, so neighbours meet on white and no hard seam appears. Values are
+   deliberately shallow — around 2-4% away from #fff — enough to separate
+   the bands without drawing attention to itself. */
+
+.accreditation-wall,
+.services-intro,
+.stories,
+.final-cta {
+  position: relative;
+  isolation: isolate;
+}
+
+.accreditation-wall::before,
+.services-intro::before,
+.stories::before,
+.final-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Bleed only where a light section meets another light section, so the two
+   grounds cross-dissolve. Edges that touch the dark network card stay hard,
+   otherwise the light ground washes out its rounded corners. */
+.accreditation-wall::before,
+.services-intro::before {
+  inset: -120px 0 0;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 120px, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 120px, #000 100%);
+}
+
+.final-cta::before {
+  inset: -120px 0 0;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 120px, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 120px, #000 100%);
+}
+
+/* Stories sits directly under the dark card: no upward bleed at all. */
+.stories::before {
+  inset: 0;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+/* Accreditation: cool wash pooling low, carrying the hero's sky down. */
+.accreditation-wall::before {
+  background:
+    radial-gradient(46% 34% at 14% 24%, rgba(186,219,242,.5), transparent 70%),
+    radial-gradient(40% 30% at 84% 18%, rgba(198,227,246,.44), transparent 70%),
+    radial-gradient(72% 52% at 50% 92%, rgba(190,222,244,.52), transparent 76%),
+    linear-gradient(180deg, #f2f9fd 0%, #f7fbfe 42%, #eef7fc 88%, #f2f9fd 100%);
+}
+
+/* Services: light lifts from the left, where the copy column sits. */
+.services-intro::before {
+  background:
+    radial-gradient(52% 38% at 10% 18%, rgba(188,220,243,.5), transparent 72%),
+    radial-gradient(44% 34% at 90% 40%, rgba(200,229,247,.46), transparent 72%),
+    radial-gradient(48% 36% at 26% 82%, rgba(194,224,245,.42), transparent 72%),
+    radial-gradient(40% 30% at 76% 94%, rgba(206,232,248,.4), transparent 72%),
+    linear-gradient(180deg, #f2f9fd 0%, #f9fcfe 32%, #fff 62%, #f4fafd 100%);
+}
+
+/* Stories: warmer, quieter — the section is text-heavy. */
+.stories::before {
+  background:
+    radial-gradient(56% 40% at 50% 2%, rgba(192,223,245,.5), transparent 72%),
+    radial-gradient(42% 32% at 8% 52%, rgba(202,230,247,.44), transparent 72%),
+    radial-gradient(44% 34% at 94% 62%, rgba(196,226,246,.42), transparent 72%),
+    linear-gradient(180deg, #f4fafd 0%, #fdfeff 42%, #f0f8fc 100%);
+}
+
+/* Final CTA: settles back toward the footer's darker ground. */
+.final-cta::before {
+  background:
+    radial-gradient(50% 38% at 14% 16%, rgba(196,226,246,.46), transparent 72%),
+    radial-gradient(46% 34% at 86% 30%, rgba(188,220,243,.44), transparent 72%),
+    radial-gradient(70% 52% at 50% 96%, rgba(176,212,238,.54), transparent 76%),
+    linear-gradient(180deg, #f2f9fd 0%, #fafdfe 40%, #eaf5fb 100%);
+}
+
+/* The dark network band gets breathing room on both sides rather than
+   butting straight into the tinted sections above and below it. */
+.network-section {
+  margin-block: clamp(14px, 2vw, 26px);
+}
+
+/* Expandable services grid inside the dark band. */
+.network-services {
+  margin: clamp(44px, 5vw, 68px) 0 clamp(40px, 4.5vw, 60px);
+}
+
+/* ── Section texture ────────────────────────────────────────────────────
+   The light sections measured 1.9-3.9 stddev against the hero's 36 — flat
+   white. This adds the same layered structure the hero uses: soft cloud
+   drifts plus fine water-light glints, painted directly (blend modes wash
+   out against a pale ground) and masked so nothing terminates at an edge. */
+
+.accreditation-wall::after,
+.services-intro::after,
+.stories::after,
+.final-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+
+.accreditation-wall::after {
+  background:
+    radial-gradient(11% 5% at 18% 34%, rgba(255,255,255,.95), transparent 62%),
+    radial-gradient(9% 4% at 44% 26%, rgba(255,255,255,.85), transparent 60%),
+    radial-gradient(12% 5.4% at 72% 38%, rgba(255,255,255,.9), transparent 62%),
+    radial-gradient(10% 4.4% at 92% 28%, rgba(255,255,255,.8), transparent 60%),
+    radial-gradient(14% 6% at 30% 72%, rgba(150,196,226,.4), transparent 66%),
+    radial-gradient(12% 5% at 66% 78%, rgba(150,196,226,.36), transparent 66%);
+  filter: blur(9px);
+}
+
+.services-intro::after {
+  background:
+    radial-gradient(9% 3.4% at 14% 16%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(11% 4% at 38% 30%, rgba(255,255,255,.82), transparent 62%),
+    radial-gradient(10% 3.6% at 68% 20%, rgba(255,255,255,.86), transparent 60%),
+    radial-gradient(13% 5% at 22% 48%, rgba(154,199,228,.42), transparent 66%),
+    radial-gradient(11% 4.4% at 58% 56%, rgba(154,199,228,.38), transparent 66%),
+    radial-gradient(14% 5.4% at 86% 46%, rgba(154,199,228,.36), transparent 66%),
+    radial-gradient(12% 4.6% at 34% 84%, rgba(160,204,231,.4), transparent 66%),
+    radial-gradient(10% 4% at 74% 90%, rgba(160,204,231,.34), transparent 64%);
+  filter: blur(11px);
+}
+
+.stories::after {
+  background:
+    radial-gradient(10% 4% at 20% 22%, rgba(255,255,255,.88), transparent 60%),
+    radial-gradient(12% 4.6% at 56% 16%, rgba(255,255,255,.82), transparent 62%),
+    radial-gradient(9% 3.6% at 84% 26%, rgba(255,255,255,.8), transparent 60%),
+    radial-gradient(14% 5.4% at 16% 62%, rgba(156,201,229,.4), transparent 66%),
+    radial-gradient(12% 4.8% at 50% 74%, rgba(156,201,229,.36), transparent 66%),
+    radial-gradient(13% 5% at 88% 66%, rgba(156,201,229,.34), transparent 66%);
+  filter: blur(10px);
+}
+
+.final-cta::after {
+  background:
+    radial-gradient(10% 4% at 22% 20%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(12% 4.8% at 62% 26%, rgba(255,255,255,.84), transparent 62%),
+    radial-gradient(15% 6% at 30% 74%, rgba(146,192,222,.44), transparent 68%),
+    radial-gradient(13% 5.2% at 70% 82%, rgba(146,192,222,.4), transparent 68%),
+    radial-gradient(11% 4.4% at 92% 60%, rgba(146,192,222,.34), transparent 66%);
+  filter: blur(10px);
+}
+
+/* Fine refracted striations, echoing the hero's ripple bands. Kept very
+   low-contrast so they read as material rather than pattern. */
+.services-intro::after,
+.stories::after {
+  background-blend-mode: normal;
+}
+
+.reference-page .services-intro,
+.reference-page .stories {
+  position: relative;
+}
+
+/* Third pass: larger tonal masses with shadowed undersides, the same
+   lit-crown / cool-underside pairing that gives the hero's cloud bank its
+   volume. This is what carries the sections from ~4 to ~8 stddev. */
+/* No isolation here: it creates a stacking context that traps the
+   z-index:-1 texture layers inside the section, so their upward bleed
+   cannot cross into the section above and a hard seam appears. */
+.accreditation-wall,
+.services-intro,
+.stories,
+.final-cta {
+  position: relative;
+}
+
+.wall-depth,
+.section-depth {
+  position: absolute;
+  /* Bleed above the section so texture ramps in across the boundary
+     rather than switching on at the edge. */
+  inset: -160px 0 0;
+  z-index: -1;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 200px, #000 84%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 200px, #000 84%, transparent 100%);
+}
+
+.section-depth::before,
+.section-depth::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* Lit crowns */
+.section-depth::before {
+  background:
+    radial-gradient(26% 17% at 12% 26%, rgba(255,255,255,.95), transparent 66%),
+    radial-gradient(22% 15% at 40% 18%, rgba(255,255,255,.88), transparent 64%),
+    radial-gradient(28% 18% at 70% 30%, rgba(255,255,255,.92), transparent 66%),
+    radial-gradient(24% 16% at 94% 20%, rgba(255,255,255,.86), transparent 64%),
+    radial-gradient(25% 17% at 24% 74%, rgba(255,255,255,.9), transparent 66%),
+    radial-gradient(27% 18% at 62% 82%, rgba(255,255,255,.88), transparent 66%);
+  filter: blur(14px);
+}
+
+/* Cool undersides, nudged low so the masses read as forms */
+.section-depth::after {
+  background:
+    radial-gradient(24% 12% at 13% 36%, rgba(132,182,216,.5), transparent 70%),
+    radial-gradient(26% 13% at 41% 28%, rgba(132,182,216,.44), transparent 70%),
+    radial-gradient(28% 14% at 71% 40%, rgba(132,182,216,.48), transparent 70%),
+    radial-gradient(24% 12% at 95% 30%, rgba(132,182,216,.42), transparent 70%),
+    radial-gradient(26% 13% at 25% 84%, rgba(132,182,216,.46), transparent 70%),
+    radial-gradient(28% 14% at 63% 92%, rgba(132,182,216,.42), transparent 70%);
+  filter: blur(16px);
+}
+
+/* The CTA panel is an opaque card, so the section pattern behind it is
+   hidden; paint the same tile onto the panel itself. */
+.cta-panel {
+  position: relative;
+  isolation: isolate;
+}
+
+
+.cta-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Hero/section bridge ────────────────────────────────────────────────
+   The hero needs overflow:hidden for its sky layers, which clips any
+   gradient at its own bottom edge — so no amount of colour matching inside
+   either side can span the join. This element sits between them, outside
+   both clipping contexts, and paints the transition across the boundary. */
+.hero-bridge {
+  position: relative;
+  z-index: 3;
+  height: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+.hero-bridge::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 260px;
+  background: linear-gradient(180deg,
+    rgba(242,249,253,0) 0%,
+    rgba(242,249,253,.55) 34%,
+    rgba(242,249,253,.9) 62%,
+    #f2f9fd 100%);
+}
+
+.hero-bridge::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  height: 200px;
+  background: linear-gradient(180deg,
+    #f2f9fd 0%,
+    rgba(242,249,253,.85) 40%,
+    rgba(242,249,253,0) 100%);
+}
+
+/* ── Coverage strip ─────────────────────────────────────────────────────
+   A single horizontal banner under the accreditation logos: three facts
+   inline with dividers between them, and the service area as one plain
+   sentence beneath. Compact, and nothing wraps into ragged rows. */
+.coverage {
+  margin-top: clamp(44px, 5vw, 68px);
+  padding-top: clamp(34px, 4vw, 48px);
+  border-top: 1px solid rgba(146,186,214,.28);
+}
+
+.coverage-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(206,229,243,.9);
+  border-radius: 18px;
+  background: rgba(255,255,255,.72);
+  box-shadow: 0 10px 30px rgba(20,90,140,.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.coverage-fact {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px clamp(18px, 2.4vw, 30px);
+}
+
+/* Dividers between, not around. */
+.coverage-fact + .coverage-fact {
+  border-left: 1px solid rgba(206,229,243,.85);
+}
+
+.coverage-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: #e7f3fb;
+  color: #0b86d4;
+}
+
+.coverage-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.coverage-fact b,
+.coverage-fact small {
+  display: block;
+}
+
+.coverage-fact b {
+  color: #143d61;
+  font-size: 15px;
+  font-weight: 640;
+  letter-spacing: -.008em;
+}
+
+.coverage-fact small {
+  margin-top: 3px;
+  color: #6f8ba1;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.coverage-areas-line {
+  max-width: 84ch;
+  margin: clamp(20px, 2.4vw, 28px) auto 0;
+  color: #587690;
+  font-size: 14px;
+  line-height: 1.72;
+  text-align: center;
+}
+
+.coverage-areas-line span {
+  color: #7f97ab;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.coverage-areas-line a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #0b6fb5;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color .25s ease;
+}
+
+.coverage-areas-line a:hover { color: #0a5a94; }
+
+.coverage-areas-line a svg {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 860px) {
+  .coverage-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .coverage-fact + .coverage-fact {
+    border-top: 1px solid rgba(206,229,243,.85);
+    border-left: 0;
+  }
+
+  .coverage-fact {
+    padding: 18px 20px;
+  }
+}
+
+/* ── Results chart ──────────────────────────────────────────────────────
+   Sits above the testimonials: four bars showing RestoreIQ's own measured
+   outcomes. Glass tracks so the section texture reads through, matching
+   the coverage strip and testimonial cards. */
+.results {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(64px, 7vw, 104px) 0 clamp(48px, 5vw, 76px);
+}
+
+.results::before {
+  content: "";
+  position: absolute;
+  /* No upward bleed: this section follows the dark network card, and a
+     light ground over its rounded bottom reads as a fade-out. */
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(48% 36% at 16% 22%, rgba(190,222,244,.5), transparent 72%),
+    radial-gradient(42% 32% at 86% 34%, rgba(202,230,247,.46), transparent 72%),
+    radial-gradient(54% 40% at 50% 96%, rgba(184,218,242,.5), transparent 74%),
+    linear-gradient(180deg, #f4fafd 0%, #fbfdff 34%, #fff 64%, #f2f9fd 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0, #000 88%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0, #000 88%, transparent 100%);
+}
+
+.results-chart {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 208px));
+  justify-content: center;
+  gap: clamp(10px, 1.4vw, 18px);
+  margin-top: clamp(48px, 6vw, 80px);
+}
+
+.results-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.results-track {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  height: clamp(340px, 38vw, 540px);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.85);
+  border-radius: 26px;
+  background: rgba(255,255,255,.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.9),
+    0 10px 28px rgba(16,58,94,.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Fine diagonal hatch, standing in for the reference's candy stripe. */
+.results-track::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(126,175,211,.26) 0 2px,
+    transparent 2px 9px);
+  pointer-events: none;
+}
+
+.results-fill {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding: 9px;
+  border-radius: 24px;
+  background: rgba(146,180,205,.34);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
+}
+
+.results-fill.is-highlight .results-value {
+  background: rgba(255,255,255,.22);
+  color: #fff;
+}
+
+.results-fill.is-highlight {
+  background: linear-gradient(180deg, #16b4f5, #0b8fd6);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.4),
+    0 14px 34px rgba(11,143,214,.34);
+}
+
+.results-value {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 36px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.28);
+  color: #2b5573;
+  font-size: clamp(15px, 1.5vw, 19px);
+  font-weight: 650;
+  letter-spacing: -.02em;
+}
+
+.results-label {
+  margin: 16px 0 0;
+  text-align: center;
+}
+
+.results-label b,
+.results-label small {
+  display: block;
+}
+
+.results-label b {
+  color: #143d61;
+  font-size: 14.5px;
+  font-weight: 640;
+  letter-spacing: -.005em;
+}
+
+.results-label small {
+  margin: 5px auto 0;
+  max-width: 24ch;
+  color: #7089a0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .results-chart {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+    gap: 16px 12px;
+  }
+
+  .results-track {
+    height: 300px;
+    border-radius: 20px;
+  }
+
+  .results-fill {
+    border-radius: 18px;
+    padding: 7px;
+  }
+}
+
+/* ── FAQ ────────────────────────────────────────────────────────────────
+   Two balanced columns below the closing CTA. Glass cards matching the
+   coverage strip and testimonials; one answer open at a time per column
+   is allowed, so a long answer never pushes its neighbour around. */
+.faq {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(64px, 7vw, 104px) 0 clamp(72px, 8vw, 118px);
+}
+
+
+.faq-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(14px, 1.8vw, 22px);
+  margin-top: clamp(48px, 6vw, 76px);
+}
+
+.faq-column {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.2vw, 14px);
+}
+
+.faq-item {
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.85);
+  border-radius: 16px;
+  background: rgba(255,255,255,.56);
+  box-shadow:
+    0 1px 2px rgba(16,58,94,.03),
+    0 8px 24px rgba(16,58,94,.05),
+    inset 0 1px 0 rgba(255,255,255,.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.faq-item:hover {
+  background: rgba(255,255,255,.72);
+}
+
+.faq-item.is-open {
+  background: rgba(255,255,255,.78);
+  border-color: rgba(186,222,242,.95);
+  box-shadow:
+    0 1px 2px rgba(16,58,94,.04),
+    0 14px 34px rgba(16,58,94,.08),
+    inset 0 1px 0 rgba(255,255,255,.95);
+}
+
+.faq-trigger {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 20px;
+  text-align: left;
+  color: #143d61;
+  font-size: 15px;
+  font-weight: 620;
+  line-height: 1.45;
+  letter-spacing: -.005em;
+  outline: none;
+  transition: color .25s ease;
+}
+
+.faq-trigger:focus-visible {
+  box-shadow: inset 0 0 0 2px rgba(11,134,212,.45);
+  border-radius: 16px;
+}
+
+.faq-trigger > span:first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.faq-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(231,245,252,.9);
+  color: #0b86d4;
+}
+
+.faq-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.faq-panel {
+  overflow: hidden;
+}
+
+.faq-panel p {
+  margin: 0;
+  padding: 0 20px 20px;
+  color: #4a6883;
+  font-size: 14px;
+  line-height: 1.72;
+}
+
+.faq-foot {
+  margin: clamp(36px, 4vw, 52px) auto 0;
+  color: #6f8ba1;
+  font-size: 14.5px;
+  text-align: center;
+}
+
+.faq-foot a {
+  color: #0b6fb5;
+  font-weight: 640;
+  transition: color .25s ease;
+}
+
+.faq-foot a:hover { color: #0a5a94; }
+
+@media (max-width: 820px) {
+  .faq-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item {
+    transition: none;
+  }
+}
+
+
+/* ── CTA banner ─────────────────────────────────────────────────────────
+   Full-bleed dark panel modelled on the reference: concentric offset discs
+   filling the left half, copy on the right, pill CTA with a trailing dot.
+   Reference is black; this keeps the site's deep navy. */
+.reference-page .final-cta {
+  padding: 0;
+}
+
+.reference-page .final-cta > .page-container {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
+.reference-page .cta-panel {
+  position: relative;
+  min-height: clamp(420px, 46vw, 560px);
+  padding: clamp(48px, 6vw, 88px) clamp(24px, 5vw, 90px);
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+  background: #071b33;
+  box-shadow: none;
+}
+
+/* Concentric discs, offset so they nest toward the upper-left like the
+   reference's stacked rings. Each is flat-shaded, not gradient-filled. */
+/* Concentric discs. Sized in percentages of a square container and pinned
+   by their own centre, so every one stays a true circle — uneven insets
+   were stretching the inner discs into ellipses. */
+.cta-rings {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: clamp(-160px, -6vw, -40px);
+  width: clamp(430px, 42vw, 600px);
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.cta-rings .ring {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  /* Each disc is centred on a point that drifts up-and-left as the discs
+     get smaller, which is what produces the reference's nested stack. */
+  transform: translate(-50%, -50%);
+}
+
+.cta-rings .cr6 { width: 100%; aspect-ratio: 1; left: 50%; top: 50%; background: rgba(22,54,92,.5); }
+.cta-rings .cr5 { width: 82%;  aspect-ratio: 1; left: 46%; top: 47%; background: rgba(31,71,116,.62); }
+.cta-rings .cr4 { width: 65%;  aspect-ratio: 1; left: 42%; top: 44%; background: rgba(45,95,145,.66); }
+.cta-rings .cr3 { width: 48%;  aspect-ratio: 1; left: 38%; top: 41%; background: rgba(74,131,180,.66); }
+.cta-rings .cr2 { width: 32%;  aspect-ratio: 1; left: 34%; top: 38%; background: rgba(139,185,221,.7); }
+.cta-rings .cr1 { width: 17%;  aspect-ratio: 1; left: 30%; top: 35%; background: rgba(236,246,253,.95); }
+
+
+/* Soft vignette so the discs sink into the panel at its edges. */
+.reference-page .cta-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 0%, transparent 42%, rgba(7,27,51,.6) 56%, rgba(7,27,51,.95) 68%, #071b33 78%),
+    linear-gradient(180deg, rgba(7,27,51,.34), transparent 26%, transparent 74%, rgba(7,27,51,.4));
+}
+
+/* Copy sits right of the discs. */
+.reference-page .cta-panel {
+  display: flex;
+  justify-content: center;
+}
+
+.reference-page .cta-copy {
+  position: relative;
+  z-index: 2;
+  width: min(1240px, 100%);
+  max-width: none;
+  margin: 0 auto;
+  padding-left: clamp(0px, 44vw, 640px);
+}
+
+.reference-page .cta-copy > span,
+.reference-page .cta-copy h2,
+.reference-page .cta-copy > p,
+.reference-page .cta-copy > div {
+  max-width: 460px;
+}
+
+.reference-page .cta-copy > span {
+  color: #6ec6f4;
+}
+
+.reference-page .cta-copy h2 {
+  color: #fff;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.06;
+}
+
+.reference-page .cta-copy > p {
+  color: #a8c4da;
+}
+
+/* Pill button with the reference's trailing dot. */
+.reference-page .cta-panel .primary-cta {
+  position: relative;
+  height: 56px;
+  padding: 0 62px 0 30px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2aa4ea, #0b6bb0);
+  color: #fff;
+  box-shadow: 0 14px 34px rgba(12,110,180,.42);
+}
+
+.reference-page .cta-panel .primary-cta::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 9px;
+  width: 38px;
+  height: 38px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 36% 32%, #fff, #cfe8fa 62%, #9fcdec);
+  box-shadow: 0 2px 8px rgba(4,38,68,.35);
+}
+
+.reference-page .cta-panel .primary-cta:hover {
+  background: linear-gradient(135deg, #34b0f5, #0d7ac6);
+}
+
+.reference-page .cta-panel .outline-cta {
+  border: 1px solid rgba(255,255,255,.34);
+  background: rgba(255,255,255,.09);
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
+
+.reference-page .cta-panel .outline-cta:hover {
+  background: rgba(255,255,255,.18);
+}
+
+/* The phone mock competes with the discs at full bleed. */
+.reference-page .cta-panel .phone-mock {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .reference-page .cta-copy {
+    padding-left: 0;
+  }
+
+  .reference-page .cta-copy > span,
+  .reference-page .cta-copy h2,
+  .reference-page .cta-copy > p,
+  .reference-page .cta-copy > div {
+    max-width: 100%;
+  }
+
+  .reference-page .cta-panel::after {
+    background:
+      linear-gradient(180deg, rgba(7,27,51,.55), rgba(7,27,51,.25) 30%, rgba(7,27,51,.86));
+  }
+}
+
+/* The phone mock is a light device sitting on the dark panel, so it must
+   keep dark text — the panel's white colour was cascading into it and
+   rendering its headline and card labels invisible. */
+.reference-page .cta-panel .phone-mock {
+  color: #0d2440;
+}
+
+.reference-page .cta-panel .phone-mock > h3 {
+  color: #0d2440;
+}
+
+.reference-page .cta-panel .phone-status b,
+.reference-page .cta-panel .phone-tech b {
+  color: #12385c;
+}
+
+.reference-page .cta-panel .phone-status small,
+.reference-page .cta-panel .phone-tech small {
+  color: #8ca0ae;
+}
+
+.reference-page .cta-panel .phone-mock > small {
+  color: #1a8bd0;
+}
+
+
+/* Fine dot grid across the panel, matching the network band. */
+.cta-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(120,190,235,.16) 1px, transparent 1px);
+  background-size: 26px 26px;
+  -webkit-mask-image: radial-gradient(120% 90% at 70% 50%, #000 20%, transparent 78%);
+  mask-image: radial-gradient(120% 90% at 70% 50%, #000 20%, transparent 78%);
+}
+
+/* A few drifting highlights so the dark field is not dead space. */
+.cta-drops {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cta-drops i {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 34%, rgba(255,255,255,.5), rgba(140,200,240,.12) 62%, transparent 72%);
+  filter: blur(1px);
+}
+
+.cta-drops .d1 { top: 18%; right: 34%; width: 10px; height: 10px; opacity: .7; }
+.cta-drops .d2 { top: 62%; right: 22%; width: 7px;  height: 7px;  opacity: .55; }
+.cta-drops .d3 { top: 34%; right: 12%; width: 13px; height: 13px; opacity: .45; }
+.cta-drops .d4 { top: 78%; right: 44%; width: 8px;  height: 8px;  opacity: .5; }
+
+@media (max-width: 900px) {
+  .cta-rings {
+    left: -42vw;
+    opacity: .8;
+  }
+
+  .cta-grid,
+  .cta-drops { opacity: .6; }
+}
