@@ -3995,6 +3995,13 @@ html { scroll-padding-top: 96px; }
    section, not the grid as their comment claimed), so the two drifted
    apart from the photo. Every offset here is derived from values this
    block sets itself, so the three pieces stay locked together. */
+@media (min-width: 701px) {
+  /* The source is a tall portrait inside a square frame. Centering it
+     vertically crops away the technician's head, so keep the desktop
+     crop near the top while leaving a little breathing room above him. */
+  .voda-round-photo img { object-position: 67% 14%; }
+}
+
 @media (max-width: 700px) {
   .voda-response {
     --rq-pad-top: clamp(96px, 9vw, 132px);
