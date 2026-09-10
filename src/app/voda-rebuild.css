@@ -3165,3 +3165,8 @@
   color: var(--navy);
 }
 
+/* More separation between the FAQ and the sections either side of it. */
+.voda-faq {
+  padding-top: clamp(120px, 11vw, 168px);
+  padding-bottom: clamp(124px, 11vw, 172px);
+}
