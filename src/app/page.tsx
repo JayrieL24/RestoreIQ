@@ -1,25 +1,26 @@
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, BadgeCheck, Clock3, MapPin, Phone, Siren } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BadgeAlert, BadgeCheck, Biohazard, Check, Clock3, HousePlus, MapPin, Phone, ScanSearch, Siren, WavesArrowDown, WavesHorizontal, Wind, Wrench, type LucideIcon } from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 import { ResponseFeatureList } from "@/components/response-feature-list";
 import { TrustFeatureGrid } from "@/components/trust-feature-grid";
 import { Faq } from "@/components/sections/faq";
 import { ReviewsMarquee } from "@/components/ui/reviews-marquee";
+import { ServiceMarquee } from "@/components/ui/service-marquee";
 import { site } from "@/lib/site";
-import { RestorationServiceIcon } from "@/components/restoration-service-icon";
 import { BeforeAfterShowcase } from "@/components/before-after-showcase";
 import { WhyChoose } from "@/components/sections/why-choose";
+import { ServiceAreaMap } from "@/components/sections/service-area-map";
 
 const real = "/Real-life-images/";
-const serviceTiles: Array<[string, string, string]> = [
-  ["extraction", "Water Extraction", "Standing water is removed quickly using professional extraction equipment."],
-  ["drying", "Structural Drying", "Air movement and dehumidification, guided by daily moisture readings."],
-  ["assessment", "Moisture Mapping", "We locate water behind walls, flooring, and finishes before work begins."],
-  ["mould", "Mold Remediation", "Affected areas are contained, treated, and cleared using careful protocols."],
-  ["sewage", "Contaminated Water", "Safe cleanup and removal when the water carries a health risk."],
-  ["leak", "Leak Detection", "We find and repair the source before the damage has a chance to spread."],
-  ["repair", "Home Reconstruction", "Drywall, flooring, trim, and paint are restored by one accountable team."],
-  ["treatment", "Water Treatment", "Whole-home filtration, configured around your household and water supply."],
+const serviceTiles: Array<{ title: string; copy: string; icon: LucideIcon }> = [
+  { title: "Water Extraction", copy: "Standing water is removed quickly using professional extraction equipment.", icon: WavesArrowDown },
+  { title: "Structural Drying", copy: "Air movement and dehumidification, guided by daily moisture readings.", icon: Wind },
+  { title: "Moisture Mapping", copy: "We locate water behind walls, flooring, and finishes before work begins.", icon: ScanSearch },
+  { title: "Mold Remediation", copy: "Affected areas are contained, treated, and cleared using careful protocols.", icon: Biohazard },
+  { title: "Contaminated Water", copy: "Safe cleanup and removal when the water carries a health risk.", icon: BadgeAlert },
+  { title: "Leak Detection", copy: "We find and repair the source before the damage has a chance to spread.", icon: Wrench },
+  { title: "Home Reconstruction", copy: "Drywall, flooring, trim, and paint are restored by one accountable team.", icon: HousePlus },
+  { title: "Water Treatment", copy: "Whole-home filtration, configured around your household and water supply.", icon: WavesHorizontal },
 ];
 
 export default function HomePage() {
@@ -28,11 +29,12 @@ export default function HomePage() {
     <section className="voda-hero">
       <Image src="/restoreiq-hero-interior-v3.png" alt="Water restoration technician positioning professional drying equipment inside a home" fill priority className="voda-cover voda-hero-image" sizes="100vw" />
       <div className="voda-hero-wash" />
-      <div className="voda-wrap voda-hero-inner"><Reveal className="voda-hero-copy"><span className="voda-eyebrow light">Restoration. Plumbing. Peace of mind.</span><h1>Professional water<br/><em>restoration</em> when<br/>you need it most.</h1><p>From emergency extraction to precise structural drying, RestoreIQ protects your home and makes every next step clear.</p><div className="voda-actions"><a className="voda-btn primary" href={`tel:${phone}`}>Get help now <Phone/></a><a className="voda-btn glass" href="#services">Explore services <ArrowRight/></a></div></Reveal></div>
+      <div aria-hidden className="voda-hero-orb" />
+      <div className="voda-wrap voda-hero-inner"><Reveal className="voda-hero-copy"><h1>Water damage <em>help</em>, right when you need it.</h1><p>From emergency extraction to precise structural drying, RestoreIQ protects your home and makes every next step clear.</p><div className="voda-actions"><a className="voda-btn primary" href={`tel:${phone}`}>Call now <strong>{site.phone}</strong> <Phone/></a><a className="voda-btn glass" href="#services">Explore services <ArrowRight/></a></div><ul className="voda-hero-points"><li><Check aria-hidden /> Clear arrival guidance</li><li><Check aria-hidden /> One accountable crew</li></ul></Reveal></div>
       <svg className="voda-hero-wave" viewBox="0 0 1440 190" preserveAspectRatio="none" aria-hidden="true"><path className="voda-hero-wave-fill" d="M0 112C175 58 315 92 448 138C588 186 793 179 947 128C1107 75 1275 70 1440 116V190H0Z"/></svg>
     </section>
 
-    <section className="voda-services" id="services"><div className="voda-wrap"><Reveal className="voda-heading"><span className="voda-eyebrow">Complete home water care</span><h2>Everything your home needs<br/><em>to get back to dry.</em></h2><p>From the first emergency call through repairs and prevention, every stage stays with one accountable crew.</p></Reveal><RevealGroup className="voda-service-grid">{serviceTiles.map(([type,title,copy],i)=><RevealItem key={type}><a className={`voda-service-card${i===1?" active":""}`} href="#contact"><span className="voda-service-icon"><RestorationServiceIcon type={type}/></span><small>0{i+1}</small><h3>{title}</h3><p>{copy}</p></a></RevealItem>)}</RevealGroup></div></section>
+    <section className="voda-services" id="services"><div className="voda-wrap"><Reveal className="voda-heading"><span className="voda-eyebrow">Complete home water care</span><h2>Everything your home needs<br/><em>to get back to dry.</em></h2><p>From the first emergency call through repairs and prevention, every stage stays with one accountable crew.</p></Reveal><RevealGroup className="voda-service-grid">{serviceTiles.map(({ title, copy, icon: Icon }, index)=><RevealItem key={title}><a className="voda-service-card" href="#contact"><span className="voda-service-icon"><Icon aria-hidden /></span><small>0{index + 1}</small><h3>{title}</h3><p>{copy}</p></a></RevealItem>)}</RevealGroup><ServiceMarquee tiles={serviceTiles.map(({ title, copy, icon: Icon }) => ({ title, copy, icon: <Icon aria-hidden /> }))}/></div></section>
 
     <section className="voda-response" id="why-us">
       <div className="voda-wave dark-wave"/>
@@ -74,7 +76,7 @@ export default function HomePage() {
           <ResponseFeatureList />
 
           <div className="voda-response-actions">
-            <a className="voda-btn" href="tel:+15550100199"><Phone aria-hidden/>Get emergency help</a>
+            <a className="voda-btn voda-response-emergency" href={`tel:${phone}`}><Phone aria-hidden/>Get emergency help</a>
             <a className="voda-response-link" href="#process">See how restoration works <ArrowRight/></a>
           </div>
         </Reveal>
@@ -102,7 +104,7 @@ export default function HomePage() {
 
     <section className="voda-reviews"><div className="voda-wrap"><Reveal className="voda-heading light-heading"><span className="voda-eyebrow cyan">Customer reviews</span><h2>What they say<br/><em>about RestoreIQ</em></h2><p>Every job ends the same way: a dry home, and a customer who knows exactly what was done and why.</p></Reveal></div><ReviewsMarquee/></section>
 
-    <section className="voda-local" id="coverage" aria-labelledby="coverage-heading"><div aria-hidden className="voda-local-map"><Image src="/patterns/usa-silhouette.svg" alt="" fill sizes="(max-width: 950px) 100vw, 60vw"/></div><div className="voda-wrap voda-local-grid"><Reveal className="voda-local-copy"><span className="voda-eyebrow">Where we work</span><h2 id="coverage-heading">We cover the<br/><em>whole region.</em></h2><p>{site.coverage.radius}. Call us and we will give you a clear arrival time before dispatch &mdash; not an optimistic one.</p><div className="voda-local-meta"><div><b>{site.coverage.hours}</b><small>Dispatch</small></div><div><b>{site.coverage.response}</b><small>Typical arrival</small></div></div><a className="voda-btn primary" href={`tel:${phone}`}>Call {site.phone} <Phone/></a></Reveal><Reveal className="voda-zone-panel"><h3 className="voda-zone-title">Coverage &amp; response times</h3><ul className="voda-zone-list">{site.coverage.zones.map((z,i)=><li key={z.name}><span className="voda-zone-index">0{i+1}</span><span className="voda-zone-pin"><MapPin aria-hidden/></span><b>{z.name}</b><em>{z.response}</em><small>{z.detail}</small></li>)}</ul></Reveal></div></section>
+    <ServiceAreaMap />
     <Faq/>
     <section className="voda-final" id="contact"><Image src={`${real}MSP_7706.jpg`} alt="RestoreIQ technician restoring a home" fill className="voda-cover" sizes="100vw"/><div className="voda-final-wash"/><div className="voda-final-copy"><Reveal className="voda-final-text"><span className="voda-eyebrow light">Emergency help, day or night</span><h2>A drier, safer home<br/><em>starts here.</em></h2><p>Tell us what happened. We will explain what comes next and send the right help.</p><div className="voda-actions"><a className="voda-btn primary" href={`tel:${phone}`}>Call {site.phone} <Phone/></a><a className="voda-btn glass" href={`mailto:${site.email}`}>Request service <ArrowUpRight/></a></div></Reveal><Reveal delay={.08} className="voda-final-card"><span className="voda-final-card-badge"><Siren aria-hidden/></span><b>Speak to a specialist now</b><p>Lines are staffed around the clock. {site.coverage.hours}.</p><ul><li><Clock3 aria-hidden/><span>{site.coverage.response}</span></li><li><MapPin aria-hidden/><span>{site.coverage.radius}</span></li><li><BadgeCheck aria-hidden/><span>Licensed &amp; insured crews</span></li></ul><a className="voda-final-card-link" href={`tel:${phone}`}>{site.phone} <Phone aria-hidden/></a></Reveal></div></section>
   </div>;

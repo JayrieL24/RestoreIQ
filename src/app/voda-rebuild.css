@@ -824,12 +824,13 @@
 .voda-response-actions { margin-top: 28px; gap: 18px; }
 .voda-response-actions .voda-btn { height: 50px; padding: 0 22px; }
 
-/* Lighter ground: the washes were too saturated. Roughly half the previous
-   opacity, with the white core widened so the centre stays clean. */
+/* Lighter ground: the washes were too saturated. The edge pools were
+   oversized half-section blobs, so they are pulled mostly off-screen and
+   narrowed to small corner tints. */
 .voda-services::before {
   background:
-    radial-gradient(52% 58% at -6% 52%, rgba(36,203,211,.2), transparent 66%),
-    radial-gradient(48% 54% at 106% 56%, rgba(8,120,183,.15), transparent 66%),
+    radial-gradient(24% 34% at -8% 52%, rgba(36,203,211,.16), transparent 70%),
+    radial-gradient(22% 32% at 108% 56%, rgba(8,120,183,.12), transparent 70%),
     radial-gradient(42% 40% at 14% 92%, rgba(8,120,183,.1), transparent 68%),
     radial-gradient(44% 42% at 90% 94%, rgba(36,203,211,.11), transparent 68%),
     radial-gradient(70% 52% at 50% 52%, rgba(255,255,255,.94), transparent 74%),
@@ -986,6 +987,7 @@
 .voda-reviews {
   isolation: isolate;
   overflow: hidden;
+  border-radius: 0 0 24px 24px;
   /* Room for the arc drop and for the curve the mask eats into. The
      concave edge cuts deepest at the centre, right where the prev/next
      buttons sit, so this stays generous even when tightened. */
@@ -999,12 +1001,8 @@
 
 /* Curved bottom edge, matching the treatment on .voda-response. */
 .voda-reviews {
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,0 L100,0 L100,100 C100,91 0,91 0,100 Z' fill='%23fff'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,0 L100,0 L100,100 C100,91 0,91 0,100 Z' fill='%23fff'/%3E%3C/svg%3E");
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
 .voda-reviews .voda-wave { display: none; }
@@ -1056,7 +1054,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
-  margin: 34px auto 0;
+  margin: 0 auto;
   padding: 14px 26px;
   width: fit-content;
   border: 1px solid rgba(255,255,255,.13);
@@ -1075,7 +1073,7 @@
 }
 
 /* ── Marquee ── */
-.voda-marquee { margin-top: 62px; }
+.voda-marquee { margin-top: 14px; }
 
 .voda-marquee-viewport {
   position: relative;
@@ -1083,7 +1081,7 @@
   margin-left: calc(50% - 50vw);
   overflow: hidden;
   /* The arc pushes edge cards down; this holds the row without clipping. */
-  padding: 10px 0 74px;
+  padding: 44px 0 74px;
   /* Cards dissolve at both ends instead of hitting a hard edge. */
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
@@ -1965,9 +1963,17 @@
   .voda-proof-panel{padding:64px 0 82px}
 }
 @media(max-width:700px){
-  .voda-proof{margin-top:-130px}
+  .voda-proof{margin-top:-16px}
   .voda-photo-banner{height:680px}
-  .voda-photo-banner img{object-position:51% center}
+  /* Slide the photo itself down inside its frame so the face clears the
+     fade — the banner height and section spacing are untouched, and the
+     top fade hides the sliver this exposes. */
+  .voda-photo-banner img{
+    object-position:51% center;
+    transform:translateY(15%);
+    -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.42) 0%,rgba(0,0,0,.88) 9%,#000 18%);
+    mask-image:linear-gradient(to bottom,rgba(0,0,0,.42) 0%,rgba(0,0,0,.88) 9%,#000 18%);
+  }
   .voda-proof-panel{padding:58px 0 72px}
 }
 
@@ -2003,21 +2009,23 @@
 
 .voda-footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr repeat(3, .95fr) 1.25fr;
-  gap: clamp(28px, 3vw, 52px);
-  padding-bottom: clamp(40px, 4vw, 60px);
+  grid-template-columns: minmax(250px, 1.45fr) repeat(2, minmax(130px, .78fr)) minmax(190px, 1.05fr);
+  gap: clamp(28px, 3.5vw, 56px);
+  padding-bottom: clamp(36px, 3vw, 48px);
 }
 
 /* Brand column */
 .voda-footer-mark {
   position: relative;
   display: block;
-  width: 132px;
-  height: 132px;
+  width: 220px;
+  height: 60px;
 }
 
+.voda-footer-wordmark { display: block; width: 100%; height: 100%; object-fit: contain; }
+
 .voda-footer-brand > p {
-  max-width: 30ch;
+  max-width: 28ch;
   margin-top: 14px;
   color: #9db4c6;
   font-size: 13px;
@@ -2039,13 +2047,13 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: #b8f36a;
+  background: #6cd9eb;
   color: #0a2340;
   transition: transform .25s ease, background .25s ease;
 }
 
 .voda-footer-social a:hover {
-  background: #c9f78d;
+  background: #99e9f4;
   transform: translateY(-2px);
 }
 
@@ -2124,14 +2132,14 @@
   margin-top: 6px;
   padding: 13px 22px;
   border-radius: 999px;
-  background: #b8f36a;
+  background: #6cd9eb;
   color: #0a2340;
   font-size: 13.5px;
   font-weight: 750;
   transition: background .25s ease, transform .25s ease;
 }
 
-.voda-footer-cta:hover { background: #c9f78d; transform: translateY(-2px); }
+.voda-footer-cta:hover { background: #99e9f4; transform: translateY(-2px); }
 .voda-footer-cta svg { width: 16px; height: 16px; }
 
 /* Bottom bar */
@@ -2151,15 +2159,22 @@
 
 @media (max-width: 1050px) {
   .voda-footer-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 32px;
   }
   .voda-footer-brand { grid-column: 1 / -1; }
   .voda-footer-contact { grid-column: 1 / -1; }
 }
 
 @media (max-width: 640px) {
-  .voda-footer-grid { grid-template-columns: 1fr 1fr; }
+  .voda-footer { padding-top: 48px; }
+  .voda-footer-inner { width: min(100% - 32px, 480px); }
+  .voda-footer-grid { gap: 30px 18px; padding-bottom: 32px; }
+  .voda-footer-col h2,.voda-footer-contact h2 { margin-bottom: 13px; font-size: 15px; }
+  .voda-footer-col ul { gap: 9px; }
+  .voda-footer-col a { font-size: 12px; }
+  .voda-footer-line { margin-bottom: 11px; }
+  .voda-footer-bottom { padding: 18px 0 22px; font-size: 11px; }
   .voda-footer-bottom { justify-content: flex-start; }
 }
 
@@ -2555,17 +2570,17 @@
 .voda-reviews {
   position: relative;
   z-index: 1;
-  margin-top: clamp(-136px, -11vw, -80px);
+  margin-top: clamp(-48px, -4vw, -28px);
   /* Restore the padding the overlap eats into, so the heading does not
      ride up under the curve. */
-  padding-top: clamp(150px, 14vw, 210px);
+  padding-top: clamp(72px, 7vw, 104px);
 }
 
 /* Curved top AND bottom. The top bows upward into the light section; the
    bottom keeps the existing concave arc toward the carousel buttons. */
 .voda-reviews {
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,12 C0,3 100,3 100,12 L100,100 C100,91 0,91 0,100 Z' fill='%23fff'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M0,12 C0,3 100,3 100,12 L100,100 C100,91 0,91 0,100 Z' fill='%23fff'/%3E%3C/svg%3E");
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
 /* The why-choose CTA sits just above the join; keep it clear of the curve. */
@@ -2573,8 +2588,8 @@
 
 @media (max-width: 700px) {
   .voda-reviews {
-    margin-top: -64px;
-    padding-top: clamp(120px, 20vw, 160px);
+    margin-top: -32px;
+    padding-top: clamp(72px, 14vw, 110px);
   }
 }
 
@@ -3329,4 +3344,706 @@
 
 @media (max-width: 760px) {
   .voda-faq-list { columns: 1; }
+}
+
+/* Targeted section cleanup: straight response edge and tighter results intro. */
+.voda-response {
+  -webkit-mask-image: none;
+  mask-image: none;
+  border-radius: 0 0 24px 24px;
+}
+
+/* The white wave ellipse rode over the response section's bottom edge and
+   read as a huge bump once the curved mask was removed. */
+.voda-work .voda-wave { display: none; }
+
+.voda-work-heading .voda-eyebrow {
+  gap: 0;
+  color: #0b7088;
+  font-size: 11px;
+  letter-spacing: .16em;
+}
+
+.voda-work-heading .voda-eyebrow::before {
+  display: none;
+}
+
+.voda-work .ba-showcase {
+  margin-top: 28px;
+}
+
+@media (max-width: 760px) {
+  .voda-work .ba-showcase { margin-top: 24px; }
+}
+
+.voda-eyebrow::before {
+  display: none !important;
+}
+
+.voda-work .ba-showcase {
+  margin-top: 12px;
+}
+
+.voda-proof-panel > .voda-wrap {
+  transform: translateY(-320px);
+  margin-bottom: 0;
+}
+
+.voda-work .voda-transform-wrap {
+  transform: translateY(40px);
+}
+
+/* The desktop-only offsets above crush the mobile layout: the results
+   cards sink into the photo banner and the trust heading rides too high. */
+@media (max-width: 760px) {
+  .voda-proof-panel > .voda-wrap { transform: translateY(-140px); }
+  .voda-work .voda-transform-wrap { transform: none; }
+}
+
+.voda-stat-grid > div::before {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .voda-work .ba-showcase { margin-top: 10px; }
+}
+
+/* Local service-area map, adapted from the Palmetto landing-page pattern. */
+.voda-area-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #f3f8fa;
+}
+
+.voda-area-layout {
+  display: flex;
+  min-height: 760px;
+  align-items: center;
+}
+
+.voda-area-copy {
+  position: relative;
+  z-index: 4;
+  width: 47%;
+  padding: 82px 54px 82px 0;
+}
+
+.voda-area-copy h2 {
+  max-width: 520px;
+  margin: 14px 0 0;
+  color: #0b2438;
+  font-size: clamp(38px, 4.2vw, 58px);
+  font-weight: 740;
+  letter-spacing: -.055em;
+  line-height: 1.02;
+}
+
+.voda-area-copy > p {
+  margin: 18px 0 0;
+  color: #637681;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.voda-area-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 22px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.voda-area-list button {
+  display: grid;
+  width: 100%;
+  min-height: 43px;
+  grid-template-columns: 18px minmax(0, 1fr) 15px;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-bottom: 1px solid #d4e1e6;
+  padding: 6px 2px;
+  background: transparent;
+  color: #18384e;
+  font-size: 12.5px;
+  font-weight: 680;
+  text-align: left;
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.voda-area-list button svg:first-child {
+  width: 15px;
+  height: 15px;
+  color: #0b8da7;
+}
+
+.voda-area-list button svg:last-child {
+  width: 12px;
+  height: 12px;
+  color: #879da8;
+  transition: transform .2s ease;
+}
+
+.voda-area-list button:hover,
+.voda-area-list button[aria-pressed="true"] {
+  border-color: #42cbd2;
+  color: #08758e;
+}
+
+.voda-area-list button:hover svg:last-child,
+.voda-area-list button[aria-pressed="true"] svg:last-child {
+  transform: translate(2px, -2px);
+  color: #08758e;
+}
+
+.voda-area-list button:disabled {
+  cursor: default;
+  opacity: .65;
+}
+
+.voda-area-copy .voda-area-help {
+  margin-top: 22px;
+  font-size: 12px;
+}
+
+.voda-area-help a {
+  color: #075f7d;
+  font-weight: 760;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.voda-area-map-wrap {
+  position: absolute;
+  inset: 0 0 0 50%;
+  overflow: hidden;
+  background: #dce8ea;
+}
+
+.voda-area-map-wrap::after {
+  position: absolute;
+  z-index: 500;
+  inset: 0 auto 0 0;
+  width: 145px;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(90deg, #f3f8fa 0%, rgba(243,248,250,.78) 28%, transparent 100%);
+}
+
+.voda-area-map {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  font-family: var(--font-inter), Arial, sans-serif;
+}
+
+.voda-area-map .leaflet-tile-pane {
+  filter: saturate(.72) contrast(.94) brightness(1.04);
+}
+
+.voda-area-map .leaflet-top.leaflet-left {
+  top: 18px;
+  right: 18px;
+  left: auto;
+}
+
+.voda-area-map .leaflet-control-zoom {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #cad9df;
+  border-radius: 8px;
+  box-shadow: 0 8px 22px rgba(7,29,53,.12);
+}
+
+.voda-area-map .leaflet-control-zoom a {
+  color: #123650;
+}
+
+.voda-area-marker {
+  display: grid !important;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #0b3153;
+  box-shadow: 0 3px 10px rgba(5,29,48,.38);
+}
+
+.voda-area-marker > span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #59dce1;
+}
+
+.voda-area-map .leaflet-popup-content-wrapper,
+.voda-area-map .leaflet-popup-tip {
+  color: #102d42;
+  background: #fff;
+}
+
+.voda-area-map .leaflet-popup-content {
+  margin: 14px 16px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.voda-area-map .leaflet-popup-content strong {
+  font-size: 13px;
+}
+
+.voda-area-map .leaflet-popup-content a {
+  color: #08758e;
+  font-weight: 700;
+}
+
+.voda-map-reset {
+  position: absolute;
+  z-index: 600;
+  right: 22px;
+  bottom: 28px;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #cbd9df;
+  border-radius: 999px;
+  padding: 0 16px;
+  background: #fff;
+  color: #123650;
+  font-size: 11px;
+  font-weight: 760;
+  box-shadow: 0 9px 24px rgba(7,29,53,.16);
+  cursor: pointer;
+}
+
+.voda-map-reset svg {
+  width: 15px;
+  height: 15px;
+  color: #0b8da7;
+}
+
+.voda-map-status {
+  position: absolute;
+  z-index: 550;
+  top: 50%;
+  left: 50%;
+  width: min(280px, calc(100% - 40px));
+  transform: translate(-50%, -50%);
+  border: 1px solid #d5e1e5;
+  border-radius: 8px;
+  padding: 16px;
+  background: rgba(255,255,255,.94);
+  color: #526975;
+  font-size: 12px;
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(7,29,53,.12);
+}
+
+@media (max-width: 960px) {
+  .voda-area-copy { width: 49%; padding-right: 34px; }
+  .voda-area-map-wrap { left: 51%; }
+  .voda-area-copy h2 { font-size: 40px; }
+  .voda-area-list { column-gap: 14px; }
+  .voda-area-list button { font-size: 11.5px; }
+}
+
+@media (max-width: 700px) {
+  .voda-area-layout {
+    display: block;
+    min-height: 0;
+  }
+
+  .voda-area-copy {
+    width: 100%;
+    padding: 70px 0 34px;
+  }
+
+  .voda-area-copy h2 {
+    max-width: 560px;
+    font-size: 38px;
+  }
+
+  .voda-area-list {
+    column-gap: 16px;
+  }
+
+  .voda-area-list button {
+    min-height: 42px;
+    font-size: 11.5px;
+  }
+
+  .voda-area-map-wrap {
+    position: relative;
+    inset: auto;
+    width: 100vw;
+    height: 430px;
+    margin-left: calc((100% - 100vw) / 2);
+  }
+
+  .voda-area-map-wrap::after {
+    inset: 0 0 auto;
+    width: 100%;
+    height: 72px;
+    background: linear-gradient(180deg, #f3f8fa 0%, rgba(243,248,250,.72) 32%, transparent 100%);
+  }
+
+  .voda-area-map .leaflet-top.leaflet-left {
+    top: 64px;
+    right: 14px;
+  }
+
+  .voda-map-reset {
+    right: 16px;
+    bottom: 22px;
+  }
+}
+
+@media (max-width: 430px) {
+  .voda-area-list { grid-template-columns: 1fr; }
+  .voda-area-copy h2 { font-size: 34px; }
+}
+
+/* ── Header + hero: quiet, intentional entry composition ────────────────
+   The header is a single glass object rather than three unrelated buttons,
+   and the hero is given its own stable contrast field so it does not rely
+   on whatever detail happens to sit beneath the copy. */
+html { scroll-padding-top: 96px; }
+
+.voda-header {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 14px 16px 0;
+  color: #fff;
+  transition: padding .28s ease, color .28s ease;
+}
+
+.voda-nav-shell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: min(1280px, 100%);
+  min-height: 74px;
+  margin: 0 auto;
+  padding: 7px 9px 7px 13px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 20px;
+  background: linear-gradient(115deg, rgba(7,29,53,.76), rgba(10,45,72,.47));
+  box-shadow: 0 16px 45px rgba(2,16,29,.22), inset 0 1px 0 rgba(255,255,255,.13);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  transition: background .28s ease, border-color .28s ease, box-shadow .28s ease, border-radius .28s ease;
+}
+
+.voda-header.is-scrolled { color: #0c304b; padding-top: 9px; }
+.voda-header.is-scrolled .voda-nav-shell {
+  border-color: rgba(185,213,228,.78);
+  background: rgba(250,253,255,.82);
+  box-shadow: 0 13px 36px rgba(7,29,53,.12), inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+.voda-nav-brand,
+.voda-nav-actions,
+.voda-nav-phone,
+.voda-nav-cta,
+.voda-nav-mobile-call,
+.voda-nav-menu { display: inline-flex; align-items: center; }
+
+.voda-nav-brand { gap: 8px; min-width: 0; color: inherit; }
+.voda-nav-brand.is-scrolled-brand { gap: 0; }
+.voda-top-wordmark { display: block; width: 190px; height: auto; }
+.voda-scroll-wordmark { display: block; width: 176px; height: auto; }
+.voda-nav-brand > span:last-child { display: grid; gap: 1px; }
+.voda-nav-brand b { font-size: 18px; font-weight: 780; letter-spacing: -.035em; line-height: 1; }
+.voda-nav-brand small { color: rgba(225,240,247,.78); font-size: 9.5px; font-weight: 720; letter-spacing: .11em; line-height: 1.2; text-transform: uppercase; }
+.voda-header.is-scrolled .voda-nav-brand small { color: #6f8799; }
+
+.voda-desktop-nav { position: absolute; left: 50%; display: flex; align-items: center; gap: 3px; transform: translateX(-50%); }
+.voda-nav-link { padding: 10px 14px; border-radius: 10px; color: rgba(243,250,253,.9); font-size: 14px; font-weight: 680; letter-spacing: -.015em; transition: color .2s ease, background .2s ease; }
+.voda-nav-link:hover { background: rgba(255,255,255,.13); color: #fff; }
+.voda-nav-link:focus-visible,
+.voda-nav-cta:focus-visible,
+.voda-nav-phone:focus-visible,
+.voda-nav-mobile-call:focus-visible,
+.voda-nav-menu:focus-visible { outline: 3px solid #6ee4e8; outline-offset: 3px; }
+.voda-header.is-scrolled .voda-nav-link { color: #36546a; }
+.voda-header.is-scrolled .voda-nav-link:hover { background: #fff; color: #0b587d; }
+
+.voda-nav-actions { gap: 8px; margin-left: auto; }
+.voda-nav-phone { gap: 8px; padding: 4px 11px 4px 5px; border-radius: 13px; color: inherit; transition: background .2s ease; }
+.voda-nav-phone:hover { background: rgba(255,255,255,.1); }
+.voda-nav-phone-icon { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid rgba(132,234,235,.3); border-radius: 10px; background: rgba(75,215,221,.14); color: #80e9e9; }
+.voda-nav-phone-icon svg { width: 14px; height: 14px; }
+.voda-nav-phone small,.voda-nav-phone b { display: block; line-height: 1.15; }
+.voda-nav-phone small { color: rgba(222,238,245,.72); font-size: 8.5px; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
+.voda-nav-phone b { margin-top: 3px; font-size: 14px; font-weight: 760; letter-spacing: -.015em; }
+.voda-header.is-scrolled .voda-nav-phone small { color: #70889a; }
+.voda-header.is-scrolled .voda-nav-phone-icon { border-color: #c6e9ec; background: #e8fbfc; color: #087d91; }
+
+.voda-nav-cta { gap: 8px; min-height: 50px; padding: 0 18px; border-radius: 13px; background: #61e0e1; color: #062d43; box-shadow: 0 8px 20px rgba(38,201,208,.2); font-size: 13px; font-weight: 820; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+.voda-nav-cta:hover { transform: translateY(-1px); background: #91eff0; box-shadow: 0 11px 24px rgba(38,201,208,.28); }
+.voda-nav-cta svg { width: 14px; height: 14px; }
+
+.voda-nav-menu { display: none; align-items: center; justify-content: center; gap: 7px; min-width: 78px; height: 42px; padding: 0 11px; border: 1px solid rgba(255,255,255,.22); border-radius: 12px; background: rgba(255,255,255,.1); color: inherit; font-size: 12px; font-weight: 780; letter-spacing: .01em; transition: background .2s ease, transform .2s ease; }
+.voda-nav-menu:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
+.voda-nav-menu svg { width: 18px; height: 18px; }
+.voda-header.is-scrolled .voda-nav-menu { border-color: #d3e4ec; background: #fff; }
+
+.voda-mobile-sheet { display: flex!important; width: min(390px, 92vw)!important; flex-direction: column; padding: 22px 18px 18px!important; border-left: 1px solid #d5e6ed!important; background: #f8fcfe!important; box-shadow: -20px 0 50px rgba(7,29,53,.16)!important; }
+.voda-mobile-sheet header { padding-right: 42px; }
+.voda-mobile-drawer-wordmark { display: block; width: 180px; height: auto; }
+.voda-mobile-sheet-kicker { margin: 30px 0 8px; color: #6b8394; font-size: 10px; font-weight: 800; letter-spacing: .14em; line-height: 1.2; text-transform: uppercase; }
+.voda-mobile-nav { display: grid; gap: 0; padding: 0; border-top: 1px solid #dbe8ed; }
+.voda-mobile-nav-link { display: flex; align-items: center; min-height: 57px; padding: 0 4px; border-bottom: 1px solid #dbe8ed; color: #123b55; font-size: 16px; font-weight: 700; letter-spacing: -.015em; transition: color .2s ease, padding .2s ease; }
+.voda-mobile-nav-link::after { content: "→"; margin-left: auto; color: #46bfce; font-size: 18px; font-weight: 400; }
+.voda-mobile-nav-link:hover { padding-left: 8px; color: #08758e; }
+.voda-mobile-sheet-actions { display: grid; gap: 9px; margin-top: auto; padding: 24px 0 0; }
+.voda-mobile-sheet-actions a { display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 52px; border-radius: 12px; font-size: 14px; font-weight: 800; }
+.voda-mobile-sheet-actions a:first-child { background: #0d3856; color: #fff; }
+.voda-mobile-sheet-actions a:last-child { border: 1px solid #a9dce5; background: #e9f8fb; color: #075f7d; }
+.voda-mobile-sheet-actions svg { width: 16px; height: 16px; }
+
+/* Response CTA */
+.voda-response-emergency {
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 20px;
+  border: 1px solid rgba(130,237,238,.55);
+  border-radius: 12px;
+  background: #6be0e2;
+  color: #062d43;
+  box-shadow: 0 12px 26px rgba(29,194,201,.18), inset 0 1px 0 rgba(255,255,255,.4);
+  font-size: 13px;
+  font-weight: 820;
+}
+.voda-response-emergency svg { width: 17px; height: 17px; }
+.voda-response-emergency:hover { transform: translateY(-2px); background: #9aedef; box-shadow: 0 16px 30px rgba(29,194,201,.27), inset 0 1px 0 rgba(255,255,255,.5); }
+.voda-response-emergency:focus-visible { outline: 3px solid #a6f4f4; outline-offset: 3px; }
+.voda-response-link { color: #bde3ea; font-weight: 720; }
+.voda-response-link:hover { color: #fff; }
+
+@media (max-width: 700px) {
+  .voda-response-actions .voda-response-emergency { min-height: 54px; }
+}
+
+/* Tuck the light section under the proof panel above it. The proof panel
+   already sits one layer higher, so it hides the otherwise hard join. */
+.voda-why {
+  margin-top: 0;
+  padding-top: clamp(96px, 9vw, 132px);
+}
+.voda-proof-panel::after { display: none; }
+.voda-proof-curve { display: block; }
+.voda-why::after { display: none; }
+
+@media (max-width: 700px) {
+  .voda-why {
+    margin-top: 0;
+    padding-top: 96px;
+  }
+}
+
+/* Hero */
+.voda-hero { isolation: isolate; min-height: clamp(720px, 52vw, 820px); overflow: hidden; background: #061d32; }
+.voda-hero::before { content: ""; position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(2,19,33,.34), transparent 23%); }
+.voda-hero-image { z-index: 0; top: 96px!important; bottom: auto!important; height: calc(100% - 96px)!important; object-position: 64% 22%; filter: saturate(.86) contrast(1.03); }
+.voda-hero-wash { z-index: 1; background: linear-gradient(90deg, #061e34 0%, rgba(6,30,52,.95) 27%, rgba(6,30,52,.7) 46%, rgba(6,30,52,.18) 72%, rgba(6,30,52,.04) 100%), linear-gradient(0deg, #061e34 0%, rgba(6,30,52,.3) 23%, transparent 54%); }
+.voda-hero-orb { position: absolute; z-index: 1; left: -14%; top: 13%; width: min(58vw, 800px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(42,182,200,.2), rgba(42,182,200,0) 68%); filter: blur(12px); pointer-events: none; }
+.voda-hero-inner { z-index: 3; min-height: clamp(680px, 49vw, 770px); align-items: center; padding-top: 78px; }
+.voda-hero-copy { width: min(615px, 53%); padding: 0; }
+.voda-hero-kicker { display: inline-flex; align-items: center; gap: 8px; padding: 8px 11px; border: 1px solid rgba(137,238,239,.27); border-radius: 999px; background: rgba(42,174,189,.12); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); color: #d6f9fa; font-size: 10px; font-weight: 780; letter-spacing: .1em; text-transform: uppercase; }
+.voda-hero-kicker i { width: 7px; height: 7px; border-radius: 50%; background: #64e3dc; box-shadow: 0 0 0 5px rgba(100,227,220,.13); }
+.voda-hero-copy h1 { max-width: 620px; margin-top: 0; color: #fff; font-size: clamp(50px, 5.55vw, 78px); font-weight: 740; line-height: .98; letter-spacing: -.062em; text-wrap: balance; }
+.voda-hero-copy h1 em { color: #66e0e2; }
+.voda-hero-copy p { max-width: 515px; margin-top: 22px; color: #c3d5de; font-size: 16px; line-height: 1.67; }
+.voda-hero .voda-actions { gap: 11px; margin-top: 29px; }
+.voda-hero .voda-btn { min-height: 54px; height: auto; padding: 0 18px; border-radius: 13px; font-size: 12px; }
+.voda-hero .voda-btn.primary { background: #68e1e2; box-shadow: 0 13px 32px rgba(48,197,205,.19); }
+.voda-hero .voda-btn.primary strong { padding-left: 8px; border-left: 1px solid rgba(6,45,67,.2); font-size: 12px; }
+.voda-hero .voda-btn.glass { border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.1); box-shadow: inset 0 1px 0 rgba(255,255,255,.1); }
+.voda-hero .voda-btn.glass:hover { background: rgba(255,255,255,.18); transform: translateY(-2px); }
+.voda-hero-points { display: flex; flex-wrap: wrap; gap: 9px 20px; margin-top: 23px; padding: 0; list-style: none; color: #b9d1dc; font-size: 11px; font-weight: 620; }
+.voda-hero-points li { display: inline-flex; align-items: center; gap: 7px; }
+.voda-hero-points svg { width: 14px; height: 14px; padding: 2px; border-radius: 50%; background: rgba(98,224,226,.18); color: #70e5e5; }
+.voda-hero-wave { z-index: 4; height: 106px; }
+
+@media (max-width: 1100px) {
+  .voda-desktop-nav,.voda-nav-phone,.voda-nav-cta { display: none; }
+  .voda-nav-menu { display: inline-flex; }
+}
+
+@media (max-width: 700px) {
+  html { scroll-padding-top: 88px; }
+  .voda-header { padding: 10px 10px 0; }
+  .voda-header.is-scrolled { padding-top: 7px; }
+  .voda-nav-shell { min-height: 62px; padding: 5px 6px 5px 10px; border-radius: 17px; }
+  .voda-nav-brand > span:last-child { display: none; }
+  .voda-top-wordmark { width: 142px; }
+  .voda-scroll-wordmark { width: 142px; }
+  .voda-nav-actions { gap: 6px; }
+  .voda-nav-menu { min-width: 74px; height: 40px; padding: 0 9px; border-radius: 11px; }
+
+  .voda-hero { min-height: 760px; }
+  .voda-hero-image { top: 74px!important; height: calc(100% - 74px)!important; object-position: 72% 24%; }
+  .voda-hero-wash { background: linear-gradient(90deg, rgba(6,30,52,.96) 0%, rgba(6,30,52,.82) 57%, rgba(6,30,52,.28) 100%), linear-gradient(0deg, #061e34 0%, rgba(6,30,52,.66) 34%, transparent 70%); }
+  .voda-hero-orb { top: 32%; left: -42%; width: 120vw; }
+  .voda-hero-inner { min-height: 708px; align-items: flex-end; padding-top: 115px; padding-bottom: 92px; }
+  .voda-hero-copy { width: 100%; }
+  .voda-hero-copy h1 { max-width: 440px; margin-top: 18px; font-size: clamp(44px, 12.2vw, 55px); line-height: 1.01; }
+  .voda-hero-copy p { max-width: 390px; margin-top: 18px; font-size: 14px; }
+  .voda-hero .voda-actions { margin-top: 23px; }
+  .voda-hero .voda-btn { flex: 1 1 100%; width: 100%; min-height: 52px; }
+  .voda-hero .voda-btn.glass { flex-basis: auto; }
+  .voda-hero-points { gap: 8px 14px; margin-top: 19px; font-size: 10.5px; }
+  .voda-hero-wave { height: 76px; }
+}
+
+@media (max-width: 390px) {
+  .voda-hero-copy h1 { font-size: 43px; }
+  .voda-hero-kicker { font-size: 9px; }
+  .voda-hero-points { display: grid; gap: 7px; }
+}
+
+/* ── Mobile floating call button ────────────────────────────────────────
+   The navbar call button crowded phones, so the emergency call moves to
+   its own thumb-reachable pill pinned to the bottom-right of the screen. */
+.voda-float-call {
+  position: fixed;
+  z-index: 60;
+  right: 14px;
+  bottom: 14px;
+  display: none;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #5fdfe8;
+  color: #fff;
+  box-shadow: 0 14px 34px rgba(10,120,140,.38), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.voda-float-call svg { width: 24px; height: 24px; }
+.voda-float-call:active { transform: scale(.94); }
+
+@media (max-width: 700px) {
+  .voda-float-call { display: grid; }
+}
+
+/* ── Services: mobile marquee ───────────────────────────────────────────
+   The two-column card grid is cramped on phones, so the cards become an
+   infinite horizontal loop instead. Hovering (desktop-width fallbacks)
+   or holding a tap pauses the scroll. */
+.voda-service-marquee { display: none; }
+
+@media (max-width: 700px) {
+  .voda-service-grid { display: none; }
+
+  .voda-service-marquee {
+    display: block;
+    width: 100vw;
+    margin: 44px calc(50% - 50vw) 0;
+    padding: 12px 0 18px;
+    overflow: hidden;
+  }
+
+  .voda-service-track {
+    display: flex;
+    align-items: stretch;
+    width: max-content;
+    animation: voda-service-scroll 38s linear infinite;
+  }
+
+  /* Hover (and the .is-paused tap state) holds the loop in place. */
+  .voda-service-marquee:hover .voda-service-track,
+  .voda-service-marquee.is-paused .voda-service-track {
+    animation-play-state: paused;
+  }
+
+  /* Uniform cell width keeps the -50% keyframe jump seamless. */
+  .voda-service-cell {
+    flex: none;
+    width: 216px;
+    margin-right: 14px;
+  }
+
+  .voda-service-cell .voda-service-card,
+  .voda-service-cell .voda-service-card.active {
+    width: 100%;
+    min-height: 0;
+    min-height: 197px;
+  }
+}
+
+@keyframes voda-service-scroll {
+  from { transform: translate3d(0,0,0); }
+  to { transform: translate3d(-50%,0,0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voda-service-track { animation: none; }
+}
+
+/* ── Response, mobile: photo on top, machines left, readout right ──────
+   The earlier mobile rules parked the readout far below the photo and
+   anchored the render to the section (its containing block is the
+   section, not the grid as their comment claimed), so the two drifted
+   apart from the photo. Every offset here is derived from values this
+   block sets itself, so the three pieces stay locked together. */
+@media (max-width: 700px) {
+  .voda-response {
+    --rq-pad-top: clamp(96px, 9vw, 132px);
+    --rq-gutter: 48px;
+    /* The photo is a square as wide as the column. */
+    --rq-col: calc(100vw - var(--rq-gutter));
+    --rq-eq-w: min(200px, 48vw);
+    --rq-eq-h: calc(var(--rq-eq-w) / 1.5);
+    --rq-eq-dip: 54px;         /* how far the machines reach up into the photo */
+    --rq-readout-gap: 4px;    /* photo rim to readout */
+    --rq-readout-h: 44px;
+    padding-top: var(--rq-pad-top);
+  }
+  .voda-response .voda-wrap { width: calc(100% - var(--rq-gutter)); }
+
+  /* Let the readout's z-index compete with the render directly instead of
+     being trapped under the grid's own stacking context. */
+  .voda-response-grid { z-index: auto; }
+
+  /* The technician's head is in the top fifth of the portrait; a square
+     crop centred vertically cut it off. Anchor the crop near the top. */
+  .voda-round-photo img { object-position: 67% 8%; }
+
+  /* Readout: right-aligned, tucked just under the photo's rim. */
+  .voda-readout {
+    position: relative;
+    inset: auto;
+    z-index: 3;
+    width: fit-content;
+    height: var(--rq-readout-h);
+    margin: var(--rq-readout-gap) 0 0 auto;
+    padding: 0 11px;
+  }
+
+  /* Machines: on the left, dipping into the photo's lower-left arc. */
+  .voda-equipment {
+    left: calc(var(--rq-gutter) / 2 - 10px);
+    right: auto;
+    top: calc(var(--rq-pad-top) + var(--rq-col) - var(--rq-eq-dip));
+    bottom: auto;
+    width: var(--rq-eq-w);
+    height: var(--rq-eq-h);
+    transform: none;
+    z-index: 2;
+  }
+
+  /* Reserve the part of the render that hangs below the readout so the
+     copy starts under the machines rather than on top of them. */
+  .voda-response-visual {
+    padding-bottom: max(12px, calc(var(--rq-eq-h) - var(--rq-eq-dip) - var(--rq-readout-gap) - var(--rq-readout-h) + 12px));
+  }
 }

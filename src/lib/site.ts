@@ -4,7 +4,7 @@ export const site = {
   description:
     "Emergency water damage restoration and expert plumbing for homes and commercial properties. Fast response, licensed technicians, work guaranteed.",
   url: "https://restoreiq.com",
-  phone: "(555) 010-0199",
+  phone: "(805) 832-0194",
   email: "help@restoreiq.com",
   /* ⚠️ REPLACE BEFORE LAUNCH — these are stand-ins. Swap in the real
      towns and counties RestoreIQ covers, the actual dispatch hours, and a
@@ -14,39 +14,52 @@ export const site = {
     /* Name real places. Vague labels like "Metro area" read as filler and
        lose the local-search value this block is here to earn. */
     areas: [
-      "Springfield",
-      "Riverton",
-      "Oak Hollow",
-      "Fairview County",
-      "Lakeside",
-      "Weston",
+      "Ventura",
+      "Agoura Hills",
+      "Westlake Village",
+      "Calabasas",
+      "Camarillo",
+      "Carpinteria",
+      "Fillmore",
+      "Malibu",
+      "Moorpark",
+      "Newbury Park",
+      "Oak Park",
+      "Oak View",
+      "Ojai",
+      "Oxnard",
+      "Port Hueneme",
+      "Santa Barbara",
+      "Santa Paula",
+      "Simi Valley",
+      "Thousand Oaks",
     ],
     /* ⚠️ PLACEHOLDER — replace with the real towns, the crew actually
        stationed nearest each, and response times the company can commit
        to. An arrival time is a promise, not marketing copy. */
     zones: [
       {
-        name: "Springfield & Riverton",
-        detail: "Two crews stationed in town, closest to the depot",
-        response: "Under 45 min",
+        name: "Ventura County",
+        detail: "Ventura, Oxnard, Camarillo, Moorpark and nearby communities",
+        response: "Core service area",
       },
       {
-        name: "Oak Hollow & Lakeside",
-        detail: "Covered from the Springfield depot, direct route",
-        response: "Under 60 min",
+        name: "Conejo & Las Virgenes",
+        detail: "Thousand Oaks, Westlake Village, Agoura Hills and Calabasas",
+        response: "Service available",
       },
       {
-        name: "Fairview County",
-        detail: "Rural addresses; we confirm the route when you call",
-        response: "60–90 min",
+        name: "Ojai & Santa Clara River Valley",
+        detail: "Ojai, Oak View, Santa Paula and Fillmore",
+        response: "Service available",
       },
       {
-        name: "Weston & surrounding",
-        detail: "Edge of our radius, still same-day on every callout",
-        response: "Within 90 min",
+        name: "Santa Barbara Coast",
+        detail: "Carpinteria, Santa Barbara and surrounding coastal communities",
+        response: "Service available",
       },
     ],
-    radius: "Crews stationed within 45 miles",
+    radius: "Ventura County, Santa Barbara and the Conejo Valley",
     hours: "Answered by a person, not a machine",
     response: "On site within the hour, most calls",
   },

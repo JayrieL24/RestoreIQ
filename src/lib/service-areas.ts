@@ -1,0 +1,22 @@
+// Approximate community centers used only to frame the public service-area map.
+export const serviceAreas = [
+  { name: "Ventura", lat: 34.2675, lng: -119.2548, href: "https://steamworksvc.com/service-area/ventura/" },
+  { name: "Agoura Hills", lat: 34.1364, lng: -118.7745, href: "https://steamworksvc.com/service-area/agoura/" },
+  { name: "Westlake Village", lat: 34.1460, lng: -118.8062, href: "https://steamworksvc.com/service-area/westlake/" },
+  { name: "Calabasas", lat: 34.1367, lng: -118.6615, href: "https://steamworksvc.com/service-area/calabasas/" },
+  { name: "Camarillo", lat: 34.2230, lng: -119.0326, href: "https://steamworksvc.com/service-area/camarillo/" },
+  { name: "Carpinteria", lat: 34.3989, lng: -119.5185, href: "https://steamworksvc.com/service-area/carpinteria/" },
+  { name: "Fillmore", lat: 34.3990, lng: -118.9181, href: "https://steamworksvc.com/service-area/filmore/" },
+  { name: "Malibu", lat: 34.0259, lng: -118.7798, href: "https://steamworksvc.com/service-area/malibu/" },
+  { name: "Moorpark", lat: 34.2855, lng: -118.8770, href: "https://steamworksvc.com/service-area/moorpark/" },
+  { name: "Newbury Park", lat: 34.1770, lng: -118.9360, href: "https://steamworksvc.com/service-area/newbury-park/" },
+  { name: "Oak Park", lat: 34.1792, lng: -118.7669, href: "https://steamworksvc.com/service-area/oak-park/" },
+  { name: "Oak View", lat: 34.3990, lng: -119.2976, href: "https://steamworksvc.com/service-area/oakview/" },
+  { name: "Ojai", lat: 34.4485, lng: -119.2469, href: "https://steamworksvc.com/service-area/ojai/" },
+  { name: "Oxnard", lat: 34.2008, lng: -119.2147, href: "https://steamworksvc.com/service-area/oxnard/" },
+  { name: "Port Hueneme", lat: 34.1612, lng: -119.2036, href: "https://steamworksvc.com/service-area/port-hueneme/" },
+  { name: "Santa Barbara", lat: 34.4208, lng: -119.6982, href: "https://steamworksvc.com/service-area/santa-barbara/" },
+  { name: "Santa Paula", lat: 34.3521, lng: -119.0698, href: "https://steamworksvc.com/service-area/santa-paula/" },
+  { name: "Simi Valley", lat: 34.2662, lng: -118.7490, href: "https://steamworksvc.com/service-area/simi-valley/" },
+  { name: "Thousand Oaks", lat: 34.1918, lng: -118.8749, href: "https://steamworksvc.com/service-area/thousand-oaks/" },
+] as const;

@@ -25,3 +25,7 @@ tsconfig.tsbuildinfo
 
 # pnpm content-addressable store
 .pnpm-store/
+
+# Local code-assistant project state
+.serena/
+.env*.local

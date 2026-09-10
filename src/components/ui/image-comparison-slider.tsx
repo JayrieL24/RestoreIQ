@@ -25,8 +25,8 @@ export function ImageComparison({ beforeImage, afterImage, altBefore, altAfter }
   };
 
   return <div ref={frame} className="ba-slider" onPointerDown={e => { e.currentTarget.setPointerCapture(e.pointerId); update(e.clientX); }} onPointerMove={onPointerMove}>
-    <Image src={beforeImage} alt={altBefore} fill className="ba-image" sizes="(max-width: 760px) 92vw, 48vw" draggable={false} />
-    <div className="ba-after" style={{ clipPath: `inset(0 ${100-position}% 0 0)` }}><Image src={afterImage} alt={altAfter} fill className="ba-image" sizes="(max-width: 760px) 92vw, 48vw" draggable={false} /></div>
+    <Image src={afterImage} alt={altAfter} fill className="ba-image" sizes="(max-width: 760px) 92vw, 48vw" draggable={false} />
+    <div className="ba-after" style={{ clipPath: `inset(0 ${100-position}% 0 0)` }}><Image src={beforeImage} alt={altBefore} fill className="ba-image" sizes="(max-width: 760px) 92vw, 48vw" draggable={false} /></div>
     <span className="ba-label ba-before-label">Before</span><span className="ba-label ba-after-label">After</span>
     <div className="ba-divider" style={{ left: `${position}%` }}><span aria-hidden>‹&nbsp;›</span></div>
     <input className="ba-range" type="range" min="3" max="97" value={position} onChange={e=>setPosition(Number(e.target.value))} aria-label="Drag to compare before and after" />
