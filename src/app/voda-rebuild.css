@@ -3290,3 +3290,16 @@
   .ba-case-meta { font-size: 10px; }
 }
 
+/* Wider gutters between the cards, and the row sits lower in the section. */
+.ba-showcase-grid {
+  gap: clamp(30px, 3.2vw, 50px);
+}
+
+.ba-showcase {
+  margin-top: clamp(60px, 7vw, 96px);
+}
+
+@media (max-width: 760px) {
+  .ba-showcase-grid { gap: 26px; }
+  .ba-showcase { margin-top: clamp(44px, 9vw, 64px); }
+}
