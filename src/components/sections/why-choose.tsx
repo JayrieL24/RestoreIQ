@@ -19,30 +19,26 @@ type Feature = {
   body: string;
 };
 
-/**
- * ⚠️ PLACEHOLDER COPY — these describe standard restoration practice.
- * Confirm each claim matches how RestoreIQ actually operates before launch.
- */
 const features: Feature[] = [
   {
     icon: "care",
-    title: "Professional care",
-    body: "Every job is handled with respect for your time, your property, and your peace of mind.",
+    title: "Emergency restoration focus",
+    body: "The team focuses on water, fire, smoke, sewage, contents protection, and reconstruction.",
   },
   {
     icon: "scope",
-    title: "Solutions for every need",
-    body: "From routine moisture checks to full emergency restoration, one crew covers the whole job.",
+    title: "Scope from the readings",
+    body: "The restoration plan follows documented moisture conditions instead of guesswork.",
   },
   {
     icon: "updates",
     title: "Clear communication",
-    body: "You always know what to expect, what comes next, and who is working in your home.",
+    body: "The scope, progress, and next steps are explained throughout the project.",
   },
   {
     icon: "crew",
-    title: "Local experts, real support",
-    body: "Responsive local crews, backed by proper equipment and current certification.",
+    title: "Insurance-ready records",
+    body: "Photographs, moisture readings, and job progress can be organized for the adjuster.",
   },
 ];
 
@@ -52,17 +48,18 @@ export function WhyChoose() {
   const [active, setActive] = React.useState(1);
 
   return (
-    <section className="voda-why" id="why-choose" aria-labelledby="why-heading">
+    <section className="voda-why" id="why-us" aria-labelledby="why-heading">
       <div className="voda-wrap">
         <Reveal className="voda-heading">
-          <span className="voda-eyebrow">Cleaner homes. Greater peace of mind.</span>
+          <span className="voda-eyebrow">About RestoreIQ</span>
           <h2 id="why-heading">
-            Why homeowners &amp; businesses<br />
-            <em>choose RestoreIQ</em>
+            Local restoration, built around<br />
+            <em>clear decisions.</em>
           </h2>
           <p>
-            The care of a local crew, with the standards, equipment, and
-            documentation of a much larger operation.
+            RestoreIQ is a Ventura County emergency restoration company serving
+            homes and businesses with measured work, careful property protection,
+            and clear documentation from the first inspection forward.
           </p>
         </Reveal>
 
@@ -123,7 +120,6 @@ export function WhyChoose() {
               />
             </div>
 
-            {/* Floating stat badge. ⚠️ PLACEHOLDER FIGURE. */}
             <div className="voda-why-photo detail">
               <Image
                 src={`${real}IMG_6585.jpg`}
@@ -148,12 +144,12 @@ export function WhyChoose() {
 
         <div className="voda-why-cta">
           <a className="voda-btn primary" href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>
-            Get emergency help <ArrowUpRight aria-hidden />
+            {site.cta.call} <ArrowUpRight aria-hidden />
           </a>
           <a className="voda-why-call" href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>
             <span className="voda-why-call-icon" aria-hidden><Phone aria-hidden /></span>
             <span>
-              <small>Call us now</small>
+              <small>24/7 emergency line</small>
               <b>{site.phone}</b>
             </span>
           </a>
