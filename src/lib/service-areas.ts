@@ -1,22 +1,16 @@
-// Approximate community centers used only to frame the public service-area map.
-export const serviceAreas = [
-  { name: "Ventura", lat: 34.2675, lng: -119.2548, href: "https://steamworksvc.com/service-area/ventura/" },
-  { name: "Agoura Hills", lat: 34.1364, lng: -118.7745, href: "https://steamworksvc.com/service-area/agoura/" },
-  { name: "Westlake Village", lat: 34.1460, lng: -118.8062, href: "https://steamworksvc.com/service-area/westlake/" },
-  { name: "Calabasas", lat: 34.1367, lng: -118.6615, href: "https://steamworksvc.com/service-area/calabasas/" },
-  { name: "Camarillo", lat: 34.2230, lng: -119.0326, href: "https://steamworksvc.com/service-area/camarillo/" },
-  { name: "Carpinteria", lat: 34.3989, lng: -119.5185, href: "https://steamworksvc.com/service-area/carpinteria/" },
-  { name: "Fillmore", lat: 34.3990, lng: -118.9181, href: "https://steamworksvc.com/service-area/filmore/" },
-  { name: "Malibu", lat: 34.0259, lng: -118.7798, href: "https://steamworksvc.com/service-area/malibu/" },
-  { name: "Moorpark", lat: 34.2855, lng: -118.8770, href: "https://steamworksvc.com/service-area/moorpark/" },
-  { name: "Newbury Park", lat: 34.1770, lng: -118.9360, href: "https://steamworksvc.com/service-area/newbury-park/" },
-  { name: "Oak Park", lat: 34.1792, lng: -118.7669, href: "https://steamworksvc.com/service-area/oak-park/" },
-  { name: "Oak View", lat: 34.3990, lng: -119.2976, href: "https://steamworksvc.com/service-area/oakview/" },
-  { name: "Ojai", lat: 34.4485, lng: -119.2469, href: "https://steamworksvc.com/service-area/ojai/" },
-  { name: "Oxnard", lat: 34.2008, lng: -119.2147, href: "https://steamworksvc.com/service-area/oxnard/" },
-  { name: "Port Hueneme", lat: 34.1612, lng: -119.2036, href: "https://steamworksvc.com/service-area/port-hueneme/" },
-  { name: "Santa Barbara", lat: 34.4208, lng: -119.6982, href: "https://steamworksvc.com/service-area/santa-barbara/" },
-  { name: "Santa Paula", lat: 34.3521, lng: -119.0698, href: "https://steamworksvc.com/service-area/santa-paula/" },
-  { name: "Simi Valley", lat: 34.2662, lng: -118.7490, href: "https://steamworksvc.com/service-area/simi-valley/" },
-  { name: "Thousand Oaks", lat: 34.1918, lng: -118.8749, href: "https://steamworksvc.com/service-area/thousand-oaks/" },
-] as const;
+export interface ServiceArea {
+  name: string; slug: string; intro: string; localContext: string;
+  propertyNotes: string[]; nearby: string[]; image: string; lat: number; lng: number;
+}
+
+export const serviceAreas: ServiceArea[] = [
+  { name: "Camarillo", slug: "camarillo", lat: 34.2230, lng: -119.0326, intro: "Emergency water-damage help for homes, businesses, and multifamily properties throughout Camarillo.", localContext: "From Mission Oaks and Village at the Park to the neighborhoods around Old Town, Camarillo properties include slab-on-grade homes, two-story developments, commercial suites, and agricultural buildings. A useful restoration scope accounts for the assembly that is wet—not just the room where water first appeared.", propertyNotes: ["Slab and hard-surface moisture migration", "Appliance and supply-line leaks", "Commercial suite and warehouse losses"], nearby: ["Somis", "Santa Rosa Valley", "Oxnard", "Moorpark"], image: "/Real-life-images/MSP_7706.jpg" },
+  { name: "Ventura", slug: "ventura", lat: 34.2675, lng: -119.2548, intro: "Water extraction, drying, and restoration documentation across Ventura’s coastal and hillside neighborhoods.", localContext: "Ventura’s mix of older bungalows, hillside homes, beach-area properties, and newer construction creates very different water pathways. Crawlspaces, raised foundations, plaster finishes, and wind-driven rain each call for a different inspection approach.", propertyNotes: ["Raised-foundation and crawlspace drying", "Coastal storm and window intrusion", "Older plumbing and finish assemblies"], nearby: ["Pierpont Bay", "Midtown", "East Ventura", "Oak View"], image: "/Real-life-images/IMG_2342.jpg" },
+  { name: "Oxnard", slug: "oxnard", lat: 34.2008, lng: -119.2147, intro: "24/7 restoration response for Oxnard residences, coastal properties, industrial spaces, and retail buildings.", localContext: "Oxnard losses range from appliance leaks in dense residential neighborhoods to roof or plumbing failures in large commercial footprints. Coastal exposure can complicate building-envelope leaks, while large open spaces require deliberate equipment zoning and monitoring.", propertyNotes: ["Coastal and building-envelope water entry", "Multifamily and attached housing", "Industrial and commercial drying zones"], nearby: ["Channel Islands Harbor", "RiverPark", "Port Hueneme", "Camarillo"], image: "/Real-life-images/MSP_7577.jpg" },
+  { name: "Thousand Oaks", slug: "thousand-oaks", lat: 34.1918, lng: -118.8749, intro: "Measured water-damage restoration for Thousand Oaks homes and commercial properties.", localContext: "Thousand Oaks includes hillside properties, planned neighborhoods, custom homes, and busy commercial corridors. Water may move between levels, along engineered flooring, or into concealed wall and cabinet assemblies before a leak is discovered.", propertyNotes: ["Multi-level water migration", "Hardwood and engineered-floor drying", "Cabinet and wall-cavity inspection"], nearby: ["Newbury Park", "Westlake Village", "Oak Park", "Santa Rosa Valley"], image: "/Real-life-images/IMG_2347.jpg" },
+  { name: "Simi Valley", slug: "simi-valley", lat: 34.2662, lng: -118.7490, intro: "Emergency cleanup and structural drying for properties across Simi Valley.", localContext: "Simi Valley homes commonly combine slab foundations, attached garages, tile or wood finishes, and long plumbing runs. When a supply line or water heater fails, checking adjoining rooms and shared walls helps keep the scope tied to actual moisture migration.", propertyNotes: ["Water-heater and garage-adjacent losses", "Supply-line failures", "Slab-level moisture spread"], nearby: ["Wood Ranch", "Santa Susana", "Moorpark", "Oak Park"], image: "/Real-life-images/MSP_7604.jpg" },
+  { name: "Moorpark", slug: "moorpark", lat: 34.2855, lng: -118.8770, intro: "Local water extraction, drying, and reconstruction coordination throughout Moorpark.", localContext: "Moorpark’s single-family neighborhoods, hillside developments, and agricultural edges can present losses involving multiple floor levels, exterior drainage, or hard-to-access spaces. Early moisture mapping helps distinguish the visible loss from its full footprint.", propertyNotes: ["Two-story plumbing losses", "Hillside drainage and storm entry", "Crawlspace and subfloor assessment"], nearby: ["Campus Park", "Home Acres", "Simi Valley", "Camarillo"], image: "/Real-life-images/MSP_7581-Edit.jpg" },
+  { name: "Westlake Village", slug: "westlake-village", lat: 34.1460, lng: -118.8062, intro: "Careful emergency restoration for Westlake Village homes, offices, and lakeside properties.", localContext: "Custom finishes, wood flooring, built-in cabinetry, and multi-level layouts make precise documentation especially important in Westlake Village. The restoration plan should identify what can be dried in place and where access or removal is genuinely needed.", propertyNotes: ["Custom finish and contents protection", "Hardwood and cabinet assemblies", "Multi-level residential losses"], nearby: ["North Ranch", "Thousand Oaks", "Oak Park", "Agoura Hills"], image: "/Real-life-images/MSP_7710-Edit.jpg" },
+];
+
+export function getServiceArea(slug: string) { return serviceAreas.find((area) => area.slug === slug) }
