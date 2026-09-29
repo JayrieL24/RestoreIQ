@@ -35,15 +35,16 @@ export function SiteFooter() {
                 className="voda-footer-wordmark"
               />
             </span>
-            <p>24/7 water damage restoration across Camarillo and the surrounding coast.</p>
+            <p>24/7 water, fire and smoke damage restoration across Ventura County.</p>
+            <Image src="/logos/iicrc.png" alt="IICRC certification" width={120} height={56} className="ri26-footer-iicrc" />
           </div>
 
           <nav className="voda-footer-col" aria-labelledby="footer-services">
             <h2 id="footer-services">Services</h2>
             <ul>
-              {services.slice(0, 4).map((s) => (
+              {services.slice(0, 5).map((s) => (
                 <li key={s.title}>
-                  <Link href="/#services">{s.title}</Link>
+                  <Link href={`/services/${s.id}`}>{s.shortTitle}</Link>
                 </li>
               ))}
             </ul>
@@ -52,9 +53,9 @@ export function SiteFooter() {
           <nav className="voda-footer-col" aria-labelledby="footer-coverage">
             <h2 id="footer-coverage">Service area</h2>
             <ul>
-              {serviceAreas.slice(0, 4).map((area) => (
+              {serviceAreas.map((area) => (
                 <li key={area.name}>
-                  <Link href="/#coverage">{area.name}</Link>
+                  <Link href={`/service-areas/${area.slug}`}>{area.name}</Link>
                 </li>
               ))}
             </ul>
@@ -89,7 +90,7 @@ export function SiteFooter() {
           <p>
             &copy; {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
-          <p>Licensed &amp; insured &middot; 24/7 emergency response</p>
+          <p>24/7 emergency restoration &middot; Ventura County</p>
         </div>
       </div>
     </footer>

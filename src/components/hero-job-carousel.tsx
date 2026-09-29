@@ -69,7 +69,7 @@ export function HeroJobCarousel() {
               />
             ))}
           </div>
-          <a href="#proof">See the process <ArrowUpRight /></a>
+          <a href="#process">See the process <ArrowUpRight /></a>
         </div>
       </div>
     </>

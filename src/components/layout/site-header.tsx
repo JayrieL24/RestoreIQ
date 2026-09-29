@@ -3,9 +3,10 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, MenuIcon, PhoneIcon } from "lucide-react";
+import { ArrowUpRight, ChevronDown, MenuIcon, PhoneIcon } from "lucide-react";
 
 import { site } from "@/lib/site";
+import { serviceAreas } from "@/lib/service-areas";
 import {
   Sheet,
   SheetContent,
@@ -54,15 +55,14 @@ export function SiteHeader() {
           </Link>
 
           <nav aria-label="Main navigation" className="voda-desktop-nav">
-            {site.nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="voda-nav-link"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {site.nav.map((item) => item.label === "Service areas" ? (
+              <div className="voda-nav-dropdown" key={item.href}>
+                <Link href={item.href} className="voda-nav-link voda-nav-dropdown-trigger">{item.label}<ChevronDown aria-hidden /></Link>
+                <div className="voda-nav-dropdown-panel" aria-label="Service area pages">
+                  {serviceAreas.map((area) => <Link href={`/service-areas/${area.slug}`} key={area.slug}>{area.name}<ArrowUpRight aria-hidden /></Link>)}
+                </div>
+              </div>
+            ) : <Link key={item.href} href={item.href} className="voda-nav-link">{item.label}</Link>)}
           </nav>
 
           <div className="voda-nav-actions">
@@ -74,8 +74,8 @@ export function SiteHeader() {
               </span>
             </a>
 
-            <Link className="voda-nav-cta" href="/#contact">
-              Request service
+            <Link className="voda-nav-cta" href="/#request-service">
+              {site.cta.request}
               <ArrowUpRight aria-hidden />
             </Link>
 
@@ -101,24 +101,18 @@ export function SiteHeader() {
                 </SheetHeader>
                 <p className="voda-mobile-sheet-kicker">Menu</p>
                 <nav className="voda-mobile-nav" aria-label="Mobile navigation">
-                  {site.nav.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      className="voda-mobile-nav-link"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+                  {site.nav.map((item) => <React.Fragment key={item.href}>
+                    <Link href={item.href} onClick={() => setOpen(false)} className="voda-mobile-nav-link">{item.label}</Link>
+                    {item.label === "Service areas" ? <div className="voda-mobile-area-links">{serviceAreas.map((area) => <Link href={`/service-areas/${area.slug}`} onClick={() => setOpen(false)} key={area.slug}>{area.name}</Link>)}</div> : null}
+                  </React.Fragment>)}
                 </nav>
                 <div className="voda-mobile-sheet-actions">
                   <a href={tel}>
                     <PhoneIcon aria-hidden />
-                    Call {site.phone}
+                    {site.cta.call} · {site.phone}
                   </a>
-                  <Link href="/#contact" onClick={() => setOpen(false)}>
-                    Request service <ArrowUpRight aria-hidden />
+                  <Link href="/#request-service" onClick={() => setOpen(false)}>
+                    {site.cta.request} <ArrowUpRight aria-hidden />
                   </Link>
                 </div>
               </SheetContent>
@@ -127,10 +121,10 @@ export function SiteHeader() {
         </div>
       </header>
 
-      {/* Mobile-only floating call button, bottom-right of the screen. */}
-      <a className={`voda-float-call${open ? " is-hidden" : ""}`} href={tel} aria-label={`Call ${site.phone}`}>
-        <PhoneIcon aria-hidden />
-      </a>
+      <div className={`ri26-mobile-bar${open ? " is-hidden" : ""}`} aria-label="Emergency actions">
+        <a href={tel}><PhoneIcon aria-hidden /> {site.cta.call}</a>
+        <Link href="/#request-service"><ArrowUpRight aria-hidden /> {site.cta.request}</Link>
+      </div>
     </>
   );
 }
