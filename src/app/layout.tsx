@@ -1,19 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import "leaflet/dist/leaflet.css";
 
 import "./globals.css";
 import "./about-story.css";
 import "./voda-rebuild.css";
-
-// The site was falling back to Arial, which flattened the type. Inter
-// matches the reference's grotesque and carries proper tabular numerals
-// for the stat figures.
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
+import "./revision-2026.css";
 
 import { site } from "@/lib/site";
 import { Providers } from "@/components/providers";
@@ -22,10 +13,10 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { Toaster } from "@/components/ui/sonner";
 
 const seo = {
-  title: "Water Damage Restoration in Camarillo | RestoreIQ",
+  title: "24/7 Water Damage Restoration in Ventura County | RestoreIQ",
   description:
-    "24/7 water damage restoration in Camarillo and the surrounding coast. Water extraction, structural drying, moisture mapping, and cleanup from RestoreIQ.",
-  image: "/restoreiq-hero-interior-v3.png",
+    "24/7 water damage restoration in Ventura County. Water extraction, structural drying, moisture detection, fire and smoke restoration from RestoreIQ.",
+  image: "/Real-life-images/MSP_7706.jpg",
   socialImage: "/restoreiq-og-social.png",
 };
 
@@ -51,11 +42,11 @@ export const metadata: Metadata = {
   description: seo.description,
   applicationName: site.name,
   keywords: [
-    "water damage restoration Camarillo",
-    "water extraction Camarillo",
+    "water damage restoration Ventura County",
+    "water extraction Ventura County",
     "structural drying",
     "emergency water cleanup",
-    "moisture mapping",
+    "fire and smoke restoration",
   ],
   alternates: { canonical: "/" },
   robots: {
@@ -98,6 +89,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#101724" },
@@ -109,7 +102,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans`}>
+      <body className="font-sans">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c") }}
@@ -117,7 +110,7 @@ export default function RootLayout({
         <Providers>
           <div className="flex min-h-dvh flex-col">
             <SiteHeader />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1" id="main-content">{children}</main>
             <SiteFooter />
           </div>
           <Toaster />
