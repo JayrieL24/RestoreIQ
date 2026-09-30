@@ -333,3 +333,218 @@
    heading sits close under it rather than across a wide empty band. */
 .voda-services { padding-bottom:clamp(48px,5vw,72px); }
 
+/* ── Form section → footer ──────────────────────────────────────────────
+   The footer's wave is solid #0a2340 and rises up to 104px over the form
+   section's photograph, so its edge showed as a hard tonal step. Fade the
+   photo to that exact navy over ~300px and hold it solid through the band
+   the wave occupies: the curve keeps its shape, but there is nothing for
+   its edge to contrast against. The footer itself is not touched. */
+.voda-request-section::after {
+  content:"";
+  position:absolute;
+  z-index:2;
+  left:0; right:0; bottom:0;
+  height:clamp(240px,26vw,340px);
+  pointer-events:none;
+  background:linear-gradient(180deg,
+    rgba(10,35,64,0)   0%,
+    rgba(10,35,64,.20) 24%,
+    rgba(10,35,64,.50) 44%,
+    rgba(10,35,64,.82) 58%,
+    #0a2340            66%,
+    #0a2340            100%);
+}
+
+/* Form and copy stay above the fade. */
+.voda-request-section .voda-wrap { position:relative; z-index:3; }
+
+/* ── CTA band above the FAQ ─────────────────────────────────────────────
+   Full-bleed navy gradient rather than a photo: the request section two
+   blocks below is already a photo under a navy wash, and repeating that
+   would give the page two near-identical dark bands. Dot texture and cyan
+   accent follow the site's existing dark-section language. */
+.voda-cta-band {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:0;
+  color:#fff;
+  background:transparent;
+}
+
+/* Full-bleed navy, edge to edge. Fading the sides to white washed the colour
+   out, so the navy holds full strength right to the viewport edges. */
+.voda-cta-band-panel {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:clamp(46px,5.4vw,70px) 0;
+  border-radius:0;
+  /* Deepened from #0a3159 so the white centre glow has contrast headroom. */
+  background:radial-gradient(120% 160% at 18% 0%, #093456 0%, #051b33 38%, #03111f 80%);
+}
+/* No pattern: thin strokes on navy read as scratches, and fading them only
+   made them look like smudges. The band gets its interest from light alone —
+   a cyan lift where the edges fall away, and a soft white core at centre. */
+.voda-cta-band-panel::before {
+  content:"";
+  position:absolute; z-index:0; inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse 34% 132% at 0% 38%, rgba(42,182,200,.26), rgba(42,182,200,0) 72%),
+    radial-gradient(ellipse 34% 132% at 100% 62%, rgba(42,182,200,.19), rgba(42,182,200,0) 72%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0) 34%);
+}
+
+/* Soft white core. The headline is 40px bold, so WCAG's large-text 3:1
+   threshold applies and the glow can be strong enough to actually read. */
+.voda-cta-band-panel::after {
+  content:"";
+  position:absolute; z-index:0; inset:0;
+  pointer-events:none;
+  background:radial-gradient(circle 32vw at 50% 50%,
+    rgba(232,247,255,.20) 0%,
+    rgba(232,247,255,.145) 26%,
+    rgba(232,247,255,.085) 48%,
+    rgba(232,247,255,.035) 68%,
+    rgba(232,247,255,.012) 84%,
+    rgba(232,247,255,0) 100%);
+}
+
+/* Oversized 24/7 marks filling the space either side of the container on wide
+   screens. Cropped by the panel so they read as large graphic mass rather than
+   as text, and hidden below 1280px where there is no dead space to fill. */
+/* Vertical label in the left gutter, reading bottom-to-top. Background level:
+   it fills the space beside the copy without competing with it, and only
+   appears where the gutter is wide enough to hold it. */
+.voda-cta-band-rail {
+  position:absolute; z-index:1;
+  left:30px;
+  top:50%;
+  display:none;
+  writing-mode:vertical-rl;
+  transform:translateY(-50%) rotate(180deg);
+  color:rgba(168,214,232,.38);
+  font-size:10px;
+  font-weight:750;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  pointer-events:none;
+  user-select:none;
+}
+/* Short tick above the label, tying it to the band's edge. */
+.voda-cta-band-rail::after {
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-26px;
+  width:1px;
+  height:18px;
+  transform:translateX(-50%);
+  background:linear-gradient(rgba(168,214,232,.4), transparent);
+}
+@media(min-width:1340px){
+  .voda-cta-band-rail { display:block; }
+}
+
+.voda-cta-band-mark {
+  position:absolute; z-index:0;
+  top:50%;
+  display:none;
+  font-size:clamp(150px,15vw,240px);
+  font-weight:800;
+  letter-spacing:-.06em;
+  line-height:1;
+  white-space:nowrap;
+  pointer-events:none;
+  user-select:none;
+  color:rgba(146,214,232,.13);
+  transform:translateY(-50%);
+}
+/* Pushed out so only the trailing glyphs sit in the dead space and the copy
+   keeps a clean field; a mask fades whatever reaches toward the centre. */
+/* Sits in the right dead space with the last glyph running off the edge, and
+   fades toward the copy so it never competes with the headline. */
+.voda-cta-band-mark.right { right:-.18em; mask-image:linear-gradient(270deg,#000 46%,rgba(0,0,0,.35) 78%,transparent 100%); -webkit-mask-image:linear-gradient(270deg,#000 46%,rgba(0,0,0,.35) 78%,transparent 100%); }
+
+@media(min-width:1280px){
+  .voda-cta-band-mark { display:block; }
+}
+/* On the widest screens there is room for a little more presence. */
+@media(min-width:1600px){
+  .voda-cta-band-mark { color:rgba(146,214,232,.155); }
+}
+
+.voda-cta-band-inner {
+  position:relative; z-index:2;
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:26px 40px;
+}
+.voda-cta-band-copy { max-width:620px; }
+.voda-cta-band-copy h2 {
+  margin-top:13px;
+  font-size:clamp(27px,3.1vw,40px);
+  line-height:1.04;
+  letter-spacing:-.045em;
+  font-weight:720;
+}
+.voda-cta-band-copy h2 em { color:#68e1e2; }
+
+/* Trust points under the headline, filling the middle of the band. */
+.voda-cta-band-points {
+  display:flex; flex-wrap:wrap;
+  gap:9px 22px;
+  margin:18px 0 0;
+  padding:0;
+  list-style:none;
+  color:#bcd6e4;
+  font-size:11.5px;
+  font-weight:620;
+  letter-spacing:.01em;
+}
+.voda-cta-band-points li { display:inline-flex; align-items:center; gap:7px; }
+.voda-cta-band-points svg {
+  width:15px; height:15px; flex:none;
+  padding:2.5px;
+  border-radius:50%;
+  background:rgba(104,225,226,.17);
+  color:#7ee7e8;
+}
+
+.voda-cta-band-actions { display:flex; align-items:center; flex-wrap:wrap; gap:16px; }
+.voda-cta-band .voda-btn.primary {
+  min-height:52px; padding:0 22px; border-radius:12px;
+  background:#68e1e2; color:#06263c;
+  box-shadow:0 13px 32px rgba(48,197,205,.22);
+}
+.voda-cta-band .voda-btn.primary:hover { background:#8cecf0; transform:translateY(-2px); }
+.voda-cta-band .voda-btn.primary svg { width:15px; }
+
+.voda-cta-band-call { display:flex; align-items:center; gap:12px; color:#fff; }
+.voda-cta-band-icon {
+  display:grid; place-items:center;
+  width:44px; height:44px; flex:none;
+  border:1px solid rgba(137,238,239,.3);
+  border-radius:50%;
+  background:rgba(42,174,189,.14);
+  color:#68e1e2;
+  transition:background .26s, border-color .26s;
+}
+.voda-cta-band-icon svg { width:18px; }
+.voda-cta-band-call:hover .voda-cta-band-icon { background:rgba(42,174,189,.26); border-color:rgba(137,238,239,.5); }
+.voda-cta-band-call small { display:block; color:#9fc4d6; font-size:10.5px; letter-spacing:.04em; }
+.voda-cta-band-call b { display:block; margin-top:3px; font-size:18px; letter-spacing:-.02em; }
+
+@media(max-width:860px){
+  .voda-cta-band-inner { flex-direction:column; align-items:flex-start; gap:22px; }
+  .voda-cta-band-copy { max-width:none; }
+}
+@media(max-width:520px){
+  .voda-cta-band { padding:0; }
+  .voda-cta-band-panel { padding:clamp(34px,8vw,44px) 0; }
+  .voda-cta-band-actions { width:100%; gap:13px; }
+  .voda-cta-band .voda-btn.primary { width:100%; justify-content:center; }
+  .voda-cta-band-call b { font-size:16.5px; }
+}
+

@@ -92,6 +92,38 @@ export default function HomePage() {
 
     <ServiceAreaMap />
 
+    <section className="voda-cta-band" aria-labelledby="cta-band-heading">
+      <div className="voda-cta-band-panel">
+      {/* Oversized marks bleeding off each edge, filling the space either side
+          of the container on wide screens. Large soft shapes, nothing thin. */}
+      <span className="voda-cta-band-rail" aria-hidden>Emergency response</span>
+      <span className="voda-cta-band-mark right" aria-hidden>24/7</span>
+      <div className="voda-wrap voda-cta-band-inner">
+        <Reveal className="voda-cta-band-copy">
+          <span className="voda-eyebrow cyan">Water spreading right now?</span>
+          <h2 id="cta-band-heading">Every hour matters <em>after water damage.</em></h2>
+          <ul className="voda-cta-band-points">
+            <li><Check aria-hidden />Most calls answered live</li>
+            <li><Check aria-hidden />Insurance assistance</li>
+            <li><Check aria-hidden />Ventura County crews</li>
+          </ul>
+        </Reveal>
+        <Reveal delay={0.08} className="voda-cta-band-actions">
+          <a className="voda-btn primary" href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>
+            {site.cta.call} <ArrowRight aria-hidden />
+          </a>
+          <a className="voda-cta-band-call" href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>
+            <span className="voda-cta-band-icon" aria-hidden><Phone aria-hidden /></span>
+            <span>
+              <small>24/7 emergency line</small>
+              <b>{site.phone}</b>
+            </span>
+          </a>
+        </Reveal>
+      </div>
+      </div>
+    </section>
+
     <Faq />
 
     <section className="voda-request-section" id="request-service"><Image src="/Real-life-images/MSP_7706.jpg" alt="RestoreIQ technician restoring a water-damaged home" fill className="voda-cover" sizes="100vw" /><div className="voda-final-wash" /><div className="voda-wrap voda-request-layout">
