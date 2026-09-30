@@ -752,7 +752,8 @@
 .voda-site small,
 .voda-site b,
 .voda-site li,
-.voda-site button {
+.voda-site button,
+.voda-site h4 {
   font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 

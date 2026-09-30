@@ -1,4 +1,4 @@
-:root { --font-inter:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; --ri26-navy:#061e34; --ri26-blue:#10b9d1; --ri26-bright:#68e1e2; --ri26-ink:#102c40; --ri26-muted:#617687; --ri26-line:#dce8ed; --ri26-soft:#f3f8fa; }
+:root { --ri26-navy:#061e34; --ri26-blue:#10b9d1; --ri26-bright:#68e1e2; --ri26-ink:#102c40; --ri26-muted:#617687; --ri26-line:#dce8ed; --ri26-soft:#f3f8fa; }
 .ri26 { overflow:hidden; background:#fff; color:var(--ri26-ink); }
 .ri26-shell { width:min(1160px,calc(100% - 40px)); margin-inline:auto; }
 .ri26-section { padding:clamp(100px,9vw,135px) 0; }

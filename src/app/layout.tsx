@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "leaflet/dist/leaflet.css";
 
 import "./globals.css";
@@ -11,6 +12,14 @@ import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Toaster } from "@/components/ui/sonner";
+
+/* Inter is referenced by --font-inter across the stylesheets; load it here so the
+   variable weights (640/680/720/750) render instead of snapping to Segoe's cuts. */
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 const seo = {
   title: "24/7 Water Damage Restoration in Ventura County | RestoreIQ",
@@ -101,7 +110,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={inter.variable}>
       <body className="font-sans">
         <script
           type="application/ld+json"
