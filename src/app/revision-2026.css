@@ -548,3 +548,164 @@
   .voda-cta-band-call b { font-size:16.5px; }
 }
 
+/* ── Hero equipment float ───────────────────────────────────────────────
+   Sits mid-left beside the headline, bleeding off the left edge. The copy
+   block runs 64% wide here, so this sits behind it (z-index under the
+   content) and is kept clear of the text's left edge by the offset. */
+.voda-hero-equipment {
+  /* Hidden for now — remove this line to bring it back. */
+  display:none;
+  position:absolute;
+  z-index:2;
+  left:-156px;
+  top:51%;
+  width:432px;
+  height:280px;
+  pointer-events:auto;
+  mix-blend-mode:screen;
+  filter:drop-shadow(0 30px 25px #00101dbb);
+  opacity:.9;
+  transform:translateY(-50%);
+  transition:filter .4s ease, opacity .4s ease;
+}
+/* Static at rest; lifts only on hover. The motion sits on the inner wrapper so
+   it never fights the outer translateY(-50%) that centres the element. */
+.voda-hero-equipment > * { transition:transform .45s cubic-bezier(.22,1,.36,1); }
+.voda-hero-equipment:hover {
+  opacity:1;
+  filter:drop-shadow(0 40px 34px #00101ddd) drop-shadow(0 0 22px rgba(104,225,226,.22));
+}
+.voda-hero-equipment:hover > * { transform:translate3d(0,-18px,0) scale(1.03); }
+
+@media (prefers-reduced-motion:reduce){
+  .voda-hero-equipment > * { transition:none; }
+  .voda-hero-equipment:hover > * { transform:none; }
+}
+
+@media(max-width:1200px){
+  .voda-hero-equipment { left:-135px; top:51%; width:389px; height:252px; opacity:.75; }
+}
+@media(max-width:950px){
+  .voda-hero-equipment { display:none; }
+}
+
+/* The hero copy block spans 64% of the width but its text does not fill it.
+   Let clicks and hovers pass through the empty areas so the equipment behind
+   it stays reachable, while the text and buttons keep their own. */
+.voda-hero-inner { pointer-events:none; }
+.voda-hero-copy > * { pointer-events:auto; }
+
+/* ── Hero: floating status card beside the CTAs ─────────────────────────
+   Sits adjacent to the secondary button, using the same translucent glass
+   treatment as the .voda-btn.glass so it belongs to the hero's language. */
+.voda-hero-float-card {
+  display:flex;
+  align-items:flex-start;
+  /* The actions row is a flex container with the default align-items:stretch,
+     and the buttons only set min-height — so a taller card was stretching
+     them. Centring this item keeps its height to itself. */
+  align-self:center;
+  gap:13px;
+  margin-left:165px;
+  min-width:262px;
+  padding:18px 20px 18px 16px;
+  border:1px solid rgba(255,255,255,.7);
+  border-radius:15px;
+  background:#fff;
+  box-shadow:0 20px 44px rgba(2,17,32,.3);
+}
+/* Inverted for the white card: the pale circle and blue glyph used elsewhere
+   on the site, with ink text. */
+.voda-hero-float-icon {
+  display:grid; place-items:center;
+  width:42px; height:42px; flex:none;
+  border:1px solid #d94b3d;
+  border-radius:50%;
+  background:#fdecea;
+  color:#d94b3d;
+  box-shadow:0 0 0 3px rgba(217,75,61,.1);
+}
+.voda-hero-float-icon svg { width:19px; height:19px; }
+.voda-hero-float-card b,
+.voda-hero-float-card small { display:block; }
+.voda-hero-float-card b {
+  color:#0b2438;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:-.015em;
+}
+.voda-hero-float-card small {
+  margin-top:3px;
+  color:#6a7c86;
+  font-size:11px;
+  letter-spacing:.02em;
+}
+/* Live indicator beside the title. */
+.voda-hero-float-status {
+  display:inline-block;
+  width:7px; height:7px;
+  margin-right:7px;
+  border-radius:50%;
+  background:#22b27b;
+  box-shadow:0 0 0 3px rgba(34,178,123,.16);
+  vertical-align:middle;
+}
+/* Third line, separated by a hairline rule. */
+.voda-hero-float-card em {
+  display:block;
+  margin-top:9px;
+  padding-top:9px;
+  border-top:1px solid #e8eff3;
+  color:#8b9aa4;
+  font-size:10px;
+  font-style:normal;
+  font-weight:600;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+
+/* The row needs ~784px, which exceeds the copy column, so the card only shows
+   where the actions row is allowed to extend past it (1360px and up). */
+@media(max-width:1359px){ .voda-hero-float-card { display:none; } }
+
+/* Keep the hero buttons at their own height; the float card must not set the
+   row height for them. */
+.voda-hero .voda-actions { align-items:center; }
+.voda-hero .voda-actions > .voda-btn { align-self:center; height:54px; }
+
+/* The actions row carries the float card, which pushes it past the copy
+   column's 760px cap. Let this row alone extend so the card stays on the
+   same line as the buttons, without widening the headline or paragraph. */
+@media(min-width:1360px){
+  .voda-hero .voda-actions { width:max-content; max-width:none; flex-wrap:nowrap; }
+}
+
+/* ── Hero: line grid on the left ────────────────────────────────────────
+   Subtle white grid anchored to the left edge, fading out as it travels
+   toward the headline. Sits above the wash but below the copy (z-index 3),
+   and is desktop only — on narrow screens the copy fills the width and the
+   grid would sit directly under the text. */
+.voda-hero-grid {
+  position:absolute;
+  z-index:2;
+  left:0;
+  top:0;
+  bottom:0;
+  width:58%;
+  pointer-events:none;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.038) 3px, transparent 3px),
+    linear-gradient(to bottom, rgba(255,255,255,.038) 3px, transparent 3px);
+  background-size:78px 78px;
+  /* Strongest at the very edge, gone before the headline gets going. */
+  -webkit-mask-image:
+    linear-gradient(90deg, #000 0%, rgba(0,0,0,.72) 26%, rgba(0,0,0,.34) 52%, rgba(0,0,0,.12) 76%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, #000 14%, #000 74%, transparent 96%);
+  mask-image:
+    linear-gradient(90deg, #000 0%, rgba(0,0,0,.72) 26%, rgba(0,0,0,.34) 52%, rgba(0,0,0,.12) 76%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, #000 14%, #000 74%, transparent 96%);
+  -webkit-mask-composite:source-in;
+  mask-composite:intersect;
+}
+
+@media(max-width:1000px){ .voda-hero-grid { display:none; } }

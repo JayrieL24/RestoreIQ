@@ -26,11 +26,30 @@ export default function HomePage() {
     <section className="voda-hero">
       <Image src="/restoreiq-hero-tall-v5.jpg" alt="RestoreIQ technician setting professional drying equipment inside a home" fill priority className="voda-cover voda-hero-image" sizes="100vw" />
       <div className="voda-hero-wash" /><div aria-hidden className="voda-hero-orb" />
+      <div aria-hidden className="voda-hero-grid" />
+      <div className="voda-hero-equipment" aria-hidden>
+        <Image
+          src="/restoration-equipment-float.png"
+          alt=""
+          fill
+          className="voda-cover"
+          sizes="(max-width: 950px) 300px, 430px"
+        />
+      </div>
       <div className="voda-wrap voda-hero-inner"><Reveal className="voda-hero-copy">
         <span className="voda-hero-kicker"><i />Local emergency restoration</span>
         <h1>24/7 Water Damage Restoration <em>in Ventura County</em></h1>
         <p>Rapid water extraction, structural drying and moisture detection from a local restoration team. Call now for immediate arrival guidance.</p>
-        <div className="voda-actions"><a className="voda-btn primary" href={`tel:${phone}`}>{site.cta.call} <Phone /></a><a className="voda-btn glass" href="#request-service">{site.cta.request} <ArrowRight /></a></div>
+        <div className="voda-actions"><a className="voda-btn primary" href={`tel:${phone}`}>{site.cta.call} <Phone /></a><a className="voda-btn glass" href="#request-service">{site.cta.request} <ArrowRight /></a>
+          <div className="voda-hero-float-card">
+            <span className="voda-hero-float-icon" aria-hidden><Clock3 /></span>
+            <span className="voda-hero-float-text">
+              <b><i className="voda-hero-float-status" aria-hidden />Crews on call now</b>
+              <small>Ventura County · 24/7</small>
+              <em>Most calls answered live</em>
+            </span>
+          </div>
+        </div>
         <ul className="voda-hero-points"><li><Check aria-hidden /> Most calls answered live</li><li><Check aria-hidden /> Call for current arrival guidance</li></ul>
       </Reveal></div>
       <svg className="voda-hero-wave" viewBox="0 0 1440 190" preserveAspectRatio="none" aria-hidden="true"><path className="voda-hero-wave-fill" d="M0 112C175 58 315 92 448 138C588 186 793 179 947 128C1107 75 1275 70 1440 116V190H0Z" /></svg>
@@ -45,7 +64,7 @@ export default function HomePage() {
 
     <section className="voda-process voda-process-brief" id="process"><div className="voda-wrap">
       <Reveal className="voda-heading"><span className="voda-eyebrow">What happens after you call</span><h2>A clear path from emergency<br /><em>to restored.</em></h2><p>Five straightforward stages so you always know what comes next.</p></Reveal>
-      <RevealGroup className="voda-step-grid voda-step-grid-five">{process.map(({ title, copy, icon: Icon }, index) => <RevealItem key={title}><article><span>0{index + 1}</span><div><Icon aria-hidden /></div><h3>{title}</h3><p>{copy}</p></article></RevealItem>)}</RevealGroup>
+      <RevealGroup className="voda-step-grid voda-step-grid-five">{process.map(({ title, accent, copy, icon: Icon }, index) => <RevealItem key={title}><article><span>0{index + 1}</span><div><Icon aria-hidden /></div><h3>{title} <em>{accent}</em></h3><p>{copy}</p></article></RevealItem>)}</RevealGroup>
     </div></section>
 
     <section className="voda-response" id="moisture-response">
