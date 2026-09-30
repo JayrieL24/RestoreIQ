@@ -33,7 +33,12 @@
 .ri26-split { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(48px,7vw,90px); align-items:center; }.ri26-photo { position:relative; min-height:660px; overflow:hidden; border-radius:24px; background:#d8e6ea; }.ri26-photo img { object-position:center; }
 .ri26-check-list { display:grid; gap:0; margin-top:35px; padding:0; list-style:none; }.ri26-check-list li { display:grid; grid-template-columns:44px 1fr; gap:15px; padding:21px 0; border-bottom:1px solid var(--ri26-line); }.ri26-check-list li>svg { width:42px; height:42px; padding:10px; border-radius:12px; background:#e5f8f9; color:#078ca5; }.ri26-check-list b { font-size:15px; }.ri26-check-list p { margin-top:5px; color:var(--ri26-muted); font-size:12px; line-height:1.6; }
 .ri26-insurance { background:radial-gradient(circle at 90% 0,rgba(37,151,190,.22),transparent 38%),var(--ri26-navy); color:#fff; }.ri26-insurance-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:48px; }.ri26-insurance-grid>div { padding:29px; border:1px solid rgba(255,255,255,.13); border-radius:17px; background:rgba(255,255,255,.06); }.ri26-insurance-grid svg { width:28px; color:#73e4e5; }.ri26-insurance-grid h3 { margin-top:22px; color:#fff; font-size:17px; }.ri26-insurance-grid p { margin-top:9px; color:#bed0dc; font-size:12px; line-height:1.65; }
-.ri26-carrier-label { margin-top:43px; color:#9db4c1; font-size:10px; font-weight:750; letter-spacing:.08em; text-transform:uppercase; }.ri26-carrier { width:100%; margin-top:14px; overflow:hidden; -webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }.ri26-carrier-track { display:flex; width:max-content; gap:12px; animation:ri26-marquee 28s linear infinite; }.ri26-carrier:hover .ri26-carrier-track { animation-play-state:paused; }.ri26-carrier-logo { min-width:196px; height:78px; display:flex; align-items:center; justify-content:center; padding:15px 23px; border:1px solid rgba(255,255,255,.28); border-radius:12px; background:rgba(255,255,255,.97); box-shadow:0 10px 26px rgba(0,0,0,.13); }.ri26-carrier-logo img { display:block; width:auto; max-width:150px; height:auto; max-height:43px; object-fit:contain; }.ri26-carrier-logo-compact img { max-width:80px; max-height:48px; }
+.ri26-carrier-label { margin-top:43px; color:#9db4c1; font-size:10px; font-weight:750; letter-spacing:.08em; text-transform:uppercase; }/* The rail reaches a little past the container so cards are not clipped so
+   early, and the fade is a fixed 60px rather than a percentage that grew with
+   the rail and covered half a card. */
+.ri26-carrier { width:auto; margin-top:14px; margin-inline:0; overflow:hidden; -webkit-mask:linear-gradient(90deg,transparent 0,#000 60px,#000 calc(100% - 60px),transparent 100%); mask:linear-gradient(90deg,transparent 0,#000 60px,#000 calc(100% - 60px),transparent 100%); }
+/* Reach past the container only where the viewport has room for it. */
+@media(min-width:1380px){ .ri26-carrier { margin-inline:-93px; } }.ri26-carrier-track { display:flex; width:max-content; gap:12px; animation:ri26-marquee 28s linear infinite; }.ri26-carrier:hover .ri26-carrier-track { animation-play-state:paused; }.ri26-carrier-logo { min-width:196px; height:78px; display:flex; align-items:center; justify-content:center; padding:15px 23px; border:1px solid rgba(255,255,255,.28); border-radius:12px; background:rgba(255,255,255,.97); box-shadow:0 10px 26px rgba(0,0,0,.13); }.ri26-carrier-logo img { display:block; width:auto; max-width:150px; height:auto; max-height:43px; object-fit:contain; }.ri26-carrier-logo-compact img { max-width:80px; max-height:48px; }
 @keyframes ri26-marquee { to { transform:translateX(calc(-50% - 6px)); } }
 .ri26-about { background:#fff; }.ri26-about-slot { min-height:570px; display:grid; place-content:center; justify-items:center; border:2px dashed #b9d3dc; border-radius:24px; background:linear-gradient(145deg,#f5fafb,#eaf4f6); color:#6e8694; }.ri26-about-slot svg { width:48px; height:48px; margin-bottom:18px; color:#55aebe; }.ri26-about-slot b { color:#27485b; }.ri26-about-slot span { margin-top:7px; font-size:11px; }
 .ri26-pending { margin-top:34px; border-top:1px solid var(--ri26-line); }.ri26-pending>div { display:grid; grid-template-columns:1fr 1.2fr; gap:18px; padding:19px 0; border-bottom:1px solid var(--ri26-line); }.ri26-pending dt { font-size:12px; font-weight:800; }.ri26-pending dd { color:#7c909b; font-size:11px; }
@@ -160,3 +165,171 @@
 .voda-mobile-area-links { display:grid; grid-template-columns:1fr 1fr; gap:7px; padding:13px 2px 18px; border-bottom:1px solid #dbe8ed; }
 .voda-mobile-area-links a { min-height:35px; display:flex; align-items:center; padding:0 10px; border-radius:8px; background:#e9f6f8; color:#17627a; font-size:10px; font-weight:750; }
 @media(max-width:430px){.voda-mobile-area-links{grid-template-columns:1fr}}
+
+/* Why section: the 1180px wrap left ~120px dead on each side at desktop widths.
+   Widen this section only, and let the collage grow with it. */
+.voda-why .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+.voda-why .voda-why-grid { column-gap:clamp(48px,6vw,110px); row-gap:0; }
+.voda-why .voda-why-collage { max-width:660px; }
+@media(max-width:1500px){ .voda-why .voda-wrap { width:calc(100% - 64px); } }
+@media(max-width:1000px){ .voda-why .voda-wrap { width:min(1180px,calc(100% - 48px)); } .voda-why .voda-why-collage { max-width:520px; } }
+
+/* Hero: the copy block sat with an oversized left gutter against a full-bleed
+   photo. Pull it left to an even margin and let the headline fill its measure
+   rather than balancing into short, ragged lines. */
+.voda-hero .voda-wrap { width:min(1320px,calc(100% - 80px)); }
+.voda-hero-copy { width:min(760px,64%); }
+.voda-hero-copy h1 { max-width:760px; font-size:clamp(50px,5.3vw,78px); text-wrap:normal; }
+.voda-hero-copy p { max-width:585px; }
+@media(max-width:1500px){ .voda-hero .voda-wrap { width:calc(100% - 72px); } }
+@media(max-width:1000px){ .voda-hero .voda-wrap { width:min(1180px,calc(100% - 48px)); } .voda-hero-copy { width:min(700px,58%); } .voda-hero-copy h1 { max-width:700px; font-size:clamp(50px,5vw,72px); text-wrap:balance; } }
+
+/* ── Why: zigzag process cards ──────────────────────────────────────────
+   The rows were thin and left a dead band down the left of the column.
+   Rebuilt as squarer blocks that alternate across a spine, numbered 01-04,
+   so the column reads as a process. The collage column is untouched. */
+/* Square cards on a 2x2, staggered so the zigzag reading survives. A vertical
+   stack of four squares runs ~1600px, which cannot share a viewport with the
+   heading; the 2x2 keeps them square and fits. Card size is capped so wider
+   viewports do not make the squares taller. */
+.voda-why .voda-why-list { position:relative; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; padding-left:0; align-content:start; }
+
+/* Spine: centred between the two columns. */
+.voda-why .voda-why-list::before { content:""; position:absolute; z-index:0; left:50%; top:30px; bottom:30px; width:1px; background:linear-gradient(#b9d2de 0 60%,#d3e3ea); }
+
+/* The section background runs #fff -> #f5fafc, so a flat white card with a 4%
+   shadow disappears into it. A cool tint at the foot, a defined edge and a
+   layered shadow give the card a real lift off the page. */
+.voda-why .voda-why-item { position:relative; z-index:1; width:100%; max-width:240px; aspect-ratio:1; min-height:240px; height:auto; display:flex; flex-direction:column; gap:0; padding:20px 20px 18px; border:1px solid #d5e4ec; border-radius:18px; background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%); box-shadow:0 1px 2px rgba(9,42,64,.05), 0 10px 22px -8px rgba(9,42,64,.14), 0 26px 48px -20px rgba(9,42,64,.16); transition:border-color .28s, box-shadow .28s, transform .28s, background .28s; }
+
+/* Stagger: right column drops, so the pair reads as a zigzag rather than a block. */
+.voda-why .voda-why-item:nth-child(2n) { margin-top:34px; justify-self:end; }
+.voda-why .voda-why-item:nth-child(2n+1) { justify-self:start; }
+.voda-why .voda-why-item:nth-child(n+3) { margin-top:-18px; }
+.voda-why .voda-why-item:nth-child(4) { margin-top:16px; }
+
+/* Node rides the centre spine on each card's inner edge. */
+.voda-why .voda-why-node { position:absolute; top:34px; width:11px; height:11px; border-radius:50%; border:2px solid #fff; background:#8fb2c2; box-shadow:0 1px 3px rgba(9,42,64,.18), 0 0 0 3px rgba(143,178,194,.18); transition:background .28s, box-shadow .28s; }
+.voda-why .voda-why-item:nth-child(2n+1) .voda-why-node { right:-28px; }
+.voda-why .voda-why-item:nth-child(2n) .voda-why-node { left:-28px; }
+/* Elbow joining node to card. */
+.voda-why .voda-why-node::after { content:""; position:absolute; top:50%; width:17px; height:1px; background:#c2d7e0; transition:background .28s; }
+.voda-why .voda-why-item:nth-child(2n+1) .voda-why-node::after { right:11px; }
+.voda-why .voda-why-item:nth-child(2n) .voda-why-node::after { left:11px; }
+
+.voda-why .voda-why-step { display:block; margin-bottom:12px; color:#9db9c6; font-size:10.5px; font-weight:750; letter-spacing:.14em; font-variant-numeric:tabular-nums; transition:color .28s; }
+
+/* Matched to the process step chips: pale circle, blue outline, blue glyph. */
+.voda-why .voda-why-icon {
+  flex:none;
+  width:60px; height:60px;
+  border:1px solid #0878b7;
+  border-radius:50%;
+  background:#e7f6fe;
+  color:#0878b7;
+  box-shadow:none;
+  transition:background .28s ease, color .28s ease, border-color .28s ease;
+}
+.voda-why .voda-why-icon svg { width:22px; height:22px; }
+
+/* Was margin-top:auto, which pushed every spare pixel into one band between
+   the icon and the title. Distribute the slack instead so the content fills
+   the square evenly. */
+.voda-why .voda-why-text { margin-top:14px; }
+.voda-why .voda-why-item { justify-content:space-between; }
+.voda-why .voda-why-item b { margin-bottom:7px; font-size:15.5px; line-height:1.22; letter-spacing:-.024em; }
+.voda-why .voda-why-item p { font-size:12.6px; line-height:1.5; }
+
+/* Section trimmed so the heading, cards, collage and CTA share one screen. */
+/* Heading back to the site's standard scale, and the block pulled up tight to
+   the section above so it reads as crowding that boundary. */
+.voda-why { padding:clamp(61px,5.5vw,73px) 0 clamp(60px,5vw,78px); }
+.voda-why .voda-heading h2 { font-size:clamp(36px,4.4vw,56px); line-height:.98; letter-spacing:-.05em; }
+.voda-why .voda-heading > p { margin-top:16px; max-width:640px; font-size:14px; line-height:1.65; }
+.voda-why .voda-why-grid { align-items:center; }
+
+/* Hover / active: dark outline lifts to the site's cyan, as on the old row. */
+.voda-why .voda-why-item.is-active { border-color:var(--cyan); background:linear-gradient(168deg,#fff 0%,#fbfeff 60%,#f2fcfd 100%); box-shadow:0 1px 2px rgba(9,42,64,.05), 0 16px 30px -10px rgba(9,42,64,.18), 0 36px 60px -24px rgba(12,150,165,.28); transform:translateY(-5px); }
+.voda-why .voda-why-item.is-active .voda-why-node { background:var(--cyan); box-shadow:0 0 0 4px rgba(19,203,211,.18); }
+.voda-why .voda-why-item.is-active .voda-why-node::after { background:var(--cyan); }
+.voda-why .voda-why-item.is-active .voda-why-step { color:#0a94a8; }
+/* Fills solid on hover, glyph inverts to white. Overrides the base rule that
+   darkened the old navy tile. */
+.voda-why .voda-why-item.is-active .voda-why-icon { border-color:#0878b7; background:#0878b7; color:#fff; box-shadow:0 8px 20px rgba(8,120,183,.28); }
+.voda-why .voda-why-item:focus-visible { border-color:var(--cyan); }
+
+/* Tablet: collage drops below, so the squares get the full width and grow. */
+@media(max-width:950px){
+  .voda-why .voda-why-list { column-gap:64px; row-gap:20px; justify-items:center; }
+  .voda-why .voda-why-item { max-width:300px; }
+  .voda-why .voda-why-item:nth-child(2n) { justify-self:center; }
+  .voda-why .voda-why-item:nth-child(2n+1) { justify-self:center; }
+  .voda-why .voda-why-node { right:-38px; }
+  .voda-why .voda-why-item:nth-child(2n) .voda-why-node { left:-38px; right:auto; }
+  .voda-why .voda-why-node::after { width:27px; }
+  .voda-why .voda-why-item:nth-child(2n) .voda-why-node::after { width:27px; }
+}
+
+/* Phone: one column, spine down the left. Squares would be far too tall at
+   full width, so the aspect ratio is released and the icon returns beside
+   the number. */
+@media(max-width:700px){
+  .voda-why .voda-why-list { grid-template-columns:1fr; padding-left:30px; row-gap:14px; justify-items:stretch; }
+  .voda-why .voda-why-list::before { left:8px; top:34px; bottom:34px; }
+  .voda-why .voda-why-item,
+  .voda-why .voda-why-item:nth-child(2n),
+  .voda-why .voda-why-item:nth-child(n+3),
+  .voda-why .voda-why-item:nth-child(4) { max-width:none; aspect-ratio:auto; margin-top:0; justify-self:stretch; padding:17px 18px 18px; }
+  .voda-why .voda-why-node,
+  .voda-why .voda-why-item:nth-child(2n) .voda-why-node { left:-27px; right:auto; top:30px; }
+  .voda-why .voda-why-node::after,
+  .voda-why .voda-why-item:nth-child(2n) .voda-why-node::after { left:11px; right:auto; width:16px; }
+  .voda-why .voda-why-text { margin-top:10px; }
+  .voda-why .voda-why-item b { font-size:12.8px; }
+  .voda-why .voda-why-item p { font-size:11px; line-height:1.5; }
+  /* Scaled down for phones only — every rule here is inside this query. */
+  .voda-why .voda-why-item,
+  .voda-why .voda-why-item:nth-child(2n),
+  .voda-why .voda-why-item:nth-child(n+3),
+  .voda-why .voda-why-item:nth-child(4) { padding:13px 13px 14px; border-radius:13px; }
+  .voda-why .voda-why-icon { width:40px; height:40px; border-radius:50%; }
+  .voda-why .voda-why-icon svg { width:17px; height:17px; }
+  .voda-why .voda-why-step { margin-bottom:8px; font-size:9px; }
+  .voda-why .voda-why-list { padding-left:23px; row-gap:9px; }
+  .voda-why .voda-why-list::before { left:6px; top:26px; bottom:26px; }
+  .voda-why .voda-why-node,
+  .voda-why .voda-why-item:nth-child(2n) .voda-why-node { left:-20px; top:24px; width:8px; height:8px; }
+  .voda-why .voda-why-node::after,
+  .voda-why .voda-why-item:nth-child(2n) .voda-why-node::after { left:8px; width:11px; }
+  .voda-why .voda-heading h2 { font-size:clamp(24px,6.6vw,30px); }
+  .voda-why .voda-heading > p { margin-top:11px; font-size:12px; line-height:1.58; }
+}
+
+/* Why CTA: moved inside the grid so it sits under the collage rather than
+   spanning the section. Left-aligned to the photos above it. */
+/* Cards span both rows on the left; collage and CTA stack in the right column. */
+.voda-why .voda-why-grid { grid-template-rows:auto auto; align-items:start; }
+.voda-why .voda-why-grid > .voda-why-list { grid-column:1; grid-row:1 / span 2; align-self:center; }
+.voda-why .voda-why-grid > .voda-why-collage { grid-column:2; grid-row:1; }
+/* The photos stop short of the box's base, so trim the canvas instead of
+   pulling the CTA under them, then sit the CTA close beneath. */
+/* Was capped at 520px while the column runs 520-674px wide, so the collage
+   left up to 150px of its own column unused. */
+.voda-why .voda-why-grid > .voda-why-collage { aspect-ratio:590/508; max-width:660px; }
+.voda-why .voda-why-grid > .voda-why-cta { grid-column:2; grid-row:2; justify-content:flex-start; gap:18px; margin-top:22px; }
+@media(max-width:950px){
+  .voda-why .voda-why-grid { grid-template-rows:none; row-gap:48px; }
+  .voda-why .voda-why-grid > .voda-why-list { grid-column:1; grid-row:auto; }
+  .voda-why .voda-why-grid > .voda-why-collage { grid-column:1; grid-row:auto; }
+  .voda-why .voda-why-grid > .voda-why-cta { grid-column:1; grid-row:auto; justify-content:center; gap:22px; margin-top:34px; }
+}
+@media(max-width:560px){
+  .voda-why .voda-why-grid > .voda-why-cta { flex-direction:column; align-items:stretch; gap:14px; }
+  .voda-why .voda-why-grid > .voda-why-cta .voda-btn.primary { justify-content:center; }
+  .voda-why .voda-why-grid > .voda-why-cta .voda-why-call { justify-content:center; }
+}
+
+/* Services carries 145px of bottom padding; trim it so the enlarged Why
+   heading sits close under it rather than across a wide empty band. */
+.voda-services { padding-bottom:clamp(48px,5vw,72px); }
+

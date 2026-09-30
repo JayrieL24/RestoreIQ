@@ -74,10 +74,14 @@ export function WhyChoose() {
                   onFocusCapture={() => setActive(i)}
                   tabIndex={0}
                 >
+                  <span className="voda-why-node" aria-hidden />
+                  <span className="voda-why-step" aria-hidden>
+                    0{i + 1}
+                  </span>
                   <span className="voda-why-icon" aria-hidden>
                     <WhyChooseIcon type={feature.icon} />
                   </span>
-                  <div>
+                  <div className="voda-why-text">
                     <b>{feature.title}</b>
                     <p>{feature.body}</p>
                   </div>
@@ -140,19 +144,19 @@ export function WhyChoose() {
               />
             </div>
           </Reveal>
-        </div>
 
-        <div className="voda-why-cta">
-          <a className="voda-btn primary" href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>
-            {site.cta.call} <ArrowUpRight aria-hidden />
-          </a>
-          <a className="voda-why-call" href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>
-            <span className="voda-why-call-icon" aria-hidden><Phone aria-hidden /></span>
-            <span>
-              <small>24/7 emergency line</small>
-              <b>{site.phone}</b>
-            </span>
-          </a>
+          <div className="voda-why-cta">
+            <a className="voda-btn primary" href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>
+              {site.cta.call} <ArrowUpRight aria-hidden />
+            </a>
+            <a className="voda-why-call" href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>
+              <span className="voda-why-call-icon" aria-hidden><Phone aria-hidden /></span>
+              <span>
+                <small>24/7 emergency line</small>
+                <b>{site.phone}</b>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
