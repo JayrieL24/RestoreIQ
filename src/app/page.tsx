@@ -13,11 +13,11 @@ import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
 const process = [
-  { title: "Call RestoreIQ", copy: "Share what happened and get immediate safety and arrival guidance.", icon: Phone },
-  { title: "Stop and assess", copy: "The source is stopped by the appropriate trade and affected materials are mapped.", icon: ScanSearch },
-  { title: "Extract and document", copy: "Standing water is removed while conditions and contents are recorded.", icon: WavesArrowDown },
-  { title: "Dry and monitor", copy: "Equipment is adjusted as moisture readings show the structure responding.", icon: Wind },
-  { title: "Repair and restore", copy: "After mitigation, the documented and approved repair scope can move forward.", icon: HousePlus },
+  { title: "Call", accent: "us", copy: "Tell us what happened and get safety guidance.", icon: Phone },
+  { title: "Stop the", accent: "source", copy: "We shut off the water and map the damage.", icon: ScanSearch },
+  { title: "Extract", accent: "water", copy: "Standing water comes out and gets documented.", icon: WavesArrowDown },
+  { title: "Dry and", accent: "monitor", copy: "Daily readings guide the drying equipment.", icon: Wind },
+  { title: "Repair and", accent: "restore", copy: "Approved repairs bring your property back.", icon: HousePlus },
 ] as const;
 
 export default function HomePage() {
