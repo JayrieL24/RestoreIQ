@@ -1,3 +1,5 @@
+import { serviceAreas } from "@/lib/service-areas";
+
 export const site = {
   name: "RestoreIQ",
   tagline: "24/7 emergency restoration in Ventura County",
@@ -11,15 +13,10 @@ export const site = {
     request: "Request Service",
   },
   coverage: {
-    areas: [
-      "Ventura",
-      "Westlake Village",
-      "Camarillo",
-      "Moorpark",
-      "Oxnard",
-      "Simi Valley",
-      "Thousand Oaks",
-    ],
+    /* Derived from service-areas.ts so the map pins, the nav, the footer and
+       the LocalBusiness areaServed data can never drift apart. Add or remove a
+       city there and it flows through everywhere. */
+    areas: serviceAreas.map((area) => area.name),
     radius: "Ventura County and nearby communities",
     hours: "24/7 emergency line",
     response: "Call for current arrival guidance",
