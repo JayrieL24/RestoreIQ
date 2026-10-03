@@ -4001,44 +4001,778 @@ main:has(.ri26-area-cta) + .voda-footer .voda-footer-wave {
   .ri26-exp-proof > div { display:flex; align-items:baseline; gap:14px; }
   .ri26-exp-proof dd { margin-top:0; }
 }
-
-/* Merged top block: claim and approach on the left, the service's scope
-   points as a panel on the right. Replaces the old standalone intro, which
-   repeated this section's eyebrow/heading/lede structure directly above it. */
-.ri26-exp-top {
+/* ── Expertise: editorial spread ───────────────────────────────────────
+   A large photo with the copy card overlapping its lower-left corner, so
+   the image carries real presence instead of sitting as a small panel in a
+   column. Scope points run inline under the copy rather than as a separate
+   tall card, which is what kept leaving uneven column heights. */
+.ri26-exp-spread {
+  position:relative;
   display:grid;
-  grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);
+  grid-template-columns:minmax(0,1fr);
   align-items:start;
-  gap:clamp(32px,4vw,68px);
 }
-.ri26-exp-head h2 {
-  margin-top:15px;
+
+/* Photo: pushed right and given real height. */
+.ri26-exp-shot {
+  position:relative;
+  margin:0 0 0 auto;
+  width:68%;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  border-radius:22px;
+  background:#e4eef3;
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.05),
+    0 22px 44px -18px rgba(9,42,64,.26),
+    0 44px 80px -34px rgba(9,42,64,.24);
+}
+.ri26-exp-shot::after {
+  content:"";
+  position:absolute; z-index:1; inset:auto 0 0 0;
+  height:44%;
+  pointer-events:none;
+  background:linear-gradient(180deg, transparent 0%, rgba(5,23,40,.68) 76%, rgba(5,23,40,.82) 100%);
+}
+.ri26-exp-shot figcaption {
+  position:absolute;
+  z-index:2;
+  right:20px; bottom:16px;
+  max-width:46%;
+  color:#fff;
+  font-size:12px;
+  font-weight:620;
+  line-height:1.45;
+  text-align:right;
+}
+
+/* Copy card overlaps the photo's lower-left corner. */
+.ri26-exp-card {
+  position:relative;
+  z-index:3;
+  width:min(560px,56%);
+  margin-top:clamp(-200px,-15vw,-120px);
+  padding:clamp(30px,2.8vw,40px) clamp(28px,2.6vw,38px);
+  border:1px solid #cfdfe9;
+  border-radius:22px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 54%,#f6fafc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 18px 36px -14px rgba(9,42,64,.22),
+    0 44px 80px -34px rgba(9,42,64,.26);
+}
+.ri26-exp-card h2 {
+  margin-top:14px;
+  color:var(--ri26-ink);
+  font-size:clamp(28px,2.9vw,42px);
+  font-weight:740;
+  line-height:1.02;
+  letter-spacing:-.05em;
+}
+.ri26-exp-card h2 em { color:#166a9e; font-style:normal; }
+.ri26-exp-lede { margin-top:16px; color:#4a6072; font-size:14.5px; font-weight:560; line-height:1.68; }
+.ri26-exp-body { margin-top:12px; color:#5d707c; font-size:13.5px; line-height:1.7; }
+
+/* Scope points: inline row, not a panel. */
+.ri26-exp-scope {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px 18px;
+  margin:20px 0 0;
+  padding:18px 0 0;
+  border-top:1px solid #e4eef3;
+  list-style:none;
+}
+.ri26-exp-scope li {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#30495b;
+  font-size:13px;
+  font-weight:620;
+}
+.ri26-exp-scope li svg { width:14px; height:14px; flex:none; color:#0b9cb2; }
+.ri26-exp-card .voda-btn { margin-top:22px; }
+
+/* Capability cards. */
+.ri26-exp-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin-top:clamp(40px,4vw,58px);
+}
+.ri26-exp-grid article {
+  display:flex;
+  flex-direction:column;
+  padding:28px 26px 26px;
+  border:1px solid #cfdfe9;
+  border-radius:18px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 12px 24px -10px rgba(9,42,64,.2),
+    0 30px 54px -26px rgba(9,42,64,.26);
+  transition:border-color .28s, box-shadow .28s, transform .28s;
+}
+.ri26-exp-grid article:hover {
+  border-color:#59c6e4;
+  transform:translateY(-3px);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 18px 32px -12px rgba(9,42,64,.24),
+    0 40px 66px -30px rgba(9,42,64,.3);
+}
+.ri26-exp-mark {
+  display:grid; place-items:center;
+  width:44px; height:44px;
+  border:1px solid #bcdcec;
+  border-radius:12px;
+  background:#f2fafd;
+  color:#0a6ea6;
+}
+.ri26-exp-mark svg { width:20px; height:20px; }
+.ri26-exp-grid b {
+  margin-top:20px;
+  color:var(--ri26-ink);
+  font-size:16.5px;
+  font-weight:730;
+  letter-spacing:-.025em;
+  line-height:1.26;
+}
+.ri26-exp-grid p { margin-top:10px; color:#5d707c; font-size:13px; line-height:1.64; }
+
+/* Proof row closes the section. */
+.ri26-exp-proof {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(18px,3vw,46px);
+  margin:clamp(32px,3.4vw,46px) 0 0;
+  padding-top:clamp(26px,2.8vw,36px);
+  border-top:1px solid #dce8ed;
+}
+.ri26-exp-proof dt {
+  color:#166a9e;
+  font-size:clamp(24px,2.8vw,34px);
+  font-weight:770;
+  letter-spacing:-.04em;
+  line-height:1;
+}
+.ri26-exp-proof dd { margin:8px 0 0; color:#5d707c; font-size:12.5px; line-height:1.55; }
+
+@media(min-width:1001px){
+  .ri26-exp .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+}
+@media(max-width:1000px){
+  /* Stacked: photo full width, card below it with a light overlap. */
+  .ri26-exp-shot { width:100%; aspect-ratio:16/9; border-radius:18px; }
+  .ri26-exp-shot figcaption { max-width:70%; }
+  .ri26-exp-card { width:min(100%,560px); margin:-48px auto 0; border-radius:18px; }
+  .ri26-exp-grid { grid-template-columns:1fr; }
+  .ri26-exp-proof { grid-template-columns:1fr; gap:16px; }
+  .ri26-exp-proof > div { display:flex; align-items:baseline; gap:14px; }
+  .ri26-exp-proof dd { margin-top:0; }
+}
+@media(max-width:560px){
+  .ri26-exp-scope { grid-template-columns:1fr; }
+  .ri26-exp-card { margin-top:-32px; padding:26px 22px; }
+}
+
+/* The copy card ran far taller than the overlap, so it hung below the photo
+   and the two read as unrelated objects. Make the photo tall enough to hold
+   the card against it: the spread becomes a two-column grid where the photo
+   fills the full height and the card sits over its lower-left, vertically
+   anchored to the bottom rather than pulled up by a negative margin. */
+@media(min-width:1001px){
+  .ri26-exp-spread {
+    grid-template-columns:minmax(0,.52fr) minmax(0,.48fr);
+    align-items:end;
+    min-height:620px;
+  }
+  /* Photo spans the whole grid and sits behind both columns. */
+  .ri26-exp-shot {
+    grid-column:1 / -1;
+    grid-row:1;
+    width:82%;
+    aspect-ratio:auto;
+    height:100%;
+    min-height:620px;
+    margin:0 0 0 auto;
+  }
+  /* Card sits in the first column, bottom-aligned over the photo. */
+  .ri26-exp-card {
+    grid-column:1;
+    grid-row:1;
+    align-self:end;
+    width:100%;
+    max-width:none;
+    margin:0 0 clamp(34px,3.4vw,54px) 0;
+  }
+  /* Caption clears the card. */
+  .ri26-exp-shot figcaption { max-width:38%; }
+}
+
+/* Positioning pass. Previously the photo was an 82%-wide block with the card
+   bottom-anchored over it, so neither edge aligned to anything and the
+   overlap read as accidental. Set it on a proper 12-column measure:
+   photo occupies columns 4-13 (right 9/12), card occupies 1-7 (left 6/12),
+   both vertically centred. The overlap is then a deliberate 3-column
+   intersection rather than a guess, and the card's left edge sits on the
+   wrap's gutter where every other section's content starts. */
+@media(min-width:1001px){
+  .ri26-exp-spread {
+    display:grid;
+    grid-template-columns:repeat(12,minmax(0,1fr));
+    column-gap:0;
+    align-items:center;
+    min-height:0;
+  }
+  .ri26-exp-shot {
+    grid-column:4 / -1;
+    grid-row:1;
+    width:100%;
+    height:auto;
+    min-height:0;
+    margin:0;
+    aspect-ratio:3/2;
+    border-radius:22px;
+  }
+  /* Card spans the left half, centred against the photo so equal amounts of
+     image show above and below it. */
+  .ri26-exp-card {
+    grid-column:1 / 8;
+    grid-row:1;
+    align-self:center;
+    width:100%;
+    max-width:none;
+    margin:0;
+  }
+  /* Caption sits clear of the card, in the photo's own right-hand area. */
+  .ri26-exp-shot figcaption { max-width:42%; right:22px; bottom:18px; }
+}
+
+/* Between the stacked and full layouts, keep the overlap but reduce it. */
+@media(min-width:1001px) and (max-width:1240px){
+  .ri26-exp-shot { grid-column:3 / -1; aspect-ratio:16/10; }
+  .ri26-exp-card { grid-column:1 / 8; }
+}
+
+/* The overlap never resolved: the card is tall enough that it either hangs
+   off the photo or covers the subject. Drop it. Card and photo sit side by
+   side as equal columns — the card's content sets the height and the photo
+   fills that height, so the two always align regardless of copy length. */
+@media(min-width:1001px){
+  .ri26-exp-spread {
+    grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
+    column-gap:clamp(20px,2.2vw,34px);
+    align-items:stretch;
+  }
+  .ri26-exp-card {
+    grid-column:1;
+    grid-row:1;
+    align-self:stretch;
+    border-radius:22px;
+  }
+  .ri26-exp-shot {
+    grid-column:2;
+    grid-row:1;
+    width:100%;
+    height:100%;
+    min-height:0;
+    margin:0;
+    aspect-ratio:auto;
+    border-radius:22px;
+  }
+  .ri26-exp-shot figcaption { max-width:72%; right:20px; bottom:16px; }
+}
+@media(min-width:1001px) and (max-width:1240px){
+  .ri26-exp-spread { grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); }
+  .ri26-exp-shot { grid-column:2; aspect-ratio:auto; }
+}
+
+/* ── Expertise pillars: split mosaic ───────────────────────────────────
+   One large card on the left, two stacked on the right, each carrying an
+   image of its capability being performed. Deliberately not a 3-up equal
+   grid: the asymmetry distinguishes it from the even card rows elsewhere,
+   and the lead card gives the section a focal point. */
+.ri26-exp-mosaic {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin-top:clamp(40px,4vw,58px);
+}
+.ri26-exp-mosaic article {
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid #cfdfe9;
+  border-radius:18px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 12px 24px -10px rgba(9,42,64,.2),
+    0 30px 54px -26px rgba(9,42,64,.26);
+  transition:border-color .28s, box-shadow .28s, transform .28s;
+}
+.ri26-exp-mosaic article:hover {
+  border-color:#59c6e4;
+  transform:translateY(-3px);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 18px 32px -12px rgba(9,42,64,.24),
+    0 40px 66px -30px rgba(9,42,64,.3);
+}
+/* Lead card spans both rows on the left. */
+.ri26-exp-mosaic article.is-lead { grid-column:1; grid-row:1 / span 2; }
+
+.ri26-exp-mosaic-shot {
+  position:relative;
+  flex:none;
+  aspect-ratio:16/10;
+  background:#e4eef3;
+  border-bottom:1px solid #e4eef3;
+}
+.ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-shot { aspect-ratio:4/3; }
+
+.ri26-exp-mosaic-copy {
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  padding:22px 22px 22px;
+}
+.ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-copy { padding:26px 26px 26px; }
+.ri26-exp-mosaic b {
+  margin-top:16px;
+  color:var(--ri26-ink);
+  font-size:15.5px;
+  font-weight:730;
+  letter-spacing:-.025em;
+  line-height:1.26;
+}
+.ri26-exp-mosaic article.is-lead b { font-size:19px; }
+.ri26-exp-mosaic p { margin-top:9px; color:#5d707c; font-size:12.8px; line-height:1.62; }
+.ri26-exp-mosaic article.is-lead p { font-size:13.5px; }
+
+@media(max-width:1000px){
+  .ri26-exp-mosaic { grid-template-columns:1fr; grid-template-rows:none; }
+  .ri26-exp-mosaic article.is-lead { grid-column:1; grid-row:auto; }
+  .ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-shot { aspect-ratio:16/9; }
+  .ri26-exp-mosaic-shot { aspect-ratio:16/9; }
+}
+
+/* ── Expertise intro ───────────────────────────────────────────────────
+   The top block's photo was dropped: with the 3-image mosaic below, the
+   section carried four images and stated its case twice. The claim now runs
+   as a full-width intro — heading and lede left, supporting copy and scope
+   points right — and the mosaic carries all the visual weight. */
+.ri26-exp-intro {
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  align-items:start;
+  gap:clamp(30px,4vw,70px);
+}
+.ri26-exp-intro h2 {
+  margin-top:14px;
   color:var(--ri26-ink);
   font-size:clamp(32px,3.7vw,54px);
   font-weight:740;
-  line-height:1.0;
-  letter-spacing:-.055em;
+  line-height:1.02;
+  letter-spacing:-.05em;
   max-width:17ch;
 }
-.ri26-exp-head h2 em { color:#166a9e; font-style:normal; }
-.ri26-exp-lede {
-  max-width:56ch;
-  margin-top:19px;
+.ri26-exp-intro h2 em { color:#166a9e; font-style:normal; }
+.ri26-exp-intro .ri26-exp-lede {
+  max-width:50ch;
+  margin-top:18px;
   color:#4a6072;
   font-size:15.5px;
   font-weight:560;
   line-height:1.7;
 }
-.ri26-exp-body {
+/* Right column: supporting copy, scope points, call. */
+.ri26-exp-intro-aside { padding-top:clamp(6px,1vw,14px); }
+.ri26-exp-intro .ri26-exp-body {
   max-width:58ch;
-  margin-top:14px;
+  margin-top:0;
   color:#5d707c;
   font-size:14px;
   line-height:1.72;
 }
+.ri26-exp-intro .ri26-exp-scope {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:11px 20px;
+  margin:20px 0 0;
+  padding:20px 0 0;
+  border-top:1px solid #dce8ed;
+  list-style:none;
+}
+.ri26-exp-intro .ri26-exp-scope li {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#30495b;
+  font-size:13px;
+  font-weight:620;
+}
+.ri26-exp-intro .ri26-exp-scope li svg { width:14px; height:14px; flex:none; color:#0b9cb2; }
+.ri26-exp-intro-aside .voda-btn { margin-top:22px; }
 
-/* Scope panel: the service's own points, lifted off the ground. */
-.ri26-exp-scope {
+@media(max-width:1000px){
+  .ri26-exp-intro { grid-template-columns:1fr; gap:26px; }
+  .ri26-exp-intro h2 { max-width:none; }
+  .ri26-exp-intro-aside { padding-top:0; }
+}
+@media(max-width:560px){
+  .ri26-exp-intro .ri26-exp-scope { grid-template-columns:1fr; }
+}
+
+/* The lead card spans two rows, so its copy block stretched to fill whatever
+   height the two stacked cards made — leaving a large void under text that is
+   no longer than theirs. Let the image absorb that extra height instead and
+   keep every copy block sized to its own content. */
+@media(min-width:1001px){
+  .ri26-exp-mosaic article.is-lead { display:grid; grid-template-rows:1fr auto; }
+  /* Image takes the slack rather than the text. */
+  .ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-shot {
+    aspect-ratio:auto;
+    height:100%;
+    min-height:0;
+  }
+  .ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-copy { flex:none; }
+}
+
+/* Tighter copy blocks throughout — the padding and leading were set for
+   taller cards than these turned out to be. */
+.ri26-exp-mosaic-copy { padding:18px 20px 20px; }
+.ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-copy { padding:20px 24px 22px; }
+.ri26-exp-mosaic b { margin-top:13px; font-size:15px; }
+.ri26-exp-mosaic article.is-lead b { font-size:17px; }
+.ri26-exp-mosaic p { margin-top:7px; font-size:12.6px; line-height:1.58; }
+.ri26-exp-mosaic article.is-lead p { font-size:13px; }
+.ri26-exp-mark { width:38px; height:38px; }
+.ri26-exp-mark svg { width:18px; height:18px; }
+
+/* ── Mosaic: bring to the site's card conventions ──────────────────────
+   Two things were off against the rest of the site. Image cards elsewhere
+   (.ri26-gallery-frame, .ri26-area-intro-photo) frame the photo in a white
+   border rather than letting it bleed to the card edge; and the type here
+   had been shrunk well below the site's card scale (.ri26-service-grid h3
+   is 16px, .voda-why-item b is 15.5px — mine had fallen to 12.6px body). */
+.ri26-exp-mosaic article {
+  padding:10px;
+  border-color:#d5e4ec;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.05),
+    0 10px 22px -8px rgba(9,42,64,.14),
+    0 26px 48px -20px rgba(9,42,64,.16);
+}
+/* Framed photo, as the gallery and intro collage do it. */
+.ri26-exp-mosaic-shot {
+  overflow:hidden;
+  border:0;
+  border-radius:13px;
+  box-shadow:0 1px 2px rgba(9,42,64,.06), 0 10px 22px -14px rgba(9,42,64,.26);
+}
+.ri26-exp-mosaic-copy { padding:18px 14px 14px; }
+.ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-copy { padding:20px 16px 16px; }
+
+/* Type back on the site's card scale. */
+.ri26-exp-mosaic b {
+  margin-top:16px;
+  font-size:16px;
+  font-weight:740;
+  letter-spacing:-.02em;
+  line-height:1.24;
+}
+.ri26-exp-mosaic article.is-lead b { font-size:18px; }
+.ri26-exp-mosaic p {
+  margin-top:10px;
+  color:var(--ri26-muted);
+  font-size:12.5px;
+  line-height:1.6;
+}
+.ri26-exp-mosaic article.is-lead p { font-size:13px; }
+
+/* Icon mark matches the service grid's: plain cyan glyph, no chip. */
+.ri26-exp-mosaic .ri26-exp-mark {
+  width:auto; height:auto;
+  border:0;
+  border-radius:0;
+  background:none;
+  color:#0d9db2;
+}
+.ri26-exp-mosaic .ri26-exp-mark svg { width:28px; height:28px; }
+
+.ri26-exp-mosaic article:hover { border-color:#bcdcec; }
+/* --ri26-muted measures 4.45:1 on the card's lower gradient stop, just under
+   AA. Use the darkened grey the claims section already uses for this. */
+.ri26-exp-mosaic p { color:#5d707c; }
+
+/* Shrink the mosaic cards ~10%: padding, type and icon all step down a
+   notch so the three cards take less vertical room. */
+.ri26-exp-mosaic article { padding:9px; }
+.ri26-exp-mosaic-copy { padding:16px 13px 13px; }
+.ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-copy { padding:18px 14px 14px; }
+.ri26-exp-mosaic b { margin-top:14px; font-size:14.5px; }
+.ri26-exp-mosaic article.is-lead b { font-size:16px; }
+.ri26-exp-mosaic p { margin-top:9px; font-size:11.5px; line-height:1.58; }
+.ri26-exp-mosaic article.is-lead p { font-size:12px; }
+.ri26-exp-mosaic .ri26-exp-mark svg { width:25px; height:25px; }
+.ri26-exp-mosaic { gap:14px; }
+
+/* Proof row dropped from this section — the mosaic now closes it. */
+.ri26-exp-proof { display:none; }
+
+/* Mobile keeps the bento grid rather than stacking to full-width cards:
+   same 2x2 arrangement with the lead spanning both rows, just scaled down.
+   Overrides the earlier stacking rules. */
+@media(max-width:1000px){
+  .ri26-exp-mosaic {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-rows:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+  .ri26-exp-mosaic article { padding:7px; border-radius:15px; }
+  .ri26-exp-mosaic article.is-lead { grid-column:1; grid-row:1 / span 2; display:grid; grid-template-rows:1fr auto; }
+  .ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-shot { aspect-ratio:auto; height:100%; }
+  .ri26-exp-mosaic-shot { aspect-ratio:4/3; border-radius:11px; }
+  .ri26-exp-mosaic-copy { padding:12px 9px 10px; }
+  .ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-copy { padding:13px 10px 11px; }
+  .ri26-exp-mosaic b { margin-top:10px; font-size:13px; line-height:1.22; }
+  .ri26-exp-mosaic article.is-lead b { font-size:14px; }
+  .ri26-exp-mosaic p { margin-top:6px; font-size:11px; line-height:1.5; }
+  .ri26-exp-mosaic article.is-lead p { font-size:11.5px; }
+  .ri26-exp-mosaic .ri26-exp-mark svg { width:21px; height:21px; }
+}
+@media(max-width:560px){
+  .ri26-exp-mosaic { gap:8px; }
+  .ri26-exp-mosaic article { padding:6px; border-radius:13px; }
+  .ri26-exp-mosaic-copy { padding:10px 8px 9px; }
+  .ri26-exp-mosaic b { font-size:12px; }
+  .ri26-exp-mosaic article.is-lead b { font-size:13px; }
+  .ri26-exp-mosaic p { font-size:10.5px; }
+  .ri26-exp-mosaic article.is-lead p { font-size:11px; }
+}
+
+/* Lead image was soft for two reasons. First, `sizes` claimed 24-48vw so
+   Next served a 384-640px variant into a ~713px box. Second, spanning two
+   rows made its box portrait (~0.87) while the source is landscape (1.33),
+   so `cover` cropped the sides away and upscaled what was left — only about
+   944 of 1448 source pixels were doing the work.
+
+   Cap the lead image's height so its box stays nearer the source ratio and
+   the crop is far less severe. The copy block takes the remaining height. */
+@media(min-width:1001px){
+  .ri26-exp-mosaic article.is-lead { grid-template-rows:auto 1fr; }
+  .ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-shot {
+    aspect-ratio:4/3;
+    height:auto;
+    max-height:none;
+  }
+  /* Copy block absorbs the leftover height instead of the image. */
+  .ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-copy { flex:1; }
+}
+
+/* Previous pass moved the stretch from the image to the copy block, so the
+   void just moved with it. The real fix: stop the lead card spanning two
+   rows. All three cards sit in one row, each sized to its own content, so
+   nothing stretches and nothing has slack. The lead stays visually dominant
+   through a wider column and a taller image, not through row-spanning. */
+@media(min-width:1001px){
+  .ri26-exp-mosaic {
+    grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);
+    grid-template-rows:auto;
+    align-items:start;
+  }
+  .ri26-exp-mosaic article.is-lead { grid-column:1; grid-row:1; display:flex; }
+  .ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-shot { aspect-ratio:4/3; height:auto; }
+  .ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-copy { flex:none; }
+  .ri26-exp-mosaic article:not(.is-lead) .ri26-exp-mosaic-shot { aspect-ratio:4/3; }
+  .ri26-exp-mosaic-copy { flex:none; }
+}
+
+/* ── Service hero: single deep arc ─────────────────────────────────────
+   One symmetric curve hanging lowest at centre and rising to both corners,
+   roughly twice the old S-curve's depth. Scoped to .ri26-hero-wave-arc so
+   the 7 service-area city pages keep their original S-curve. */
+.ri26-hero-wave-arc { height:248px; }
+
+/* The arc eats further into the hero than the S-curve did, so give the hero
+   extra bottom padding to keep the buttons clear of the curve's rise. */
+.ri26-service-hero { padding-bottom:clamp(170px,15vw,230px); }
+
+@media(max-width:1000px){
+  .ri26-hero-wave-arc { height:170px; }
+  .ri26-service-hero { padding-bottom:clamp(140px,18vw,180px); }
+}
+@media(max-width:700px){
+  .ri26-hero-wave-arc { height:120px; }
+  .ri26-service-hero { padding-bottom:120px; }
+}
+
+/* ── Causes: match the homepage process section ────────────────────────
+   Was a row of near-empty bordered boxes under a left-aligned heading. Now
+   uses the .voda-step-grid pattern: centred heading, centred cards, a 55px
+   cyan icon ring and dashed connectors between steps. */
+.ri26-detail-causes .voda-heading.centered { max-width:860px; margin:0 auto; text-align:center; }
+.ri26-detail-causes .voda-heading.centered p {
+  max-width:60ch;
+  margin:16px auto 0;
+  color:#5d707c;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.ri26-cause-grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:0;
+  margin-top:clamp(42px,4.4vw,60px);
+}
+.ri26-cause-grid article {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:0;
+  padding:15px 26px 10px;
+  border:0;
+  border-radius:0;
+  background:none;
+  text-align:center;
+}
+/* Dashed connector between items, as the process steps have. */
+.ri26-cause-grid article::after {
+  content:"";
+  position:absolute;
+  top:53px;
+  left:66%;
+  width:68%;
+  border-top:1px dashed #b9ccd4;
+}
+.ri26-cause-grid article:last-child::after { display:none; }
+
+.ri26-cause-no {
+  color:#78909a;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.1em;
+}
+.ri26-cause-icon {
+  position:relative;
+  z-index:2;
+  display:grid;
+  place-items:center;
+  width:55px;
+  height:55px;
+  margin:12px auto;
+  border-radius:50%;
+  background:#dff7f8;
+  color:#0878b7;
+}
+.ri26-cause-icon svg { width:21px; height:21px; }
+.ri26-cause-grid h3 {
+  margin-top:20px;
+  color:var(--ri26-ink);
+  font-size:16px;
+  font-weight:740;
+  letter-spacing:-.02em;
+  line-height:1.3;
+}
+
+@media(max-width:860px){
+  .ri26-cause-grid { grid-template-columns:repeat(2,minmax(0,1fr)); row-gap:28px; }
+  .ri26-cause-grid article::after { display:none; }
+}
+@media(max-width:480px){
+  .ri26-cause-grid { grid-template-columns:1fr; }
+}
+/* The homepage's step palette measures 3.14:1 for the numeral and 4.29:1 for
+   the icon — both under AA. Darkened here rather than copying the shortfall;
+   visually near-identical. */
+.ri26-cause-no { color:#5f7682; }
+.ri26-cause-icon { color:#06638f; }
+.ri26-cause-no { color:#5c7380; }
+
+/* An early rule (line 51) styles .ri26-cause-grid > div with a bordered white
+   box and sets a 4-col track with gap. The markup is <article> now, but the
+   grid rule itself still applied — restate the track here and style the body
+   copy the cards gained. */
+.ri26-detail-causes .ri26-cause-grid {
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:0;
+  margin-top:clamp(42px,4.4vw,60px);
+}
+.ri26-cause-grid article p {
+  max-width:30ch;
+  margin-top:9px;
+  color:#5d707c;
+  font-size:12.5px;
+  line-height:1.62;
+}
+/* Connector sits behind the icon rings, so pull the icon above it. */
+.ri26-cause-icon { position:relative; z-index:2; }
+.ri26-cause-grid article::after { z-index:0; }
+
+@media(max-width:860px){
+  .ri26-detail-causes .ri26-cause-grid { grid-template-columns:repeat(2,minmax(0,1fr)); row-gap:30px; }
+}
+@media(max-width:480px){
+  .ri26-detail-causes .ri26-cause-grid { grid-template-columns:1fr; }
+  .ri26-cause-grid article p { max-width:40ch; }
+}
+
+/* Scale the causes row up — the icons and type were sized from the homepage
+   process steps, which sit in a denser 5-across row than these four. */
+.ri26-cause-icon { width:74px; height:74px; margin:16px auto; }
+.ri26-cause-icon svg { width:29px; height:29px; }
+.ri26-cause-no { font-size:11px; }
+.ri26-cause-grid h3 { margin-top:24px; font-size:19px; }
+.ri26-cause-grid article p { max-width:34ch; margin-top:11px; font-size:13.5px; line-height:1.66; }
+.ri26-cause-grid article { padding:15px 22px 10px; }
+/* Connector follows the taller ring. */
+.ri26-cause-grid article::after { top:62px; }
+
+@media(max-width:860px){
+  .ri26-cause-icon { width:66px; height:66px; }
+  .ri26-cause-icon svg { width:26px; height:26px; }
+  .ri26-cause-grid h3 { font-size:17.5px; }
+  .ri26-cause-grid article p { font-size:13px; }
+}
+
+/* Accent the trailing word of each cause label in the site's darker blue,
+   matching how headings elsewhere colour their <em>. */
+.ri26-cause-grid h3 em { color:#0a5f93; font-style:normal; }
+
+/* CTA moved above the FAQ, so the FAQ now meets the footer instead. The
+   footer-wave blend was written for a navy CTA sitting last; against the
+   FAQ's light ground it would read as a dark shape on white. Restore the
+   footer's own wave on these pages and give the FAQ bottom breathing room. */
+main:has(.ri26-area-cta) + .voda-footer .voda-footer-wave {
+  -webkit-mask-image:none;
+  mask-image:none;
+}
+main:has(.ri26-area-cta) .voda-faq { padding-bottom:clamp(76px,7vw,112px); }
+
+/* The CTA band previously closed the page, so it carried no bottom spacing.
+   It now sits between two light sections — give it a clean separation. */
+main:has(.ri26-area-cta) .voda-cta-band + .voda-faq { padding-top:clamp(70px,6.6vw,104px); }
+
+/* ── Safety: what to do before the crew arrives ────────────────────────
+   Two columns — safe actions and things that make the loss worse — then a
+   warning strip. Card treatment matches the site's existing cards; the only
+   colour difference is a muted red on the "avoid" side, which is doing real
+   work rather than decoration. */
+.ri26-safety { background:linear-gradient(180deg,#fbfdfe 0%,#f5f9fb 58%,#fbfdfe 100%); }
+.ri26-safety-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin-top:clamp(36px,3.8vw,52px);
+}
+.ri26-safety-grid article {
   padding:26px 26px 24px;
   border:1px solid #cfdfe9;
   border-radius:18px;
@@ -4048,104 +4782,2128 @@ main:has(.ri26-area-cta) + .voda-footer .voda-footer-wave {
     0 12px 24px -10px rgba(9,42,64,.2),
     0 30px 54px -26px rgba(9,42,64,.26);
 }
-.ri26-exp-scope > span {
-  display:block;
-  color:#166a9e;
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.14em;
-  text-transform:uppercase;
+.ri26-safety-grid header { display:flex; align-items:center; gap:11px; }
+.ri26-safety-grid header > span {
+  display:grid; place-items:center;
+  width:36px; height:36px; flex:none;
+  border-radius:50%;
+  background:#e7f6fe;
+  color:#0a6ea6;
 }
-.ri26-exp-scope ul { display:grid; gap:0; margin:14px 0 0; padding:0; list-style:none; }
-.ri26-exp-scope li {
+.ri26-safety-grid header svg { width:17px; height:17px; }
+.ri26-safety-grid b {
+  color:var(--ri26-ink);
+  font-size:15px;
+  font-weight:740;
+  letter-spacing:-.02em;
+}
+.ri26-safety-grid ul {
+  display:grid;
+  gap:0;
+  margin:18px 0 0;
+  padding:0;
+  list-style:none;
+}
+.ri26-safety-grid li {
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   gap:10px;
   padding:12px 0;
   border-bottom:1px solid #e4eef3;
-  color:#30495b;
+  color:#3f5665;
   font-size:13.5px;
-  font-weight:620;
+  line-height:1.56;
 }
-.ri26-exp-scope li:last-child { border-bottom:0; }
-.ri26-exp-scope li svg { width:15px; height:15px; flex:none; color:#0b9cb2; }
-.ri26-exp-scope .voda-btn { width:100%; justify-content:center; margin-top:18px; }
+.ri26-safety-grid li:last-child { border-bottom:0; padding-bottom:0; }
+.ri26-safety-grid li svg { width:15px; height:15px; flex:none; margin-top:2px; }
+.ri26-safety-do li svg { color:#0b9cb2; }
 
-@media(max-width:1000px){
-  .ri26-exp-top { grid-template-columns:1fr; gap:28px; }
-  .ri26-exp-head h2 { max-width:none; }
+/* The "avoid" side carries a muted red so the two columns are separable at a
+   glance — the only place on these pages colour signals meaning. */
+.ri26-safety-dont header > span { background:#fdeeec; color:#a2382b; }
+.ri26-safety-dont li svg { color:#b44437; }
+
+.ri26-safety-warning {
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin:18px 0 0;
+  padding:18px 22px;
+  border:1px solid #e8d4a8;
+  border-radius:14px;
+  background:#fdf8ec;
+  color:#6b5220;
+  font-size:13.5px;
+  line-height:1.62;
+}
+.ri26-safety-warning svg { width:18px; height:18px; flex:none; margin-top:1px; color:#8f5c1c; }
+
+@media(max-width:860px){
+  .ri26-safety-grid { grid-template-columns:1fr; }
+}
+/* The site's cyan measures 3.27:1 on white — fine for a large glyph, under AA
+   at 15px. Darkened for these small list icons. */
+.ri26-safety-do li svg { color:#07788c; }
+
+/* ── Safety: split layout ──────────────────────────────────────────────
+   Was a centred heading over two cards. Now copy and a supporting photo on
+   the left, the do/avoid cards stacked on the right. */
+.ri26-safety-split {
+  display:grid;
+  grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);
+  align-items:start;
+  gap:clamp(28px,3.4vw,56px);
+}
+.ri26-safety-copy h2 {
+  margin-top:14px;
+  color:var(--ri26-ink);
+  font-size:clamp(30px,3.4vw,48px);
+  font-weight:740;
+  line-height:1.02;
+  letter-spacing:-.05em;
+  max-width:16ch;
+}
+.ri26-safety-copy h2 em { color:#166a9e; font-style:normal; }
+.ri26-safety-lede {
+  max-width:50ch;
+  margin-top:16px;
+  color:#4a6072;
+  font-size:14.5px;
+  font-weight:560;
+  line-height:1.7;
 }
 
-/* The heading sat well below the hero's curve: the wave fills #fff while
-   this band is tinted, leaving a white strip, and .ri26-section then added
-   up to 135px of top padding on top of that. Fill the wave with the band's
-   own colour and cut the top padding so the copy rises to meet the curve. */
-.ri26-service-hero + .ri26-exp,
-.ri26-exp { padding-top:clamp(34px,3.4vw,52px); }
-.ri26-service-hero .ri26-hero-wave { fill:#fbfdfe; }
-
-/* Anchor photo above the scope panel, so the section leads with a visual of
-   the work rather than opening on text and a list. Framed like the other
-   job photos on the site: white border, generous radius, layered shadow. */
-.ri26-exp-side { display:grid; gap:16px; align-content:start; }
-.ri26-exp-shot {
+/* Photo with the urgency figure sitting over its lower edge. */
+.ri26-safety-shot {
   position:relative;
-  margin:0;
-  aspect-ratio:4/3;
+  margin:24px 0 0;
+  aspect-ratio:16/10;
   overflow:hidden;
-  border:6px solid #fff;
-  border-radius:20px;
-  background:#e4eef3;
-  box-shadow:
-    0 1px 2px rgba(9,42,64,.05),
-    0 18px 38px -16px rgba(9,42,64,.22),
-    0 34px 64px -28px rgba(9,42,64,.2);
-}
-/* Wash under the caption so it stays legible on any photo. */
-.ri26-exp-shot::after {
-  content:"";
-  position:absolute;
-  z-index:1;
-  inset:auto 0 0 0;
-  height:56%;
-  pointer-events:none;
-  background:linear-gradient(180deg, transparent 0%, rgba(5,23,40,.72) 78%, rgba(5,23,40,.86) 100%);
-}
-.ri26-exp-shot figcaption {
-  position:absolute;
-  z-index:2;
-  left:16px; right:16px; bottom:14px;
-  color:#fff;
-  font-size:12.5px;
-  font-weight:620;
-  line-height:1.45;
-}
-
-@media(max-width:1000px){
-  .ri26-exp-shot { aspect-ratio:16/9; border-width:5px; border-radius:16px; }
-}
-
-/* 4:3 made the right column overrun the copy beside it. Drop the photo to a
-   shallower crop and trim its frame so the column ends near the copy. */
-.ri26-exp-shot {
-  aspect-ratio:16/9;
-  border-width:5px;
-  border-radius:16px;
-}
-.ri26-exp-shot figcaption { font-size:11.5px; left:14px; right:14px; bottom:12px; }
-.ri26-exp-shot::after { height:50%; }
-.ri26-exp-side { gap:14px; }
-
-/* The photo's 5px white border sat inside the grid track while the scope
-   panel's 1px border did not, so the two edges did not line up and the photo
-   read as narrower and offset. Drop the thick frame: same border weight and
-   radius as the panel beneath, so both columns share one edge. */
-.ri26-exp-shot {
-  width:100%;
   border:1px solid #cfdfe9;
   border-radius:18px;
+  background:#e4eef3;
   box-shadow:
     0 1px 2px rgba(9,42,64,.06),
     0 12px 24px -10px rgba(9,42,64,.2),
     0 30px 54px -26px rgba(9,42,64,.26);
 }
+.ri26-safety-shot::after {
+  content:"";
+  position:absolute; z-index:1; inset:auto 0 0 0;
+  height:58%;
+  pointer-events:none;
+  background:linear-gradient(180deg, transparent 0%, rgba(5,23,40,.72) 72%, rgba(5,23,40,.88) 100%);
+}
+.ri26-safety-shot figcaption {
+  position:absolute;
+  z-index:2;
+  left:20px; right:20px; bottom:16px;
+  color:#fff;
+}
+.ri26-safety-shot figcaption b {
+  display:block;
+  font-size:clamp(24px,2.6vw,32px);
+  font-weight:770;
+  letter-spacing:-.04em;
+  line-height:1;
+  color:#73e4e5;
+}
+.ri26-safety-shot figcaption span {
+  display:block;
+  margin-top:7px;
+  color:#dbe8f1;
+  font-size:12.5px;
+  line-height:1.5;
+}
+
+/* Cards stack in the right column. */
+.ri26-safety-grid {
+  grid-template-columns:1fr;
+  gap:14px;
+  margin-top:0;
+}
+.ri26-safety-warning { margin-top:18px; }
+
+@media(max-width:1000px){
+  .ri26-safety-split { grid-template-columns:1fr; gap:26px; }
+  .ri26-safety-copy h2 { max-width:none; }
+}
+
+/* List items now carry a reason under each instruction, so they are two
+   lines rather than one. Give the instruction weight and set the reason as
+   quieter supporting copy beneath it. */
+.ri26-safety-grid li { align-items:flex-start; padding:14px 0; }
+.ri26-safety-grid li > div { min-width:0; }
+.ri26-safety-grid li b {
+  display:block;
+  color:var(--ri26-ink);
+  font-size:13.5px;
+  font-weight:680;
+  letter-spacing:-.01em;
+  line-height:1.4;
+}
+.ri26-safety-grid li span {
+  display:block;
+  margin-top:5px;
+  color:#5d707c;
+  font-size:12.5px;
+  line-height:1.56;
+}
+.ri26-safety-grid li svg { margin-top:3px; }
+
+/* ── Causes, process and safety: use the full width ────────────────────
+   These three sat on the default 1180px wrap while the rest of the site
+   runs to 1440px, leaving a growing dead margin on wide screens. Widen
+   them and let the content spread into it rather than just stretching the
+   container. Scoped to the service pages so the homepage is untouched. */
+@media(min-width:1001px){
+  .ri26-detail-causes .voda-wrap,
+  .ri26-safety .voda-wrap,
+  main:has(.ri26-safety) .voda-process .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+
+  /* Causes: four columns at the wider measure get more room per item, so
+     let the copy use it instead of staying on a 34ch measure. */
+  .ri26-cause-grid article { padding:15px 30px 10px; }
+  .ri26-cause-grid article p { max-width:38ch; }
+
+  /* Process: the five steps spread further apart, so the connector between
+     them has to reach further too. */
+  main:has(.ri26-safety) .voda-step-grid-five article { padding-left:30px; padding-right:30px; }
+
+  /* Safety: give the copy column a wider measure and the cards more padding
+     now that both have more room. */
+  .ri26-safety-split { grid-template-columns:minmax(0,1fr) minmax(0,1.08fr); gap:clamp(34px,4vw,72px); }
+  .ri26-safety-copy h2 { max-width:17ch; }
+  .ri26-safety-lede { max-width:56ch; }
+  .ri26-safety-grid article { padding:28px 30px 26px; }
+  .ri26-safety-warning { padding:20px 26px; }
+}
+
+/* Per-item icons in a tinted chip, replacing the repeated tick and cross.
+   The chip gives each row depth and a clear left rail. */
+.ri26-safety-ico {
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  flex:none;
+  margin-top:1px;
+  border:1px solid #d7e7f0;
+  border-radius:10px;
+  background:#f4fafd;
+  color:#07788c;
+  box-shadow:0 1px 2px rgba(9,42,64,.05);
+}
+.ri26-safety-ico svg { width:16px; height:16px; }
+.ri26-safety-dont .ri26-safety-ico {
+  border-color:#f2dcd8;
+  background:#fdf5f3;
+  color:#a2382b;
+}
+.ri26-safety-grid li { gap:13px; padding:15px 0; }
+
+/* Card header gets a touch more weight so it anchors the list below it. */
+.ri26-safety-grid header { padding-bottom:16px; border-bottom:1px solid #e4eef3; }
+.ri26-safety-grid ul { margin-top:4px; }
+
+/* ── Safety lists: use the site's own list convention ──────────────────
+   The 34px bordered chips were invented for this section and match nothing
+   else on the site. .ri26-area-intro-notes is the established pattern: a
+   20px column holding a small round-tinted glyph, text alongside. Match it
+   exactly, and drop the per-item icon chrome. */
+.ri26-safety-ico {
+  display:block;
+  width:19px;
+  height:19px;
+  flex:none;
+  margin-top:2px;
+  padding:3px;
+  border:0;
+  border-radius:50%;
+  background:#e7f6fe;
+  color:#0878b7;
+  box-shadow:none;
+}
+.ri26-safety-ico svg { width:13px; height:13px; display:block; }
+.ri26-safety-dont .ri26-safety-ico { background:#fdeeec; color:#a2382b; }
+
+.ri26-safety-grid li {
+  display:grid;
+  grid-template-columns:20px 1fr;
+  align-items:start;
+  gap:11px;
+  padding:13px 0;
+  border-bottom:1px solid #e4eef3;
+}
+.ri26-safety-grid li:last-child { border-bottom:0; padding-bottom:0; }
+.ri26-safety-grid li b {
+  color:#17394e;
+  font-size:13.5px;
+  font-weight:700;
+  line-height:1.45;
+}
+.ri26-safety-grid li span {
+  margin-top:4px;
+  color:#5d707c;
+  font-size:12.5px;
+  line-height:1.55;
+}
+
+/* Card header back to the site's plainer treatment. */
+.ri26-safety-grid header > span {
+  width:30px;
+  height:30px;
+  background:#e7f6fe;
+  color:#0878b7;
+}
+.ri26-safety-grid header svg { width:15px; height:15px; }
+.ri26-safety-dont header > span { background:#fdeeec; color:#a2382b; }
+/* The site's #0878b7 on #e7f6fe measures 4.34:1 — a shade under AA. Darkened
+   one step here rather than carrying the shortfall into a new section. */
+.ri26-safety-ico { color:#06688f; }
+
+/* ── Safety: one card, two halves ──────────────────────────────────────
+   Replaces the two separate cards. A single panel split by a vertical rule,
+   each half with its own tinted header band and numbered items. The numerals
+   carry the structure, so no per-item icons are needed. */
+.ri26-safety-card {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  overflow:hidden;
+  border:1px solid #cfdfe9;
+  border-radius:20px;
+  background:#fff;
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 12px 24px -10px rgba(9,42,64,.2),
+    0 30px 54px -26px rgba(9,42,64,.26);
+}
+.ri26-safety-half { min-width:0; padding:0 0 26px; }
+.ri26-safety-half + .ri26-safety-half { border-left:1px solid #e4eef3; }
+
+/* Header band — tinted, so the two halves are separable at a glance. */
+.ri26-safety-half header {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:20px 26px;
+  border-bottom:1px solid #e4eef3;
+  background:#f4fafd;
+}
+.ri26-safety-half.is-dont header { background:#fdf5f3; }
+.ri26-safety-half header > span {
+  display:grid; place-items:center;
+  width:34px; height:34px; flex:none;
+  border-radius:50%;
+  background:#dcf0fb;
+  color:#06688f;
+}
+.ri26-safety-half.is-dont header > span { background:#fae2de; color:#a2382b; }
+.ri26-safety-half header svg { width:16px; height:16px; }
+.ri26-safety-half header b {
+  display:block;
+  color:#17394e;
+  font-size:14.5px;
+  font-weight:740;
+  letter-spacing:-.02em;
+}
+.ri26-safety-half header small {
+  display:block;
+  margin-top:3px;
+  color:#5d707c;
+  font-size:11px;
+  letter-spacing:.02em;
+}
+
+/* Numbered items — the numeral replaces the icon as the left rail. */
+.ri26-safety-half ol {
+  display:grid;
+  gap:0;
+  margin:0;
+  padding:0 26px;
+  list-style:none;
+  counter-reset:none;
+}
+.ri26-safety-half li {
+  display:grid;
+  grid-template-columns:26px 1fr;
+  align-items:start;
+  gap:13px;
+  padding:16px 0;
+  border-bottom:1px solid #eef4f7;
+}
+.ri26-safety-half li:last-child { border-bottom:0; padding-bottom:0; }
+.ri26-safety-n {
+  margin-top:1px;
+  color:#9ab2c0;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.06em;
+}
+.ri26-safety-half.is-dont .ri26-safety-n { color:#c9a09a; }
+.ri26-safety-half li b {
+  display:block;
+  color:#17394e;
+  font-size:13.5px;
+  font-weight:700;
+  line-height:1.45;
+}
+.ri26-safety-half li span {
+  display:block;
+  margin-top:4px;
+  color:#5d707c;
+  font-size:12.5px;
+  line-height:1.55;
+}
+
+@media(max-width:760px){
+  .ri26-safety-card { grid-template-columns:1fr; }
+  .ri26-safety-half + .ri26-safety-half { border-left:0; border-top:1px solid #e4eef3; }
+}
+/* Numerals measured 2.2-2.3:1 — far under AA. They read as decoration but
+   they are text, so darken to passing values in the same hues. */
+.ri26-safety-n { color:#5f7682; }
+.ri26-safety-half.is-dont .ri26-safety-n { color:#9a5a51; }
+
+/* ── Safety card: depth using the site's own devices ───────────────────
+   The flat panel needed structure, not more chrome. Uses the grid pattern
+   from the hero, the gradient card face from .voda-why-item, and a large
+   watermark glyph behind each header — all devices already on the site. */
+.ri26-safety-card {
+  position:relative;
+  isolation:isolate;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 54%,#f6fafc 100%);
+}
+/* Faint grid, fading out before it reaches the lists. */
+.ri26-safety-card::before {
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(to right, rgba(16,68,104,.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16,68,104,.04) 1px, transparent 1px);
+  background-size:40px 40px;
+  -webkit-mask-image:linear-gradient(180deg, #000 0%, rgba(0,0,0,.4) 32%, transparent 62%);
+  mask-image:linear-gradient(180deg, #000 0%, rgba(0,0,0,.4) 32%, transparent 62%);
+}
+.ri26-safety-half { position:relative; z-index:1; }
+
+/* Header band carries a wash and an oversized watermark glyph. */
+.ri26-safety-half header {
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(140deg,#eef8fd 0%,#f6fbfd 62%,rgba(246,251,253,0) 100%);
+}
+.ri26-safety-half.is-dont header {
+  background:linear-gradient(140deg,#fdf1ee 0%,#fdf7f6 62%,rgba(253,247,246,0) 100%);
+}
+.ri26-safety-half header::after {
+  content:"";
+  position:absolute;
+  z-index:0;
+  right:-26px; top:50%;
+  width:96px; height:96px;
+  transform:translateY(-50%);
+  border-radius:50%;
+  background:radial-gradient(circle at 50% 50%, rgba(8,120,183,.1), transparent 68%);
+  pointer-events:none;
+}
+.ri26-safety-half.is-dont header::after {
+  background:radial-gradient(circle at 50% 50%, rgba(162,56,43,.09), transparent 68%);
+}
+.ri26-safety-half header > span,
+.ri26-safety-half header > div { position:relative; z-index:1; }
+
+/* Glyph gets a ring and lift so it reads as an object, not a flat dot. */
+.ri26-safety-half header > span {
+  width:38px; height:38px;
+  border:1px solid rgba(8,120,183,.22);
+  box-shadow:0 1px 2px rgba(9,42,64,.06), 0 6px 14px -8px rgba(9,42,64,.3);
+}
+.ri26-safety-half.is-dont header > span { border-color:rgba(162,56,43,.2); }
+.ri26-safety-half header svg { width:17px; height:17px; }
+
+/* Numerals sit in a tinted well, giving each row a visible left rail. */
+.ri26-safety-n {
+  display:grid;
+  place-items:center;
+  width:26px; height:22px;
+  margin-top:0;
+  border-radius:6px;
+  background:#eef5f9;
+  font-size:10.5px;
+}
+.ri26-safety-half.is-dont .ri26-safety-n { background:#fbeeec; }
+
+/* Accent rule under each half's header, picking up its hue. */
+.ri26-safety-half header { border-bottom:2px solid #cfe6f3; }
+.ri26-safety-half.is-dont header { border-bottom-color:#f2d7d2; }
+/* Numeral dropped to 4.33:1 on its new tinted well. */
+.ri26-safety-n { color:#586e7b; }
+
+/* ── Safety: split back into two separate cards ────────────────────────
+   Same vertical structure, header bands and numbered rows as the single
+   panel — just two independent cards with a gap between them, each
+   carrying its own border, radius and shadow. */
+.ri26-safety-card {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  overflow:visible;
+  border:0;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+}
+/* The grid wash belonged to the single panel; each card now carries its own. */
+.ri26-safety-card::before { content:none; }
+
+.ri26-safety-half {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:0 0 26px;
+  border:1px solid #cfdfe9;
+  border-radius:20px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 54%,#f6fafc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 12px 24px -10px rgba(9,42,64,.2),
+    0 30px 54px -26px rgba(9,42,64,.26);
+}
+/* No divider rule — the gap separates them now. */
+.ri26-safety-half + .ri26-safety-half { border-left:1px solid #cfdfe9; }
+
+/* Each card gets the faint grid the single panel had. */
+.ri26-safety-half::before {
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(to right, rgba(16,68,104,.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16,68,104,.04) 1px, transparent 1px);
+  background-size:40px 40px;
+  -webkit-mask-image:linear-gradient(180deg, #000 0%, rgba(0,0,0,.4) 34%, transparent 64%);
+  mask-image:linear-gradient(180deg, #000 0%, rgba(0,0,0,.4) 34%, transparent 64%);
+}
+.ri26-safety-half > * { position:relative; z-index:1; }
+
+@media(max-width:760px){
+  .ri26-safety-card { grid-template-columns:1fr; }
+  .ri26-safety-half + .ri26-safety-half { border-left:1px solid #cfdfe9; border-top:1px solid #cfdfe9; }
+}
+
+/* ── Expertise mosaic: featured card over two sub cards ────────────────
+   Was three equal-ish columns in one row. Now the lead spans the full width
+   as a featured card with a wide landscape image, and the two others sit
+   beneath it as a pair. */
+@media(min-width:1001px){
+  .ri26-exp-mosaic {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-rows:auto auto;
+    gap:16px;
+    align-items:start;
+  }
+  /* Featured: full width, image and copy side by side so it does not become
+     a tall block before the pair below it. */
+  .ri26-exp-mosaic article.is-lead {
+    grid-column:1 / -1;
+    grid-row:1;
+    display:grid;
+    grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+    align-items:stretch;
+    padding:10px;
+  }
+  .ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-shot {
+    aspect-ratio:auto;
+    height:100%;
+    min-height:300px;
+  }
+  .ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-copy {
+    flex:none;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:26px 28px;
+  }
+  .ri26-exp-mosaic article.is-lead b { font-size:21px; }
+  .ri26-exp-mosaic article.is-lead p { font-size:13.5px; max-width:46ch; }
+  .ri26-exp-mosaic article.is-lead .ri26-exp-mark svg { width:29px; height:29px; }
+
+  /* The pair beneath. */
+  .ri26-exp-mosaic article:not(.is-lead) { grid-row:2; }
+  .ri26-exp-mosaic article:not(.is-lead) .ri26-exp-mosaic-shot { aspect-ratio:16/10; }
+}
+
+/* ── Process: numbered cards ───────────────────────────────────────────
+   Replaces the homepage's horizontal step row, which these pages were
+   reusing verbatim. Five cards in a 3+2 grid, each carrying its stage
+   number, a timing label and an icon. */
+.ri26-steps { background:linear-gradient(180deg,#fbfdfe 0%,#f5f9fb 58%,#fbfdfe 100%); }
+.ri26-steps-grid {
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:16px;
+  margin:clamp(40px,4.2vw,58px) 0 0;
+  padding:0;
+  list-style:none;
+}
+/* 3 across on the first row, 2 on the second — the second row's cards are
+   wider, which gives the later stages room for their longer copy. */
+.ri26-steps-grid > li { grid-column:span 2; display:flex; }
+.ri26-steps-grid > li:nth-child(4),
+.ri26-steps-grid > li:nth-child(5) { grid-column:span 3; }
+
+.ri26-steps-grid article {
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  padding:24px 24px 22px;
+  border:1px solid #cfdfe9;
+  border-radius:18px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 12px 24px -10px rgba(9,42,64,.2),
+    0 30px 54px -26px rgba(9,42,64,.26);
+  transition:border-color .28s, box-shadow .28s, transform .28s;
+}
+.ri26-steps-grid article:hover {
+  border-color:#59c6e4;
+  transform:translateY(-3px);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 18px 32px -12px rgba(9,42,64,.24),
+    0 40px 66px -30px rgba(9,42,64,.3);
+}
+.ri26-steps-grid header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding-bottom:16px;
+  border-bottom:1px solid #e4eef3;
+}
+.ri26-steps-n {
+  color:#17394e;
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:-.04em;
+  line-height:1;
+}
+.ri26-steps-when {
+  padding:5px 11px;
+  border:1px solid #bcdcec;
+  border-radius:999px;
+  background:#f2fafd;
+  color:#06688f;
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+.ri26-steps-ico {
+  display:block;
+  margin-top:20px;
+  color:#0d9db2;
+}
+.ri26-steps-ico svg { width:28px; height:28px; }
+.ri26-steps-grid b {
+  margin-top:16px;
+  color:var(--ri26-ink);
+  font-size:17px;
+  font-weight:740;
+  letter-spacing:-.025em;
+  line-height:1.26;
+}
+.ri26-steps-grid b em { color:#166a9e; font-style:normal; }
+.ri26-steps-grid p {
+  margin-top:9px;
+  color:#5d707c;
+  font-size:13px;
+  line-height:1.62;
+}
+
+@media(max-width:1000px){
+  .ri26-steps-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .ri26-steps-grid > li,
+  .ri26-steps-grid > li:nth-child(4),
+  .ri26-steps-grid > li:nth-child(5) { grid-column:span 1; }
+  .ri26-steps-grid > li:nth-child(5) { grid-column:span 2; }
+}
+@media(max-width:620px){
+  .ri26-steps-grid { grid-template-columns:1fr; }
+  .ri26-steps-grid > li:nth-child(5) { grid-column:span 1; }
+}
+/* The site's cyan is 3.24:1 on white — fine as a large decorative glyph but
+   under AA. Darkened one step, same hue. */
+.ri26-steps-ico { color:#07788c; }
+
+/* The section was renamed from .voda-process to .ri26-steps when it was
+   redesigned, so the earlier widening rule stopped matching and it fell back
+   to the default 1180px wrap. Widen it and let the cards use the space. */
+@media(min-width:1001px){
+  .ri26-steps .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+  .ri26-steps-grid { gap:18px; }
+  .ri26-steps-grid article { padding:26px 28px 24px; }
+  .ri26-steps-grid p { max-width:42ch; }
+  /* Heading can use the extra measure too. */
+  .ri26-steps .voda-heading h2 { max-width:22ch; }
+}
+
+/* The heading inherited the base .voda-heading h2 size — clamp(42px,5vw,68px)
+   — which hits 68px at the widened measure and wrapped awkwardly. The old
+   .voda-process section had its own smaller size; restore that scale, and
+   drop the max-width that was letting it run the full width. */
+.ri26-steps .voda-heading h2 {
+  max-width:none;
+  font-size:clamp(34px,3.9vw,54px);
+  line-height:1.0;
+  letter-spacing:-.05em;
+}
+@media(min-width:1001px){
+  .ri26-steps .voda-heading h2 { max-width:none; }
+}
+
+/* ── Expertise mosaic: alternating full-width rows ─────────────────────
+   Replaces the featured + two subs bento, where the lead's copy floated in
+   a wide empty column and the sub images ran ~70% of card height. Each
+   capability is now its own full-width row: image one side, copy the other,
+   sides alternating down the stack. */
+.ri26-exp-mosaic {
+  display:grid;
+  grid-template-columns:1fr;
+  grid-template-rows:none;
+  gap:16px;
+}
+.ri26-exp-mosaic article,
+.ri26-exp-mosaic article.is-lead {
+  display:grid;
+  grid-column:1;
+  grid-row:auto;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  align-items:stretch;
+  padding:10px;
+}
+/* Alternate the image side so the stack has rhythm. */
+.ri26-exp-mosaic article:nth-child(2n) .ri26-exp-mosaic-shot { grid-column:2; }
+.ri26-exp-mosaic article:nth-child(2n) .ri26-exp-mosaic-copy { grid-column:1; grid-row:1; }
+
+.ri26-exp-mosaic article .ri26-exp-mosaic-shot,
+.ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-shot {
+  aspect-ratio:16/10;
+  height:auto;
+  min-height:0;
+}
+.ri26-exp-mosaic article .ri26-exp-mosaic-copy,
+.ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-copy {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  flex:none;
+  padding:clamp(22px,2.4vw,34px) clamp(22px,2.6vw,38px);
+}
+/* One type scale for all three — no featured/sub distinction any more. */
+.ri26-exp-mosaic b,
+.ri26-exp-mosaic article.is-lead b { font-size:19px; margin-top:16px; }
+.ri26-exp-mosaic p,
+.ri26-exp-mosaic article.is-lead p { font-size:13.5px; max-width:48ch; margin-top:10px; }
+.ri26-exp-mosaic .ri26-exp-mark svg,
+.ri26-exp-mosaic article.is-lead .ri26-exp-mark svg { width:28px; height:28px; }
+
+@media(max-width:860px){
+  /* Stack: image above copy, no alternation. */
+  .ri26-exp-mosaic article,
+  .ri26-exp-mosaic article.is-lead { grid-template-columns:1fr; padding:8px; }
+  .ri26-exp-mosaic article:nth-child(2n) .ri26-exp-mosaic-shot { grid-column:1; grid-row:1; }
+  .ri26-exp-mosaic article:nth-child(2n) .ri26-exp-mosaic-copy { grid-column:1; grid-row:2; }
+  .ri26-exp-mosaic article .ri26-exp-mosaic-shot { aspect-ratio:16/9; }
+  .ri26-exp-mosaic b, .ri26-exp-mosaic article.is-lead b { font-size:16px; }
+  .ri26-exp-mosaic p, .ri26-exp-mosaic article.is-lead p { font-size:12.5px; max-width:none; }
+}
+
+/* ── Expertise: staggered cards on a spine ─────────────────────────────
+   Reuses the homepage Why section's device — a centred hairline spine with
+   nodes and elbows joining each card to it, and a vertical stagger so the
+   set reads as a zigzag. The site's most distinctive pattern, and it
+   appears nowhere else on the service pages. */
+.ri26-exp-mosaic {
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-rows:none;
+  gap:16px;
+  margin-top:clamp(40px,4.2vw,58px);
+  align-content:start;
+}
+/* Spine, centred between the columns. */
+.ri26-exp-mosaic::before {
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:50%;
+  top:40px;
+  bottom:40px;
+  width:1px;
+  background:linear-gradient(#b9d2de 0 60%, #d3e3ea);
+}
+
+.ri26-exp-mosaic article,
+.ri26-exp-mosaic article.is-lead {
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  grid-column:auto;
+  grid-row:auto;
+  width:100%;
+  max-width:360px;
+  padding:9px;
+  border:1px solid #d5e4ec;
+  border-radius:18px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.05),
+    0 10px 22px -8px rgba(9,42,64,.14),
+    0 26px 48px -20px rgba(9,42,64,.16);
+  transition:border-color .28s, box-shadow .28s, transform .28s;
+}
+.ri26-exp-mosaic article:hover {
+  border-color:#bcdcec;
+  transform:translateY(-3px);
+}
+
+/* Stagger: odd cards sit left, even cards drop and sit right. */
+.ri26-exp-mosaic article:nth-child(2n+1) { justify-self:start; }
+.ri26-exp-mosaic article:nth-child(2n) { justify-self:end; margin-top:40px; }
+/* Third card pulls up so the zigzag stays tight. */
+.ri26-exp-mosaic article:nth-child(3) { margin-top:-24px; }
+
+/* Node riding the spine, with an elbow back to the card. */
+.ri26-exp-node {
+  position:absolute;
+  top:42px;
+  width:11px; height:11px;
+  border-radius:50%;
+  border:2px solid #fff;
+  background:#8fb2c2;
+  box-shadow:0 1px 3px rgba(9,42,64,.18), 0 0 0 3px rgba(143,178,194,.18);
+  transition:background .28s, box-shadow .28s;
+}
+.ri26-exp-mosaic article:nth-child(2n+1) .ri26-exp-node { right:-28px; }
+.ri26-exp-mosaic article:nth-child(2n) .ri26-exp-node { left:-28px; }
+.ri26-exp-node::after {
+  content:"";
+  position:absolute;
+  top:50%;
+  width:17px; height:1px;
+  background:#c2d7e0;
+  transition:background .28s;
+}
+.ri26-exp-mosaic article:nth-child(2n+1) .ri26-exp-node::after { right:11px; }
+.ri26-exp-mosaic article:nth-child(2n) .ri26-exp-node::after { left:11px; }
+.ri26-exp-mosaic article:hover .ri26-exp-node {
+  background:#0878b7;
+  box-shadow:0 1px 3px rgba(9,42,64,.2), 0 0 0 3px rgba(8,120,183,.16);
+}
+.ri26-exp-mosaic article:hover .ri26-exp-node::after { background:#8fc4de; }
+
+/* Step numeral, matching the Why section's. */
+.ri26-exp-step {
+  position:absolute;
+  top:20px; right:18px;
+  z-index:2;
+  color:#9db9c6;
+  font-size:10.5px;
+  font-weight:750;
+  letter-spacing:.14em;
+  font-variant-numeric:tabular-nums;
+}
+
+/* Image sits inside the card, squared off like the Why tiles. */
+.ri26-exp-mosaic article .ri26-exp-mosaic-shot,
+.ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-shot {
+  position:relative;
+  aspect-ratio:4/3;
+  height:auto;
+  min-height:0;
+  overflow:hidden;
+  border-radius:12px;
+  box-shadow:0 1px 2px rgba(9,42,64,.06), 0 8px 18px -12px rgba(9,42,64,.26);
+}
+
+.ri26-exp-mosaic article .ri26-exp-mosaic-copy,
+.ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-copy {
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  justify-content:flex-start;
+  padding:16px 11px 12px;
+}
+.ri26-exp-mosaic b,
+.ri26-exp-mosaic article.is-lead b {
+  margin-top:13px;
+  color:var(--ri26-ink);
+  font-size:15px;
+  font-weight:740;
+  letter-spacing:-.02em;
+  line-height:1.24;
+}
+.ri26-exp-mosaic p,
+.ri26-exp-mosaic article.is-lead p {
+  margin-top:8px;
+  max-width:none;
+  color:#5d707c;
+  font-size:12.5px;
+  line-height:1.58;
+}
+.ri26-exp-mosaic .ri26-exp-mark svg,
+.ri26-exp-mosaic article.is-lead .ri26-exp-mark svg { width:26px; height:26px; }
+
+@media(max-width:860px){
+  /* Single column, spine on the left with all nodes on one side. */
+  .ri26-exp-mosaic { grid-template-columns:1fr; gap:14px; padding-left:26px; }
+  .ri26-exp-mosaic::before { left:6px; top:30px; bottom:30px; }
+  .ri26-exp-mosaic article,
+  .ri26-exp-mosaic article.is-lead { max-width:none; }
+  .ri26-exp-mosaic article:nth-child(2n),
+  .ri26-exp-mosaic article:nth-child(2n+1),
+  .ri26-exp-mosaic article:nth-child(3) { justify-self:stretch; margin-top:0; }
+  .ri26-exp-mosaic article:nth-child(2n) .ri26-exp-node,
+  .ri26-exp-mosaic article:nth-child(2n+1) .ri26-exp-node { left:-26px; right:auto; }
+  .ri26-exp-mosaic article:nth-child(2n) .ri26-exp-node::after,
+  .ri26-exp-mosaic article:nth-child(2n+1) .ri26-exp-node::after { left:11px; right:auto; }
+}
+/* The Why section's numeral colour measures 2.06:1 — well under AA. Darkened
+   here rather than carrying the shortfall across. */
+.ri26-exp-step { color:#5f7682; }
+
+/* ── Expertise cards: reset to a plain three-up row ────────────────────
+   The staggered-spine attempt broke: a 2-column grid holding 3 items left
+   the third card orphaned on a new row, and the stagger offsets scattered
+   them. Scrapping it. Three equal cards in one row, image on top, copy
+   beneath — the same card treatment used by the causes and process
+   sections on this page. */
+.ri26-exp-mosaic {
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-rows:auto;
+  gap:16px;
+  margin-top:clamp(40px,4.2vw,58px);
+  align-items:stretch;
+  padding-left:0;
+}
+/* No spine, no nodes, no stagger. */
+.ri26-exp-mosaic::before { content:none; }
+.ri26-exp-node, .ri26-exp-step { display:none; }
+
+.ri26-exp-mosaic article,
+.ri26-exp-mosaic article.is-lead {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  grid-column:auto;
+  grid-row:auto;
+  width:100%;
+  max-width:none;
+  margin-top:0;
+  justify-self:stretch;
+  padding:10px;
+  border:1px solid #cfdfe9;
+  border-radius:18px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 12px 24px -10px rgba(9,42,64,.2),
+    0 30px 54px -26px rgba(9,42,64,.26);
+  transition:border-color .28s, box-shadow .28s, transform .28s;
+}
+.ri26-exp-mosaic article:hover {
+  border-color:#59c6e4;
+  transform:translateY(-3px);
+}
+
+.ri26-exp-mosaic article .ri26-exp-mosaic-shot,
+.ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-shot {
+  position:relative;
+  flex:none;
+  aspect-ratio:16/10;
+  height:auto;
+  min-height:0;
+  overflow:hidden;
+  border-radius:12px;
+}
+.ri26-exp-mosaic article .ri26-exp-mosaic-copy,
+.ri26-exp-mosaic article.is-lead .ri26-exp-mosaic-copy {
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  justify-content:flex-start;
+  padding:18px 14px 14px;
+}
+.ri26-exp-mosaic b,
+.ri26-exp-mosaic article.is-lead b {
+  margin-top:14px;
+  font-size:15.5px;
+  font-weight:740;
+  letter-spacing:-.02em;
+  line-height:1.24;
+}
+.ri26-exp-mosaic p,
+.ri26-exp-mosaic article.is-lead p {
+  margin-top:9px;
+  max-width:none;
+  font-size:12.5px;
+  line-height:1.6;
+}
+
+@media(max-width:900px){
+  .ri26-exp-mosaic { grid-template-columns:1fr; gap:14px; }
+  .ri26-exp-mosaic article .ri26-exp-mosaic-shot { aspect-ratio:16/9; }
+}
+
+/* Drop the 3px left-edge spine from the signature-section cards. It was an
+   accent I added that reads as a stray vertical bar against the card edge. */
+.ri26-drying-track article::before,
+.ri26-residue-card::before,
+.ri26-category-card::before { content:none; }
+
+/* ══════════════════════════════════════════════════════════════════════
+   SERVICE HEROES — mobile and tablet only
+   Every rule below sits inside a max-width query and is scoped to
+   .ri26-service-hero, so neither the desktop layout nor the 7 city pages
+   are affected.
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* 1. The arc was stretched flat. preserveAspectRatio="none" scales the path
+   to whatever height the element has, so a 248px curve squeezed into 170px
+   on tablet and 120px on phones became a long shallow sweep instead of the
+   deep arc it is on desktop. Give it proportionally more height at narrow
+   widths so the curve keeps its shape. */
+@media(max-width:1000px){
+  .ri26-service-hero .ri26-hero-wave-arc { height:215px; }
+}
+@media(max-width:700px){
+  .ri26-service-hero .ri26-hero-wave-arc { height:185px; }
+}
+@media(max-width:480px){
+  .ri26-service-hero .ri26-hero-wave-arc { height:160px; }
+}
+
+/* 2. Recrop the hero photo. These images are composed for a wide frame with
+   the damage on the right; a tall phone viewport crops to the centre and
+   loses it. Pull the frame toward the subject so the actual problem — the
+   wet wall, the soot, the standing water — stays visible. */
+@media(max-width:1000px){
+  .ri26-service-hero .ri26-hero-photo img { object-position:68% 52%; }
+}
+@media(max-width:700px){
+  .ri26-service-hero .ri26-hero-photo img { object-position:72% 55%; }
+}
+@media(max-width:480px){
+  .ri26-service-hero .ri26-hero-photo img { object-position:76% 56%; }
+}
+
+/* 3. The deeper arc eats more of the hero's base, so add bottom padding to
+   keep the buttons clear of the curve. Mobile/tablet only. */
+@media(max-width:1000px){
+  .ri26-service-hero { padding-bottom:clamp(185px,22vw,235px); }
+}
+@media(max-width:700px){
+  .ri26-service-hero { padding-bottom:195px; }
+}
+@media(max-width:480px){
+  .ri26-service-hero { padding-bottom:170px; }
+}
+
+/* Hero blur on phones. The source is 16:9 (1672x941) but the hero box is
+   portrait on a phone (~390x800), so `cover` scales to fill the HEIGHT and
+   only ~460 of 1672 source px land in frame — then get upscaled ~2.6x on a
+   3x display. Shortening the hero cuts how much the image has to scale up:
+   at 620px tall the same strip needs ~30% less magnification.
+   Mobile/tablet only; desktop heights are untouched. */
+@media(max-width:700px){
+  .ri26-service-hero { min-height:660px; padding-top:120px; padding-bottom:165px; }
+  .ri26-service-hero .ri26-hero-wave-arc { height:150px; }
+}
+@media(max-width:480px){
+  .ri26-service-hero { min-height:610px; padding-top:112px; padding-bottom:150px; }
+  .ri26-service-hero .ri26-hero-wave-arc { height:135px; }
+}
+
+/* ── Causes: swipeable row on mobile ───────────────────────────────────
+   Four stacked cards made the section very tall on a phone. Below 860px the
+   grid becomes a horizontal scroller with snap points, so the four sit in
+   one row and swipe left/right. Desktop and the 4-across layout above
+   860px are untouched. */
+@media(max-width:860px){
+  .ri26-detail-causes .ri26-cause-grid {
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:76%;
+    grid-template-columns:none;
+    row-gap:0;
+    column-gap:12px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;
+    scroll-padding-left:24px;
+    /* Bleed to the viewport edges so cards can scroll past the wrap. */
+    margin-inline:calc(50% - 50vw);
+    padding-inline:24px;
+    padding-bottom:18px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .ri26-detail-causes .ri26-cause-grid::-webkit-scrollbar { display:none; }
+
+  /* Cards become self-contained panels, left-aligned for scanning. */
+  .ri26-cause-grid article {
+    scroll-snap-align:start;
+    min-width:0;
+    padding:22px 20px 20px;
+    border:1px solid #cfdfe9;
+    border-radius:16px;
+    background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+    box-shadow:
+      0 1px 2px rgba(9,42,64,.05),
+      0 10px 22px -8px rgba(9,42,64,.16);
+    text-align:left;
+    align-items:flex-start;
+  }
+  .ri26-cause-grid article::after { display:none; }
+  .ri26-cause-icon { margin:14px 0; }
+  .ri26-cause-grid article p { max-width:none; }
+}
+@media(max-width:480px){
+  .ri26-detail-causes .ri26-cause-grid { grid-auto-columns:82%; padding-inline:18px; scroll-padding-left:18px; }
+}
+/* The 380px rule above forces a single column; keep the scroller instead. */
+@media(max-width:380px){
+  .ri26-detail-causes .ri26-cause-grid { grid-template-columns:none; grid-auto-columns:86%; }
+}
+
+/* ── Process steps: compact bento on mobile ────────────────────────────
+   Five full-width stacked cards ran very tall on a phone. Below 1000px the
+   five sit in a 2-column bento: the first card spans both columns as the
+   lead, then two pairs beneath it. Scaled down so the whole set fits in
+   roughly one screen. Desktop's 3+2 row layout is untouched. */
+@media(max-width:1000px){
+  .ri26-steps-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+  /* Lead spans the full width; the rest pair up. */
+  .ri26-steps-grid > li,
+  .ri26-steps-grid > li:nth-child(4),
+  .ri26-steps-grid > li:nth-child(5) { grid-column:span 1; }
+  .ri26-steps-grid > li:first-child { grid-column:1 / -1; }
+
+  .ri26-steps-grid article { padding:16px 16px 15px; border-radius:15px; }
+  .ri26-steps-grid > li:first-child article { padding:18px 20px 17px; }
+
+  .ri26-steps-grid header { padding-bottom:12px; }
+  .ri26-steps-n { font-size:17px; }
+  .ri26-steps-grid > li:first-child .ri26-steps-n { font-size:20px; }
+  .ri26-steps-when { padding:4px 9px; font-size:9.5px; }
+  .ri26-steps-ico { margin-top:13px; }
+  .ri26-steps-ico svg { width:22px; height:22px; }
+  .ri26-steps-grid b { margin-top:11px; font-size:14px; line-height:1.22; }
+  .ri26-steps-grid > li:first-child b { font-size:16px; }
+  .ri26-steps-grid p { margin-top:7px; font-size:11.5px; line-height:1.52; }
+  .ri26-steps-grid > li:first-child p { font-size:12.5px; }
+}
+@media(max-width:480px){
+  .ri26-steps-grid { gap:8px; }
+  .ri26-steps-grid article { padding:14px 13px 13px; border-radius:13px; }
+  .ri26-steps-n { font-size:15px; }
+  .ri26-steps-when { padding:3px 8px; font-size:9px; }
+  .ri26-steps-ico svg { width:20px; height:20px; }
+  .ri26-steps-grid b { font-size:13px; }
+  .ri26-steps-grid p { font-size:11px; }
+}
+/* Centre the icon in the mobile scroller cards. The left-aligned card text
+   had pulled it to the edge. Mobile only — desktop is already centred. */
+@media(max-width:860px){
+  .ri26-cause-grid article .ri26-cause-icon { margin:14px auto; }
+}
+
+/* The service hero now uses a native <picture> for art direction, so the
+   <img> needs the sizing next/image's `fill` would have provided. */
+.ri26-service-hero .ri26-hero-photo picture { display:block; position:absolute; inset:0; }
+.ri26-service-hero .ri26-hero-photo img {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* The portrait crop is built for a tall frame with the damage centred, so the
+   horizontal offsets added for the landscape crop no longer apply below the
+   breakpoint where the portrait source takes over. */
+@media(max-width:860px){
+  .ri26-service-hero .ri26-hero-photo img { object-position:center 50%; }
+}
+@media(max-width:480px){
+  .ri26-service-hero .ri26-hero-photo img { object-position:center 52%; }
+}
+
+/* ── Batch 2 signature: where the water hides ──────────────────────────
+   A numbered run of concealed paths, each with a reach badge and a "what
+   gives it away" line. Deliberately a list on a spine rather than a card
+   grid — the first three services already use card grids, and a path is a
+   sequence through the structure, not a set of parallel options. */
+.ri26-paths { background:linear-gradient(180deg,#fbfdfe 0%,#f5f9fb 58%,#fbfdfe 100%); }
+.ri26-paths-list {
+  position:relative;
+  display:grid;
+  gap:0;
+  margin:clamp(38px,4vw,54px) 0 0;
+  padding:0;
+  list-style:none;
+}
+.ri26-paths-list li {
+  position:relative;
+  display:grid;
+  grid-template-columns:62px minmax(0,1fr);
+  gap:22px;
+  padding:22px 0;
+  border-bottom:1px solid #e4eef3;
+}
+.ri26-paths-list li:last-child { border-bottom:0; }
+
+/* Numeral in a tinted well, with the spine running between them. */
+.ri26-paths-n {
+  position:relative;
+  z-index:1;
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  border:1px solid #bcdcec;
+  border-radius:12px;
+  background:#f2fafd;
+  color:#06688f;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.04em;
+}
+.ri26-paths-list li::before {
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:23px;
+  top:68px;
+  bottom:-1px;
+  width:1px;
+  background:#dce8ed;
+}
+.ri26-paths-list li:last-child::before { display:none; }
+
+.ri26-paths-body { min-width:0; }
+.ri26-paths-body header {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:12px;
+}
+.ri26-paths-body b {
+  color:var(--ri26-ink);
+  font-size:17px;
+  font-weight:740;
+  letter-spacing:-.025em;
+}
+.ri26-paths-reach {
+  padding:4px 10px;
+  border:1px solid #d7e7f0;
+  border-radius:999px;
+  background:#f4fafd;
+  color:#4a6072;
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.03em;
+}
+.ri26-paths-body > p {
+  max-width:72ch;
+  margin-top:9px;
+  color:#5d707c;
+  font-size:13.5px;
+  line-height:1.66;
+}
+/* The tell — set apart so it reads as the practical takeaway. */
+.ri26-paths-tell {
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  max-width:72ch;
+  margin-top:12px;
+  padding:11px 14px;
+  border-left:2px solid #42cbd2;
+  border-radius:0 10px 10px 0;
+  background:#f4fafd;
+  color:#3f5665;
+  font-size:12.5px;
+  line-height:1.56;
+}
+.ri26-paths-tell svg { width:15px; height:15px; flex:none; margin-top:1px; color:#06688f; }
+.ri26-paths-tell em {
+  font-style:normal;
+  font-weight:700;
+  color:#17394e;
+}
+.ri26-paths-tell em::after { content:" — "; }
+
+@media(min-width:1001px){
+  .ri26-paths .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+  .ri26-paths .voda-heading h2 { font-size:clamp(32px,3.6vw,50px); }
+}
+@media(max-width:700px){
+  .ri26-paths-list li { grid-template-columns:40px minmax(0,1fr); gap:14px; padding:18px 0; }
+  .ri26-paths-n { width:36px; height:36px; font-size:11.5px; border-radius:10px; }
+  .ri26-paths-list li::before { left:18px; top:54px; }
+  .ri26-paths-body b { font-size:15.5px; }
+  .ri26-paths-body > p { font-size:13px; }
+  .ri26-paths-tell { font-size:12px; padding:10px 12px; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   BATCH 2 LAYOUTS — burst pipe, appliance leak, hardwood, crawlspace
+   Distinct section designs from batch 1. Only the CTA band and FAQ are
+   shared, so the two batches read as different page templates.
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ── Hero: shallower, with a straight edge instead of the deep arc ──────
+   Batch 1 heroes use a tall photo and a deep curve. These use a shorter
+   band with a hard diagonal, so the two batches differ at first glance. */
+.ri26-hero-b2 { min-height:600px; }
+@media(min-width:1001px){
+  .ri26-hero-b2 { min-height:640px; padding-bottom:clamp(120px,11vw,170px); }
+  .ri26-hero-b2 .ri26-hero-wave-arc { height:132px; }
+}
+
+/* ── Expertise: vertical rail, not a 3-up card row ──────────────────────
+   Each capability is a row: a large index, the image as a narrow strip,
+   then the copy. Reads down the page rather than across it. */
+.ri26-exp-rail {
+  display:grid;
+  gap:0;
+  margin-top:clamp(38px,4vw,54px);
+}
+.ri26-exp-rail article {
+  display:grid;
+  grid-template-columns:72px 240px minmax(0,1fr);
+  align-items:center;
+  gap:26px;
+  padding:22px 0;
+  border-top:1px solid #dce8ed;
+}
+.ri26-exp-rail article:last-child { border-bottom:1px solid #dce8ed; }
+.ri26-exp-rail .ri26-exp-mosaic-shot {
+  position:relative;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  border-radius:12px;
+  background:#e4eef3;
+  box-shadow:0 1px 2px rgba(9,42,64,.06), 0 10px 22px -14px rgba(9,42,64,.3);
+}
+.ri26-exp-rail .ri26-exp-mosaic-copy { padding:0; }
+.ri26-exp-rail .ri26-exp-mark { display:none; }
+.ri26-exp-rail b {
+  display:block;
+  color:var(--ri26-ink);
+  font-size:19px;
+  font-weight:740;
+  letter-spacing:-.025em;
+  line-height:1.24;
+}
+.ri26-exp-rail p {
+  max-width:62ch;
+  margin-top:9px;
+  color:#5d707c;
+  font-size:13.5px;
+  line-height:1.64;
+}
+/* Big ghost index at the row's head. */
+.ri26-exp-rail article::before {
+  content:counter(b2) "";
+  counter-increment:b2;
+  display:block;
+  color:#c4d7e2;
+  font-size:40px;
+  font-weight:800;
+  letter-spacing:-.05em;
+  line-height:1;
+}
+.ri26-exp-rail { counter-reset:b2; }
+
+@media(max-width:900px){
+  .ri26-exp-rail article { grid-template-columns:48px minmax(0,1fr); gap:16px; row-gap:12px; padding:18px 0; }
+  .ri26-exp-rail .ri26-exp-mosaic-shot { grid-column:1 / -1; aspect-ratio:16/9; }
+  .ri26-exp-rail article::before { font-size:28px; }
+}
+
+/* ── Causes: compact two-column list, no icons or connectors ────────────
+   Batch 1 uses a centred icon row. This is a plain bordered list, which
+   suits four short items and takes far less vertical space. */
+.ri26-cause-list {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0 clamp(26px,3vw,56px);
+  margin-top:clamp(34px,3.6vw,48px);
+}
+.ri26-cause-list article {
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr);
+  align-items:start;
+  gap:14px;
+  padding:18px 0;
+  border-top:1px solid #dce8ed;
+  text-align:left;
+}
+.ri26-cause-list .ri26-cause-no {
+  color:#06688f;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.04em;
+}
+.ri26-cause-list .ri26-cause-icon { display:none; }
+.ri26-cause-list h3 {
+  margin:0;
+  color:var(--ri26-ink);
+  font-size:15.5px;
+  font-weight:740;
+  letter-spacing:-.02em;
+  line-height:1.3;
+}
+.ri26-cause-list h3 em { color:#0a5f93; font-style:normal; }
+.ri26-cause-list p {
+  max-width:none;
+  margin-top:7px;
+  color:#5d707c;
+  font-size:12.8px;
+  line-height:1.6;
+}
+@media(max-width:760px){
+  .ri26-cause-list { grid-template-columns:1fr; }
+}
+
+/* ── Process: horizontal rail with a continuous progress line ───────────
+   Batch 1 uses a 3+2 card bento. This is one connected run, so the five
+   stages read as a timeline rather than a set. */
+.ri26-steps-rail {
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:0;
+  margin:clamp(44px,4.6vw,62px) 0 0;
+  padding:0;
+  list-style:none;
+}
+/* Continuous rail behind the nodes. */
+.ri26-steps-rail::before {
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:10%;
+  right:10%;
+  top:28px;
+  height:2px;
+  background:linear-gradient(90deg,#42cbd2,#bcdcec);
+  border-radius:2px;
+}
+.ri26-steps-rail > li { position:relative; z-index:1; padding:0 14px; }
+.ri26-steps-rail article {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:0;
+  border:0;
+  background:none;
+  box-shadow:none;
+}
+.ri26-steps-rail header {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0;
+  padding:0;
+  border:0;
+}
+/* Numeral becomes the node on the rail. */
+.ri26-steps-rail .ri26-steps-n {
+  display:grid;
+  place-items:center;
+  width:56px;
+  height:56px;
+  border:2px solid #fff;
+  border-radius:50%;
+  background:#0a6ea6;
+  color:#fff;
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:.02em;
+  box-shadow:0 2px 6px rgba(9,42,64,.2), 0 0 0 4px rgba(10,110,166,.1);
+}
+.ri26-steps-rail .ri26-steps-when {
+  order:2;
+  margin-top:14px;
+  padding:4px 11px;
+  border:1px solid #bcdcec;
+  border-radius:999px;
+  background:#f2fafd;
+  color:#06688f;
+  font-size:10px;
+  font-weight:700;
+}
+.ri26-steps-rail .ri26-steps-ico { display:none; }
+.ri26-steps-rail b {
+  margin-top:14px;
+  color:var(--ri26-ink);
+  font-size:15.5px;
+  font-weight:740;
+  letter-spacing:-.02em;
+  line-height:1.26;
+}
+.ri26-steps-rail b em { color:#166a9e; font-style:normal; }
+.ri26-steps-rail p {
+  max-width:26ch;
+  margin-top:8px;
+  color:#5d707c;
+  font-size:12.5px;
+  line-height:1.56;
+}
+
+@media(max-width:1000px){
+  /* Vertical rail on narrow screens. */
+  .ri26-steps-rail { grid-template-columns:1fr; gap:0; }
+  .ri26-steps-rail::before { left:27px; right:auto; top:30px; bottom:30px; width:2px; height:auto; background:linear-gradient(180deg,#42cbd2,#bcdcec); }
+  .ri26-steps-rail > li { padding:0 0 0 0; }
+  .ri26-steps-rail article { display:grid; grid-template-columns:56px minmax(0,1fr); gap:18px; align-items:start; text-align:left; padding:12px 0; }
+  .ri26-steps-rail header { grid-column:1; }
+  .ri26-steps-rail .ri26-steps-n { width:46px; height:46px; font-size:13px; }
+  .ri26-steps-rail .ri26-steps-when { order:0; margin-top:8px; font-size:9px; padding:3px 8px; }
+  .ri26-steps-rail b { grid-column:2; grid-row:1; margin-top:10px; font-size:15px; }
+  .ri26-steps-rail p { grid-column:2; grid-row:2; max-width:none; margin-top:4px; }
+}
+
+/* ── Safety: full-width band, two columns, no photo ─────────────────────
+   Batch 1 pairs a photo and stat with stacked cards. This is a wide band
+   where the two lists sit side by side under a centred heading. */
+.ri26-safety-b2 { background:linear-gradient(180deg,#f4f9fc 0%,#eef5f9 56%,#f4f9fc 100%); }
+.ri26-safety-b2 .voda-heading { max-width:760px; margin:0 auto; text-align:center; }
+.ri26-safety-b2 .voda-heading h2 {
+  margin-top:14px;
+  color:var(--ri26-ink);
+  font-size:clamp(30px,3.4vw,46px);
+  font-weight:740;
+  line-height:1.04;
+  letter-spacing:-.05em;
+}
+.ri26-safety-b2 .voda-heading h2 em { color:#166a9e; font-style:normal; }
+.ri26-safety-b2 .ri26-safety-lede {
+  max-width:62ch;
+  margin:16px auto 0;
+  color:#4a6072;
+  font-size:14.5px;
+  line-height:1.7;
+  text-align:center;
+}
+/* Photo and stat are not used in this variant. */
+.ri26-safety-b2 .ri26-safety-shot { display:none; }
+.ri26-safety-b2 .ri26-safety-copy { display:contents; }
+.ri26-safety-b2 .ri26-safety-card {
+  margin-top:clamp(34px,3.6vw,48px);
+  gap:18px;
+}
+.ri26-safety-b2 .ri26-safety-warning {
+  max-width:none;
+  margin:18px 0 0;
+}
+
+@media(min-width:1001px){
+  .ri26-safety-b2 .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+}
+/* The ghost index measured 1.40:1 — effectively invisible. It is generated
+   content so it carries no semantic weight, but it should still be readable. */
+.ri26-exp-rail article::before { color:#7d9aad; }
+.ri26-exp-rail article::before { color:#6c8ba1; }
+
+/* ══════════════════════════════════════════════════════════════════════
+   BATCH 2 EXPERTISE — one contained panel
+   A single rounded panel holding a photo, with the claim set over it on a
+   dark wash and the three capabilities running across its base. Not
+   full-bleed: it sits inside the wrap with the site's usual radius and
+   shadow, so it reads as a deliberate object rather than a section break.
+   ══════════════════════════════════════════════════════════════════════ */
+.ri26-expb2 { background:linear-gradient(180deg,#fbfdfe 0%,#f5f9fb 58%,#fbfdfe 100%); }
+
+.ri26-expb2-panel {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  display:grid;
+  grid-template-rows:1fr auto;
+  min-height:620px;
+  border-radius:24px;
+  background:#0a2340;
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.08),
+    0 22px 44px -18px rgba(9,42,64,.32),
+    0 48px 86px -36px rgba(9,42,64,.3);
+}
+
+/* Photo fills the panel; the wash below keeps the copy legible. */
+.ri26-expb2-photo { position:absolute; z-index:0; inset:0; }
+.ri26-expb2-photo img { object-position:center 42%; }
+.ri26-expb2-panel::before {
+  content:"";
+  position:absolute;
+  z-index:1;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(6,24,43,.82) 0%, rgba(6,24,43,.5) 34%, rgba(6,24,43,.55) 58%, rgba(6,24,43,.93) 100%),
+    linear-gradient(90deg, rgba(6,24,43,.72) 0%, rgba(6,24,43,.2) 52%, rgba(6,24,43,.34) 100%);
+}
+/* Grid pattern, as the hero uses. */
+.ri26-expb2-panel::after {
+  content:"";
+  position:absolute;
+  z-index:1;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size:58px 58px;
+  -webkit-mask-image:radial-gradient(110% 70% at 50% 0%, #000 0%, rgba(0,0,0,.4) 46%, transparent 80%);
+  mask-image:radial-gradient(110% 70% at 50% 0%, #000 0%, rgba(0,0,0,.4) 46%, transparent 80%);
+}
+
+/* Claim sits over the photo's upper area. */
+.ri26-expb2-top {
+  position:relative;
+  z-index:2;
+  align-self:start;
+  max-width:720px;
+  padding:clamp(34px,4vw,58px) clamp(26px,3.4vw,52px) 0;
+}
+.ri26-expb2-top h2 {
+  margin-top:15px;
+  color:#fff;
+  font-size:clamp(32px,3.8vw,54px);
+  font-weight:740;
+  line-height:1.0;
+  letter-spacing:-.055em;
+}
+.ri26-expb2-top h2 em { color:#68e1e2; font-style:normal; }
+.ri26-expb2-top > p {
+  max-width:54ch;
+  margin-top:18px;
+  color:#cfe0ea;
+  font-size:14.5px;
+  line-height:1.7;
+}
+
+/* Scope points sit beside the call button rather than in their own block. */
+.ri26-expb2-actions {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:18px 26px;
+  margin-top:24px;
+}
+.ri26-expb2-actions ul {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px 22px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.ri26-expb2-actions li {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#dbe8f1;
+  font-size:12.5px;
+  font-weight:620;
+}
+.ri26-expb2-actions li svg { width:14px; height:14px; flex:none; color:#73e4e5; }
+
+/* Capabilities run across the panel's base, divided by hairlines. */
+.ri26-expb2-row {
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;
+  margin:0;
+  padding:0 clamp(26px,3.4vw,52px) clamp(30px,3.4vw,46px);
+  list-style:none;
+}
+.ri26-expb2-row li {
+  padding:24px clamp(18px,2vw,30px) 0;
+  border-top:1px solid rgba(255,255,255,.18);
+}
+.ri26-expb2-row li + li { border-left:1px solid rgba(255,255,255,.14); }
+.ri26-expb2-row li:first-child { padding-left:0; }
+.ri26-expb2-row li:last-child { padding-right:0; }
+.ri26-expb2-n {
+  display:block;
+  color:#73e4e5;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+.ri26-expb2-row b {
+  display:block;
+  margin-top:11px;
+  color:#fff;
+  font-size:16px;
+  font-weight:740;
+  letter-spacing:-.02em;
+  line-height:1.26;
+}
+.ri26-expb2-row p {
+  margin-top:9px;
+  color:#bed0dc;
+  font-size:12.8px;
+  line-height:1.6;
+}
+
+@media(min-width:1001px){
+  .ri26-expb2 .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+}
+@media(max-width:860px){
+  .ri26-expb2-panel { min-height:0; border-radius:18px; }
+  .ri26-expb2-photo img { object-position:center 46%; }
+  .ri26-expb2-top { padding:28px 22px 0; }
+  .ri26-expb2-actions { gap:14px 18px; }
+  .ri26-expb2-actions ul { grid-template-columns:1fr; gap:7px; }
+  .ri26-expb2-row { grid-template-columns:1fr; padding:0 22px 26px; }
+  .ri26-expb2-row li { padding:18px 0 0; }
+  .ri26-expb2-row li + li { border-left:0; }
+  .ri26-expb2-row b { font-size:15px; }
+}
+/* The lede sits where the wash is lightest (34-58%) and measured 4.43:1 over
+   a bright photo pixel. Deepen the wash through that band rather than
+   lightening the text, so the photo still reads at the panel's centre. */
+.ri26-expb2-panel::before {
+  background:
+    linear-gradient(180deg, rgba(6,24,43,.86) 0%, rgba(6,24,43,.68) 34%, rgba(6,24,43,.62) 58%, rgba(6,24,43,.94) 100%),
+    linear-gradient(90deg, rgba(6,24,43,.72) 0%, rgba(6,24,43,.2) 52%, rgba(6,24,43,.34) 100%);
+}
+
+/* ── Batch 2 expertise: use the available width ────────────────────────
+   The panel was capped at 1440px with the copy confined to its left half,
+   leaving dead margin on wide screens and an empty right side. Widen the
+   wrap and spread the content: the claim and the lede sit side by side,
+   the scope points fill the row beside the button, and the capability
+   columns run the full panel width. */
+@media(min-width:1001px){
+  .ri26-expb2 .voda-wrap { width:min(1760px,calc(100% - 56px)); }
+  .ri26-expb2-panel { min-height:660px; }
+
+  /* Claim left, lede and actions right — two columns instead of a stack. */
+  .ri26-expb2-top {
+    display:grid;
+    grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
+    align-items:end;
+    gap:clamp(34px,4vw,76px);
+    max-width:none;
+    padding:clamp(40px,4vw,64px) clamp(34px,3vw,58px) 0;
+  }
+  .ri26-expb2-top .voda-eyebrow { grid-column:1; }
+  .ri26-expb2-top h2 {
+    grid-column:1;
+    max-width:15ch;
+    font-size:clamp(38px,3.9vw,62px);
+  }
+  .ri26-expb2-top > p {
+    grid-column:2;
+    grid-row:1 / span 2;
+    align-self:end;
+    max-width:56ch;
+    margin-top:0;
+    font-size:15.5px;
+  }
+  /* Actions span both columns so the points spread rather than wrap. */
+  .ri26-expb2-actions {
+    grid-column:1 / -1;
+    margin-top:30px;
+    gap:20px 40px;
+  }
+  .ri26-expb2-actions ul {
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    flex:1;
+    gap:10px 28px;
+  }
+  .ri26-expb2-actions li { font-size:13px; }
+
+  /* Capability columns use the full width with more breathing room. */
+  .ri26-expb2-row { padding:0 clamp(34px,3vw,58px) clamp(34px,3.4vw,52px); }
+  .ri26-expb2-row li { padding:26px clamp(24px,2.4vw,40px) 0; }
+  .ri26-expb2-row b { font-size:17.5px; }
+  .ri26-expb2-row p { max-width:46ch; font-size:13.2px; }
+}
+
+/* ── Where the water hides: 2x2 card grid ──────────────────────────────
+   Replaces the stacked spine list, which left the right half of the
+   section empty. Four cards in a 2x2, each ending on its "what gives it
+   away" line pinned to the base so all four align. */
+.ri26-paths-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin:clamp(38px,4vw,54px) 0 0;
+  padding:0;
+  list-style:none;
+}
+.ri26-paths-grid > li { display:flex; }
+.ri26-paths-grid article {
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  padding:26px 28px 0;
+  border:1px solid #cfdfe9;
+  border-radius:18px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 12px 24px -10px rgba(9,42,64,.2),
+    0 30px 54px -26px rgba(9,42,64,.26);
+  transition:border-color .28s, box-shadow .28s, transform .28s;
+}
+.ri26-paths-grid article:hover {
+  border-color:#59c6e4;
+  transform:translateY(-3px);
+}
+.ri26-paths-grid header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+.ri26-paths-grid .ri26-paths-n {
+  display:inline-block;
+  width:auto;
+  height:auto;
+  border:0;
+  border-radius:0;
+  background:none;
+  color:#06688f;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.1em;
+}
+.ri26-paths-grid b {
+  margin-top:14px;
+  color:var(--ri26-ink);
+  font-size:19px;
+  font-weight:740;
+  letter-spacing:-.03em;
+  line-height:1.2;
+}
+.ri26-paths-grid article > p {
+  max-width:52ch;
+  margin-top:10px;
+  color:#5d707c;
+  font-size:13.2px;
+  line-height:1.64;
+}
+/* The tell, pinned to the base behind a hairline. */
+.ri26-paths-grid footer {
+  margin-top:auto;
+  padding:16px 0 20px;
+  border-top:1px solid #e4eef3;
+  color:#3f5665;
+  font-size:12.8px;
+  line-height:1.56;
+}
+.ri26-paths-tell-label {
+  display:block;
+  margin-bottom:5px;
+  color:#8296a4;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+@media(min-width:1001px){
+  .ri26-paths .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+}
+@media(max-width:760px){
+  .ri26-paths-grid { grid-template-columns:1fr; gap:12px; }
+  .ri26-paths-grid article { padding:22px 20px 0; }
+  .ri26-paths-grid b { font-size:16.5px; }
+}
+/* The uppercase label measured 2.89:1 — too faint at 10px. */
+.ri26-paths-tell-label { color:#5f7682; }
+
+/* ══════════════════════════════════════════════════════════════════════
+   HOUSE CUTAWAY — interactive cross-section
+   The batch 2 counterpart to the homepage's map section: a diagram you
+   explore rather than a block you read. Selecting a path highlights the
+   part of the structure it reaches.
+   ══════════════════════════════════════════════════════════════════════ */
+.ri26-cut {
+  --cut-off:#eaf1f5;
+  --cut-line:#c3d6e0;
+  --cut-on:#c9eef3;
+  --cut-on-line:#0a6ea6;
+  --cut-roof:#dde8ee;
+  --cut-room:#f6fafc;
+  --cut-ground:#dfe8ec;
+
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  align-items:stretch;
+  gap:clamp(22px,2.6vw,42px);
+  margin-top:clamp(36px,3.8vw,52px);
+}
+
+/* Diagram sits in a card so it reads as an object, like the map does. */
+.ri26-cut-figure {
+  display:flex;
+  flex-direction:column;
+  padding:clamp(20px,2.2vw,32px);
+  border:1px solid #cfdfe9;
+  border-radius:20px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 54%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 12px 24px -10px rgba(9,42,64,.2),
+    0 30px 54px -26px rgba(9,42,64,.26);
+}
+.ri26-cut-figure svg {
+  display:block;
+  width:100%;
+  height:auto;
+  flex:1;
+}
+.ri26-cut-figure path { transition:fill .3s ease, stroke .3s ease; }
+.ri26-cut-caption {
+  margin:16px 0 0;
+  padding-top:14px;
+  border-top:1px solid #e4eef3;
+  color:#5d707c;
+  font-size:12.5px;
+}
+.ri26-cut-caption span {
+  color:#06688f;
+  font-weight:740;
+}
+
+/* Selector list and the detail for the active path. */
+.ri26-cut-panel { display:flex; flex-direction:column; min-width:0; }
+.ri26-cut-tabs {
+  display:grid;
+  gap:0;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.ri26-cut-tabs button {
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr) 16px;
+  align-items:center;
+  gap:12px;
+  width:100%;
+  padding:15px 2px;
+  border:0;
+  border-bottom:1px solid #dce8ed;
+  background:none;
+  color:#17394e;
+  font-size:14.5px;
+  font-weight:700;
+  letter-spacing:-.01em;
+  text-align:left;
+  cursor:pointer;
+  transition:color .22s ease, border-color .22s ease;
+}
+.ri26-cut-tabs button:hover { color:#06688f; }
+.ri26-cut-tabs button.is-on { color:#06688f; border-color:#42cbd2; }
+.ri26-cut-n {
+  color:#5f7682;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.06em;
+}
+.ri26-cut-tabs button.is-on .ri26-cut-n { color:#0a6ea6; }
+.ri26-cut-tabs svg {
+  width:15px;
+  height:15px;
+  color:#8fa8b8;
+  transition:transform .22s ease, color .22s ease;
+}
+.ri26-cut-tabs button.is-on svg { color:#0a6ea6; transform:translateX(3px); }
+
+/* Detail for the selected path. */
+.ri26-cut-detail {
+  margin-top:auto;
+  padding:22px 24px 20px;
+  border:1px solid #cfdfe9;
+  border-radius:16px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:0 1px 2px rgba(9,42,64,.05), 0 10px 22px -12px rgba(9,42,64,.2);
+}
+.ri26-cut-detail header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+.ri26-cut-detail b {
+  color:var(--ri26-ink);
+  font-size:17px;
+  font-weight:740;
+  letter-spacing:-.025em;
+}
+.ri26-cut-reach {
+  padding:4px 10px;
+  border:1px solid #d7e7f0;
+  border-radius:999px;
+  background:#f4fafd;
+  color:#4a6072;
+  font-size:10.5px;
+  font-weight:700;
+  white-space:nowrap;
+}
+.ri26-cut-detail p {
+  margin-top:10px;
+  color:#5d707c;
+  font-size:13.2px;
+  line-height:1.64;
+}
+.ri26-cut-detail footer {
+  margin-top:14px;
+  padding-top:13px;
+  border-top:1px solid #e4eef3;
+  color:#3f5665;
+  font-size:12.8px;
+  line-height:1.56;
+}
+.ri26-cut-detail footer span {
+  display:block;
+  margin-bottom:4px;
+  color:#5f7682;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+@media(max-width:900px){
+  .ri26-cut { grid-template-columns:1fr; gap:18px; }
+  .ri26-cut-detail { margin-top:16px; }
+  .ri26-cut-tabs button { font-size:13.5px; padding:13px 2px; }
+}
+
+/* Cutaway render plus CSS highlight bands, replacing the hand-drawn SVG. */
+.ri26-cut-figure { margin:0; }
+.ri26-cut-stage {
+  position:relative;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  border-radius:14px;
+  background:#eef4f7;
+}
+.ri26-cut-band {
+  position:absolute;
+  z-index:2;
+  border:2px solid rgba(10,110,166,0);
+  border-radius:6px;
+  background:rgba(66,203,210,0);
+  box-shadow:0 0 0 0 rgba(66,203,210,0);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .34s ease, background .34s ease, border-color .34s ease, box-shadow .34s ease;
+}
+.ri26-cut-band.is-on {
+  opacity:1;
+  border-color:rgba(10,110,166,.9);
+  background:rgba(66,203,210,.3);
+  box-shadow:0 0 0 3px rgba(66,203,210,.18), 0 6px 18px -6px rgba(9,42,64,.3);
+}
+/* The cutaway render is 4:3 on a white ground. `cover` would crop the house's
+   edges, so contain it and let the card's own background fill around it. */
+.ri26-cut-img { object-fit:contain; }
+.ri26-cut-stage { background:#fff; }
+
+/* ── Cutaway refinements ───────────────────────────────────────────────
+   1. The house sits directly on the section, not in a card — the render is
+      already on white and a card around it added a frame it did not need.
+   2. Tabs are larger with a reach line under each zone name.
+   3. The detail panel sits directly under the list rather than being pushed
+      to the bottom of the column. */
+
+/* 1. Drop the card from the figure. */
+.ri26-cut-figure {
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+}
+.ri26-cut-stage { border-radius:0; background:transparent; }
+.ri26-cut-caption { border-top:0; padding-top:10px; margin-top:6px; }
+
+/* 2. Bigger, thicker tabs carrying a second line. */
+.ri26-cut-tabs button {
+  grid-template-columns:42px minmax(0,1fr) 18px;
+  gap:16px;
+  padding:20px 4px;
+  border-bottom:1px solid #dce8ed;
+}
+.ri26-cut-tabs button:first-child { border-top:1px solid #dce8ed; }
+.ri26-cut-zone { display:block; min-width:0; }
+.ri26-cut-zone b {
+  display:block;
+  font-size:17px;
+  font-weight:760;
+  letter-spacing:-.025em;
+  line-height:1.24;
+}
+.ri26-cut-zone small {
+  display:block;
+  margin-top:4px;
+  color:#5d707c;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0;
+}
+.ri26-cut-tabs button.is-on .ri26-cut-zone small { color:#3f6b86; }
+.ri26-cut-n { font-size:12.5px; }
+.ri26-cut-tabs svg { width:17px; height:17px; }
+/* Active row gets a tinted ground and a left accent so it reads as selected. */
+.ri26-cut-tabs button.is-on {
+  border-color:#42cbd2;
+  background:linear-gradient(90deg, rgba(66,203,210,.1), rgba(66,203,210,0) 72%);
+  box-shadow:inset 3px 0 0 #42cbd2;
+  padding-left:14px;
+}
+
+/* 3. Detail sits right under the list. */
+.ri26-cut-detail { margin-top:18px; }
+.ri26-cut-panel { justify-content:flex-start; }
+
+/* The render has a soft contact shadow baked in beneath the house. Clip the
+   bottom of the stage so the ground band ends flush and the shadow never
+   shows. The highlight bands are positioned as a percentage of the same box,
+   so they shift with it and stay aligned. */
+.ri26-cut-stage {
+  clip-path:inset(0 0 4.5% 0);
+}
+/* The new render has no baked-in ground shadow, so the clip is no longer
+   needed and would cut into the ground band. */
+.ri26-cut-stage { clip-path:none; }
+
