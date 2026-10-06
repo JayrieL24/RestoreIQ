@@ -6907,3 +6907,3168 @@ main:has(.ri26-area-cta) .voda-cta-band + .voda-faq { padding-top:clamp(70px,6.6
    needed and would cut into the ground band. */
 .ri26-cut-stage { clip-path:none; }
 
+
+/* ── Batch 2 causes: more presence ─────────────────────────────────────
+   The rows were bare because the detail copy was missing; with it in place
+   they need room to breathe. Larger numerals, a cyan rule marking each
+   entry, and a hover state so the list reads as deliberate rather than
+   leftover. */
+.ri26-cause-list article {
+  position:relative;
+  grid-template-columns:44px minmax(0,1fr);
+  gap:18px;
+  padding:22px 0 20px;
+  border-top:1px solid #dce8ed;
+  transition:border-color .26s ease;
+}
+/* Cyan marker at the head of each row. */
+.ri26-cause-list article::before {
+  content:"";
+  position:absolute;
+  top:-1px; left:0;
+  width:44px; height:2px;
+  background:#42cbd2;
+  opacity:0;
+  transition:opacity .26s ease;
+}
+.ri26-cause-list article:hover::before { opacity:1; }
+.ri26-cause-list .ri26-cause-no {
+  color:#0a6ea6;
+  font-size:19px;
+  font-weight:800;
+  letter-spacing:-.03em;
+  line-height:1;
+}
+.ri26-cause-list h3 { font-size:16.5px; line-height:1.28; }
+.ri26-cause-list p {
+  margin-top:9px;
+  color:#5d707c;
+  font-size:13px;
+  line-height:1.64;
+}
+
+@media(min-width:1001px){
+  .ri26-detail-causes .ri26-cause-list { gap:0 clamp(36px,4vw,72px); }
+  .ri26-cause-list p { max-width:46ch; }
+}
+
+/* The row is a 2-column grid but the article has four children: numeral,
+   icon (display:none but still a grid item in some paths), heading and copy.
+   The paragraph was landing in an implicit third column with no width, so it
+   wrapped one word per line. Place each child explicitly. */
+.ri26-cause-list article { grid-template-columns:44px minmax(0,1fr); }
+.ri26-cause-list .ri26-cause-no { grid-column:1; grid-row:1; }
+.ri26-cause-list .ri26-cause-icon { display:none; grid-column:1; grid-row:1; }
+.ri26-cause-list h3 { grid-column:2; grid-row:1; }
+.ri26-cause-list p { grid-column:2; grid-row:2; min-width:0; }
+
+/* ── Batch 2 causes: restore the icon, add card structure ──────────────
+   The rows were plain because I had hidden the icon and left them as bare
+   text. Bring the icon back in a tinted tile, give each row a card face so
+   it lifts off the section, and keep the numeral as a corner marker. */
+.ri26-detail-causes .ri26-cause-list {
+  gap:14px;
+}
+.ri26-cause-list article {
+  grid-template-columns:48px minmax(0,1fr);
+  gap:16px;
+  padding:22px 24px 20px;
+  border:1px solid #cfdfe9;
+  border-top:1px solid #cfdfe9;
+  border-radius:16px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.05),
+    0 10px 22px -10px rgba(9,42,64,.16);
+  transition:border-color .26s ease, box-shadow .26s ease, transform .26s ease;
+}
+.ri26-cause-list article:hover {
+  border-color:#59c6e4;
+  transform:translateY(-2px);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 16px 30px -12px rgba(9,42,64,.22);
+}
+/* The cyan rule becomes a left edge accent instead of a top marker. */
+.ri26-cause-list article::before {
+  top:18px; bottom:18px; left:0;
+  width:3px; height:auto;
+  border-radius:0 3px 3px 0;
+  background:linear-gradient(180deg,#42cbd2,rgba(66,203,210,.2));
+  opacity:0;
+}
+.ri26-cause-list article:hover::before { opacity:1; }
+
+/* Icon back, in a tinted tile at the row's head. */
+.ri26-cause-list .ri26-cause-icon {
+  display:grid;
+  place-items:center;
+  grid-column:1;
+  grid-row:1 / span 2;
+  align-self:start;
+  width:48px;
+  height:48px;
+  margin:0;
+  border:1px solid #bcdcec;
+  border-radius:12px;
+  background:#f2fafd;
+  color:#06688f;
+}
+.ri26-cause-list .ri26-cause-icon svg { width:21px; height:21px; }
+
+/* Numeral moves to the top-right corner as a quiet index. */
+.ri26-cause-list .ri26-cause-no {
+  position:absolute;
+  top:18px; right:20px;
+  grid-column:auto; grid-row:auto;
+  color:#8fa8b8;
+  font-size:11.5px;
+  font-weight:800;
+  letter-spacing:.08em;
+}
+.ri26-cause-list h3 { grid-column:2; grid-row:1; padding-right:34px; }
+.ri26-cause-list p { grid-column:2; grid-row:2; margin-top:8px; }
+/* Corner numeral measured 2.48:1 — too faint even as an index. */
+.ri26-cause-list .ri26-cause-no { color:#5f7682; }
+
+/* ── Batch 2 causes: richer cards ──────────────────────────────────────
+   Each card now carries its own cause icon rather than the parent service's,
+   so four cards no longer show four identical glyphs. Deeper card face, a
+   soft wash behind the icon, and a stronger hover so the row has presence. */
+.ri26-cause-list article {
+  overflow:hidden;
+  padding:24px 26px 22px;
+  border-radius:18px;
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 12px 24px -10px rgba(9,42,64,.2),
+    0 28px 50px -26px rgba(9,42,64,.24);
+}
+/* Soft radial behind the icon corner, the device used on the facts cards. */
+.ri26-cause-list article::after {
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:-30px; left:-26px;
+  width:150px; height:150px;
+  border-radius:50%;
+  background:radial-gradient(circle at 50% 50%, rgba(66,203,210,.14), transparent 68%);
+  pointer-events:none;
+}
+.ri26-cause-list article > * { position:relative; z-index:1; }
+
+/* Icon tile: larger, with a ring and lift so it reads as an object. */
+.ri26-cause-list .ri26-cause-icon {
+  width:52px;
+  height:52px;
+  border:1px solid #bcdcec;
+  border-radius:14px;
+  background:linear-gradient(160deg,#f6fcfe 0%,#e7f6fe 100%);
+  color:#06688f;
+  box-shadow:0 1px 2px rgba(9,42,64,.06), 0 6px 14px -8px rgba(9,42,64,.28);
+  transition:border-color .26s ease, transform .26s ease;
+}
+.ri26-cause-list .ri26-cause-icon svg { width:23px; height:23px; }
+.ri26-cause-list article:hover .ri26-cause-icon {
+  border-color:#59c6e4;
+  transform:translateY(-2px);
+}
+.ri26-cause-list article { grid-template-columns:52px minmax(0,1fr); gap:18px; }
+
+.ri26-cause-list h3 { font-size:17px; letter-spacing:-.025em; }
+.ri26-cause-list p { font-size:13.2px; line-height:1.66; }
+
+@media(max-width:760px){
+  .ri26-cause-list article { padding:20px 20px 18px; grid-template-columns:46px minmax(0,1fr); gap:14px; }
+  .ri26-cause-list .ri26-cause-icon { width:46px; height:46px; border-radius:12px; }
+  .ri26-cause-list .ri26-cause-icon svg { width:20px; height:20px; }
+  .ri26-cause-list h3 { font-size:15.5px; }
+}
+
+/* ── Batch 2 causes: portrait cards in a row ───────────────────────────
+   Was a 2x2 grid of wide landscape cards. Now four taller portrait cards
+   side by side — icon at the top, then title, then copy flowing down. */
+.ri26-detail-causes .ri26-cause-list {
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+}
+.ri26-cause-list article {
+  display:flex;
+  flex-direction:column;
+  grid-template-columns:none;
+  gap:0;
+  padding:26px 24px 24px;
+  min-height:300px;
+}
+/* Icon leads the card rather than sitting beside the text. */
+.ri26-cause-list .ri26-cause-icon {
+  grid-column:auto;
+  grid-row:auto;
+  align-self:flex-start;
+  margin:0 0 20px;
+}
+.ri26-cause-list h3 {
+  grid-column:auto;
+  grid-row:auto;
+  padding-right:0;
+  font-size:16.5px;
+  line-height:1.26;
+}
+.ri26-cause-list p {
+  grid-column:auto;
+  grid-row:auto;
+  margin-top:10px;
+  max-width:none;
+  font-size:12.8px;
+  line-height:1.62;
+}
+/* Numeral stays pinned to the corner. */
+.ri26-cause-list .ri26-cause-no { top:22px; right:22px; }
+/* Radial wash follows the icon to the top-left. */
+.ri26-cause-list article::after { top:-40px; left:-34px; width:160px; height:160px; }
+
+@media(max-width:1100px){
+  .ri26-detail-causes .ri26-cause-list { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .ri26-cause-list article { min-height:260px; }
+}
+@media(max-width:560px){
+  .ri26-detail-causes .ri26-cause-list { grid-template-columns:1fr; }
+  .ri26-cause-list article { min-height:0; padding:22px 20px 20px; }
+  .ri26-cause-list .ri26-cause-icon { margin-bottom:16px; }
+}
+
+/* Narrower cards: cap the row width and centre it, so the four read as
+   portrait rather than stretching across the full 1440px measure. */
+@media(min-width:1101px){
+  .ri26-detail-causes .ri26-cause-list {
+    max-width:1000px;
+    margin-inline:auto;
+    gap:14px;
+  }
+  .ri26-cause-list article { padding:24px 20px 22px; min-height:320px; }
+  .ri26-cause-list h3 { font-size:15.5px; }
+  .ri26-cause-list p { font-size:12.4px; }
+}
+
+/* ── Batch 2 causes: dark band with glass cards ────────────────────────
+   The expertise panel above uses #0a2340 with a photo behind it; this band
+   is a deeper, flatter navy so the two read as separate sections. Cards use
+   the translucent treatment from the insurance grid rather than solid white,
+   so they belong to the band rather than sitting on top of it. */
+main:has(.ri26-paths) .ri26-detail-causes {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  color:#fff;
+  background:
+    radial-gradient(70% 58% at 88% 4%, rgba(28,115,169,.34) 0%, transparent 64%),
+    linear-gradient(180deg, #061e35 0%, #05182c 56%, #061e35 100%);
+}
+/* Hero grid pattern, fading before it reaches the cards. */
+main:has(.ri26-paths) .ri26-detail-causes::before {
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size:58px 58px;
+  -webkit-mask-image:radial-gradient(110% 72% at 50% 0%, #000 0%, rgba(0,0,0,.4) 46%, transparent 80%);
+  mask-image:radial-gradient(110% 72% at 50% 0%, #000 0%, rgba(0,0,0,.4) 46%, transparent 80%);
+}
+main:has(.ri26-paths) .ri26-detail-causes .voda-wrap { position:relative; z-index:1; }
+
+/* Heading on the dark ground. */
+main:has(.ri26-paths) .ri26-detail-causes .voda-heading h2 { color:#fff; }
+main:has(.ri26-paths) .ri26-detail-causes .voda-heading h2 em { color:#68e1e2; }
+main:has(.ri26-paths) .ri26-detail-causes .voda-heading p { color:#c2d5e1; }
+main:has(.ri26-paths) .ri26-detail-causes .voda-eyebrow { color:#73e4e5; }
+
+/* Glass cards, with more space between them. */
+main:has(.ri26-paths) .ri26-cause-list article {
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  box-shadow:0 18px 38px -22px rgba(2,12,24,.7);
+}
+main:has(.ri26-paths) .ri26-cause-list article:hover {
+  border-color:rgba(115,228,229,.42);
+  background:rgba(255,255,255,.09);
+  box-shadow:0 24px 48px -24px rgba(2,12,24,.8);
+}
+main:has(.ri26-paths) .ri26-cause-list article::after {
+  background:radial-gradient(circle at 50% 50%, rgba(115,228,229,.12), transparent 68%);
+}
+main:has(.ri26-paths) .ri26-cause-list .ri26-cause-icon {
+  border-color:rgba(115,228,229,.3);
+  background:rgba(115,228,229,.12);
+  color:#73e4e5;
+  box-shadow:none;
+}
+main:has(.ri26-paths) .ri26-cause-list article:hover .ri26-cause-icon {
+  border-color:rgba(115,228,229,.55);
+}
+main:has(.ri26-paths) .ri26-cause-list h3 { color:#fff; }
+main:has(.ri26-paths) .ri26-cause-list h3 em { color:#73e4e5; }
+main:has(.ri26-paths) .ri26-cause-list p { color:#bed0dc; }
+main:has(.ri26-paths) .ri26-cause-list .ri26-cause-no { color:rgba(255,255,255,.42); }
+
+/* More distance between the cards. */
+@media(min-width:1101px){
+  main:has(.ri26-paths) .ri26-detail-causes .ri26-cause-list { gap:22px; max-width:1060px; }
+}
+@media(max-width:1100px){
+  main:has(.ri26-paths) .ri26-detail-causes .ri26-cause-list { gap:18px; }
+}
+/* Corner numeral measured 3.89:1 on the glass card. */
+main:has(.ri26-paths) .ri26-cause-list .ri26-cause-no { color:rgba(255,255,255,.58); }
+
+/* The 1060px cap was set when this was a light section; against the full-width
+   dark band it leaves large empty margins. Let the row use the section's
+   measure and give the content room to spread. */
+@media(min-width:1101px){
+  main:has(.ri26-paths) .ri26-detail-causes .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+  main:has(.ri26-paths) .ri26-detail-causes .ri26-cause-list {
+    max-width:none;
+    gap:20px;
+  }
+  main:has(.ri26-paths) .ri26-cause-list article {
+    padding:28px 26px 26px;
+    min-height:280px;
+  }
+  main:has(.ri26-paths) .ri26-cause-list .ri26-cause-icon { width:56px; height:56px; border-radius:15px; }
+  main:has(.ri26-paths) .ri26-cause-list .ri26-cause-icon svg { width:25px; height:25px; }
+  main:has(.ri26-paths) .ri26-cause-list h3 { font-size:17.5px; }
+  main:has(.ri26-paths) .ri26-cause-list p { font-size:13.4px; line-height:1.66; }
+  /* Heading can use the wider measure too. */
+  main:has(.ri26-paths) .ri26-detail-causes .voda-heading h2 { max-width:22ch; margin-inline:auto; }
+  main:has(.ri26-paths) .ri26-detail-causes .voda-heading p { max-width:62ch; }
+}
+
+/* ── Cutaway section now swaps job photos ──────────────────────────────
+   The illustrated house and its CSS highlight boxes are gone. All photos
+   stack in the stage and cross-fade, so switching paths does not flash. */
+.ri26-cut-stage {
+  position:relative;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  border:1px solid #cfdfe9;
+  border-radius:18px;
+  background:#e4eef3;
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 16px 32px -14px rgba(9,42,64,.24),
+    0 36px 64px -30px rgba(9,42,64,.22);
+  clip-path:none;
+}
+.ri26-cut-img {
+  object-fit:cover;
+  opacity:0;
+  transition:opacity .4s ease;
+}
+.ri26-cut-img.is-on { opacity:1; }
+/* Highlight bands no longer exist. */
+.ri26-cut-band { display:none; }
+
+.ri26-cut-caption {
+  margin-top:14px;
+  padding-top:0;
+  border-top:0;
+  color:#5d707c;
+  font-size:12.5px;
+}
+.ri26-cut-caption span { color:#17394e; font-weight:740; }
+
+/* ── Photo stack: fanned cards ─────────────────────────────────────────
+   The active photo sits front and centre with the adjacent ones peeking out
+   each side, slightly rotated and scaled back, so the set reads as a small
+   pile of job photos. --offset is the signed distance from the active card
+   and --depth its absolute value, both set inline by the component. */
+.ri26-cut-stage {
+  overflow:visible;
+  border:0;
+  background:none;
+  box-shadow:none;
+  /* Room for the fanned edges, so they are not clipped by the section. */
+  padding:0 18px;
+}
+.ri26-cut-card {
+  position:absolute;
+  inset:0 18px;
+  overflow:hidden;
+  border:1px solid #cfdfe9;
+  border-radius:18px;
+  background:#e4eef3;
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 16px 32px -14px rgba(9,42,64,.24),
+    0 36px 64px -30px rgba(9,42,64,.22);
+  /* Peek out, rotate and sit back. Cards beyond the first neighbour are
+     hidden, so the stack depth never changes as you click through. */
+  transform:
+    translateX(calc(var(--offset) * 16px))
+    rotate(calc(var(--offset) * 2deg))
+    scale(calc(1 - var(--depth) * 0.045));
+  opacity:calc(1 - var(--depth) * 0.35);
+  z-index:calc(10 - var(--depth));
+  transition:transform .42s cubic-bezier(.22,1,.36,1), opacity .42s ease;
+  pointer-events:none;
+}
+/* Only the active card and its immediate neighbours are visible. */
+.ri26-cut-card { visibility:hidden; }
+.ri26-cut-card.is-on,
+.ri26-cut-card.is-near { visibility:visible; }
+
+.ri26-cut-card.is-on {
+  transform:none;
+  opacity:1;
+  z-index:11;
+}
+.ri26-cut-img { object-fit:cover; opacity:1; }
+
+@media(prefers-reduced-motion:reduce){
+  .ri26-cut-card { transition:opacity .2s ease; }
+}
+@media(max-width:620px){
+  /* Tighter fan on small screens so the edges stay on-canvas. */
+  .ri26-cut-stage { padding:0 10px; }
+  .ri26-cut-card { inset:0 10px; }
+  .ri26-cut-card { transform:translateX(calc(var(--offset) * 9px)) rotate(calc(var(--offset) * 1.4deg)) scale(calc(1 - var(--depth) * 0.04)); }
+  .ri26-cut-card.is-on { transform:none; }
+}
+
+/* More peek: wider offset, stronger rotation, and more side padding so the
+   fanned edges have room without being clipped. */
+.ri26-cut-stage { padding:0 40px; }
+.ri26-cut-card {
+  inset:0 40px;
+  transform:
+    translateX(calc(var(--offset) * 38px))
+    rotate(calc(var(--offset) * 3.2deg))
+    scale(calc(1 - var(--depth) * 0.055));
+  opacity:calc(1 - var(--depth) * 0.28);
+}
+.ri26-cut-card.is-on { transform:none; opacity:1; }
+
+@media(max-width:620px){
+  .ri26-cut-stage { padding:0 22px; }
+  .ri26-cut-card {
+    inset:0 22px;
+    transform:
+      translateX(calc(var(--offset) * 20px))
+      rotate(calc(var(--offset) * 2.2deg))
+      scale(calc(1 - var(--depth) * 0.05));
+  }
+  .ri26-cut-card.is-on { transform:none; }
+}
+
+/* ── Batch 2 process rail: match the homepage step row ─────────────────
+   Was a solid navy numeral disc on a gradient line, with the icon hidden.
+   The homepage uses a 74px pale circle holding the icon, the numeral as a
+   small label above it, and a dashed connector. Same values here. */
+.ri26-steps-rail > li { padding:0 8px; }
+.ri26-steps-rail article { position:relative; }
+
+/* Numeral: small label above the circle, not inside it. */
+.ri26-steps-rail .ri26-steps-n {
+  display:block;
+  width:auto;
+  height:auto;
+  border:0;
+  border-radius:0;
+  background:none;
+  color:#5f8ea1;
+  font-size:12.6px;
+  font-weight:750;
+  letter-spacing:.14em;
+  font-variant-numeric:tabular-nums;
+  box-shadow:none;
+}
+
+/* Icon circle, the homepage's treatment. */
+.ri26-steps-rail .ri26-steps-ico {
+  display:grid;
+  place-items:center;
+  width:74px;
+  height:74px;
+  margin:17px auto;
+  border:1px solid #0878b7;
+  border-radius:50%;
+  background:#e7f6fe;
+  color:#0878b7;
+}
+.ri26-steps-rail .ri26-steps-ico svg { width:27px; height:27px; }
+
+/* Dashed connector between circles, as on the homepage. */
+.ri26-steps-rail::before { display:none; }
+.ri26-steps-rail article::after {
+  content:"";
+  position:absolute;
+  top:67px;
+  left:70%;
+  width:60%;
+  border-top:1px dashed #b9ccd4;
+}
+.ri26-steps-rail > li:last-child article::after { display:none; }
+
+/* Timing pill sits under the circle, above the title. */
+.ri26-steps-rail .ri26-steps-when {
+  order:0;
+  display:inline-block;
+  margin:0 auto;
+  padding:4px 11px;
+  border:1px solid #bcdcec;
+  border-radius:999px;
+  background:#f2fafd;
+  color:#06688f;
+  font-size:10px;
+  font-weight:700;
+}
+
+.ri26-steps-rail b {
+  margin-top:18px;
+  color:#0b2438;
+  font-size:17.5px;
+  font-weight:650;
+  line-height:1.3;
+  letter-spacing:-.022em;
+}
+.ri26-steps-rail b em { color:#0878b7; font-style:normal; }
+.ri26-steps-rail p {
+  max-width:24ch;
+  margin:10px auto 0;
+  color:#6a7c86;
+  font-size:13px;
+  line-height:1.62;
+  text-wrap:balance;
+}
+
+@media(max-width:1000px){
+  /* Vertical rail on narrow screens; drop the horizontal connector. */
+  .ri26-steps-rail article::after { display:none; }
+  .ri26-steps-rail .ri26-steps-ico { width:56px; height:56px; margin:12px 0; }
+  .ri26-steps-rail .ri26-steps-ico svg { width:22px; height:22px; }
+  .ri26-steps-rail b { font-size:15.5px; margin-top:12px; }
+  .ri26-steps-rail p { max-width:none; margin-left:0; }
+}
+/* The homepage's step palette measures 3.38:1 (numeral), 4.34:1 (icon) and
+   4.10:1 (body) — all under AA. Darkened here rather than copying the
+   shortfall; visually near-identical. */
+.ri26-steps-rail .ri26-steps-n { color:#4f7a8c; }
+.ri26-steps-rail .ri26-steps-ico { color:#06688f; }
+.ri26-steps-rail p { color:#5d707c; }
+.ri26-steps-rail .ri26-steps-n { color:#4a7384; }
+
+/* ── Safety lists: per-item icons ──────────────────────────────────────
+   The slot held a numeral; it now holds an icon specific to each action —
+   a valve, a plug, a fan — so the rows read at a glance rather than as a
+   numbered list. Tinted tile, matching the card's own hue. */
+.ri26-safety-half .ri26-safety-n {
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  margin-top:1px;
+  border:1px solid #d7e7f0;
+  border-radius:10px;
+  background:#f4fafd;
+  color:#06688f;
+  font-size:0;
+}
+.ri26-safety-half .ri26-safety-n svg { width:16px; height:16px; }
+.ri26-safety-half.is-dont .ri26-safety-n {
+  border-color:#f2dcd8;
+  background:#fdf5f3;
+  color:#a2382b;
+}
+.ri26-safety-half li { grid-template-columns:34px 1fr; gap:14px; }
+
+/* ══════════════════════════════════════════════════════════════════════
+   BATCH 2 EXPERTISE — light split section
+   Replaces the dark overlay panel, which fought the light rhythm directly
+   under the hero. Copy left, framed photo right, three capability cards
+   beneath — the split layout the city pages and safety section already use.
+   ══════════════════════════════════════════════════════════════════════ */
+.ri26-expb2 {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:linear-gradient(180deg,#fbfdfe 0%,#f5f9fb 58%,#fbfdfe 100%);
+}
+/* The dark panel's chrome no longer applies. */
+.ri26-expb2-panel { all:unset; }
+.ri26-expb2-panel::before,
+.ri26-expb2-panel::after { content:none; }
+
+.ri26-expb2-split {
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
+  align-items:center;
+  gap:clamp(30px,3.6vw,62px);
+}
+
+.ri26-expb2-copy h2 {
+  margin-top:15px;
+  color:var(--ri26-ink);
+  font-size:clamp(32px,3.7vw,54px);
+  font-weight:740;
+  line-height:1.0;
+  letter-spacing:-.055em;
+  max-width:16ch;
+}
+.ri26-expb2-copy h2 em { color:#166a9e; font-style:normal; }
+.ri26-expb2-lede {
+  max-width:54ch;
+  margin-top:18px;
+  color:#4a6072;
+  font-size:15px;
+  font-weight:560;
+  line-height:1.7;
+}
+
+/* Scope points as a two-column checked list. */
+.ri26-expb2-points {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px 24px;
+  margin:24px 0 0;
+  padding:22px 0 0;
+  border-top:1px solid #dce8ed;
+  list-style:none;
+}
+.ri26-expb2-points li {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#30495b;
+  font-size:13px;
+  font-weight:620;
+}
+.ri26-expb2-points li svg { width:14px; height:14px; flex:none; color:#0b9cb2; }
+.ri26-expb2-copy .voda-btn { margin-top:24px; }
+
+/* Framed photo, as the gallery and intro collage are framed. */
+.ri26-expb2-shot {
+  position:relative;
+  margin:0;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  border:1px solid #cfdfe9;
+  border-radius:20px;
+  background:#e4eef3;
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 18px 38px -16px rgba(9,42,64,.24),
+    0 40px 72px -32px rgba(9,42,64,.22);
+}
+.ri26-expb2-shot::after {
+  content:"";
+  position:absolute; z-index:1; inset:auto 0 0 0;
+  height:46%;
+  pointer-events:none;
+  background:linear-gradient(180deg, transparent 0%, rgba(5,23,40,.68) 74%, rgba(5,23,40,.84) 100%);
+}
+.ri26-expb2-shot figcaption {
+  position:absolute;
+  z-index:2;
+  left:20px; right:20px; bottom:16px;
+  color:#fff;
+  font-size:12.5px;
+  font-weight:620;
+  line-height:1.45;
+}
+
+/* Three capability cards, the site's standard treatment. */
+.ri26-expb2-cards {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin-top:clamp(36px,3.8vw,54px);
+}
+.ri26-expb2-cards article {
+  display:flex;
+  flex-direction:column;
+  padding:26px 24px 24px;
+  border:1px solid #cfdfe9;
+  border-radius:18px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 12px 24px -10px rgba(9,42,64,.2),
+    0 30px 54px -26px rgba(9,42,64,.26);
+  transition:border-color .28s, box-shadow .28s, transform .28s;
+}
+.ri26-expb2-cards article:hover {
+  border-color:#59c6e4;
+  transform:translateY(-3px);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 18px 32px -12px rgba(9,42,64,.24),
+    0 40px 66px -30px rgba(9,42,64,.3);
+}
+.ri26-expb2-cards header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.ri26-expb2-mark {
+  display:grid; place-items:center;
+  width:46px; height:46px;
+  border:1px solid #bcdcec;
+  border-radius:13px;
+  background:#f2fafd;
+  color:#06688f;
+}
+.ri26-expb2-mark svg { width:21px; height:21px; }
+.ri26-expb2-n {
+  color:#5f7682;
+  font-size:11.5px;
+  font-weight:800;
+  letter-spacing:.08em;
+}
+.ri26-expb2-cards b {
+  margin-top:18px;
+  color:var(--ri26-ink);
+  font-size:16.5px;
+  font-weight:740;
+  letter-spacing:-.025em;
+  line-height:1.26;
+}
+.ri26-expb2-cards p {
+  margin-top:10px;
+  color:#5d707c;
+  font-size:13px;
+  line-height:1.64;
+}
+
+@media(min-width:1001px){
+  .ri26-expb2 .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+}
+@media(max-width:1000px){
+  .ri26-expb2-split { grid-template-columns:1fr; gap:28px; }
+  .ri26-expb2-copy h2 { max-width:none; }
+  .ri26-expb2-shot { aspect-ratio:16/10; }
+  .ri26-expb2-cards { grid-template-columns:1fr; }
+}
+@media(max-width:560px){
+  .ri26-expb2-points { grid-template-columns:1fr; }
+}
+
+/* The batch 2 hero wave was capped at 132px while its viewBox is 260 tall and
+   preserveAspectRatio is "none" — so the curve rendered at half its intended
+   height and every reshape looked the same. Give it enough height for the
+   shape to read. */
+@media(min-width:1001px){
+  .ri26-hero-b2 .ri26-hero-wave-arc { height:235px; }
+  .ri26-hero-b2 { padding-bottom:clamp(180px,17vw,250px); }
+}
+@media(max-width:1000px){
+  .ri26-hero-b2 .ri26-hero-wave-arc { height:200px; }
+}
+@media(max-width:700px){
+  .ri26-hero-b2 .ri26-hero-wave-arc { height:170px; }
+}
+
+/* ── Hero wave: separate path for narrow screens ───────────────────────
+   The wide S-curve is drawn for ~1900px of width. On a phone those 1440
+   viewBox units compress into ~390px — a 4.8x horizontal squeeze — so the
+   long descent and the pull-back collapse into a kink. A second, shallower
+   path renders instead below 860px. Desktop is untouched: it keeps the wide
+   path and every existing height rule. */
+.ri26-wave-narrow { display:none; }
+
+@media(max-width:860px){
+  .ri26-wave-wide { display:none; }
+  .ri26-wave-narrow { display:block; }
+  /* The narrow path spans less vertical range, so it needs less height to
+     read at its intended proportions. */
+  .ri26-hero-b2 .ri26-hero-wave-arc { height:120px; }
+  .ri26-service-hero .ri26-hero-wave-arc { height:120px; }
+}
+@media(max-width:560px){
+  .ri26-hero-b2 .ri26-hero-wave-arc { height:96px; }
+  .ri26-service-hero .ri26-hero-wave-arc { height:96px; }
+}
+
+/* ── Expertise cards: tighter on small screens ─────────────────────────
+   At 368px the cards carried desktop padding and type, so each one filled
+   most of the viewport. Scale the interior down. Mobile only — the desktop
+   three-across row is untouched. */
+@media(max-width:560px){
+  .ri26-expb2-cards { gap:10px; margin-top:28px; }
+  .ri26-expb2-cards article { padding:18px 16px 16px; border-radius:14px; }
+  .ri26-expb2-mark { width:38px; height:38px; border-radius:11px; }
+  .ri26-expb2-mark svg { width:17px; height:17px; }
+  .ri26-expb2-n { font-size:10.5px; }
+  .ri26-expb2-cards b { margin-top:13px; font-size:14.5px; line-height:1.24; }
+  .ri26-expb2-cards p { margin-top:7px; font-size:12.2px; line-height:1.56; }
+}
+@media(max-width:400px){
+  .ri26-expb2-cards article { padding:16px 14px 14px; }
+  .ri26-expb2-mark { width:34px; height:34px; border-radius:10px; }
+  .ri26-expb2-mark svg { width:16px; height:16px; }
+  .ri26-expb2-cards b { font-size:13.5px; }
+  .ri26-expb2-cards p { font-size:11.8px; }
+}
+
+/* ── Batch 2 causes: swipeable row on mobile ───────────────────────────
+   Four stacked portrait cards ran very tall on a phone. Below 1100px the
+   grid becomes a horizontal scroller with snap points, so they sit in one
+   row and swipe left/right. Mobile and tablet only — the desktop four-across
+   row keeps its existing rules. */
+@media(max-width:1100px){
+  main:has(.ri26-paths) .ri26-detail-causes .ri26-cause-list {
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:72%;
+    grid-template-columns:none;
+    gap:12px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;
+    scroll-padding-left:24px;
+    /* Bleed to the viewport edges so cards scroll past the wrap. */
+    margin-inline:calc(50% - 50vw);
+    padding-inline:24px;
+    padding-bottom:16px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    max-width:none;
+  }
+  main:has(.ri26-paths) .ri26-detail-causes .ri26-cause-list::-webkit-scrollbar { display:none; }
+  main:has(.ri26-paths) .ri26-cause-list article {
+    scroll-snap-align:start;
+    min-width:0;
+    min-height:0;
+  }
+}
+@media(max-width:700px){
+  main:has(.ri26-paths) .ri26-detail-causes .ri26-cause-list {
+    grid-auto-columns:80%;
+    padding-inline:18px;
+    scroll-padding-left:18px;
+  }
+  main:has(.ri26-paths) .ri26-cause-list article { padding:20px 18px 18px; }
+  main:has(.ri26-paths) .ri26-cause-list .ri26-cause-icon { width:44px; height:44px; border-radius:12px; }
+  main:has(.ri26-paths) .ri26-cause-list .ri26-cause-icon svg { width:19px; height:19px; }
+  main:has(.ri26-paths) .ri26-cause-list h3 { font-size:15px; }
+  main:has(.ri26-paths) .ri26-cause-list p { font-size:12.2px; }
+}
+@media(max-width:420px){
+  main:has(.ri26-paths) .ri26-detail-causes .ri26-cause-list { grid-auto-columns:86%; }
+}
+
+/* ── Steps rail: rebuilt mobile layout ─────────────────────────────────
+   Earlier mobile rules were written when the numeral was a 46px disc and
+   the icon was hidden. The rail now follows the homepage pattern — small
+   numeral, icon in a circle — so those rules fought it. Restated here as a
+   compact vertical list. Mobile and tablet only; desktop is untouched. */
+@media(max-width:1000px){
+  .ri26-steps-rail { display:grid; grid-template-columns:1fr; gap:0; }
+  /* Spine runs behind the icon circles, down their centre line. */
+  .ri26-steps-rail::before {
+    display:block;
+    left:26px;
+    right:auto;
+    top:34px;
+    bottom:34px;
+    width:2px;
+    height:auto;
+    background:linear-gradient(180deg,#42cbd2,#bcdcec);
+  }
+  .ri26-steps-rail > li { padding:0; }
+  .ri26-steps-rail article {
+    display:grid;
+    grid-template-columns:54px minmax(0,1fr);
+    column-gap:16px;
+    row-gap:0;
+    align-items:start;
+    text-align:left;
+    padding:14px 0;
+  }
+  /* Icon circle leads each row, sitting on the spine. */
+  .ri26-steps-rail .ri26-steps-ico {
+    grid-column:1;
+    grid-row:1 / span 3;
+    width:54px;
+    height:54px;
+    margin:0;
+  }
+  .ri26-steps-rail .ri26-steps-ico svg { width:21px; height:21px; }
+  /* Numeral and timing share the first row of the copy column. */
+  .ri26-steps-rail header {
+    grid-column:2;
+    grid-row:1;
+    flex-direction:row;
+    align-items:center;
+    gap:10px;
+  }
+  .ri26-steps-rail .ri26-steps-n { font-size:11px; }
+  .ri26-steps-rail .ri26-steps-when { order:0; margin:0; font-size:9.5px; padding:3px 9px; }
+  .ri26-steps-rail b { grid-column:2; grid-row:2; margin-top:7px; font-size:15.5px; }
+  .ri26-steps-rail p { grid-column:2; grid-row:3; max-width:none; margin:5px 0 0; font-size:12.5px; }
+}
+@media(max-width:560px){
+  .ri26-steps-rail::before { left:21px; }
+  .ri26-steps-rail article { grid-template-columns:44px minmax(0,1fr); column-gap:13px; padding:12px 0; }
+  .ri26-steps-rail .ri26-steps-ico { width:44px; height:44px; }
+  .ri26-steps-rail .ri26-steps-ico svg { width:18px; height:18px; }
+  .ri26-steps-rail b { font-size:14.5px; }
+  .ri26-steps-rail p { font-size:12px; }
+}
+
+/* ── Batch 2: close the section joins on mobile ────────────────────────
+   Each section carries 78px top and bottom at mobile, so every join between
+   two light sections came to 156px of empty space. Halve the facing edges
+   where two light sections meet. Mobile and tablet only. */
+@media(max-width:1000px){
+  main:has(.ri26-paths) .ri26-steps { padding-bottom:40px; }
+  main:has(.ri26-paths) .ri26-safety { padding-top:40px; }
+  /* Expertise into paths, and paths into causes. */
+  main:has(.ri26-paths) .ri26-expb2 { padding-bottom:44px; }
+  main:has(.ri26-paths) .ri26-paths { padding-top:44px; padding-bottom:44px; }
+  main:has(.ri26-paths) .ri26-detail-causes { padding-top:44px; }
+  /* Causes is a dark band, so its own edges stay a little more generous. */
+  main:has(.ri26-paths) .ri26-detail-causes { padding-bottom:52px; }
+  main:has(.ri26-paths) .ri26-steps { padding-top:48px; }
+}
+@media(max-width:560px){
+  main:has(.ri26-paths) .ri26-steps { padding-bottom:34px; padding-top:40px; }
+  main:has(.ri26-paths) .ri26-safety { padding-top:34px; }
+  main:has(.ri26-paths) .ri26-expb2 { padding-bottom:36px; }
+  main:has(.ri26-paths) .ri26-paths { padding-top:36px; padding-bottom:36px; }
+  main:has(.ri26-paths) .ri26-detail-causes { padding-top:36px; padding-bottom:44px; }
+}
+
+/* ── Causes band: dark on every service page ───────────────────────────
+   The dark ground was applied sitewide but only batch 2 got the light text
+   to match, so batch 1's headings stayed dark navy on dark navy. Restore
+   the band for all pages and give batch 1's grid the light palette. */
+.ri26-detail-causes.ri26-section {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  color:#fff;
+  background:
+    radial-gradient(70% 58% at 88% 4%, rgba(28,115,169,.34) 0%, transparent 64%),
+    linear-gradient(180deg, #061e35 0%, #05182c 56%, #061e35 100%);
+}
+
+/* Heading block. */
+.ri26-detail-causes .voda-heading h2 { color:#fff; }
+.ri26-detail-causes .voda-heading h2 em { color:#68e1e2; }
+.ri26-detail-causes .voda-heading p { color:#c2d5e1; }
+.ri26-detail-causes .voda-eyebrow { color:#73e4e5; }
+
+/* Batch 1 grid: icon row with connectors, now on the dark ground. */
+.ri26-cause-grid h3 { color:#fff; }
+.ri26-cause-grid h3 em { color:#73e4e5; }
+.ri26-cause-grid article p { color:#bed0dc; }
+.ri26-cause-no { color:#9fc0d2; }
+.ri26-cause-icon {
+  border:1px solid rgba(115,228,229,.3);
+  background:rgba(115,228,229,.12);
+  color:#73e4e5;
+}
+.ri26-cause-grid article::after { border-top-color:rgba(255,255,255,.22); }
+
+/* ══════════════════════════════════════════════════════════════════════
+   BATCH 3 SIGNATURE SECTIONS
+   Commercial → continuity zones, Contents → salvage routes,
+   Reconstruction → rebuild stages. Three different structures, since the
+   three pages need to say genuinely different things.
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ── Commercial: continuity zones ──────────────────────────────────────
+   Four cards carrying a status — open, restricted, closed — so the page
+   answers "does my building shut?" at a glance. Status is the one place
+   these pages use colour semantically. */
+.ri26-zones { background:linear-gradient(180deg,#fbfdfe 0%,#f5f9fb 58%,#fbfdfe 100%); }
+.ri26-zones-grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+  margin-top:clamp(38px,4vw,54px);
+}
+.ri26-zones-grid article {
+  display:flex;
+  flex-direction:column;
+  padding:24px 22px 0;
+  border:1px solid #cfdfe9;
+  border-top:3px solid #bcdcec;
+  border-radius:18px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 12px 24px -10px rgba(9,42,64,.2),
+    0 30px 54px -26px rgba(9,42,64,.26);
+  transition:border-color .28s, transform .28s;
+}
+.ri26-zones-grid article:hover { transform:translateY(-3px); }
+.ri26-zones-status {
+  display:inline-block;
+  padding:5px 12px;
+  border:1px solid #bcdcec;
+  border-radius:999px;
+  background:#f2fafd;
+  color:#06688f;
+  font-size:10.5px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.ri26-zones-grid b {
+  margin-top:16px;
+  color:var(--ri26-ink);
+  font-size:16.5px;
+  font-weight:740;
+  letter-spacing:-.025em;
+  line-height:1.26;
+}
+.ri26-zones-grid p { margin-top:10px; color:#5d707c; font-size:13px; line-height:1.64; }
+.ri26-zones-grid footer {
+  margin-top:auto;
+  padding:16px 0 20px;
+  border-top:1px solid #e4eef3;
+  color:#3f5665;
+  font-size:12.5px;
+}
+.ri26-zones-grid footer span {
+  display:block;
+  margin-bottom:4px;
+  color:#5f7682;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+/* Status tones. */
+.ri26-zones-grid .is-open { border-top-color:#5fb894; }
+.ri26-zones-grid .is-open .ri26-zones-status { border-color:#bfe3d3; background:#eff9f4; color:#1f6b4d; }
+.ri26-zones-grid .is-restricted { border-top-color:#d8b26a; }
+.ri26-zones-grid .is-restricted .ri26-zones-status { border-color:#ecdcbb; background:#fdf8ee; color:#8a5a14; }
+.ri26-zones-grid .is-closed { border-top-color:#c25a4c; }
+.ri26-zones-grid .is-closed .ri26-zones-status { border-color:#f0d3ce; background:#fdf2f0; color:#9e3a2f; }
+
+/* ── Contents: salvage routes ──────────────────────────────────────────
+   A numbered list rather than cards — each row is a decision with a verdict
+   badge, so the four read as a sequence of judgements. */
+
+/* ── Reconstruction: rebuild stages ────────────────────────────────────
+   Four cards in a row, each ending on what you receive at that stage. */
+
+/* ── Batch 3: drop the traffic-light colouring ─────────────────────────
+   The green/amber/red status tones read as a dashboard rather than as this
+   site. Put the zone cards and salvage verdicts back on the navy-and-cyan
+   palette; the words already carry the meaning. */
+.ri26-zones-grid .is-open,
+.ri26-zones-grid .is-restricted,
+.ri26-zones-grid .is-closed { border-top-color:#bcdcec; }
+
+.ri26-zones-grid .is-open .ri26-zones-status,
+.ri26-zones-grid .is-restricted .ri26-zones-status,
+.ri26-zones-grid .is-closed .ri26-zones-status {
+  border-color:#bcdcec;
+  background:#f2fafd;
+  color:#06688f;
+}
+
+/* ── Batch 3 context section ───────────────────────────────────────────
+   Replaces the causes band on these three pages. A two-column numbered list
+   rather than cards, since the items are explanatory rather than parallel
+   options — and it keeps the section distinct from the card rows above it. */
+.ri26-context {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  color:#fff;
+  background:
+    radial-gradient(70% 58% at 88% 4%, rgba(28,115,169,.34) 0%, transparent 64%),
+    linear-gradient(180deg, #061e35 0%, #05182c 56%, #061e35 100%);
+}
+.ri26-context::before {
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size:58px 58px;
+  -webkit-mask-image:radial-gradient(110% 72% at 50% 0%, #000 0%, rgba(0,0,0,.4) 46%, transparent 80%);
+  mask-image:radial-gradient(110% 72% at 50% 0%, #000 0%, rgba(0,0,0,.4) 46%, transparent 80%);
+}
+.ri26-context > .voda-wrap { position:relative; z-index:1; }
+.ri26-context .voda-heading h2 { color:#fff; }
+.ri26-context .voda-heading h2 em { color:#68e1e2; }
+.ri26-context .voda-heading p { color:#c2d5e1; }
+.ri26-context .voda-eyebrow { color:#73e4e5; }
+
+@media(min-width:1001px){
+  .ri26-context .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   BATCH 3 CONTEXT — three layouts
+   Commercial → four party cards. Contents → a survival scale.
+   Reconstruction → three questions as editorial blocks.
+   Shared dark ground; everything else differs.
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Commercial: party cards ────────────────────────────────────────
+   Four glass cards, each a party whose sign-off the work depends on. */
+.ri26-parties-grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+  margin-top:clamp(38px,4vw,54px);
+}
+.ri26-parties-grid article {
+  display:flex;
+  flex-direction:column;
+  padding:26px 24px 24px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;
+  background:rgba(255,255,255,.06);
+  box-shadow:0 18px 38px -22px rgba(2,12,24,.7);
+  transition:border-color .28s, background .28s, transform .28s;
+}
+.ri26-parties-grid article:hover {
+  border-color:rgba(115,228,229,.42);
+  background:rgba(255,255,255,.09);
+  transform:translateY(-3px);
+}
+.ri26-parties-mark {
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  border:1px solid rgba(115,228,229,.3);
+  border-radius:13px;
+  background:rgba(115,228,229,.12);
+  color:#73e4e5;
+}
+.ri26-parties-mark svg { width:21px; height:21px; }
+.ri26-parties-grid b {
+  margin-top:18px;
+  color:#fff;
+  font-size:16.5px;
+  font-weight:740;
+  letter-spacing:-.025em;
+  line-height:1.26;
+}
+.ri26-parties-grid p { margin-top:10px; color:#bed0dc; font-size:13px; line-height:1.64; }
+
+/* ── 2. Contents: survival scale ───────────────────────────────────────
+   Four bands running best to worst, each with a bar whose length falls as
+   the outcome gets worse. The bar is the point of the section. */
+/* Likelihood bar — falls with each row. */
+
+/* ── 3. Reconstruction: three questions ────────────────────────────────
+   Larger editorial blocks, three across, reading as questions to put to
+   whoever quotes the work. */
+.ri26-asks-list {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(22px,2.6vw,42px);
+  margin:clamp(38px,4vw,54px) 0 0;
+  padding:0;
+  list-style:none;
+}
+.ri26-asks-list li {
+  padding-top:26px;
+  border-top:2px solid rgba(115,228,229,.4);
+}
+.ri26-asks-list header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+.ri26-asks-n {
+  color:#73e4e5;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.1em;
+}
+.ri26-asks-mark {
+  display:grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  border:1px solid rgba(115,228,229,.3);
+  border-radius:12px;
+  background:rgba(115,228,229,.12);
+  color:#73e4e5;
+}
+.ri26-asks-mark svg { width:19px; height:19px; }
+.ri26-asks-list b {
+  display:block;
+  margin-top:20px;
+  color:#fff;
+  font-size:19px;
+  font-weight:740;
+  letter-spacing:-.03em;
+  line-height:1.24;
+}
+.ri26-asks-list p {
+  margin-top:11px;
+  color:#bed0dc;
+  font-size:13.4px;
+  line-height:1.66;
+}
+
+@media(max-width:1000px){
+  .ri26-parties-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .ri26-asks-list { grid-template-columns:1fr; gap:0; }
+  .ri26-asks-list li { padding:22px 0; border-top:1px solid rgba(255,255,255,.14); }
+  .ri26-asks-list li:first-child { border-top:2px solid rgba(115,228,229,.4); }
+}
+@media(max-width:620px){
+  .ri26-parties-grid { grid-template-columns:1fr; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   COMMERCIAL FLOOR PLAN
+   The page's core promise is "only the affected part closes", so the plan
+   shows it rather than describing it. Same interaction as the house cutaway
+   on the batch 2 pages: pick a zone, the plan highlights it.
+   ══════════════════════════════════════════════════════════════════════ */
+.ri26-plan {
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+  align-items:start;
+  gap:clamp(24px,3vw,48px);
+  margin-top:clamp(38px,4vw,54px);
+}
+
+.ri26-plan-figure {
+  margin:0;
+  padding:clamp(20px,2.2vw,30px);
+  border:1px solid #cfdfe9;
+  border-radius:20px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 54%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 12px 24px -10px rgba(9,42,64,.2),
+    0 30px 54px -26px rgba(9,42,64,.26);
+}
+.ri26-plan-figure svg { display:block; width:100%; height:auto; }
+
+/* Building shell. */
+
+/* Rooms default to a quiet tint; the active zone lifts to cyan. */
+/* Containment line at the affected tenancy's entrance. */
+.ri26-plan-barrier { stroke:#42cbd2; stroke-width:4; stroke-linecap:round; }
+
+/* Zone selector. */
+.ri26-plan-status {
+  padding:5px 12px;
+  border:1px solid #bcdcec;
+  border-radius:999px;
+  background:#f2fafd;
+  color:#06688f;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+@media(min-width:1001px){
+  .ri26-zones .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+}
+@media(max-width:900px){
+  .ri26-plan { grid-template-columns:1fr; gap:20px; }
+}
+
+/* Floor plan now swaps drawn images rather than inline SVG shapes. */
+/* The click-to-swap plan was replaced by a single static image; its
+   cross-fade rules left the image at opacity:0. */
+
+/* ── Commercial zones: one plan, legend beside it ──────────────────────
+   Replaces the click-a-zone interaction, which repeated the batch 2 cutaway.
+   Every zone is shaded on a single plan and the legend explains all four at
+   once — a facilities manager wants the whole answer in one look. */
+.ri26-plan {
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
+  align-items:start;
+  gap:clamp(26px,3.2vw,52px);
+  margin-top:clamp(38px,4vw,54px);
+}
+.ri26-plan-figure {
+  margin:0;
+  padding:clamp(18px,2vw,28px);
+  border:1px solid #cfdfe9;
+  border-radius:20px;
+  background:#fff;
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 12px 24px -10px rgba(9,42,64,.2),
+    0 30px 54px -26px rgba(9,42,64,.26);
+}
+.ri26-plan-img {
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:10px;
+}
+
+/* Legend: one row per zone, swatch matching the plan. */
+.ri26-plan-legend {
+  display:grid;
+  gap:0;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.ri26-plan-legend li {
+  display:grid;
+  grid-template-columns:20px minmax(0,1fr);
+  gap:16px;
+  padding:20px 0;
+  border-bottom:1px solid #dce8ed;
+}
+.ri26-plan-legend li:first-child { border-top:1px solid #dce8ed; }
+.ri26-plan-swatch {
+  width:18px;
+  height:18px;
+  margin-top:3px;
+  border:1px solid #0a6ea6;
+  border-radius:5px;
+  background:rgba(66,203,210,.35);
+}
+/* Tones match the plan's shading. */
+.ri26-plan-legend .is-open .ri26-plan-swatch { background:#fff; border-color:#cfdfe9; }
+.ri26-plan-legend .is-restricted .ri26-plan-swatch { background:rgba(66,203,210,.2); border-color:#7fc4d8; }
+.ri26-plan-legend .is-closed .ri26-plan-swatch { background:rgba(66,203,210,.55); border-color:#0a6ea6; }
+
+.ri26-plan-legend header {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:12px;
+}
+.ri26-plan-legend b {
+  color:var(--ri26-ink);
+  font-size:16px;
+  font-weight:740;
+  letter-spacing:-.025em;
+}
+.ri26-plan-status {
+  padding:4px 11px;
+  border:1px solid #bcdcec;
+  border-radius:999px;
+  background:#f2fafd;
+  color:#06688f;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.ri26-plan-legend p {
+  max-width:54ch;
+  margin-top:9px;
+  color:#5d707c;
+  font-size:13px;
+  line-height:1.64;
+}
+.ri26-plan-legend footer {
+  margin-top:10px;
+  color:#3f5665;
+  font-size:12.5px;
+}
+.ri26-plan-legend footer span {
+  display:block;
+  margin-bottom:3px;
+  color:#5f7682;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+@media(max-width:900px){
+  .ri26-plan { grid-template-columns:1fr; gap:22px; }
+  .ri26-plan-legend li { padding:17px 0; }
+  .ri26-plan-legend b { font-size:15px; }
+}
+
+/* ── Commercial plan: tighten the presentation ─────────────────────────
+   The plan sat small inside a large white card, the legend swatches were
+   almost invisible on white, and the columns were unbalanced. Let the plan
+   fill its frame, give the legend rows real presence, and sit the whole
+   thing on the site's tinted ground rather than flat white. */
+.ri26-plan {
+  grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+  align-items:center;
+  gap:clamp(28px,3.4vw,56px);
+}
+.ri26-plan-figure {
+  padding:clamp(14px,1.4vw,20px);
+  border-radius:18px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 54%,#f6fafc 100%);
+}
+.ri26-plan-img {
+  border-radius:10px;
+  /* The render carries its own white margin, so trim it rather than
+     adding more padding around an already-padded drawing. */
+  transform:scale(1.06);
+  transform-origin:center;
+}
+
+/* Legend rows: swatch in a tile so the pale tones are visible on white. */
+.ri26-plan-legend li {
+  grid-template-columns:26px minmax(0,1fr);
+  gap:18px;
+  padding:18px 0;
+}
+.ri26-plan-swatch {
+  width:24px;
+  height:24px;
+  margin-top:2px;
+  border-radius:7px;
+  border-width:1.5px;
+  box-shadow:0 1px 2px rgba(9,42,64,.08);
+}
+/* Open is white on white, so it needs a visible edge of its own. */
+.ri26-plan-legend .is-open .ri26-plan-swatch {
+  background:#fff;
+  border-color:#9fb8c6;
+}
+.ri26-plan-legend .is-restricted .ri26-plan-swatch {
+  background:#d6f2f6;
+  border-color:#7fc4d8;
+}
+.ri26-plan-legend .is-closed .ri26-plan-swatch {
+  background:#6fd8e0;
+  border-color:#0a6ea6;
+}
+
+.ri26-plan-legend b { font-size:16.5px; }
+.ri26-plan-legend p { margin-top:8px; font-size:13.2px; }
+.ri26-plan-legend footer { margin-top:11px; }
+
+@media(max-width:900px){
+  .ri26-plan { align-items:start; }
+  .ri26-plan-img { transform:none; }
+}
+/* Swatch borders measured 2.05:1 and 1.93:1 — under the 3:1 needed for a
+   UI element carrying meaning. Darkened so each swatch has a visible edge. */
+.ri26-plan-legend .is-open .ri26-plan-swatch { border-color:#6d8799; }
+.ri26-plan-legend .is-restricted .ri26-plan-swatch { border-color:#3e93ad; }
+
+/* ── Commercial expertise ─────────────────────────────────────────────────
+   A tall portrait photo down one side running the section's full height,
+   with the heading, lede and three capabilities stacked beside it. The
+   vertical format is used nowhere else on the site, which is the point:
+   the commercial page should not read as a fifth copy of batch 2.
+
+   The photo column is `align-items:stretch` so it grows to whatever the
+   copy needs rather than holding a fixed ratio — that is what makes the
+   format vertical at any copy length. */
+.ri26-expc {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:linear-gradient(180deg,#fbfdfe 0%,#f5f9fb 58%,#fbfdfe 100%);
+}
+.ri26-expc-split {
+  display:grid;
+  grid-template-columns:minmax(0,.62fr) minmax(0,1fr);
+  align-items:stretch;
+  gap:clamp(30px,3.4vw,58px);
+}
+
+/* Portrait photo. A min-height keeps it tall even when the copy is short;
+   the frame matches the gallery's border, radius and lift. */
+.ri26-expc-shot {
+  position:relative;
+  margin:0;
+  min-height:clamp(420px,52vw,660px);
+  overflow:hidden;
+  border:1px solid #cfdfe9;
+  border-radius:22px;
+  background:#e4eef3;
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 18px 38px -16px rgba(9,42,64,.24),
+    0 44px 80px -34px rgba(9,42,64,.22);
+}
+.ri26-expc-shot img { object-position:center 38%; }
+.ri26-expc-shot::after {
+  content:"";
+  position:absolute; z-index:1; inset:auto 0 0 0;
+  height:38%;
+  pointer-events:none;
+  background:linear-gradient(180deg, transparent 0%, rgba(5,23,40,.68) 74%, rgba(5,23,40,.84) 100%);
+}
+.ri26-expc-shot figcaption {
+  position:absolute;
+  z-index:2;
+  left:22px; right:22px; bottom:18px;
+  color:#fff;
+  font-size:12.5px;
+  font-weight:620;
+  line-height:1.45;
+}
+
+.ri26-expc-copy {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.ri26-expc-copy h2 {
+  margin-top:15px;
+  color:var(--ri26-ink);
+  font-size:clamp(32px,3.6vw,52px);
+  font-weight:740;
+  line-height:1.0;
+  letter-spacing:-.055em;
+  max-width:18ch;
+}
+.ri26-expc-copy h2 em { color:#166a9e; font-style:normal; }
+.ri26-expc-lede {
+  max-width:56ch;
+  margin-top:18px;
+  color:#4a6072;
+  font-size:15px;
+  font-weight:560;
+  line-height:1.7;
+}
+
+/* Capabilities as a divided rail, not cards — cards are batch 2's device.
+   Each row is icon, copy, index; the hairline between rows carries the
+   rhythm instead of a border box. */
+.ri26-expc-list {
+  margin:26px 0 0;
+  padding:0;
+  border-top:1px solid #dce8ed;
+  list-style:none;
+}
+.ri26-expc-list li {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:start;
+  gap:0 18px;
+  padding:20px 2px;
+  border-bottom:1px solid #dce8ed;
+}
+.ri26-expc-mark {
+  display:grid; place-items:center;
+  width:44px; height:44px;
+  border:1px solid #bcdcec;
+  border-radius:13px;
+  background:#f2fafd;
+  color:#06688f;
+}
+.ri26-expc-mark svg { width:20px; height:20px; }
+.ri26-expc-list b {
+  display:block;
+  color:var(--ri26-ink);
+  font-size:16.5px;
+  font-weight:740;
+  letter-spacing:-.025em;
+  line-height:1.26;
+}
+.ri26-expc-list p {
+  margin-top:8px;
+  color:#5d707c;
+  font-size:13px;
+  line-height:1.64;
+}
+.ri26-expc-n {
+  color:#5f7682;
+  font-size:11.5px;
+  font-weight:800;
+  letter-spacing:.08em;
+  padding-top:4px;
+}
+
+/* Call button with the scope points beside it, so the column ends on an
+   action rather than trailing off. */
+.ri26-expc-actions {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:18px 26px;
+  margin-top:26px;
+}
+.ri26-expc-actions ul {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px 22px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.ri26-expc-actions li {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#30495b;
+  font-size:13px;
+  font-weight:620;
+}
+.ri26-expc-actions li svg { width:14px; height:14px; flex:none; color:#0b9cb2; }
+
+@media(min-width:1001px){
+  .ri26-expc .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+}
+/* Tablet and phone: the photo stacks above the copy and gives up its
+   portrait ratio, since a tall image would push the copy off-screen. */
+@media(max-width:1000px){
+  .ri26-expc-split { grid-template-columns:1fr; gap:28px; }
+  .ri26-expc-shot { min-height:0; aspect-ratio:16/10; }
+  .ri26-expc-copy h2 { max-width:none; }
+}
+@media(max-width:560px){
+  .ri26-expc-shot { aspect-ratio:4/3; border-radius:18px; }
+  .ri26-expc-list li { grid-template-columns:auto minmax(0,1fr); padding:18px 0; }
+  .ri26-expc-mark { width:40px; height:40px; border-radius:12px; }
+  .ri26-expc-mark svg { width:18px; height:18px; }
+  .ri26-expc-n { display:none; }
+  .ri26-expc-list b { font-size:15.5px; }
+  .ri26-expc-actions ul { grid-template-columns:1fr; }
+  .ri26-expc-actions .voda-btn { width:100%; justify-content:center; }
+}
+
+/* The technical face for the commercial page. --font-mono exists only inside
+   @theme inline (a Tailwind v4 utility source) and is not resolvable from
+   plain CSS, so the stack is declared here and inherited by both the phase
+   strip and the incident record. */
+.ri26-detail { --ri26-tech:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,ui-monospace,monospace; }
+
+/* ── Commercial phase strip ───────────────────────────────────────────────
+   A site drawing, not five cards. One rule across the section with ticks on
+   it, labels above and annotations below. No icon circles, no status pills,
+   no per-stage chip — those gave every stage identical weight, which is what
+   made the section read as a component loop.
+
+   Typography is the technical register the rest of the site does not use:
+   the operational labels and the numerals are set in --font-mono (declared in
+   globals.css and until now unused), which is what a phase label on a drawing
+   or a programme is actually set in. The prose stays in the body face, so the
+   contrast between "label" and "explanation" is carried by the typeface
+   rather than by another box.
+
+   Columns are unequal: Contain is where the building divides into trading and
+   contained areas, so it takes roughly twice the width of its neighbours. */
+/* The technical face for this section. --font-mono exists only inside
+   @theme inline (a Tailwind v4 utility source), so it is not resolvable from
+   plain CSS — the stack is declared here instead. */
+.ri26-phase { margin:clamp(44px,4.6vw,66px) 0 0; }
+.ri26-phase-strip {
+  display:grid;
+  grid-template-columns:.8fr .95fr 1.65fr .95fr 1.05fr;
+  /* Rows are declared once on the strip, not per cell, so the numerals, the
+     labels, the rule and the annotations each share a baseline across all
+     five stages. Per-cell rows let every column size itself and the rule
+     broke into steps. */
+  grid-template-rows:auto auto 26px auto auto;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.ri26-phase-strip > li {
+  display:grid;
+  /* Fallback for browsers without subgrid: the cells size themselves, which
+     is how this looked before — readable, just less precisely aligned. */
+  grid-template-rows:auto auto 26px auto auto;
+  padding-right:clamp(16px,2vw,34px);
+}
+@supports (grid-template-rows: subgrid) {
+  .ri26-phase-strip > li {
+    grid-template-rows:subgrid;
+    grid-row:1 / -1;
+  }
+}
+.ri26-phase-strip > li:last-child { padding-right:0; }
+
+.ri26-phase-n {
+  align-self:start;
+  font-family:var(--ri26-tech);
+  color:#5a6e79;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.2em;
+  font-variant-numeric:tabular-nums;
+}
+.ri26-phase-label {
+  align-self:start;
+  margin:7px 0 0;
+  color:#0b2438;
+  font-size:clamp(16px,1.6vw,19px);
+  font-weight:680;
+  letter-spacing:-.022em;
+  line-height:1.26;
+}
+
+/* The rule and its tick. Each cell draws its own segment, bled right across
+   the cell padding so the segments butt into one continuous line. */
+.ri26-phase-tick {
+  position:relative;
+  align-self:center;
+  display:block;
+  height:1px;
+  margin-right:calc(clamp(16px,2vw,34px) * -1);
+  background:#c3d6e0;
+}
+.ri26-phase-strip > li:last-child .ri26-phase-tick { margin-right:0; }
+.ri26-phase-tick::before {
+  content:"";
+  position:absolute;
+  top:-6px; left:0;
+  width:1px; height:13px;
+  background:#4a6072;
+}
+
+.ri26-phase-note {
+  align-self:start;
+  margin:17px 0 0;
+  color:#49606f;
+  font-size:14px;
+  font-weight:500;
+  line-height:1.62;
+}
+/* Plain text in the technical face, not a pill. */
+.ri26-phase-state {
+  align-self:end;
+  margin-top:14px;
+  font-family:var(--ri26-tech);
+  color:#2f4f5e;
+  font-size:10.5px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+/* The turning point. Heavier tick, larger label and annotation. The emphasis
+   is drawn into the rule rather than applied as a highlighted card. */
+.ri26-phase-strip > li.is-pivot .ri26-phase-tick::before {
+  top:-9px;
+  width:2px; height:19px;
+  background:#0b5d80;
+}
+.ri26-phase-strip > li.is-pivot .ri26-phase-label {
+  color:#0b5d80;
+  font-size:clamp(20px,2.1vw,27px);
+  font-weight:700;
+  letter-spacing:-.03em;
+}
+.ri26-phase-strip > li.is-pivot .ri26-phase-note {
+  color:#2d4556;
+  font-size:15.5px;
+  font-weight:520;
+}
+.ri26-phase-strip > li.is-pivot .ri26-phase-n { color:#0b5d80; font-weight:600; }
+
+/* The close. The strip above ends on a decision — shut the floor, or contain
+   part of it — and that decision is a plan comparison, so it is drawn rather
+   than argued. Two schematic floors: the same building, shaded two ways. The
+   difference between the drawings is the whole point, which is why the prose
+   beside them is two lines and not four paragraphs. */
+.ri26-phase-close {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:center;
+  gap:clamp(26px,3.4vw,52px);
+  margin:clamp(34px,3.4vw,48px) 0 0;
+  padding-top:clamp(24px,2.6vw,34px);
+  border-top:1px solid #d7e5ec;
+}
+.ri26-phase-close-claim .voda-eyebrow { display:block; margin-bottom:13px; }
+/* Who the decision belongs to. Set apart by a rule so the left column ends on
+   a note rather than trailing off mid-paragraph. */
+.ri26-phase-close-note {
+  max-width:44ch;
+  margin:17px 0 0;
+  padding-top:15px;
+  border-top:1px solid #e3edf2;
+  color:#5a6e79;
+  font-size:13.5px;
+  font-weight:500;
+  line-height:1.62;
+}
+.ri26-phase-close-claim > p:nth-of-type(1) {
+  max-width:17ch;
+  margin:0;
+  color:var(--ri26-ink);
+  font-size:clamp(19px,2.1vw,26px);
+  font-weight:680;
+  letter-spacing:-.03em;
+  line-height:1.26;
+}
+.ri26-phase-close-claim > p:nth-of-type(2) {
+  max-width:46ch;
+  margin:16px 0 0;
+  color:#49606f;
+  font-size:14.5px;
+  font-weight:500;
+  line-height:1.66;
+}
+
+.ri26-phase-options {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(18px,2.2vw,32px);
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+/* The plans. Stroke weights read as a drawing: a heavier outer wall, a lighter
+   partition, and the affected area hatched rather than filled, which is how a
+   containment zone is marked on a real plan. */
+.ri26-phase-plan {
+  display:block;
+  width:100%;
+  height:auto;
+  background:#fff;
+  border:1px solid #d7e5ec;
+  border-radius:3px;
+}
+.ri26-phase-plan .ri26-plan-wall {
+  fill:none;
+  stroke:#2f4f5e;
+  stroke-width:2;
+}
+.ri26-phase-plan .ri26-plan-inner {
+  stroke:#b9cdd8;
+  stroke-width:1;
+}
+.ri26-phase-plan line { stroke-linecap:square; }
+/* The containment boundary. Heavier than a partition because that is what it
+   is on site: a sealed barrier, not a wall that happened to be there. */
+.ri26-phase-plan .ri26-plan-barrier { stroke:#0b5d80; stroke-width:2.4; }
+/* The hatch itself. */
+.ri26-phase-plan pattern line { stroke:#8fb4c6; stroke-width:1.1; }
+.ri26-phase-plan .ri26-plan-shut { stroke:none; }
+/* The contained zone is the point of the second plan, so its hatch is denser
+   in tone and its boundary is drawn heavier than an ordinary partition. */
+.ri26-phase-options > li.is-phased .ri26-phase-plan pattern line { stroke:#5d93ad; }
+
+.ri26-phase-options h4 {
+  margin:13px 0 0;
+  color:#0b2438;
+  font-size:15.5px;
+  font-weight:680;
+  letter-spacing:-.022em;
+  line-height:1.26;
+}
+.ri26-phase-outcome {
+  margin:7px 0 0;
+  font-family:var(--ri26-tech);
+  color:#0b5d80;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.ri26-phase-options > li > ul {
+  margin:12px 0 0;
+  padding:12px 0 0;
+  border-top:1px solid #e3edf2;
+  list-style:none;
+}
+.ri26-phase-options > li > ul li {
+  position:relative;
+  padding-left:13px;
+  color:#5a6e79;
+  font-size:12.5px;
+  font-weight:500;
+  line-height:1.55;
+}
+.ri26-phase-options > li > ul li + li { margin-top:6px; }
+/* A rule, not a bullet — the section has no bulleted lists elsewhere. */
+.ri26-phase-options > li > ul li::before {
+  content:"";
+  position:absolute;
+  top:.62em; left:0;
+  width:6px; height:1px;
+  background:#9fc0ce;
+}
+
+@media(max-width:1000px){
+  .ri26-phase-close { grid-template-columns:1fr; gap:24px; }
+  .ri26-phase-close-claim > p { max-width:none; }
+}
+@media(max-width:620px){
+  .ri26-phase-close-claim > p:nth-of-type(1) { font-size:18px; }
+  .ri26-phase-options { gap:16px; }
+  .ri26-phase-options h4 { font-size:14.5px; }
+  .ri26-phase-options > li > ul li { font-size:12px; }
+}
+
+/* ── Commercial first response ────────────────────────────────────────────
+   Built on the homepage's Why pattern: a numbered run of cards with an icon
+   and a short body, set beside a photo. Card chrome — border, radius, the
+   168deg white-to-tint gradient and the three-part shadow — is lifted from
+   .voda-why-item so this reads as the same site rather than a new device.
+
+   Six actions, each one line of instruction and one of reason. What not to
+   do sits in the same run and is carried by the wording ("Leave the HVAC
+   off"), not by a colour — tinting half the cards read as a traffic light. */
+.ri26-first {
+  background:linear-gradient(180deg,#f4f9fc 0%,#eef5f9 56%,#f4f9fc 100%);
+}
+.ri26-first-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);
+  /* The photo stretches to the card block rather than setting its own height,
+     so the two columns end level. */
+  align-items:stretch;
+  gap:clamp(26px,3vw,50px);
+  margin-top:clamp(34px,3.6vw,50px);
+}
+
+.ri26-first-list {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(14px,1.6vw,20px);
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.ri26-first-list > li {
+  display:flex;
+  flex-direction:column;
+  padding:20px 20px 18px;
+  border:1px solid #d5e4ec;
+  border-radius:18px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.05),
+    0 10px 22px -8px rgba(9,42,64,.14),
+    0 26px 48px -20px rgba(9,42,64,.16);
+  transition:border-color .28s, box-shadow .28s, transform .28s;
+}
+.ri26-first-list > li:hover {
+  border-color:#59c6e4;
+  transform:translateY(-3px);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.05),
+    0 16px 30px -10px rgba(9,42,64,.2),
+    0 36px 60px -26px rgba(9,42,64,.22);
+}
+.ri26-first-n {
+  color:#5a6e79;
+  font-size:11px;
+  font-weight:750;
+  letter-spacing:.14em;
+  font-variant-numeric:tabular-nums;
+}
+.ri26-first-ico {
+  display:grid; place-items:center;
+  width:42px; height:42px;
+  margin-top:14px;
+  border:1px solid #bcdcec;
+  border-radius:12px;
+  background:#f2fafd;
+  color:#06688f;
+}
+.ri26-first-ico svg { width:19px; height:19px; }
+.ri26-first-list b {
+  margin-top:15px;
+  color:var(--ri26-ink);
+  font-size:15.5px;
+  font-weight:720;
+  letter-spacing:-.025em;
+  line-height:1.28;
+}
+.ri26-first-list p {
+  margin-top:8px;
+  color:#5d707c;
+  font-size:12.5px;
+  line-height:1.62;
+}
+/* Prohibitions. The number is struck and the icon tinted; the card itself is
+   not recoloured, because turning three of six cards red would read as a
+   traffic-light treatment the rest of the site avoids. */
+/* Prohibitions are not recoloured. The instruction already says what it is,
+   and tinting half the cards read as a traffic-light treatment. */
+
+/* The photo, framed as the gallery and expertise shots are framed. */
+.ri26-first-shot {
+  position:relative;
+  margin:0;
+  overflow:hidden;
+  border:1px solid #cfdfe9;
+  border-radius:20px;
+  background:#e4eef3;
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.06),
+    0 18px 38px -16px rgba(9,42,64,.24),
+    0 44px 80px -34px rgba(9,42,64,.22);
+}
+.ri26-first-shot img { object-position:center 42%; }
+.ri26-first-shot::after {
+  content:"";
+  position:absolute; z-index:1; inset:auto 0 0 0;
+  height:40%;
+  pointer-events:none;
+  background:linear-gradient(180deg, transparent 0%, rgba(5,23,40,.68) 74%, rgba(5,23,40,.84) 100%);
+}
+.ri26-first-shot figcaption {
+  position:absolute;
+  z-index:2;
+  left:20px; right:20px; bottom:17px;
+  color:#fff;
+  font-size:12.5px;
+  font-weight:620;
+  line-height:1.45;
+}
+
+/* The emergency case, closing the section. */
+.ri26-first-warning {
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  max-width:88ch;
+  margin:clamp(26px,2.8vw,36px) 0 0;
+  padding-left:clamp(14px,1.6vw,18px);
+  border-left:3px solid #c2700f;
+  color:#3f5464;
+  font-size:13.5px;
+  font-weight:540;
+  line-height:1.64;
+}
+.ri26-first-warning svg { width:16px; height:16px; flex:none; margin-top:2px; color:#b8690f; }
+
+@media(min-width:1001px){
+  .ri26-first .voda-wrap { width:min(1340px,calc(100% - 72px)); }
+}
+@media(max-width:1000px){
+  .ri26-first-grid { grid-template-columns:1fr; gap:24px; }
+  /* The photo leads on narrow screens, as the cards would otherwise push it
+     below the fold entirely. */
+  .ri26-first-shot { order:-1; aspect-ratio:16/10; min-height:0; }
+}
+@media(max-width:620px){
+  .ri26-first-list { grid-template-columns:1fr; }
+  .ri26-first-list > li { padding:17px 17px 16px; border-radius:15px; }
+  .ri26-first-ico { width:38px; height:38px; margin-top:12px; border-radius:11px; }
+  .ri26-first-ico svg { width:17px; height:17px; }
+  .ri26-first-list b { margin-top:13px; font-size:15px; }
+  .ri26-first-shot { aspect-ratio:4/3; border-radius:17px; }
+  .ri26-first-warning { font-size:13px; }
+}
+
+/* ══ Contents protection ══════════════════════════════════════════════════
+   This page follows a supplied layout mock rather than the batch-3 pattern,
+   so it carries its own hero and section set. Colours, radii, shadows and
+   type scale are still the site's — only the arrangement comes from the mock.
+
+   Placeholder for any image slot whose file has not landed yet. */
+.ri26-ph {
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(45deg,#e8eff4 0 10px,#eef4f8 10px 20px);
+}
+
+/* ── Hero: copy left, photo bleeding right, light ground ────────────────── */
+/* The wash. Solid navy behind the copy, fading out across the middle so the
+   photo arrives without an edge; a second pass darkens the base for the wave. */
+/* The hero button pair matches the site: teal .primary + bordered .glass.
+   .voda-hero carries extra chrome on .glass that keys off that class, so it is
+   restated here for this hero. */
+
+
+/* The wave closing the hero, matching the site's other heroes. */
+
+/* ── Peace of mind: copy left, three answers right ──────────────────────── */
+.ri26-peace { background:transparent; }
+/* The reference runs noticeably tighter than the site default of
+   clamp(100px,9vw,135px) per side. Measured there at roughly 44px per side,
+   so these five sections are scoped to that rhythm. */
+.ri26-peace,
+.ri26-flow,
+.ri26-mats,
+.ri26-before { padding:clamp(61px,6.2vw,83px) 0; }
+/* The first section after the hero needs a little more clearance below the
+   wave, and the last needs room before the FAQ. */
+.ri26-peace { padding-top:clamp(71px,7.2vw,100px); }
+.ri26-before { padding-bottom:clamp(74px,7.6vw,102px); }
+
+/* ── Contents sections: tonal depth ───────────────────────────────────────
+   Flat near-white read as pure white beside the rest of the site. Same
+   treatment as the coverage section: navy at low alpha ramping through light
+   blue, pooled where the heading sits, so it reads as depth not a panel. */
+.ri26-peace,
+.ri26-flow,
+.ri26-before { position:relative; isolation:isolate; }
+.ri26-peace::before,
+.ri26-flow::before,
+.ri26-before::before {
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  pointer-events:none;
+}
+/* Content sits above the wash. */
+.ri26-peace > .voda-wrap,
+.ri26-flow > .voda-wrap,
+.ri26-before > .voda-wrap { position:relative; z-index:1; }
+/* Peace: pooled behind the heading on the left. */
+.ri26-peace::before {
+  background:
+    radial-gradient(46% 62% at 0% 22%, rgba(36,203,211,.14), transparent 66%),
+    radial-gradient(42% 56% at 100% 34%, rgba(8,120,183,.11), transparent 66%),
+    radial-gradient(52% 48% at 50% 108%, rgba(36,203,211,.09), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f6fbfc 46%, #fbfdfd 100%);
+}
+/* Flow: centred under the card row so the cards sit on something. */
+.ri26-flow::before {
+  background:
+    radial-gradient(46% 62% at 0% 30%, rgba(36,203,211,.14), transparent 66%),
+    radial-gradient(42% 56% at 100% 26%, rgba(8,120,183,.11), transparent 66%),
+    radial-gradient(52% 48% at 50% 112%, rgba(36,203,211,.09), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f6fbfc 46%, #fbfdfd 100%);
+}
+/* Before: pooled to the right, under the list, away from the faded photo. */
+.ri26-before::before {
+  background:
+    radial-gradient(46% 62% at 0% 18%, rgba(36,203,211,.14), transparent 66%),
+    radial-gradient(42% 56% at 100% 40%, rgba(8,120,183,.11), transparent 66%),
+    radial-gradient(52% 48% at 50% 104%, rgba(36,203,211,.09), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f6fbfc 46%, #fbfdfd 100%);
+}
+@media(max-width:960px){
+  .ri26-peace::before,
+  .ri26-flow::before,
+  .ri26-before::before {
+    background:
+      radial-gradient(96% 56% at 50% 10%,
+        rgba(18,58,92,.09) 0%,
+        rgba(46,112,158,.055) 34%,
+        rgba(108,180,216,.03) 60%,
+        transparent 86%),
+      linear-gradient(180deg, rgba(20,64,100,.04) 0%, transparent 58%);
+  }
+}
+
+.ri26-peace-split {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);
+  align-items:center;
+  gap:clamp(28px,3.6vw,70px);
+}
+.ri26-peace-copy h2 {
+  margin-top:15px;
+  color:var(--ri26-ink);
+  font-size:clamp(30px,3.5vw,47px);
+  font-weight:740;
+  line-height:1.1;
+  letter-spacing:-.045em;
+}
+.ri26-peace-copy h2 em { color:#0d7fb8; font-style:normal; }
+.ri26-peace-copy p {
+  max-width:56ch;
+  margin:20px 0 0;
+  color:#4a6072;
+  font-size:16px;
+  font-weight:500;
+  line-height:1.76;
+}
+.ri26-peace-list { margin:0; padding:0; list-style:none; }
+.ri26-peace-list li {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  column-gap:20px;
+  padding:0 0 30px;
+}
+.ri26-peace-list li:last-child { padding-bottom:0; }
+.ri26-peace-mark {
+  display:grid; place-items:center;
+  width:56px; height:56px;
+  border-radius:15px;
+  background:#e8f6fb;
+  color:#0d7fb8;
+}
+.ri26-peace-mark svg { width:25px; height:25px; }
+.ri26-peace-list b {
+  display:block;
+  color:var(--ri26-ink);
+  font-size:17px;
+  font-weight:720;
+  letter-spacing:-.022em;
+  line-height:1.3;
+}
+.ri26-peace-list p {
+  margin:9px 0 0;
+  color:#5d707c;
+  font-size:14.5px;
+  line-height:1.68;
+}
+
+/* ── How it works: four cards joined by arrows ──────────────────────────── */
+.ri26-flow { background:transparent; }
+.ri26-flow-head h2 {
+  margin-top:15px;
+  color:var(--ri26-ink);
+  font-size:clamp(30px,3.5vw,47px);
+  font-weight:740;
+  letter-spacing:-.045em;
+  line-height:1.08;
+}
+.ri26-flow-head > p {
+  max-width:62ch;
+  margin:16px 0 0;
+  color:#5d707c;
+  font-size:16px;
+  line-height:1.72;
+}
+.ri26-flow-row {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:0;
+  margin:clamp(30px,3.4vw,46px) 0 0;
+  padding:0;
+  list-style:none;
+}
+.ri26-flow-row > li {
+  position:relative;
+  display:flex;
+  align-items:stretch;
+  padding-right:38px;
+}
+.ri26-flow-row > li:last-child { padding-right:0; }
+.ri26-flow-row article {
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  padding:28px 28px 26px;
+  border:1px solid #d5e4ec;
+  border-radius:18px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.05),
+    0 10px 22px -8px rgba(9,42,64,.14),
+    0 26px 48px -20px rgba(9,42,64,.16);
+  transition:border-color .28s, box-shadow .28s, transform .28s;
+}
+.ri26-flow-row article:hover {
+  border-color:#7fd3e8;
+  transform:translateY(-3px);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.05),
+    0 16px 30px -10px rgba(9,42,64,.2),
+    0 36px 60px -26px rgba(9,42,64,.22);
+}
+.ri26-flow-row header {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.ri26-flow-n {
+  display:grid; place-items:center;
+  width:36px; height:36px;
+  border-radius:50%;
+  background:#e8f6fb;
+  color:#0a6187;
+  font-size:12px;
+  font-weight:800;
+  font-variant-numeric:tabular-nums;
+}
+.ri26-flow-ico { margin-left:auto; color:#0d7fb8; }
+.ri26-flow-ico svg { width:23px; height:23px; }
+.ri26-flow-row b {
+  margin-top:19px;
+  color:var(--ri26-ink);
+  font-size:16.5px;
+  font-weight:720;
+  letter-spacing:-.022em;
+  line-height:1.3;
+}
+.ri26-flow-row p {
+  margin-top:9px;
+  color:#5d707c;
+  font-size:14px;
+  line-height:1.64;
+}
+/* The connector arrow between cards. */
+.ri26-flow-link {
+  position:absolute;
+  top:50%; right:9px;
+  transform:translateY(-50%);
+  display:grid; place-items:center;
+  color:#9ec4d6;
+}
+.ri26-flow-link svg { width:17px; height:17px; }
+.ri26-flow-row > li:last-child .ri26-flow-link { display:none; }
+
+/* ── Materials: heading with CTA, then a photo grid ─────────────────────── */
+.ri26-mats { position:relative; isolation:isolate; background:transparent; }
+.ri26-mats::before {
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(46% 62% at 0% 26%, rgba(36,203,211,.15), transparent 66%),
+    radial-gradient(42% 56% at 100% 30%, rgba(8,120,183,.12), transparent 66%),
+    radial-gradient(52% 48% at 50% 108%, rgba(36,203,211,.1), transparent 70%),
+    linear-gradient(180deg, #f2f9fc 0%, #eaf4f9 56%, #f2f9fc 100%);
+}
+.ri26-mats > .voda-wrap { position:relative; z-index:1; }
+.ri26-mats-head {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:end;
+  gap:clamp(20px,3vw,48px);
+}
+.ri26-mats-head h2 {
+  margin-top:13px;
+  color:var(--ri26-ink);
+  font-size:clamp(27px,3.1vw,40px);
+  font-weight:740;
+  letter-spacing:-.04em;
+  line-height:1.1;
+}
+.ri26-mats-head h2 em { color:#0d7fb8; font-style:normal; }
+.ri26-mats-head p {
+  max-width:52ch;
+  margin:12px 0 0;
+  color:#5d707c;
+  font-size:14px;
+  line-height:1.7;
+}
+/* The soft CTA the mock shows beside the heading. */
+.voda-btn.soft {
+  border:1px solid #cfe7f1;
+  background:#e8f6fb;
+  color:#0a6a95;
+  box-shadow:none;
+}
+.voda-btn.soft:hover { border-color:#7fd3e8; background:#dcf1f8; }
+
+.ri26-mats-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin:clamp(28px,3.2vw,42px) 0 0;
+  padding:0;
+  list-style:none;
+}
+.ri26-mats-grid > li {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  align-items:center;
+  /* Every card the same height, as the reference has them, so the rows line
+     up regardless of how long each description runs. */
+  min-height:160px;
+  column-gap:22px;
+  padding:16px;
+  border:0;
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 1px 2px rgba(9,42,64,.04), 0 10px 26px -14px rgba(9,42,64,.14);
+  transition:box-shadow .28s, transform .28s;
+}
+.ri26-mats-grid > li:hover {
+  transform:translateY(-2px);
+  box-shadow:0 1px 2px rgba(9,42,64,.04), 0 16px 34px -14px rgba(9,42,64,.2);
+}
+.ri26-mats-shot {
+  position:relative;
+  display:block;
+  align-self:stretch;
+  width:128px;
+  overflow:hidden;
+  border-radius:12px;
+  background:#e8eff4;
+}
+.ri26-mats-grid b {
+  display:block;
+  color:var(--ri26-ink);
+  font-size:16.5px;
+  font-weight:720;
+  letter-spacing:-.022em;
+  line-height:1.3;
+}
+.ri26-mats-grid p {
+  max-width:30ch;
+  margin:8px 0 0;
+  color:#5d707c;
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* ── Before we arrive: copy, photo, numbered steps ──────────────────────── */
+.ri26-before { background:transparent; }
+.ri26-before-grid {
+  display:grid;
+  grid-template-columns:minmax(0,.78fr) minmax(0,.86fr) minmax(0,1.16fr);
+  align-items:stretch;
+  gap:clamp(22px,2.6vw,40px);
+}
+/* The copy column has no height of its own, so it centres against the photo. */
+.ri26-before-copy { align-self:center; }
+.ri26-before-copy h2 {
+  margin-top:15px;
+  color:var(--ri26-ink);
+  font-size:clamp(30px,3.5vw,47px);
+  font-weight:740;
+  letter-spacing:-.045em;
+  line-height:1.08;
+}
+.ri26-before-copy h2 em { display:block; color:#0d7fb8; font-style:normal; }
+.ri26-before-copy p {
+  max-width:34ch;
+  margin:18px 0 0;
+  color:#5d707c;
+  font-size:15.5px;
+  line-height:1.72;
+}
+.ri26-before-shot {
+  position:relative;
+  margin:0;
+  /* Not stretched: the photo keeps its ratio and sets the row height, which
+     the list then matches. */
+  align-self:start;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  border-radius:0 18px 18px 0;
+  background:transparent;
+  /* Dissolve the left edge into the page, as the reference does. */
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 12%,#000 34%,#000 100%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 12%,#000 34%,#000 100%);
+}
+.ri26-before-list {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  margin:0;
+  padding:22px 24px;
+  border:1px solid #dcebf2;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 1px 2px rgba(9,42,64,.04), 0 14px 30px -20px rgba(9,42,64,.2);
+  list-style:none;
+}
+.ri26-before-list li {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  align-items:start;
+  column-gap:18px;
+  padding:26px 0;
+  border-bottom:1px solid #eef4f7;
+}
+.ri26-before-list li:first-child { padding-top:0; }
+.ri26-before-list li:last-child { padding-bottom:0; border-bottom:0; }
+.ri26-before-n {
+  display:grid; place-items:center;
+  width:52px; height:52px;
+  border-radius:50%;
+  background:#e8f6fb;
+  color:#0a6187;
+  font-size:16.5px;
+  font-weight:800;
+  font-variant-numeric:tabular-nums;
+}
+.ri26-before-list b {
+  display:block;
+  color:var(--ri26-ink);
+  font-size:17.5px;
+  font-weight:720;
+  letter-spacing:-.022em;
+}
+.ri26-before-list p {
+  margin:8px 0 0;
+  color:#5d707c;
+  font-size:15.5px;
+  line-height:1.62;
+}
+
+@media(min-width:1001px){
+  .ri26-peace .voda-wrap, .ri26-flow .voda-wrap, .ri26-mats .voda-wrap, .ri26-before .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+}
+@media(max-width:1000px){
+  /* Stacked: the wash runs bottom-to-top instead of left-to-right. */
+  .ri26-peace-split { grid-template-columns:1fr; gap:26px; }
+  .ri26-flow-row { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+  .ri26-flow-row > li { padding-right:0; }
+  /* The connectors only make sense along one unbroken row. */
+  .ri26-flow-link { display:none; }
+  .ri26-mats-head { grid-template-columns:1fr; align-items:start; }
+  .ri26-mats-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .ri26-before-grid { grid-template-columns:1fr 1fr; }
+  .ri26-before-copy { grid-column:1 / -1; }
+}
+@media(max-width:620px){
+  .ri26-flow-row { grid-template-columns:1fr; }
+  .ri26-mats-grid { grid-template-columns:1fr; }
+  .ri26-mats-shot { width:112px; }
+  .ri26-mats-grid > li { min-height:142px; column-gap:18px; padding:15px; }
+  .ri26-before-grid { grid-template-columns:1fr; }
+  .ri26-before-shot { aspect-ratio:16/10; }
+}
+
+/* ══ Reconstruction ═══════════════════════════════════════════════════════
+   Built to its own mock, like the contents page. Same section rhythm as that
+   page (tighter than the site default), same hero device, and the depth wash
+   is reused so the two mock-built pages feel related. */
+.ri26-rintro,
+.ri26-rscope,
+.ri26-rans,
+.ri26-rwork,
+.ri26-rmat { padding:clamp(61px,6.2vw,83px) 0; }
+.ri26-rintro { padding-top:clamp(71px,7.2vw,100px); }
+.ri26-rmat { padding-bottom:clamp(74px,7.6vw,102px); }
+
+/* Depth, as on the contents sections: low-alpha navy ramping through light
+   blue so it reads as a shadow rather than a tinted panel. */
+.ri26-rintro,
+.ri26-rans,
+.ri26-rmat { position:relative; isolation:isolate; background:transparent; }
+.ri26-rintro::before,
+.ri26-rans::before,
+.ri26-rmat::before {
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  pointer-events:none;
+}
+.ri26-rintro > .voda-wrap,
+.ri26-rans > .voda-wrap,
+.ri26-rmat > .voda-wrap { position:relative; z-index:1; }
+.ri26-rintro::before {
+  background:
+    radial-gradient(46% 62% at 0% 24%, rgba(36,203,211,.14), transparent 66%),
+    radial-gradient(42% 56% at 100% 32%, rgba(8,120,183,.11), transparent 66%),
+    radial-gradient(52% 48% at 50% 110%, rgba(36,203,211,.09), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f6fbfc 46%, #fbfdfd 100%);
+}
+.ri26-rans::before {
+  background:
+    radial-gradient(46% 62% at 0% 20%, rgba(36,203,211,.14), transparent 66%),
+    radial-gradient(42% 56% at 100% 36%, rgba(8,120,183,.11), transparent 66%),
+    radial-gradient(52% 48% at 50% 106%, rgba(36,203,211,.09), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f6fbfc 46%, #fbfdfd 100%);
+}
+.ri26-rmat::before {
+  background:
+    radial-gradient(46% 62% at 0% 28%, rgba(36,203,211,.14), transparent 66%),
+    radial-gradient(42% 56% at 100% 24%, rgba(8,120,183,.11), transparent 66%),
+    radial-gradient(52% 48% at 50% 112%, rgba(36,203,211,.09), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f6fbfc 46%, #fbfdfd 100%);
+}
+.ri26-rscope { position:relative; isolation:isolate; background:transparent; }
+.ri26-rscope::before {
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(46% 62% at 0% 32%, rgba(36,203,211,.14), transparent 66%),
+    radial-gradient(42% 56% at 100% 22%, rgba(8,120,183,.11), transparent 66%),
+    radial-gradient(52% 48% at 50% 110%, rgba(36,203,211,.09), transparent 70%),
+    linear-gradient(180deg, #fbfdfe 0%, #f6fbfd 54%, #fbfdfe 100%);
+}
+.ri26-rscope > .voda-wrap { position:relative; z-index:1; }
+.ri26-rwork { position:relative; isolation:isolate; background:transparent; }
+.ri26-rwork::before {
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(46% 62% at 0% 20%, rgba(36,203,211,.15), transparent 66%),
+    radial-gradient(42% 56% at 100% 38%, rgba(8,120,183,.12), transparent 66%),
+    radial-gradient(52% 48% at 50% 106%, rgba(36,203,211,.1), transparent 70%),
+    linear-gradient(180deg, #f2f9fc 0%, #eaf4f9 56%, #f2f9fc 100%);
+}
+.ri26-rwork > .voda-wrap { position:relative; z-index:1; }
+
+/* The hero has no second action, so the single button sits alone. */
+
+/* ── Intro: copy and checklist left, photo cluster right ────────────────── */
+.ri26-rintro-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,.92fr);
+  grid-template-areas:
+    "copy  shots"
+    "card  shots";
+  align-items:start;
+  gap:clamp(22px,2.6vw,38px) clamp(28px,3.4vw,58px);
+}
+.ri26-rintro-copy { grid-area:copy; }
+.ri26-rintro-card { grid-area:card; }
+.ri26-rintro-shots { grid-area:shots; }
+.ri26-rintro-copy h2 {
+  margin-top:15px;
+  color:var(--ri26-ink);
+  font-size:clamp(28px,3.3vw,44px);
+  font-weight:740;
+  line-height:1.08;
+  letter-spacing:-.045em;
+}
+.ri26-rintro-copy h2 em { color:#0d7fb8; font-style:normal; }
+.ri26-rintro-copy p {
+  max-width:52ch;
+  margin:18px 0 0;
+  color:#4a6072;
+  font-size:15.5px;
+  font-weight:500;
+  line-height:1.74;
+}
+.ri26-rintro-card {
+  padding:22px 24px;
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 1px 2px rgba(9,42,64,.04), 0 12px 30px -16px rgba(9,42,64,.16);
+}
+.ri26-rintro-card b {
+  display:block;
+  color:var(--ri26-ink);
+  font-size:15px;
+  font-weight:740;
+  letter-spacing:-.022em;
+}
+.ri26-rintro-card ul { margin:14px 0 0; padding:0; list-style:none; }
+.ri26-rintro-card li {
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  padding:9px 0;
+  color:#4a6072;
+  font-size:13.5px;
+  font-weight:540;
+  line-height:1.55;
+}
+.ri26-rintro-card li svg { width:15px; height:15px; flex:none; margin-top:2px; color:#0d7fb8; }
+
+/* Photo cluster: one main frame with two smaller insets overlapping it. */
+.ri26-rintro-shots { position:relative; }
+.ri26-rintro-main {
+  position:relative;
+  margin:0;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  border-radius:18px;
+  background:#e8eff4;
+  box-shadow:0 1px 2px rgba(9,42,64,.05), 0 18px 40px -18px rgba(9,42,64,.22);
+}
+.ri26-rintro-inset {
+  position:absolute;
+  margin:0;
+  width:40%;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  border:3px solid #fbfdfe;
+  border-radius:14px;
+  background:#e8eff4;
+  box-shadow:0 10px 26px -12px rgba(9,42,64,.3);
+}
+.ri26-rintro-inset.a { right:-5%; bottom:-14%; }
+.ri26-rintro-inset.b { right:-5%; bottom:-14%; transform:translateY(0); }
+/* The two insets stack as a pair below the main frame. */
+.ri26-rintro-inset.a { right:38%; }
+.ri26-rintro-inset.b { right:-4%; }
+
+/* ── Scope: four connected steps ────────────────────────────────────────── */
+.ri26-rscope-head { max-width:760px; margin-inline:auto; }
+.ri26-rscope-head h2 {
+  margin-top:13px;
+  color:var(--ri26-ink);
+  font-size:clamp(28px,3.3vw,44px);
+  font-weight:740;
+  line-height:1.08;
+  letter-spacing:-.045em;
+}
+.ri26-rscope-head h2 em { display:block; color:#0d7fb8; font-style:normal; }
+.ri26-rscope-head p {
+  max-width:62ch;
+  margin:14px auto 0;
+  color:#5d707c;
+  font-size:15px;
+  line-height:1.7;
+}
+.ri26-rscope-row {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  margin:clamp(30px,3.4vw,46px) 0 0;
+  padding:0;
+  list-style:none;
+}
+.ri26-rscope-row > li {
+  position:relative;
+  display:flex;
+  align-items:stretch;
+  padding-right:34px;
+}
+.ri26-rscope-row > li:last-child { padding-right:0; }
+.ri26-rscope-row article {
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  padding:26px 24px 24px;
+  border:1px solid #d5e4ec;
+  border-radius:18px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.05),
+    0 10px 22px -8px rgba(9,42,64,.14),
+    0 26px 48px -20px rgba(9,42,64,.16);
+  transition:border-color .28s, box-shadow .28s, transform .28s;
+}
+.ri26-rscope-row article:hover {
+  border-color:#7fd3e8;
+  transform:translateY(-3px);
+}
+.ri26-rscope-ico {
+  display:grid; place-items:center;
+  width:46px; height:46px;
+  border-radius:13px;
+  background:#e8f6fb;
+  color:#0a6187;
+}
+.ri26-rscope-ico svg { width:21px; height:21px; }
+.ri26-rscope-row b {
+  margin-top:18px;
+  color:var(--ri26-ink);
+  font-size:16px;
+  font-weight:740;
+  letter-spacing:-.025em;
+  line-height:1.28;
+}
+.ri26-rscope-row p {
+  margin-top:9px;
+  color:#5d707c;
+  font-size:13.5px;
+  line-height:1.62;
+}
+.ri26-rscope-link {
+  position:absolute;
+  top:50%; right:7px;
+  transform:translateY(-50%);
+  display:grid; place-items:center;
+  color:#9ec4d6;
+}
+.ri26-rscope-link svg { width:17px; height:17px; }
+.ri26-rscope-row > li:last-child .ri26-rscope-link { display:none; }
+
+/* ── Answers: three cards ───────────────────────────────────────────────── */
+.ri26-rans .voda-heading h2 {
+  color:var(--ri26-ink);
+  font-size:clamp(28px,3.3vw,44px);
+  font-weight:740;
+  line-height:1.08;
+  letter-spacing:-.045em;
+}
+.ri26-rans .voda-heading h2 em { color:#0d7fb8; font-style:normal; }
+.ri26-rans-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  margin:clamp(28px,3.2vw,44px) 0 0;
+  padding:0;
+  list-style:none;
+}
+.ri26-rans-grid > li {
+  padding:26px 26px 24px;
+  border:1px solid #d5e4ec;
+  border-radius:18px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.05),
+    0 10px 22px -8px rgba(9,42,64,.14),
+    0 26px 48px -20px rgba(9,42,64,.16);
+}
+.ri26-rans-ico {
+  display:grid; place-items:center;
+  width:46px; height:46px;
+  border-radius:13px;
+  background:#e8f6fb;
+  color:#0a6187;
+}
+.ri26-rans-ico svg { width:21px; height:21px; }
+.ri26-rans-grid b {
+  display:block;
+  margin-top:18px;
+  color:var(--ri26-ink);
+  font-size:16.5px;
+  font-weight:740;
+  letter-spacing:-.025em;
+  line-height:1.3;
+}
+.ri26-rans-grid p {
+  margin:9px 0 0;
+  color:#5d707c;
+  font-size:13.5px;
+  line-height:1.64;
+}
+
+/* ── Work: photo-and-copy rows, two across ──────────────────────────────── */
+.ri26-rwork .voda-heading h2 {
+  color:var(--ri26-ink);
+  font-size:clamp(28px,3.3vw,44px);
+  font-weight:740;
+  line-height:1.08;
+  letter-spacing:-.045em;
+}
+.ri26-rwork .voda-heading h2 em { color:#0d7fb8; font-style:normal; }
+.ri26-rwork-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:26px 22px;
+  margin:clamp(28px,3.2vw,44px) 0 0;
+  padding:0;
+  list-style:none;
+}
+.ri26-rwork-grid > li {
+  display:flex;
+  flex-direction:column;
+}
+.ri26-rwork-shot {
+  position:relative;
+  margin:0 0 15px;
+  aspect-ratio:16/3.4;
+  overflow:hidden;
+  border-radius:16px;
+  background:#e8eff4;
+  box-shadow:0 1px 2px rgba(9,42,64,.05), 0 14px 32px -16px rgba(9,42,64,.22);
+}
+.ri26-rwork-body header {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.ri26-rwork-n {
+  display:grid; place-items:center;
+  width:30px; height:23px;
+  flex:none;
+  border-radius:7px;
+  background:#e8f6fb;
+  color:#0a6187;
+  font-size:11.5px;
+  font-weight:800;
+  font-variant-numeric:tabular-nums;
+}
+.ri26-rwork-body b {
+  color:var(--ri26-ink);
+  font-size:15.5px;
+  font-weight:740;
+  letter-spacing:-.025em;
+  line-height:1.28;
+}
+.ri26-rwork-body p {
+  margin:8px 0 0 42px;
+  color:#5d707c;
+  font-size:13.5px;
+  line-height:1.62;
+}
+
+/* ── Materials: copy and checks left, photo right ───────────────────────── */
+.ri26-rmat-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,.95fr);
+  grid-template-areas:
+    "copy   shot"
+    "checks shot";
+  align-items:start;
+  gap:clamp(20px,2.4vw,34px) clamp(28px,3.4vw,56px);
+}
+.ri26-rmat-copy { grid-area:copy; }
+.ri26-rmat-checks { grid-area:checks; }
+.ri26-rmat-shot { grid-area:shot; }
+.ri26-rmat-copy h2 {
+  margin-top:15px;
+  color:var(--ri26-ink);
+  font-size:clamp(28px,3.3vw,44px);
+  font-weight:740;
+  line-height:1.08;
+  letter-spacing:-.045em;
+}
+.ri26-rmat-copy h2 em { display:block; color:#0d7fb8; font-style:normal; }
+.ri26-rmat-copy p {
+  max-width:52ch;
+  margin:18px 0 0;
+  color:#4a6072;
+  font-size:15px;
+  font-weight:500;
+  line-height:1.74;
+}
+.ri26-rmat-checks {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.ri26-rmat-checks li {
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:11px 0;
+  border-bottom:1px solid #e3edf2;
+  color:#44596a;
+  font-size:14px;
+  font-weight:560;
+  line-height:1.6;
+}
+.ri26-rmat-checks li:last-child { border-bottom:0; }
+.ri26-rmat-checks li svg { width:16px; height:16px; flex:none; margin-top:2px; color:#0d7fb8; }
+.ri26-rmat-shot {
+  position:relative;
+  margin:0;
+  aspect-ratio:3/4;
+  overflow:hidden;
+  border-radius:18px;
+  background:#e8eff4;
+  box-shadow:0 1px 2px rgba(9,42,64,.05), 0 18px 40px -18px rgba(9,42,64,.22);
+}
+
+/* ── Closing band ───────────────────────────────────────────────────────── */
+.ri26-rband {
+  padding:clamp(40px,4.2vw,58px) 0;
+  background:linear-gradient(135deg,#0b2e4a 0%,#113f60 48%,#0d354f 100%);
+  color:#fff;
+}
+.ri26-rband-inner {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:clamp(22px,3vw,52px);
+}
+.ri26-rband h2 {
+  margin:0;
+  font-size:clamp(25px,2.8vw,37px);
+  font-weight:740;
+  line-height:1.1;
+  letter-spacing:-.04em;
+}
+.ri26-rband h2 em { color:#6fd9e4; font-style:normal; }
+.ri26-rband p {
+  max-width:56ch;
+  margin:12px 0 0;
+  color:#c6dbe8;
+  font-size:14.5px;
+  line-height:1.7;
+}
+.ri26-rband-actions {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:16px 22px;
+}
+.ri26-rband-tel {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:#fff;
+  font-size:17px;
+  font-weight:760;
+  letter-spacing:-.02em;
+}
+.ri26-rband-tel svg { width:18px; height:18px; color:#6fd9e4; }
+.ri26-rband-tel small {
+  display:block;
+  color:#9fc4da;
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+@media(min-width:1001px){
+  .ri26-rintro .voda-wrap, .ri26-rscope .voda-wrap, .ri26-rans .voda-wrap, .ri26-rwork .voda-wrap, .ri26-rmat .voda-wrap, .ri26-rband .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+}
+@media(max-width:1000px){
+  .ri26-rintro-grid {
+    grid-template-columns:1fr;
+    grid-template-areas:"copy" "shots" "card";
+  }
+  /* The insets would collide with the card once stacked. */
+  .ri26-rintro-inset { display:none; }
+  .ri26-rscope-row { grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+  .ri26-rscope-row > li { padding-right:0; }
+  .ri26-rscope-link { display:none; }
+  .ri26-rscope-row article { padding:20px 18px 18px; border-radius:15px; }
+  .ri26-rscope-ico { width:40px; height:40px; border-radius:11px; }
+  .ri26-rscope-ico svg { width:18px; height:18px; }
+  .ri26-rscope-row b { margin-top:14px; font-size:14.5px; }
+  .ri26-rscope-row p { margin-top:7px; font-size:12.5px; line-height:1.56; }
+  .ri26-rans-grid { grid-template-columns:1fr; }
+  .ri26-rwork-grid { grid-template-columns:1fr; }
+  .ri26-rmat-grid {
+    grid-template-columns:1fr;
+    grid-template-areas:"copy" "shot" "checks";
+  }
+  .ri26-rmat-shot { aspect-ratio:16/10; }
+  .ri26-rband-inner { grid-template-columns:1fr; }
+}
+@media(max-width:620px){
+  .ri26-rscope-row { grid-template-columns:1fr; gap:11px; }
+  /* One per row at phone width: the icon moves beside the title so each card
+     is a compact band rather than a tall block. */
+  .ri26-rscope-row article {
+    display:grid;
+    grid-template-columns:auto minmax(0,1fr);
+    column-gap:14px;
+    padding:15px 16px;
+    border-radius:14px;
+  }
+  .ri26-rscope-ico { grid-row:1 / span 2; width:38px; height:38px; border-radius:11px; }
+  .ri26-rscope-ico svg { width:17px; height:17px; }
+  .ri26-rscope-row b { grid-column:2; margin-top:0; font-size:14.5px; }
+  .ri26-rscope-row p { grid-column:2; margin-top:5px; font-size:12.5px; line-height:1.55; }
+
+  .ri26-rband-actions { display:grid; }
+  .ri26-rband-actions .voda-btn { justify-content:center; }
+}
+
+/* The reconstruction hero photo is brighter than the other nine — bare drywall
+   and daylight — so the shared wash left the white headline sitting on a pale
+   ground. Deeper navy across the whole frame, and a stronger bottom ramp into
+   the wave. Scoped to this page; the other heroes are unchanged. */
+.ri26-detail-hero.is-light-photo .ri26-hero-shade {
+  background:
+    linear-gradient(90deg, #04182b 0%, rgba(4,24,43,.97) 36%, rgba(4,24,43,.84) 58%, rgba(4,24,43,.42) 82%, rgba(4,24,43,.3) 100%),
+    linear-gradient(0deg, rgba(4,24,43,.82), transparent 54%);
+}
+/* Pull the photo itself down a stop so the wash is not doing all the work. */
+.ri26-detail-hero.is-light-photo .ri26-hero-photo img,
+.ri26-detail-hero.is-light-photo .ri26-hero-photo picture { filter:brightness(.82) saturate(.95); }
+@media(max-width:860px){
+  /* Stacked layout: the copy sits lower, so the ramp runs bottom-up. */
+  .ri26-detail-hero.is-light-photo .ri26-hero-shade {
+    background:
+      linear-gradient(0deg, #04182b 0%, rgba(4,24,43,.92) 42%, rgba(4,24,43,.66) 72%, rgba(4,24,43,.44) 100%);
+  }
+}
+
+/* The zones plan had no responsive rules at all, so its two-column grid held
+   down to phone width — the plan drawing beside a legend column barely wide
+   enough for one word per line. Mobile only; desktop is untouched. */
+@media(max-width:860px){
+  .ri26-plan {
+    grid-template-columns:1fr;
+    align-items:start;
+    gap:22px;
+  }
+  .ri26-plan-figure { padding:12px; border-radius:16px; }
+  .ri26-plan-legend li { padding:16px 0; gap:13px; }
+}
+@media(max-width:560px){
+  .ri26-plan-legend li { grid-template-columns:16px minmax(0,1fr); gap:11px; }
+  .ri26-plan-swatch { width:15px; height:15px; }
+  .ri26-plan-legend header { gap:9px; }
+  .ri26-plan-legend b { font-size:14.5px; }
+  .ri26-plan-legend p { font-size:13px; line-height:1.58; }
+  .ri26-plan-legend footer { font-size:12.5px; }
+}
+
+/* The phase strip lost its responsive rules when this block was rewritten, so
+   the five-column grid held all the way down to phone width. Restored. */
+@media(max-width:1000px){
+  /* Two rows. A rule across a wrapped grid would join things that are not
+     sequential, so each stage keeps only its own tick. */
+  .ri26-phase-strip { grid-template-columns:1fr 1fr; grid-template-rows:none; row-gap:30px; }
+  .ri26-phase-strip > li {
+    grid-template-rows:auto auto 18px auto auto;
+    grid-row:auto;
+    padding-right:clamp(16px,3vw,30px);
+  }
+  .ri26-phase-strip > li.is-pivot { grid-column:1 / -1; }
+  .ri26-phase-tick { margin-right:0; }
+  .ri26-phase-note { font-size:13.5px; }
+  .ri26-phase-strip > li.is-pivot .ri26-phase-note { font-size:14.5px; }
+}
+@media(max-width:620px){
+  /* One per row, with the numeral and label on one line and the rule dropped,
+     since a continuous line cannot exist in a stacked list. */
+  .ri26-phase-strip { grid-template-columns:1fr; grid-template-rows:none; row-gap:0; }
+  .ri26-phase-strip > li {
+    grid-template-columns:auto minmax(0,1fr);
+    grid-template-rows:auto auto auto;
+    grid-row:auto;
+    column-gap:14px;
+    padding:17px 0;
+    border-top:1px solid #e0ebf1;
+  }
+  .ri26-phase-strip > li:first-child { border-top:0; padding-top:0; }
+  .ri26-phase-strip > li.is-pivot { grid-column:auto; }
+  .ri26-phase-n { grid-column:1; grid-row:1; padding-top:3px; }
+  .ri26-phase-label { grid-column:2; grid-row:1; margin:0; font-size:16px; }
+  .ri26-phase-strip > li.is-pivot .ri26-phase-label { font-size:18px; }
+  .ri26-phase-tick { display:none; }
+  .ri26-phase-note { grid-column:2; grid-row:2; margin:7px 0 0; font-size:13px; }
+  .ri26-phase-strip > li.is-pivot .ri26-phase-note { font-size:13.5px; }
+  .ri26-phase-state { grid-column:2; grid-row:3; margin-top:9px; align-self:start; font-size:10px; }
+}
+
+@media(max-width:560px){
+  .ri26-phase-options { grid-template-columns:1fr; }
+}
+
+/* The four parties were a 4-across grid with no responsive rules, so they
+   crushed to ~80px columns on a phone. Same swipeable row the causes grid
+   uses: cards run horizontally, snap, and bleed to the viewport edges so the
+   row reads as continuing past the screen in both directions. Mobile only. */
+@media(max-width:860px){
+  .ri26-parties-grid {
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:76%;
+    grid-template-columns:none;
+    row-gap:0;
+    column-gap:12px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;
+    scroll-padding-left:24px;
+    margin-inline:calc(50% - 50vw);
+    padding-inline:24px;
+    padding-bottom:18px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .ri26-parties-grid::-webkit-scrollbar { display:none; }
+  .ri26-parties-grid article {
+    scroll-snap-align:start;
+    min-width:0;
+    height:100%;
+  }
+}
+@media(max-width:560px){
+  .ri26-parties-grid { grid-auto-columns:82%; column-gap:11px; }
+}
+
+/* The six first-response cards stacked into one long column on a phone. Same
+   swipeable row as the causes and parties grids so the page keeps one mobile
+   pattern. The photo beside them stays above, as it already does. */
+@media(max-width:620px){
+  .ri26-first-list {
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:80%;
+    grid-template-columns:none;
+    row-gap:0;
+    column-gap:12px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;
+    scroll-padding-left:24px;
+    margin-inline:calc(50% - 50vw);
+    padding-inline:24px;
+    padding-bottom:18px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .ri26-first-list::-webkit-scrollbar { display:none; }
+  .ri26-first-list > li {
+    scroll-snap-align:start;
+    min-width:0;
+    height:100%;
+  }
+}
