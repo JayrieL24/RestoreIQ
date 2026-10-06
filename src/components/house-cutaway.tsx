@@ -3,81 +3,52 @@
 import * as React from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import type { HiddenPath, HouseRegion } from "@/lib/service-features";
+import type { HiddenPath } from "@/lib/service-features";
 
 /**
- * Interactive cross-section of a house. Selecting a path highlights the part
- * of the structure it affects, so "where does this reach in my house?" is
- * answered by the diagram rather than by prose.
+ * Where the water goes, shown through real job photos. Selecting a path swaps
+ * the photo to that place in a real property.
  *
- * The cutaway itself is a rendered illustration; the highlight is a CSS
- * overlay positioned over the relevant band. Keeping the highlight in CSS
- * rather than baking it into separate renders means the colour matches the
- * site exactly and a misaligned band can be nudged without regenerating art.
- *
- * Each path carries its own boxes as percentages of the image box, rather than
- * sharing a few broad regions — "behind the kickboard" and "cabinet base" sit
- * in the same part of the house but are not the same thing, and lighting the
- * whole kitchen for both made the diagram say less than the copy did.
+ * This replaced an illustrated cutaway with CSS highlight boxes. A photo of an
+ * actual wet cavity says more than a drawing with a tint over it, and there are
+ * no coordinates to keep aligned against the artwork.
  */
-
-const REGION_LABEL: Record<HouseRegion, string> = {
-  ceiling: "Ceiling cavity",
-  wall: "Wall cavity",
-  floor: "Floor covering",
-  subfloor: "Subfloor and joists",
-  crawl: "Crawlspace",
-  cabinet: "Cabinet run",
-  kickboard: "Kickboard cavity",
-  cabinetBase: "Cabinet carcass",
-  appliance: "Appliance position",
-  wallRight: "Wall behind the run",
-  plate: "Bottom plate",
-  boards: "Floor boards",
-  skirting: "Skirting line",
-  batts: "Insulation between joists",
-  piers: "Support piers",
-  ground: "Ground sheeting",
-  joists: "Floor joists",
-};
-
-
 export function HouseCutaway({ paths }: { paths: HiddenPath[] }) {
   const [active, setActive] = React.useState(0);
   const current = paths[active];
-  
+
   return (
     <div className="ri26-cut">
       <figure className="ri26-cut-figure">
         <div className="ri26-cut-stage">
-          <Image
-            src="/services/cutaway/house-cutaway.jpg"
-            alt="Cross-section of a house showing the roof, ceiling cavity, wall cavities, floor, subfloor and crawlspace"
-            fill
-            className="ri26-cut-img"
-            sizes="(max-width: 900px) 94vw, 720px"
-          />
-          {/* Highlight bands. All render; only the active region is visible,
-              so switching cross-fades rather than popping. */}
-          {paths.map((path, pi) =>
-            path.boxes.map((box, bi) => (
-              <span
-                key={`${pi}-${bi}`}
-                aria-hidden
-                className={`ri26-cut-band${pi === active ? " is-on" : ""}`}
-                style={{
-                  left: `${box.left}%`,
-                  top: `${box.top}%`,
-                  width: `${box.width}%`,
-                  height: `${box.height}%`,
-                }}
-              />
-            ))
-          )}
+          {paths.map((path, i) => {
+            // Wrap the offset so the stack always has a neighbour on each side,
+            // including on the first and last path.
+            const raw = i - active;
+            const half = paths.length / 2;
+            const offset = raw > half ? raw - paths.length : raw < -half ? raw + paths.length : raw;
+            return (
+              <div
+                key={path.zone}
+                className={`ri26-cut-card${i === active ? " is-on" : ""}${Math.abs(offset) === 1 ? " is-near" : ""}`}
+                style={{ "--offset": offset, "--depth": Math.abs(offset) } as React.CSSProperties}
+                aria-hidden={i !== active}
+              >
+                <Image
+                  src={path.photo}
+                  alt={path.photoAlt}
+                  fill
+                  className="ri26-cut-img"
+                  sizes="(max-width: 900px) 94vw, 720px"
+                  priority={i === 0}
+                />
+              </div>
+            );
+          })}
         </div>
 
         <figcaption className="ri26-cut-caption">
-          <span>{current ? REGION_LABEL[current.region] : ""}</span> highlighted
+          <span>{current?.zone}</span> — {current?.reach}
         </figcaption>
       </figure>
 
