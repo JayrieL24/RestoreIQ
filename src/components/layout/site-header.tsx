@@ -7,6 +7,7 @@ import { ArrowUpRight, ChevronDown, MenuIcon, PhoneIcon } from "lucide-react";
 
 import { site } from "@/lib/site";
 import { serviceAreas } from "@/lib/service-areas";
+import { services } from "@/lib/services";
 import {
   Sheet,
   SheetContent,
@@ -55,14 +56,25 @@ export function SiteHeader() {
           </Link>
 
           <nav aria-label="Main navigation" className="voda-desktop-nav">
-            {site.nav.map((item) => item.label === "Service areas" ? (
-              <div className="voda-nav-dropdown" key={item.href}>
-                <Link href={item.href} className="voda-nav-link voda-nav-dropdown-trigger">{item.label}<ChevronDown aria-hidden /></Link>
-                <div className="voda-nav-dropdown-panel" aria-label="Service area pages">
-                  {serviceAreas.map((area) => <Link href={`/service-areas/${area.slug}`} key={area.slug}>{area.name}<ArrowUpRight aria-hidden /></Link>)}
+            {site.nav.map((item) => {
+              if (item.label === "Service areas") return (
+                <div className="voda-nav-dropdown" key={item.href}>
+                  <Link href={item.href} className="voda-nav-link voda-nav-dropdown-trigger">{item.label}<ChevronDown aria-hidden /></Link>
+                  <div className="voda-nav-dropdown-panel" aria-label="Service area pages">
+                    {serviceAreas.map((area) => <Link href={`/service-areas/${area.slug}`} key={area.slug}>{area.name}<ArrowUpRight aria-hidden /></Link>)}
+                  </div>
                 </div>
-              </div>
-            ) : <Link key={item.href} href={item.href} className="voda-nav-link">{item.label}</Link>)}
+              );
+              if (item.label === "Services") return (
+                <div className="voda-nav-dropdown" key={item.href}>
+                  <Link href={item.href} className="voda-nav-link voda-nav-dropdown-trigger">{item.label}<ChevronDown aria-hidden /></Link>
+                  <div className="voda-nav-dropdown-panel is-wide" aria-label="Service pages">
+                    {services.map((service) => <Link href={`/services/${service.id}`} key={service.id}>{service.shortTitle}<ArrowUpRight aria-hidden /></Link>)}
+                  </div>
+                </div>
+              );
+              return <Link key={item.href} href={item.href} className="voda-nav-link">{item.label}</Link>;
+            })}
           </nav>
 
           <div className="voda-nav-actions">
@@ -74,7 +86,7 @@ export function SiteHeader() {
               </span>
             </a>
 
-            <Link className="voda-nav-cta" href="/#request-service">
+            <Link className="voda-nav-cta" href="/contact">
               {site.cta.request}
               <ArrowUpRight aria-hidden />
             </Link>
@@ -104,6 +116,7 @@ export function SiteHeader() {
                   {site.nav.map((item) => <React.Fragment key={item.href}>
                     <Link href={item.href} onClick={() => setOpen(false)} className="voda-mobile-nav-link">{item.label}</Link>
                     {item.label === "Service areas" ? <div className="voda-mobile-area-links">{serviceAreas.map((area) => <Link href={`/service-areas/${area.slug}`} onClick={() => setOpen(false)} key={area.slug}>{area.name}</Link>)}</div> : null}
+                    {item.label === "Services" ? <div className="voda-mobile-area-links">{services.map((service) => <Link href={`/services/${service.id}`} onClick={() => setOpen(false)} key={service.id}>{service.shortTitle}</Link>)}</div> : null}
                   </React.Fragment>)}
                 </nav>
                 <div className="voda-mobile-sheet-actions">
@@ -111,7 +124,7 @@ export function SiteHeader() {
                     <PhoneIcon aria-hidden />
                     {site.cta.call} · {site.phone}
                   </a>
-                  <Link href="/#request-service" onClick={() => setOpen(false)}>
+                  <Link href="/contact" onClick={() => setOpen(false)}>
                     {site.cta.request} <ArrowUpRight aria-hidden />
                   </Link>
                 </div>
@@ -123,7 +136,7 @@ export function SiteHeader() {
 
       <div className={`ri26-mobile-bar${open ? " is-hidden" : ""}`} aria-label="Emergency actions">
         <a href={tel}><PhoneIcon aria-hidden /> {site.cta.call}</a>
-        <Link href="/#request-service"><ArrowUpRight aria-hidden /> {site.cta.request}</Link>
+        <Link href="/contact"><ArrowUpRight aria-hidden /> {site.cta.request}</Link>
       </div>
     </>
   );

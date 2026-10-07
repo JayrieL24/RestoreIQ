@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone } from "lucide-react";
+import { Mail, MessageSquare, Phone } from "lucide-react";
 
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
@@ -83,6 +83,16 @@ export function SiteFooter() {
                 <b>{site.email}</b>
               </span>
             </a>
+
+            <Link className="voda-footer-line" href="/contact">
+              <span className="voda-footer-icon">
+                <MessageSquare aria-hidden />
+              </span>
+              <span>
+                <small>Enquiries</small>
+                <b>Contact us</b>
+              </span>
+            </Link>
           </div>
         </div>
 

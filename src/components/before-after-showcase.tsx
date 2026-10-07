@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Droplets, Hammer, ShieldCheck, Waves } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ImageComparison } from "@/components/ui/image-comparison-slider";
 
 type Case = {
@@ -9,9 +9,8 @@ type Case = {
   slug: string;
   beforeAlt: string;
   afterAlt: string;
-  Icon: typeof Droplets;
-  cause: string;
-  category: string;
+  /** One line under the title — the cause, then what the work involved. */
+  note: string;
 };
 
 const cases: Case[] = [
@@ -20,36 +19,28 @@ const cases: Case[] = [
     slug: "carpet",
     beforeAlt: "Saturated carpet and wall after a supply line leak",
     afterAlt: "Dry restored carpet and repaired wall",
-    Icon: Droplets,
-    cause: "Supply-line leak",
-    category: "Extraction & drying",
+    note: "Supply-line leak — extraction and structural drying.",
   },
   {
     title: "Drywall Restoration",
     slug: "drywall",
     beforeAlt: "Water-damaged bedroom wall before restoration",
     afterAlt: "Rebuilt and repainted bedroom wall",
-    Icon: Hammer,
-    cause: "Plumbing loss",
-    category: "Repair & refinish",
+    note: "Plumbing loss — drywall repair and refinishing.",
   },
   {
     title: "Hardwood Recovery",
     slug: "hardwood",
     beforeAlt: "Cupped wet hardwood beside a leaking dishwasher",
     afterAlt: "Dry repaired hardwood and finished wall",
-    Icon: Waves,
-    cause: "Appliance leak",
-    category: "Structural drying",
+    note: "Appliance leak — hardwood dried in place and saved.",
   },
   {
     title: "Mold Remediation",
     slug: "mould",
     beforeAlt: "Opened laundry wall with localized mold damage",
     afterAlt: "Rebuilt laundry wall after remediation",
-    Icon: ShieldCheck,
-    cause: "Localized moisture",
-    category: "Contained removal",
+    note: "Localized moisture — contained removal and rebuild.",
   },
 ];
 
@@ -64,14 +55,11 @@ export function BeforeAfterShowcase() {
   return <div className="ba-showcase">
     <button type="button" className="ba-nav ba-nav-prev" onClick={() => move(-1)} aria-label="Previous restoration examples"><ChevronLeft /></button>
     <div className="ba-showcase-grid">
-      {visible.map(({ title, slug, beforeAlt, afterAlt, Icon, cause, category }) => <article className="ba-case" key={`${start}-${slug}`}>
+      {visible.map(({ title, slug, beforeAlt, afterAlt, note }) => <article className="ba-case" key={`${start}-${slug}`}>
         <ImageComparison beforeImage={`/Before&After/${slug}-before.png`} afterImage={`/Before&After/${slug}-after.png`} altBefore={beforeAlt} altAfter={afterAlt} />
         <div className="ba-case-body">
-          <span className="ba-case-icon"><Icon aria-hidden /></span>
-          <div>
-            <h3>{title}</h3>
-            <p className="ba-case-meta"><span>{cause}</span><i aria-hidden /><span>{category}</span></p>
-          </div>
+          <h3>{title}</h3>
+          <p className="ba-case-note">{note}</p>
         </div>
       </article>)}
     </div>

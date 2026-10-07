@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, BadgeCheck, Check, ClipboardCheck, Clock3, FileText, HousePlus, MapPin, Phone, ScanSearch, ShieldCheck, Siren, WavesArrowDown, Wind } from "lucide-react";
+import { ArrowRight, BadgeCheck, Check, ClipboardCheck, Clock3, FileText, MapPin, Phone, ShieldCheck, Siren } from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 import { BeforeAfterShowcase } from "@/components/before-after-showcase";
 import { InsuranceBanner } from "@/components/insurance-banner";
@@ -9,16 +9,9 @@ import { ServiceRail } from "@/components/service-rail";
 import { Faq } from "@/components/sections/faq";
 import { WhyChoose } from "@/components/sections/why-choose";
 import { ServiceAreaMap } from "@/components/sections/service-area-map";
+import { process } from "@/lib/process";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
-
-const process = [
-  { title: "Call", accent: "us", copy: "Tell us what happened and get safety guidance.", icon: Phone },
-  { title: "Stop the", accent: "source", copy: "We shut off the water and map the damage.", icon: ScanSearch },
-  { title: "Extract", accent: "water", copy: "Standing water comes out and gets documented.", icon: WavesArrowDown },
-  { title: "Dry and", accent: "monitor", copy: "Daily readings guide the drying equipment.", icon: Wind },
-  { title: "Repair and", accent: "restore", copy: "Approved repairs bring your property back.", icon: HousePlus },
-] as const;
 
 export default function HomePage() {
   const phone = site.phone.replace(/[^\d+]/g, "");
