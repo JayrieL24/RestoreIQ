@@ -1,0 +1,66 @@
+{
+  "generation": "Built-in image_gen",
+  "note": "All ten share one drawing style so they read as a set. Save as JPG at 1200x1200.",
+  "images": [
+    {
+      "name": "water-damage",
+      "path": "public/services/plans/water-damage.jpg",
+      "size": "1:1 square, 1200x1200",
+      "prompt": "A two-bedroom home plan. A soft blue glow starts at the BATH, flows through the doorway into the LIVING ROOM and curves toward the KITCHEN, with blue arrows following the path.\n\nSTYLE — match this exactly across the set:\nA clean architectural floor plan drawn from directly overhead, orthographic, no perspective.\nWhite floor, mid-grey walls drawn as solid filled shapes about 8px thick, with doorway gaps and thin door-swing arcs.\nSimple line-drawn furniture in light grey outline: beds, sofas, tables, kitchen counters, bathroom fixtures. Outlines only, no fill, no shadows, no textures.\nRoom names in small grey uppercase sans-serif letters, centred in each room: BEDROOM, BATH, LIVING ROOM, KITCHEN.\nThe affected path is a soft glowing light-blue wash flowing across the floor, semi-transparent, with a bright blue arrow curving along its direction of travel.\nFlat, soft and modern. Pure white background, no border, no frame, no drop shadow, no title block, no scale bar, no dimensions, no north arrow, no watermark.\nSquare 1:1 composition with even margin on all four sides.\n\n1:1 square, 1200x1200."
+    },
+    {
+      "name": "fire-smoke",
+      "path": "public/services/plans/fire-smoke.jpg",
+      "size": "1:1 square, 1200x1200",
+      "prompt": "A home plan. A pale grey-blue haze starts at the KITCHEN and spreads through the hallway into two BEDROOMs, thinning as it goes, with arrows showing it travelling through doorways rather than along the floor.\n\nSTYLE — match this exactly across the set:\nA clean architectural floor plan drawn from directly overhead, orthographic, no perspective.\nWhite floor, mid-grey walls drawn as solid filled shapes about 8px thick, with doorway gaps and thin door-swing arcs.\nSimple line-drawn furniture in light grey outline: beds, sofas, tables, kitchen counters, bathroom fixtures. Outlines only, no fill, no shadows, no textures.\nRoom names in small grey uppercase sans-serif letters, centred in each room: BEDROOM, BATH, LIVING ROOM, KITCHEN.\nThe affected path is a soft glowing light-blue wash flowing across the floor, semi-transparent, with a bright blue arrow curving along its direction of travel.\nFlat, soft and modern. Pure white background, no border, no frame, no drop shadow, no title block, no scale bar, no dimensions, no north arrow, no watermark.\nSquare 1:1 composition with even margin on all four sides.\n\n1:1 square, 1200x1200."
+    },
+    {
+      "name": "sewage",
+      "path": "public/services/plans/sewage.jpg",
+      "size": "1:1 square, 1200x1200",
+      "prompt": "A home plan with the BATH and the hallway outside it filled with a denser blue wash. A bold blue boundary line seals that area off from the rest of the plan, with the LIVING ROOM and KITCHEN left clean and white.\n\nSTYLE — match this exactly across the set:\nA clean architectural floor plan drawn from directly overhead, orthographic, no perspective.\nWhite floor, mid-grey walls drawn as solid filled shapes about 8px thick, with doorway gaps and thin door-swing arcs.\nSimple line-drawn furniture in light grey outline: beds, sofas, tables, kitchen counters, bathroom fixtures. Outlines only, no fill, no shadows, no textures.\nRoom names in small grey uppercase sans-serif letters, centred in each room: BEDROOM, BATH, LIVING ROOM, KITCHEN.\nThe affected path is a soft glowing light-blue wash flowing across the floor, semi-transparent, with a bright blue arrow curving along its direction of travel.\nFlat, soft and modern. Pure white background, no border, no frame, no drop shadow, no title block, no scale bar, no dimensions, no north arrow, no watermark.\nSquare 1:1 composition with even margin on all four sides.\n\n1:1 square, 1200x1200."
+    },
+    {
+      "name": "burst-pipe",
+      "path": "public/services/plans/burst-pipe.jpg",
+      "size": "1:1 square, 1200x1200",
+      "prompt": "A home plan. A blue glow starts inside a wall between the KITCHEN and the LIVING ROOM and spreads out in both directions under the floor, with arrows showing it running beneath the rooms rather than across them.\n\nSTYLE — match this exactly across the set:\nA clean architectural floor plan drawn from directly overhead, orthographic, no perspective.\nWhite floor, mid-grey walls drawn as solid filled shapes about 8px thick, with doorway gaps and thin door-swing arcs.\nSimple line-drawn furniture in light grey outline: beds, sofas, tables, kitchen counters, bathroom fixtures. Outlines only, no fill, no shadows, no textures.\nRoom names in small grey uppercase sans-serif letters, centred in each room: BEDROOM, BATH, LIVING ROOM, KITCHEN.\nThe affected path is a soft glowing light-blue wash flowing across the floor, semi-transparent, with a bright blue arrow curving along its direction of travel.\nFlat, soft and modern. Pure white background, no border, no frame, no drop shadow, no title block, no scale bar, no dimensions, no north arrow, no watermark.\nSquare 1:1 composition with even margin on all four sides.\n\n1:1 square, 1200x1200."
+    },
+    {
+      "name": "appliance-leak",
+      "path": "public/services/plans/appliance-leak.jpg",
+      "size": "1:1 square, 1200x1200",
+      "prompt": "A kitchen-focused plan with a counter run along two walls. A small blue glow sits behind one appliance in the counter and seeps out under the adjacent cabinets and into the edge of the room, with a short arrow showing the direction.\n\nSTYLE — match this exactly across the set:\nA clean architectural floor plan drawn from directly overhead, orthographic, no perspective.\nWhite floor, mid-grey walls drawn as solid filled shapes about 8px thick, with doorway gaps and thin door-swing arcs.\nSimple line-drawn furniture in light grey outline: beds, sofas, tables, kitchen counters, bathroom fixtures. Outlines only, no fill, no shadows, no textures.\nRoom names in small grey uppercase sans-serif letters, centred in each room: BEDROOM, BATH, LIVING ROOM, KITCHEN.\nThe affected path is a soft glowing light-blue wash flowing across the floor, semi-transparent, with a bright blue arrow curving along its direction of travel.\nFlat, soft and modern. Pure white background, no border, no frame, no drop shadow, no title block, no scale bar, no dimensions, no north arrow, no watermark.\nSquare 1:1 composition with even margin on all four sides.\n\n1:1 square, 1200x1200."
+    },
+    {
+      "name": "hardwood",
+      "path": "public/services/plans/hardwood.jpg",
+      "size": "1:1 square, 1200x1200",
+      "prompt": "A LIVING ROOM plan with floorboards drawn as fine parallel grey lines. A blue wash covers part of the floor, and several light blue rectangles lie over the boards representing drying mats.\n\nSTYLE — match this exactly across the set:\nA clean architectural floor plan drawn from directly overhead, orthographic, no perspective.\nWhite floor, mid-grey walls drawn as solid filled shapes about 8px thick, with doorway gaps and thin door-swing arcs.\nSimple line-drawn furniture in light grey outline: beds, sofas, tables, kitchen counters, bathroom fixtures. Outlines only, no fill, no shadows, no textures.\nRoom names in small grey uppercase sans-serif letters, centred in each room: BEDROOM, BATH, LIVING ROOM, KITCHEN.\nThe affected path is a soft glowing light-blue wash flowing across the floor, semi-transparent, with a bright blue arrow curving along its direction of travel.\nFlat, soft and modern. Pure white background, no border, no frame, no drop shadow, no title block, no scale bar, no dimensions, no north arrow, no watermark.\nSquare 1:1 composition with even margin on all four sides.\n\n1:1 square, 1200x1200."
+    },
+    {
+      "name": "crawlspace",
+      "path": "public/services/plans/crawlspace.jpg",
+      "size": "1:1 square, 1200x1200",
+      "prompt": "A cutaway plan showing the ground floor rooms above and the crawlspace below them as a single overhead view. The lower space carries a blue damp wash with upward arrows passing into the rooms above.\n\nSTYLE — match this exactly across the set:\nA clean architectural floor plan drawn from directly overhead, orthographic, no perspective.\nWhite floor, mid-grey walls drawn as solid filled shapes about 8px thick, with doorway gaps and thin door-swing arcs.\nSimple line-drawn furniture in light grey outline: beds, sofas, tables, kitchen counters, bathroom fixtures. Outlines only, no fill, no shadows, no textures.\nRoom names in small grey uppercase sans-serif letters, centred in each room: BEDROOM, BATH, LIVING ROOM, KITCHEN.\nThe affected path is a soft glowing light-blue wash flowing across the floor, semi-transparent, with a bright blue arrow curving along its direction of travel.\nFlat, soft and modern. Pure white background, no border, no frame, no drop shadow, no title block, no scale bar, no dimensions, no north arrow, no watermark.\nSquare 1:1 composition with even margin on all four sides.\n\n1:1 square, 1200x1200."
+    },
+    {
+      "name": "commercial",
+      "path": "public/services/plans/commercial.jpg",
+      "size": "1:1 square, 1200x1200",
+      "prompt": "An open-plan commercial floor divided into three zones by bold lines: a large white area, a lightly shaded area, and one solid blue-washed area in a corner. Desks drawn as simple grey rectangles in the open zones.\n\nSTYLE — match this exactly across the set:\nA clean architectural floor plan drawn from directly overhead, orthographic, no perspective.\nWhite floor, mid-grey walls drawn as solid filled shapes about 8px thick, with doorway gaps and thin door-swing arcs.\nSimple line-drawn furniture in light grey outline: beds, sofas, tables, kitchen counters, bathroom fixtures. Outlines only, no fill, no shadows, no textures.\nRoom names in small grey uppercase sans-serif letters, centred in each room: BEDROOM, BATH, LIVING ROOM, KITCHEN.\nThe affected path is a soft glowing light-blue wash flowing across the floor, semi-transparent, with a bright blue arrow curving along its direction of travel.\nFlat, soft and modern. Pure white background, no border, no frame, no drop shadow, no title block, no scale bar, no dimensions, no north arrow, no watermark.\nSquare 1:1 composition with even margin on all four sides.\n\n1:1 square, 1200x1200."
+    },
+    {
+      "name": "contents",
+      "path": "public/services/plans/contents.jpg",
+      "size": "1:1 square, 1200x1200",
+      "prompt": "A home plan with furniture outlines in each room and a small numbered marker beside each item. A blue route line runs from the rooms out through the front door, showing the pack-out path.\n\nSTYLE — match this exactly across the set:\nA clean architectural floor plan drawn from directly overhead, orthographic, no perspective.\nWhite floor, mid-grey walls drawn as solid filled shapes about 8px thick, with doorway gaps and thin door-swing arcs.\nSimple line-drawn furniture in light grey outline: beds, sofas, tables, kitchen counters, bathroom fixtures. Outlines only, no fill, no shadows, no textures.\nRoom names in small grey uppercase sans-serif letters, centred in each room: BEDROOM, BATH, LIVING ROOM, KITCHEN.\nThe affected path is a soft glowing light-blue wash flowing across the floor, semi-transparent, with a bright blue arrow curving along its direction of travel.\nFlat, soft and modern. Pure white background, no border, no frame, no drop shadow, no title block, no scale bar, no dimensions, no north arrow, no watermark.\nSquare 1:1 composition with even margin on all four sides.\n\n1:1 square, 1200x1200."
+    },
+    {
+      "name": "reconstruction",
+      "path": "public/services/plans/reconstruction.jpg",
+      "size": "1:1 square, 1200x1200",
+      "prompt": "A home plan where several wall segments are drawn as dashed grey outlines rather than solid fills, and two rooms have their floor hatched with light diagonal lines, marking what was removed and is being rebuilt.\n\nSTYLE — match this exactly across the set:\nA clean architectural floor plan drawn from directly overhead, orthographic, no perspective.\nWhite floor, mid-grey walls drawn as solid filled shapes about 8px thick, with doorway gaps and thin door-swing arcs.\nSimple line-drawn furniture in light grey outline: beds, sofas, tables, kitchen counters, bathroom fixtures. Outlines only, no fill, no shadows, no textures.\nRoom names in small grey uppercase sans-serif letters, centred in each room: BEDROOM, BATH, LIVING ROOM, KITCHEN.\nThe affected path is a soft glowing light-blue wash flowing across the floor, semi-transparent, with a bright blue arrow curving along its direction of travel.\nFlat, soft and modern. Pure white background, no border, no frame, no drop shadow, no title block, no scale bar, no dimensions, no north arrow, no watermark.\nSquare 1:1 composition with even margin on all four sides.\n\n1:1 square, 1200x1200."
+    }
+  ]
+}
