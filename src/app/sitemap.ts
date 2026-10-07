@@ -14,5 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...services.map((service) => ({ url: `${site.url}/services/${service.id}`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 })),
     ...serviceAreas.map((area) => ({ url: `${site.url}/service-areas/${area.slug}`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.75 })),
+    { url: `${site.url}/about`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: `${site.url}/contact`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
   ];
 }
