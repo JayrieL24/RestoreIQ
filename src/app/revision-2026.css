@@ -42,11 +42,11 @@
 @keyframes ri26-marquee { to { transform:translateX(calc(-50% - 6px)); } }
 .ri26-about { background:#fff; }.ri26-about-slot { min-height:570px; display:grid; place-content:center; justify-items:center; border:2px dashed #b9d3dc; border-radius:24px; background:linear-gradient(145deg,#f5fafb,#eaf4f6); color:#6e8694; }.ri26-about-slot svg { width:48px; height:48px; margin-bottom:18px; color:#55aebe; }.ri26-about-slot b { color:#27485b; }.ri26-about-slot span { margin-top:7px; font-size:11px; }
 .ri26-pending { margin-top:34px; border-top:1px solid var(--ri26-line); }.ri26-pending>div { display:grid; grid-template-columns:1fr 1.2fr; gap:18px; padding:19px 0; border-bottom:1px solid var(--ri26-line); }.ri26-pending dt { font-size:12px; font-weight:800; }.ri26-pending dd { color:#7c909b; font-size:11px; }
-.ri26-projects { background:var(--ri26-soft); }.ri26-projects .ba-showcase { width:100%; margin-top:48px; }.ri26-projects .ba-case-body { display:block; padding:18px; }.ri26-projects .ba-case-icon { display:none; }.ri26-projects .ba-case .ba-case-body h3 { text-align:left; padding:0; }.ri26-project-meta { display:grid; gap:6px; margin-top:14px; padding-top:12px; border-top:1px solid var(--ri26-line); }.ri26-project-meta>div { display:flex; justify-content:space-between; gap:10px; font-size:9px; }.ri26-project-meta dt { color:#738995; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }.ri26-project-meta dd { color:#8da0aa; }
+.ri26-projects { background:var(--ri26-soft); }.ri26-projects .ba-showcase { width:100%; margin-top:48px; }.ri26-project-meta { display:grid; gap:6px; margin-top:14px; padding-top:12px; border-top:1px solid var(--ri26-line); }.ri26-project-meta>div { display:flex; justify-content:space-between; gap:10px; font-size:9px; }.ri26-project-meta dt { color:#738995; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }.ri26-project-meta dd { color:#8da0aa; }
 .ri26-areas { background:#fff; }.ri26-area-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:48px; }.ri26-area-grid a { display:grid; grid-template-columns:42px 1fr 20px; align-items:center; gap:14px; min-height:112px; padding:20px; border:1px solid var(--ri26-line); border-radius:15px; transition:border .2s,background .2s; }.ri26-area-grid a:hover { border-color:#86dce3; background:#f2fcfc; }.ri26-area-grid a>svg:first-child { width:42px; height:42px; padding:11px; border-radius:12px; background:#e6f8f9; color:#078da5; }.ri26-area-grid a>svg:last-child { width:17px; color:#189bad; }.ri26-area-grid b,.ri26-area-grid small { display:block; }.ri26-area-grid b { font-size:15px; }.ri26-area-grid small { margin-top:6px; color:var(--ri26-muted); font-size:10px; line-height:1.45; }
 .ri26-request { background:linear-gradient(135deg,#051a2f,#082b48); color:#fff; }.ri26-request-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(45px,7vw,90px); align-items:start; }.ri26-call-card { display:inline-flex; align-items:center; gap:13px; margin-top:30px; padding:14px 17px; border:1px solid rgba(255,255,255,.16); border-radius:14px; background:rgba(255,255,255,.07); }.ri26-call-card>svg { width:40px; height:40px; padding:10px; border-radius:11px; background:var(--ri26-bright); color:#062d43; }.ri26-call-card small,.ri26-call-card b { display:block; }.ri26-call-card small { color:#a9c0ce; font-size:9px; text-transform:uppercase; letter-spacing:.08em; }.ri26-call-card b { margin-top:3px; color:#fff; font-size:19px; }
 .ri26-form { display:grid; gap:18px; padding:30px; border-radius:20px; background:#fff; color:var(--ri26-ink); box-shadow:0 24px 70px rgba(0,0,0,.22); }.ri26-field-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }.ri26-form label>span,.ri26-form legend { display:block; margin-bottom:7px; color:#27495d; font-size:11px; font-weight:760; }.ri26-form b,.ri26-form legend b { color:#d74848; }.ri26-form label small { color:#81949f; font-weight:500; }.ri26-form input:not([type=radio]),.ri26-form textarea { width:100%; border:1px solid #cfdfe5; border-radius:10px; background:#fafdfe; padding:12px 13px; color:#102c40; font-size:14px; outline:0; }.ri26-form input:not([type=radio]) { height:46px; }.ri26-form textarea { resize:vertical; min-height:102px; }.ri26-form input:focus,.ri26-form textarea:focus { border-color:#1cabbc; box-shadow:0 0 0 3px rgba(28,171,188,.12); }.ri26-choice-row { display:flex; flex-wrap:wrap; gap:8px; }.ri26-choice-row label { min-height:42px; display:flex; align-items:center; gap:7px; padding:0 14px; border:1px solid #d5e3e8; border-radius:9px; font-size:12px; cursor:pointer; }.ri26-choice-row input { accent-color:#079eb5; }.ri26-form>button { width:100%; }.ri26-form>button:disabled { opacity:.7; }.ri26-form-note { color:#80939d; font-size:9px; line-height:1.5; }.ri26-hp { position:absolute!important; left:-9999px!important; width:1px!important; height:1px!important; }.ri26-form-error { display:flex; gap:8px; padding:11px; border-radius:9px; background:#fff1f1; color:#9e3434; font-size:11px; line-height:1.45; }.ri26-form-error svg { width:16px; flex:none; }.ri26-form-error a { text-decoration:underline; font-weight:800; }.ri26-form-success { min-height:420px; display:grid; place-content:center; justify-items:center; padding:42px; border-radius:20px; background:#fff; color:var(--ri26-ink); text-align:center; }.ri26-form-success>svg { width:56px; height:56px; color:#21a875; }.ri26-form-success h3 { margin-top:20px; font-size:25px; }.ri26-form-success p { max-width:430px; margin-top:10px; color:var(--ri26-muted); font-size:13px; line-height:1.6; }.ri26-form-success .voda-btn { margin-top:22px; }.ri26-spin { animation:ri26-spin .8s linear infinite; }@keyframes ri26-spin { to { transform:rotate(360deg); } }
-.ri26-detail-hero { position:relative; min-height:650px; display:flex; align-items:end; isolation:isolate; padding:170px 0 90px; background:var(--ri26-navy); color:#fff; }.ri26-detail-hero>img { z-index:-2; filter:saturate(.75); }.ri26-detail-hero h1 { max-width:850px; margin-top:20px; color:#fff; font-size:clamp(48px,6vw,78px); line-height:.98; letter-spacing:-.06em; }.ri26-detail-copy { max-width:660px; margin-top:20px; color:#cfdee5; font-size:17px; line-height:1.65; }
+.ri26-detail-hero { position:relative; min-height:650px; display:flex; align-items:end; isolation:isolate; padding:170px 0 90px; background:var(--ri26-navy); color:#fff; }.ri26-detail-hero>img { z-index:-2; filter:saturate(.75); }.ri26-detail-hero h1 { max-width:850px; margin-top:20px; color:#fff; font-size:clamp(48px,6vw,78px); font-weight:770; line-height:.98; letter-spacing:-.06em; }.ri26-detail-hero h1 em { color:#6fd9e4; font-style:normal; }.ri26-detail-copy { max-width:660px; margin-top:20px; color:#cfdee5; font-size:17px; line-height:1.65; }
 .ri26-detail-intro { display:grid; grid-template-columns:1.25fr .75fr; gap:clamp(45px,8vw,110px); align-items:center; }.ri26-detail-intro>ul { display:grid; gap:11px; padding:25px; border:1px solid var(--ri26-line); border-radius:17px; background:var(--ri26-soft); list-style:none; }.ri26-detail-intro li { display:flex; align-items:center; gap:9px; padding:9px 0; color:#385568; font-size:12px; }.ri26-detail-intro li svg { width:18px; color:#0b9cb2; }
 .ri26-detail-causes { background:var(--ri26-soft); }.ri26-cause-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:45px; }.ri26-cause-grid>div { min-height:150px; display:flex; flex-direction:column; justify-content:space-between; padding:23px; border:1px solid var(--ri26-line); border-radius:14px; background:#fff; }.ri26-cause-grid b { color:#0a9cb2; font-size:11px; }.ri26-cause-grid span { font-size:15px; font-weight:760; }
 .ri26-faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:11px; margin-top:44px; }.ri26-faq-grid details { align-self:start; border:1px solid var(--ri26-line); border-radius:13px; background:#fff; }.ri26-faq-grid summary { padding:19px; color:#17394e; font-size:13px; font-weight:780; cursor:pointer; }.ri26-faq-grid details p { padding:0 19px 20px; color:var(--ri26-muted); font-size:12px; line-height:1.65; }
@@ -69,7 +69,7 @@
 .voda-trust-strip-row>div { display:flex; align-items:center; justify-content:center; gap:12px; padding:18px 12px; border-right:1px solid #dfebef; min-width:0; }
 .voda-trust-strip-row>div:last-child { border-right:0; }.voda-trust-strip-logo img { width:116px; height:auto; }
 .voda-trust-strip-row svg { width:27px; flex-shrink:0; color:#0b9eb2; }.voda-trust-strip-row b,.voda-trust-strip-row small { display:block; }
-.voda-trust-strip-row b { color:#0b2438; font-size:17.3px; font-weight:700; line-height:1.25; letter-spacing:-.022em; white-space:nowrap; }.voda-trust-strip-row small { margin-top:5px; color:#6a7c86; font-size:13.1px; line-height:1.5; white-space:nowrap; }
+.voda-trust-strip-row b { color:#0b2438; font-size:17.3px; font-weight:700; line-height:1.25; letter-spacing:-.022em; text-wrap:balance; }.voda-trust-strip-row small { margin-top:5px; color:#6a7c86; font-size:13.1px; line-height:1.5; text-wrap:pretty; }
 .voda-process-brief { padding-top:105px; padding-bottom:110px; }.voda-step-grid-five { grid-template-columns:repeat(5,1fr); margin-top:52px; }
 .voda-step-grid-five article { padding-inline:8px; }.voda-step-grid-five article:after { top:67px; left:70%; width:60%; }
 .voda-step-grid-five article>span { color:#7fb3c4; font-size:12.6px; font-weight:750; letter-spacing:.14em; font-variant-numeric:tabular-nums; }
@@ -146,6 +146,15 @@
 .voda-request-call { display:inline-flex; align-items:center; gap:13px; margin-top:28px; padding:12px 17px; border:1px solid rgba(255,255,255,.2); border-radius:13px; background:rgba(255,255,255,.08); backdrop-filter:blur(10px); }.voda-request-call>span { display:grid; place-items:center; width:42px; height:42px; border-radius:11px; background:#64dfe2; color:#062d43; }.voda-request-call svg { width:19px; }.voda-request-call small,.voda-request-call b { display:block; }.voda-request-call small { color:#b5cad5; font-size:9px; text-transform:uppercase; letter-spacing:.08em; }.voda-request-call b { margin-top:3px; color:#fff; font-size:18px; }
 .voda-request-section .ri26-form { padding:27px; border-radius:18px; box-shadow:0 25px 70px rgba(0,0,0,.27); }
 @media(max-width:1000px){.voda-service-grid-ten{grid-template-columns:repeat(2,1fr)}.voda-service-grid-ten>div:nth-child(n){border-right:1px solid #e5edef;border-bottom:1px solid #e5edef}.voda-service-grid-ten>div:nth-child(2n){border-right:0}.voda-service-grid-ten>div:nth-child(n+9){border-bottom:0}.voda-step-grid-five{grid-template-columns:repeat(3,1fr)}.voda-step-grid-five h3{white-space:normal}.voda-step-grid-five article:after{display:none}.voda-about-grid{gap:50px}.voda-insurance-grid{grid-template-columns:1fr}}
+/* Five cards over three columns left 04 and 05 orphaned on a half-empty
+   second row. Two columns with the last spanning both reads as a deliberate
+   2 + 2 + 1 block instead. Its copy is capped so the centred text does not
+   strand itself across the wider card. */
+@media(min-width:701px) and (max-width:1000px){
+  .voda-step-grid-five { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .voda-step-grid-five > div:last-child { grid-column:1 / -1; }
+  .voda-step-grid-five > div:last-child p { max-width:34ch; }
+}
 @media(max-width:700px){
   .voda-trust-strip-row{grid-template-columns:1fr 1fr}.voda-trust-strip-row b,.voda-trust-strip-row small{white-space:normal}.voda-trust-strip-row b{font-size:14.7px;font-weight:700}.voda-trust-strip-row>div{min-height:90px;justify-content:flex-start;padding:15px;border-bottom:1px solid #dfebef}.voda-trust-strip-row>div:nth-child(2n){border-right:0}.voda-trust-strip-row>div:nth-child(n+3){border-bottom:0}.voda-trust-strip-logo img{width:98px}
   .voda-process-brief{padding-top:80px;padding-bottom:78px}.voda-step-grid-five{grid-template-columns:1fr;margin-top:38px}.voda-step-grid-five article{display:grid;grid-template-columns:52px 1fr;text-align:left;padding:18px 0;border-bottom:1px solid #e3ecef}.voda-step-grid-five article>span{grid-column:1;grid-row:1}.voda-step-grid-five article>div{grid-column:1;grid-row:2/4;margin:6px 0 0}.voda-step-grid-five h3{grid-column:2;margin:4px 0 0;white-space:normal}.voda-step-grid-five p{grid-column:2;max-width:none;min-height:0;margin:6px 0 0}
@@ -163,7 +172,9 @@
 .voda-nav-dropdown-panel a { display:flex; min-height:39px; align-items:center; justify-content:space-between; gap:10px; padding:0 10px; border-radius:9px; color:#24475c; font-size:12px; font-weight:700; transition:background .18s,color .18s; }
 .voda-nav-dropdown-panel a:hover,.voda-nav-dropdown-panel a:focus-visible { background:#eaf8fa; color:#08768d; }.voda-nav-dropdown-panel a svg { width:13px; color:#29a9b8; }
 .voda-mobile-area-links { display:grid; grid-template-columns:1fr 1fr; gap:7px; padding:13px 2px 18px; border-bottom:1px solid #dbe8ed; }
-.voda-mobile-area-links a { min-height:35px; display:flex; align-items:center; padding:0 10px; border-radius:8px; background:#e9f6f8; color:#17627a; font-size:10px; font-weight:750; }
+/* 44px minimum tap target; these are the service and area links inside the
+   mobile menu sheet, so they are touch-only and were well under it at 35px. */
+.voda-mobile-area-links a { min-height:44px; display:flex; align-items:center; padding:0 11px; border-radius:9px; background:#e9f6f8; color:#17627a; font-size:11px; font-weight:750; overflow-wrap:anywhere; }
 @media(max-width:430px){.voda-mobile-area-links{grid-template-columns:1fr}}
 
 /* Why section: the 1180px wrap left ~120px dead on each side at desktop widths.
@@ -471,6 +482,13 @@
 @media(min-width:1280px){
   .voda-cta-band-mark { display:block; }
 }
+/* At 15vw the word is ~1160px wide on a 1562px band, so it ran the full width
+   and sat at full strength right under the trust points and the call block on
+   the right. Capped and dimmed so it stays a watermark in the dead space
+   rather than competing with the content it sits behind. */
+@media(min-width:1280px) and (max-width:1599px){
+  .voda-cta-band-mark { font-size:clamp(132px,11vw,176px); color:rgba(146,214,232,.085); }
+}
 /* On the widest screens there is room for a little more presence. */
 @media(min-width:1600px){
   .voda-cta-band-mark { color:rgba(146,214,232,.155); }
@@ -536,7 +554,22 @@
 .voda-cta-band-call small { display:block; color:#9fc4d6; font-size:10.5px; letter-spacing:.04em; }
 .voda-cta-band-call b { display:block; margin-top:3px; font-size:18px; letter-spacing:-.02em; }
 
-@media(max-width:860px){
+/* 761-1100px: the copy's rigid 620px cap plus the actions needs ~1032px, but
+   the wrap is narrower than that here, so the actions wrapped onto their own
+   line and sat left with the whole right side empty. Letting the copy give up
+   width keeps the two side by side. Measured: at 760px the copy still gets
+   ~312px, which the headline handles; below that it stacks instead. */
+@media(min-width:761px) and (max-width:1100px){
+  .voda-cta-band-copy { max-width:none; flex:1 1 380px; min-width:0; }
+  /* nowrap above, so the actions must hold their intrinsic width rather than
+     being squeezed into a wrapped phone number. */
+  .voda-cta-band-actions { flex:0 0 auto; flex-wrap:nowrap; }
+  .voda-cta-band-call b { white-space:nowrap; }
+  .voda-cta-band-inner { gap:26px 28px; flex-wrap:nowrap; align-items:center; }
+}
+/* 760px, not 860px: the side-by-side band above now runs down to 761px, so
+   the stack has to start exactly where it ends or the two would overlap. */
+@media(max-width:760px){
   .voda-cta-band-inner { flex-direction:column; align-items:flex-start; gap:22px; }
   .voda-cta-band-copy { max-width:none; }
 }
@@ -546,6 +579,17 @@
   .voda-cta-band-actions { width:100%; gap:13px; }
   .voda-cta-band .voda-btn.primary { width:100%; justify-content:center; }
   .voda-cta-band-call b { font-size:16.5px; }
+}
+/* The footer wave is absolutely positioned at bottom:100%, so it rises
+   clamp(56px,6vw,104px) INTO whatever sits above it. The CTA panel's bottom
+   padding is only clamp(34px,8vw,44px), so the curve was covering the phone
+   number by 12-22px on every small screen. Reserve the wave's height.
+   Only applied where the CTA actually ends the page: on the home and service
+   pages an FAQ follows it, so there is no wave to clear there. */
+@media(max-width:860px){
+  .voda-cta-band:last-child .voda-cta-band-panel {
+    padding-bottom:calc(clamp(34px,8vw,44px) + clamp(56px,6vw,104px));
+  }
 }
 
 /* ── Hero equipment float ───────────────────────────────────────────────
@@ -746,16 +790,16 @@
    empty. */
 @media(max-width:700px){
   .voda-step-grid-five article {
-    width:fit-content;
+    width:100%;
     max-width:100%;
-    margin-inline:auto;
+    margin-inline:0;
     column-gap:18px;
     /* Divider moves to the wrapper below so it keeps its full width. */
     border-bottom:0;
   }
   .voda-step-grid-five>div { border-bottom:1px solid #e3ecef; }
   .voda-step-grid-five>div:last-child { border-bottom:0; }
-  .voda-step-grid-five p { max-width:30ch; text-wrap:pretty; }
+  .voda-step-grid-five p { max-width:none; text-wrap:pretty; }
 }
 
 /* ── Why cards: phone layout ────────────────────────────────────────────
@@ -805,7 +849,7 @@
    available text width at 360px, so two columns fit. */
 @media(max-width:430px){
   .voda-area-list { grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:12px; }
-  .voda-area-list button { min-height:40px; grid-template-columns:15px minmax(0,1fr) 12px; gap:6px; padding:5px 0; font-size:11px; }
+  .voda-area-list button { min-height:44px; grid-template-columns:15px minmax(0,1fr) 12px; gap:6px; padding:5px 0; font-size:11px; }
   .voda-area-list button>span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 }
 
@@ -817,22 +861,35 @@
   .voda-area-list > li:last-child:nth-child(odd) button { width:fit-content; min-width:min(62%,210px); margin-inline:auto; }
 }
 
-/* CTA band 24/7 mark: phone only (<=700px). Hidden by default and only shown
-   above 1280px, so this enables it for small screens without touching the
-   desktop rule. 11% keeps 4.76:1 contrast, safe behind every text size. */
+/* CTA band mark: phone only (<=700px). Hidden by default and only shown above
+   1280px, so this enables it for small screens without touching the desktop
+   rule.
+
+   It previously ran at 30vw with mask-image:none — at 516px that is a ~724px
+   word on a 516px viewport, ~155px tall, anchored bottom-right with no fade,
+   which put solid glyphs straight behind the phone number. Now smaller, much
+   fainter, lifted clear of the call block, and the fade is kept so whatever
+   reaches the content has already fallen away. */
 @media(max-width:700px){
   .voda-cta-band-mark { display:block; }
   .voda-cta-band-mark.right {
-    top:auto;
-    bottom:14px;
-    right:16px;
-    font-size:30vw;
+    /* Sits against the headline's upper band, well above the actions. */
+    top:10px;
+    bottom:auto;
+    right:-.06em;
+    font-size:19vw;
     letter-spacing:-.05em;
-    color:rgba(146,214,232,.11);
+    color:rgba(146,214,232,.07);
     transform:none;
-    mask-image:none;
-    -webkit-mask-image:none;
+    mask-image:linear-gradient(270deg,#000 30%,rgba(0,0,0,.3) 66%,transparent 92%);
+    -webkit-mask-image:linear-gradient(270deg,#000 30%,rgba(0,0,0,.3) 66%,transparent 92%);
   }
+}
+/* Below ~520px the band is tight enough that even a faint mark crowds the
+   stacked copy and actions. Dropped entirely — the panel's own gradient
+   already carries the visual interest. */
+@media(max-width:520px){
+  .voda-cta-band-mark { display:none; }
 }
 
 /* Footer service-area list: 19 entries ran as one tall column and stretched
@@ -848,10 +905,21 @@
     grid-auto-rows:min-content;
     align-items:start;
   }
+}
+/* The four fixed minimums below total 745px plus gaps, so this can only run
+   where that fits. It used to start at 641px, which forced the four columns
+   past the viewport on every tablet — and since this file loads after
+   voda-rebuild.css it was also beating that file's two-column rule for
+   <=1050px. Bounded to 1051px up, the tablet rule wins again. */
+@media(min-width:1051px){
   /* The coverage column needs more room than its .78fr share now that it runs
      two-up; widening it stops the longer names wrapping in the first place. */
   .voda-footer-grid { grid-template-columns:minmax(230px,1.3fr) minmax(130px,.72fr) minmax(210px,1.15fr) minmax(175px,.95fr); }
   .voda-footer-col[aria-labelledby="footer-coverage"] a { white-space:nowrap; font-size:11.5px; }
+}
+/* nowrap would hold the long city names rigid in the narrower tablet columns. */
+@media(max-width:1050px){
+  .voda-footer-col[aria-labelledby="footer-coverage"] a { white-space:normal; }
 }
 
 /* Service-area list on desktop/tablet: with 7 cities the last one sat alone in
@@ -926,37 +994,6 @@
 .ri26-gallery-track > li { position:relative; min-width:0; }
 
 /* Spine running between the stages, with a node at each. */
-.ri26-gallery-rail {
-  position:relative;
-  height:11px;
-  margin-bottom:18px;
-}
-.ri26-gallery-rail::before {
-  content:"";
-  position:absolute;
-  left:0; right:calc(-1 * clamp(20px,2.4vw,38px));
-  top:5px;
-  border-top:1px dashed #b9ccd4;
-}
-.ri26-gallery-track > li:last-child .ri26-gallery-rail::before { right:0; }
-.ri26-gallery-node {
-  position:absolute;
-  left:0; top:0;
-  width:9px; height:9px;
-  border-radius:50%;
-  background:#0878b7;
-}
-
-.ri26-gallery-stage {
-  display:block;
-  margin-bottom:14px;
-  color:#0a6ea6;
-  font-size:11px;
-  font-weight:750;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  font-variant-numeric:tabular-nums;
-}
 
 .ri26-gallery-track figure { margin:0; }
 .ri26-gallery-frame {
@@ -998,15 +1035,10 @@
 }
 @media(max-width:860px){
   .ri26-gallery-track { grid-template-columns:1fr; gap:34px; }
-  /* Stacked: the spine becomes a left rail down each item. */
-  .ri26-gallery-rail::before { right:0; }
   .ri26-gallery-track > li { padding-left:26px; }
-  .ri26-gallery-rail { position:absolute; left:0; top:4px; width:11px; height:100%; margin:0; }
-  .ri26-gallery-rail::before {
-    left:5px; right:auto; top:14px; bottom:-34px;
-    width:0; border-top:0; border-left:1px dashed #b9ccd4;
-  }
-  .ri26-gallery-track > li:last-child .ri26-gallery-rail::before { bottom:auto; height:0; }
+  .ri26-gallery-head { align-items:flex-start; }
+  /* Stacked: the spine becomes a left rail down each item. */
+
 }
 @media(max-width:700px){
   .ri26-gallery-head h2 { font-size:clamp(27px,7.2vw,35px); }
@@ -1291,15 +1323,38 @@
 
 @media(min-width:1001px){
   .ri26-area-facts-section .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+  /* There are exactly four cards, so the column count is fixed rather than
+     left to auto-fit: at 1001-1199px its 248px floor yielded three columns
+     and stranded the photo card alone on a second row. */
+  .ri26-area-facts { grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+/* 701-1000px had no rule, so auto-fit's 248px floor gave exactly three
+   columns and left the photo card stranded alone on a second row. A fixed
+   2x2 keeps all four cards in one even block at every width below desktop. */
+@media(max-width:1000px){
+  .ri26-area-facts { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 @media(max-width:700px){
   .ri26-area-facts-section { padding-top:56px; padding-bottom:72px; }
-  .ri26-area-facts { grid-template-columns:1fr; gap:11px; margin-top:30px; }
+  .ri26-area-facts { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:30px; }
   .ri26-area-facts article { min-height:0; padding:17px 17px 16px; border-radius:15px; }
   .ri26-area-facts article b { font-size:14px; }
   .ri26-area-facts article p { font-size:12.2px; }
   .ri26-area-facts-photo-card { min-height:230px; border-width:5px !important; border-radius:15px; }
   .ri26-area-facts-head h2 { font-size:clamp(28px,7.4vw,36px); }
+}
+/* Two up on a phone leaves roughly a 190px column, so the card padding and
+   type come down to match rather than squeezing the copy. */
+@media(max-width:560px){
+  .ri26-area-facts { gap:8px; }
+  .ri26-area-facts article { padding:13px 12px 12px; border-radius:13px; }
+  .ri26-area-facts article > header { margin-bottom:11px; }
+  .ri26-area-facts-mark { width:30px; height:30px; }
+  .ri26-area-facts-mark svg { width:15px; height:15px; }
+  .ri26-area-facts-no { font-size:10px; }
+  .ri26-area-facts article b { font-size:12.4px; line-height:1.25; }
+  .ri26-area-facts article p { font-size:11px; line-height:1.46; }
+  .ri26-area-facts-photo-card { min-height:170px; border-width:4px !important; }
 }
 
 /* ── Service-area intro: split copy + photo stack ───────────────────────
@@ -1717,22 +1772,65 @@
 
 @media(min-width:1001px){
   .ri26-claims .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+  /* Four steps, so the columns are fixed rather than left to auto-fit, whose
+     236px floor gave three columns at 1001-1099px (stranding step 04) and
+     five from 1340px (leaving a blank cell at the end of the row). */
+  .ri26-claims-steps { grid-template-columns:repeat(4,minmax(0,1fr)); }
   .ri26-claims-head h2 { font-size:clamp(38px,4.2vw,60px); }
 }
 @media(max-width:1000px){
-  .ri26-claims-top { grid-template-columns:1fr; gap:36px; }
-  .ri26-claims-file { max-width:520px; }
+  .ri26-claims-top { grid-template-columns:minmax(0,1fr); gap:36px; }
+  /* The 520px cap left this card narrower than the steps grid directly below
+     it — by 8px at 558px and up to 432px by 1000px — so the two blocks did
+     not line up. Full width instead, flush with the steps. */
+  .ri26-claims-file { max-width:none; }
+}
+/* 701-1000px had no rule: auto-fit gave three columns from 820px up and
+   stranded step 04 on a row of its own. Two even rows instead. */
+@media(min-width:701px) and (max-width:1000px){
+  .ri26-claims-steps { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 @media(max-width:700px){
   .ri26-claims { padding-top:58px; padding-bottom:66px; }
   .ri26-claims-head h2 { font-size:clamp(27px,7.2vw,35px); }
   .ri26-claims-head > p { font-size:13.5px; }
-  .ri26-claims-steps { grid-template-columns:1fr; gap:11px; margin-top:34px; }
-  .ri26-claims-steps article { padding:19px 18px 17px; border-radius:15px; }
-  .ri26-claims-steps b { font-size:14px; }
-  .ri26-claims-steps p { font-size:12.4px; }
+  /* Two up rather than four stacked full-width cards, which made this the
+     longest section on the page. Explicit columns override the base
+     auto-fit, whose 236px floor would otherwise stack them early. */
+  .ri26-claims-steps {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+    margin-top:30px;
+  }
+  .ri26-claims-steps article { padding:15px 14px 13px; border-radius:14px; }
+  .ri26-claims-steps article > header { margin-bottom:12px; }
+  .ri26-claims-icon { width:34px; height:34px; }
+  .ri26-claims-icon svg { width:16px; height:16px; }
+  .ri26-claims-no { font-size:10px; }
+  .ri26-claims-steps b { font-size:13px; }
+  .ri26-claims-steps p { margin-top:6px; font-size:11.6px; line-height:1.5; }
+  .ri26-claims-steps article > footer { padding-top:11px; font-size:9.5px; }
+  /* The loss-file card is four bordered rows plus a header and footer, which
+     adds a lot of height before the steps even begin. */
+  .ri26-claims-file ul { padding:4px 16px; }
+  .ri26-claims-file li { padding:10px 0; font-size:12.4px; }
+  .ri26-claims-file > header { padding:14px 16px; }
+  .ri26-claims-file > footer { padding:11px 16px; font-size:11px; }
   .ri26-claims-foot { padding:18px 18px 20px; border-radius:15px; }
   .ri26-claims-foot .voda-btn { width:100%; justify-content:center; }
+}
+/* Kept two up all the way down so the four steps stay one even block rather
+   than a long single-file stack. The copy is tightened to suit the narrower
+   column instead of falling back to one per row. */
+@media(max-width:560px){
+  .ri26-claims-steps { gap:8px; }
+  .ri26-claims-steps article { padding:13px 11px 11px; border-radius:13px; }
+  .ri26-claims-steps article > header { margin-bottom:9px; }
+  .ri26-claims-icon { width:30px; height:30px; }
+  .ri26-claims-icon svg { width:15px; height:15px; }
+  .ri26-claims-steps b { font-size:12.2px; line-height:1.25; }
+  .ri26-claims-steps p { margin-top:5px; font-size:11px; line-height:1.46; }
+  .ri26-claims-steps article > footer { padding-top:9px; font-size:9px; letter-spacing:.07em; }
 }
 
 /* The site's muted greys sit at 4.0-4.4:1 on this tint, just under AA for
@@ -1817,46 +1915,6 @@
   max-width:none;
 }
 .ri26-gallery-head > div:first-child { max-width:640px; }
-.ri26-gallery-badge {
-  display:flex;
-  align-items:center;
-  gap:13px;
-  padding:14px 20px 14px 15px;
-  border:1px solid #cfdfe9;
-  border-radius:15px;
-  background:#fff;
-  box-shadow:0 1px 2px rgba(9,42,64,.05), 0 14px 30px -16px rgba(9,42,64,.22);
-}
-.ri26-gallery-badge > span {
-  display:grid; place-items:center;
-  width:42px; height:42px; flex:none;
-  border:1px solid #0a6ea6;
-  border-radius:50%;
-  background:#e7f6fe;
-  color:#0a6ea6;
-}
-.ri26-gallery-badge svg { width:19px; height:19px; }
-.ri26-gallery-badge b { display:block; color:#0b2438; font-size:14px; letter-spacing:-.02em; }
-.ri26-gallery-badge small { display:block; margin-top:2px; color:#5d707c; font-size:11px; }
-
-/* Stage label now carries a timing line. */
-.ri26-gallery-stage { display:block; margin-bottom:14px; }
-.ri26-gallery-stage span {
-  display:block;
-  color:#0a6ea6;
-  font-size:11px;
-  font-weight:750;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  font-variant-numeric:tabular-nums;
-}
-.ri26-gallery-stage em {
-  display:block;
-  margin-top:4px;
-  color:#7b8e9a;
-  font-style:normal;
-  font-size:11.5px;
-}
 
 /* Step number on the photo. */
 .ri26-gallery-frame { position:relative; }
@@ -1877,58 +1935,9 @@
 }
 
 /* Reading block — the concrete figure per stage. */
-.ri26-gallery-reading {
-  display:grid;
-  gap:3px;
-  margin:16px 0 0;
-  padding:14px 16px;
-  border:1px solid #dfeaf0;
-  border-radius:13px;
-  background:linear-gradient(168deg,#fff,#f6fafc);
-}
-.ri26-gallery-reading dt {
-  color:#7b8e9a;
-  font-size:10px;
-  font-weight:750;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-}
-.ri26-gallery-reading dd {
-  margin:0;
-  color:#0b2438;
-  font-size:17px;
-  font-weight:720;
-  letter-spacing:-.03em;
-}
-.ri26-gallery-reading dd em {
-  display:block;
-  margin-top:3px;
-  color:#5d707c;
-  font-style:normal;
-  font-size:11.5px;
-  font-weight:400;
-  letter-spacing:0;
-}
 
 /* What goes into the file at this stage. */
-.ri26-gallery-records { display:grid; gap:8px; margin:14px 0 0; padding:0; list-style:none; }
-.ri26-gallery-records li {
-  display:grid;
-  grid-template-columns:16px 1fr;
-  align-items:center;
-  gap:9px;
-  color:#5d707c;
-  font-size:12px;
-}
-.ri26-gallery-records svg { width:15px; height:15px; padding:2.5px; border-radius:50%; background:#e7f6fe; color:#0a6ea6; }
-
-@media(max-width:860px){
-  .ri26-gallery-head { align-items:flex-start; }
-}
 @media(max-width:700px){
-  .ri26-gallery-badge { width:100%; }
-  .ri26-gallery-reading { padding:12px 14px; }
-  .ri26-gallery-reading dd { font-size:16px; }
   .ri26-gallery-step { width:30px; height:30px; font-size:10px; }
 }
 
@@ -1936,14 +1945,6 @@
 /* Timeline rail: a plain hairline with small solid nodes. The previous version
    used halos and three different node styles, which read as blur rather than
    structure. */
-@media(min-width:861px){
-  .ri26-gallery-rail { height:9px; margin-bottom:20px; }
-  .ri26-gallery-rail::before { top:4px; border-top:1px solid #d3e2ea; }
-  .ri26-gallery-track > li:last-child .ri26-gallery-rail::before { display:none; }
-}
-@media(max-width:860px){
-  .ri26-gallery-rail::before { border-left:1px solid #d3e2ea; }
-}
 
 /* Both sections inherited the base 100-135px top and bottom, stacking to
    213-270px between the marquee and the gallery. The marquee cards already
@@ -1969,7 +1970,17 @@
 
 /* 2. "RestoreIQ" is nine characters against "24/7"'s four, so at the band's
       240px it would overrun the panel. Scaled to crop like the original. */
-.ri26-area-cta-mark { font-size:clamp(104px,11.5vw,186px); }
+/* Below 1600px this is capped further (see .voda-cta-band-mark): at 11.5vw the
+   word spans nearly the whole band and sits behind the trust points and the
+   call block, which is what made them hard to read. */
+@media(min-width:1600px){
+  .ri26-area-cta-mark { font-size:clamp(104px,11.5vw,186px); }
+}
+/* Lower bound at 701px: below that the phone rule above sizes the mark, and
+   this 104px floor would otherwise override it on small screens. */
+@media(min-width:701px) and (max-width:1599px){
+  .ri26-area-cta-mark { font-size:clamp(104px,10vw,156px); color:rgba(146,214,232,.085); }
+}
 
 /* Area CTA: larger heading, and the panel resolved into the footer's navy.
    It previously ended at #03111f against a #0a2340 footer — darker than what
@@ -2061,54 +2072,8 @@ main:has(.ri26-area-cta) + .voda-footer .voda-footer-wave {
 .ri26-gallery-track figcaption span { margin-top:5px; font-size:12.4px; line-height:1.55; }
 
 /* Reading: label and value on one row instead of stacked with a note. */
-.ri26-gallery-reading {
-  display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap:12px;
-  margin:12px 0 0;
-  padding:9px 13px;
-  border:1px solid #dfeaf0;
-  border-radius:10px;
-  background:linear-gradient(168deg,#fff,#f6fafc);
-}
-.ri26-gallery-reading dt {
-  color:#7b8e9a;
-  font-size:9.5px;
-  font-weight:750;
-  letter-spacing:.09em;
-  text-transform:uppercase;
-}
-.ri26-gallery-reading dd {
-  margin:0;
-  color:#0b2438;
-  font-size:13.5px;
-  font-weight:720;
-  letter-spacing:-.02em;
-  white-space:nowrap;
-}
 
 /* Records: inline chips rather than a checklist. */
-.ri26-gallery-records {
-  display:flex;
-  flex-wrap:wrap;
-  gap:5px;
-  margin:10px 0 0;
-  padding:0;
-  list-style:none;
-}
-.ri26-gallery-records li {
-  display:inline-flex;
-  padding:4px 9px;
-  border:1px solid #e3edf3;
-  border-radius:99px;
-  background:#f7fbfd;
-  color:#5d707c;
-  font-size:10.5px;
-  font-weight:620;
-  letter-spacing:.01em;
-}
-.ri26-gallery-records svg { display:none; }
 
 /* ── Service-area hero: city photo with a map inset ─────────────────────
    The crew-arriving photo carries the hero; the map drops to a small inset
@@ -2893,6 +2858,12 @@ main:has(.ri26-area-cta) + .voda-footer .voda-footer-wave {
   letter-spacing:.015em;
 }
 .ri26-area-facts-src svg { width:12px; height:12px; flex:none; color:#6fa8c6; opacity:.9; }
+/* Placed after the base rules, which would otherwise win on source order:
+   the body copy and the source line are the longest text in a two-up card. */
+@media(max-width:560px){
+  .ri26-area-facts-src { padding-top:11px; font-size:9px; line-height:1.35; letter-spacing:0; }
+  .ri26-area-facts-src svg { width:10px; height:10px; }
+}
 
 /* The card already carries a FileText mark in its header; drop the duplicate
    icon treatment inherited from dark-section rules. */
@@ -2903,8 +2874,12 @@ main:has(.ri26-area-cta) + .voda-footer .voda-footer-wave {
 
 /* Requirement text runs longer than the old one-line figures, so give the
    value room and keep the source credit pinned to the card's base. */
-.ri26-area-facts article p { font-size:13px; line-height:1.6; }
-.ri26-area-facts-src { line-height:1.4; }
+/* Above 560px only: below that the two-up cards set their own smaller type,
+   and this rule sits late enough in the file to beat it otherwise. */
+@media(min-width:561px){
+  .ri26-area-facts article p { font-size:13px; line-height:1.6; }
+  .ri26-area-facts-src { line-height:1.4; }
+}
 
 /* Mobile hero: the two wash layers stacked to ~96% opacity over the photo, so
    the crew and the city behind them were invisible. Lighten both and keep the
@@ -3001,6 +2976,21 @@ main:has(.ri26-area-cta) + .voda-footer .voda-footer-wave {
   .ri26-detail-hero-map { min-height:840px; }
 }
 
+/* The copy sat hard against the top of the hero: the column is top-aligned
+   and reserves a tall band below itself for the photo, which pushes the text
+   up out of the frame. Drop it by ~20% of the hero height so the headline
+   reads around the middle of the image. Mobile and tablet only. */
+@media(max-width:1000px){
+  .ri26-service-hero .ri26-hero-copy-col { padding-top:clamp(160px,19vw,188px); }
+  /* Hero grows by the same amount, so the reserved photo band below the copy
+     keeps its height instead of being squeezed by the new top padding. */
+  .ri26-detail-hero-map.ri26-service-hero { min-height:1070px; }
+}
+@media(max-width:700px){
+  .ri26-service-hero .ri26-hero-copy-col { padding-top:clamp(142px,22vw,176px); }
+  .ri26-detail-hero-map.ri26-service-hero { min-height:1000px; }
+}
+
 /* ══════════════════════════════════════════════════════════════════════
    SERVICE PAGES — signature sections
    Each service gets a layout suited to its subject. All three reuse the
@@ -3018,56 +3008,6 @@ main:has(.ri26-area-cta) + .voda-footer .voda-footer-wave {
 /* ── Water damage: drying progress ─────────────────────────────────────
    A run of stages, each carrying a progress bar — the point of the section
    is that the readings fall over time. */
-.ri26-drying { background:var(--ri26-soft); }
-.ri26-drying-track {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:14px;
-  margin:46px 0 0;
-  padding:0;
-  list-style:none;
-}
-.ri26-drying-track > li { display:flex; }
-.ri26-drying-track article {
-  display:flex;
-  flex-direction:column;
-  width:100%;
-  padding:24px 22px 20px;
-  border:1px solid var(--ri26-line);
-  border-radius:18px;
-  background:#fff;
-  box-shadow:0 1px 2px rgba(9,42,64,.04), 0 16px 34px -22px rgba(9,42,64,.26);
-}
-.ri26-drying-track header { display:flex; align-items:center; justify-content:space-between; }
-.ri26-drying-day {
-  padding:5px 11px;
-  border:1px solid #bcdcec;
-  border-radius:999px;
-  background:#f2fafd;
-  color:#0a6ea6;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.02em;
-}
-.ri26-drying-no { color:#9fb3c2; font-size:12px; font-weight:700; letter-spacing:.06em; }
-.ri26-drying-track b { margin-top:18px; color:var(--ri26-ink); font-size:16px; font-weight:730; letter-spacing:-.02em; }
-.ri26-drying-track p { margin-top:9px; color:#5d707c; font-size:13px; line-height:1.62; }
-.ri26-drying-meter { margin-top:auto; padding-top:20px; }
-.ri26-drying-bar {
-  height:6px;
-  overflow:hidden;
-  border-radius:999px;
-  background:#e4eef3;
-}
-.ri26-drying-bar span {
-  display:block;
-  height:100%;
-  border-radius:999px;
-  background:linear-gradient(90deg,#0a6ea6,#42cbd2);
-}
-.ri26-drying-meter dl { display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:11px 0 0; }
-.ri26-drying-meter dt { color:#6b7f8c; font-size:11.5px; }
-.ri26-drying-meter dd { margin:0; color:var(--ri26-ink); font-size:19px; font-weight:760; letter-spacing:-.03em; }
 
 /* ── Fire & smoke: residue by material ─────────────────────────────────
    Cards carry an outlook state, so colour does real work here: it says
@@ -3212,7 +3152,6 @@ main:has(.ri26-area-cta) + .voda-footer .voda-footer-wave {
    Darkened to pass AA for small text; the step-number greys are decorative
    but still readable text, so they get the same treatment. */
 .ri26-category-card footer span { color:#66798a; }
-.ri26-drying-meter dt { color:#5d707c; }
 .ri26-drying-no, .ri26-residue-no { color:#6f8494; }
 .ri26-drying-no, .ri26-residue-no { color:#64798a; }
 
@@ -3260,11 +3199,6 @@ main:has(.ri26-area-cta) + .voda-footer .voda-footer-wave {
   z-index:0;
   inset:0;
   pointer-events:none;
-}
-.ri26-drying::after {
-  background:
-    radial-gradient(64% 52% at 12% 8%, rgba(42,142,190,.11) 0%, transparent 72%),
-    radial-gradient(52% 46% at 92% 88%, rgba(66,203,210,.09) 0%, transparent 74%);
 }
 .ri26-residue::after {
   background:
@@ -3345,9 +3279,6 @@ main:has(.ri26-area-cta) + .voda-footer .voda-footer-wave {
 
 /* Drying: the day pill anchors the card, so give it a touch more presence
    and let the meter sit on a hairline rule. */
-.ri26-drying-meter { border-top:1px solid #e4eef3; margin-top:auto; padding-top:16px; }
-.ri26-drying-bar { box-shadow:inset 0 1px 2px rgba(9,42,64,.08); }
-.ri26-drying-bar span { box-shadow:0 1px 3px rgba(10,110,166,.4); }
 
 /* Category cards: the source list gets a tinted panel so it separates from
    the summary copy above it. */
@@ -3750,7 +3681,6 @@ main:has(.ri26-area-cta) + .voda-footer .voda-footer-wave {
 
   /* Card grids: wider tracks so four cards still fill the row cleanly at
      1440px rather than leaving a ragged gap at the end. */
-  .ri26-drying-track { grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
   .ri26-residue-grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
   .ri26-category-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
 
@@ -3863,11 +3793,6 @@ main:has(.ri26-area-cta) + .voda-footer .voda-footer-wave {
    lifting, not the background. */
 .ri26-drying, .ri26-category, .ri26-residue {
   background:linear-gradient(180deg,#fbfdfe 0%,#f5f9fb 58%,#fbfdfe 100%);
-}
-.ri26-drying::after {
-  background:
-    radial-gradient(58% 46% at 10% 6%, rgba(42,142,190,.045) 0%, transparent 70%),
-    radial-gradient(48% 42% at 94% 90%, rgba(66,203,210,.035) 0%, transparent 72%);
 }
 .ri26-residue::after {
   background:
@@ -5354,9 +5279,6 @@ main:has(.ri26-area-cta) .voda-cta-band + .voda-faq { padding-top:clamp(70px,6.6
 }
 /* 3 across on the first row, 2 on the second — the second row's cards are
    wider, which gives the later stages room for their longer copy. */
-.ri26-steps-grid > li { grid-column:span 2; display:flex; }
-.ri26-steps-grid > li:nth-child(4),
-.ri26-steps-grid > li:nth-child(5) { grid-column:span 3; }
 
 .ri26-steps-grid article {
   display:flex;
@@ -5427,18 +5349,6 @@ main:has(.ri26-area-cta) .voda-cta-band + .voda-faq { padding-top:clamp(70px,6.6
   font-size:13px;
   line-height:1.62;
 }
-
-@media(max-width:1000px){
-  .ri26-steps-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .ri26-steps-grid > li,
-  .ri26-steps-grid > li:nth-child(4),
-  .ri26-steps-grid > li:nth-child(5) { grid-column:span 1; }
-  .ri26-steps-grid > li:nth-child(5) { grid-column:span 2; }
-}
-@media(max-width:620px){
-  .ri26-steps-grid { grid-template-columns:1fr; }
-  .ri26-steps-grid > li:nth-child(5) { grid-column:span 1; }
-}
 /* The site's cyan is 3.24:1 on white — fine as a large decorative glyph but
    under AA. Darkened one step, same hue. */
 .ri26-steps-ico { color:#07788c; }
@@ -5448,7 +5358,6 @@ main:has(.ri26-area-cta) .voda-cta-band + .voda-faq { padding-top:clamp(70px,6.6
    to the default 1180px wrap. Widen it and let the cards use the space. */
 @media(min-width:1001px){
   .ri26-steps .voda-wrap { width:min(1440px,calc(100% - 72px)); }
-  .ri26-steps-grid { gap:18px; }
   .ri26-steps-grid article { padding:26px 28px 24px; }
   .ri26-steps-grid p { max-width:42ch; }
   /* Heading can use the extra measure too. */
@@ -5894,38 +5803,37 @@ main:has(.ri26-area-cta) .voda-cta-band + .voda-faq { padding-top:clamp(70px,6.6
    lead, then two pairs beneath it. Scaled down so the whole set fits in
    roughly one screen. Desktop's 3+2 row layout is untouched. */
 @media(max-width:1000px){
-  .ri26-steps-grid {
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:10px;
-  }
   /* Lead spans the full width; the rest pair up. */
-  .ri26-steps-grid > li,
-  .ri26-steps-grid > li:nth-child(4),
-  .ri26-steps-grid > li:nth-child(5) { grid-column:span 1; }
-  .ri26-steps-grid > li:first-child { grid-column:1 / -1; }
 
   .ri26-steps-grid article { padding:16px 16px 15px; border-radius:15px; }
-  .ri26-steps-grid > li:first-child article { padding:18px 20px 17px; }
 
   .ri26-steps-grid header { padding-bottom:12px; }
   .ri26-steps-n { font-size:17px; }
-  .ri26-steps-grid > li:first-child .ri26-steps-n { font-size:20px; }
   .ri26-steps-when { padding:4px 9px; font-size:9.5px; }
   .ri26-steps-ico { margin-top:13px; }
   .ri26-steps-ico svg { width:22px; height:22px; }
   .ri26-steps-grid b { margin-top:11px; font-size:14px; line-height:1.22; }
-  .ri26-steps-grid > li:first-child b { font-size:16px; }
   .ri26-steps-grid p { margin-top:7px; font-size:11.5px; line-height:1.52; }
-  .ri26-steps-grid > li:first-child p { font-size:12.5px; }
 }
 @media(max-width:480px){
-  .ri26-steps-grid { gap:8px; }
   .ri26-steps-grid article { padding:14px 13px 13px; border-radius:13px; }
   .ri26-steps-n { font-size:15px; }
   .ri26-steps-when { padding:3px 8px; font-size:9px; }
   .ri26-steps-ico svg { width:20px; height:20px; }
   .ri26-steps-grid b { font-size:13px; }
   .ri26-steps-grid p { font-size:11px; }
+}
+/* A third tier from 420px, matching the stage cards in the drying section. */
+@media(max-width:420px){
+  .ri26-steps-grid { gap:9px; }
+  .ri26-steps-grid article { padding:12px 12px 11px; border-radius:12px; }
+  .ri26-steps-grid header { padding-bottom:10px; }
+  .ri26-steps-n { font-size:14px; }
+  .ri26-steps-when { padding:3px 7px; font-size:8.5px; }
+  .ri26-steps-ico { margin-top:10px; }
+  .ri26-steps-ico svg { width:18px; height:18px; }
+  .ri26-steps-grid b { margin-top:8px; font-size:12.5px; }
+  .ri26-steps-grid p { margin-top:5px; font-size:10.5px; line-height:1.48; }
 }
 /* Centre the icon in the mobile scroller cards. The left-aligned card text
    had pulled it to the edge. Mobile only — desktop is already centred. */
@@ -9940,11 +9848,24 @@ main:has(.ri26-paths) .ri26-cause-list .ri26-cause-no { color:rgba(255,255,255,.
 .ri26-detail-hero.is-light-photo .ri26-hero-photo img,
 .ri26-detail-hero.is-light-photo .ri26-hero-photo picture { filter:brightness(.82) saturate(.95); }
 @media(max-width:860px){
-  /* Stacked layout: the copy sits lower, so the ramp runs bottom-up. */
+  /* Stacked layout: the copy sits lower, so the ramp runs bottom-up. Dense
+     only behind the headline at the top and under the wave at the very
+     bottom; through the middle it clears so the rebuilt room is visible.
+     The earlier version ran near-opaque the whole way up and buried it. */
   .ri26-detail-hero.is-light-photo .ri26-hero-shade {
     background:
-      linear-gradient(0deg, #04182b 0%, rgba(4,24,43,.92) 42%, rgba(4,24,43,.66) 72%, rgba(4,24,43,.44) 100%);
+      linear-gradient(180deg,
+        rgba(4,24,43,.9) 0%,
+        rgba(4,24,43,.74) 24%,
+        rgba(4,24,43,.34) 46%,
+        rgba(4,24,43,.18) 64%,
+        rgba(4,24,43,.3) 84%,
+        rgba(4,24,43,.6) 100%);
   }
+  /* The wash no longer does all the work, so the photo keeps more of its
+     own light rather than being dimmed twice over. */
+  .ri26-detail-hero.is-light-photo .ri26-hero-photo img,
+  .ri26-detail-hero.is-light-photo .ri26-hero-photo picture { filter:brightness(.94) saturate(1); }
 }
 
 /* The zones plan had no responsive rules at all, so its two-column grid held
@@ -10071,4 +9992,1932 @@ main:has(.ri26-paths) .ri26-cause-list .ri26-cause-no { color:rgba(255,255,255,.
     min-width:0;
     height:100%;
   }
+}
+
+/* Services dropdown: the same panel as Service areas, widened to two columns
+   because ten items in one column would run ~400px tall. Border, radius,
+   background, shadow, row height and hover all inherit from the base panel —
+   only the width and column count differ. */
+.voda-nav-dropdown-panel.is-wide {
+  width:430px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0 4px;
+}
+
+/* ══ Contact page ═════════════════════════════════════════════════════════
+   Reuses the site's hero, section and form treatments. Nothing new is
+   invented here — the hero is the detail hero without a photo, the form is
+   the same .ri26-form the request section uses, and the card chrome matches
+   the service cards. */
+.ri26-contact-hero {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  /* Bottom clears the 126px wave so the buttons are never under it. */
+  padding:clamp(140px,13vw,190px) 0 clamp(156px,15vw,210px);
+  background:#0b2e4a;
+}
+/* A deeper wash than the shared one: this photo is bright on the right and
+   the copy column runs wide here. */
+.ri26-contact-hero .ri26-hero-shade {
+  background:
+    linear-gradient(90deg,#06243c 0%,rgba(6,36,60,.97) 42%,rgba(6,36,60,.86) 60%,rgba(6,36,60,.56) 80%,rgba(6,36,60,.42) 100%),
+    linear-gradient(0deg,rgba(6,36,60,.88),transparent 54%);
+}
+/* Pull the photo down a stop; the wash should not do all the work. */
+.ri26-contact-hero .ri26-hero-photo img { filter:brightness(.84) saturate(.94); object-position:center 52%; }
+@media(max-width:700px){
+  /* The subject sits right of centre in this photo; the narrow crop keeps the
+     middle, so the window moves right to hold the technician in frame. */
+  .ri26-contact-hero .ri26-hero-photo img { object-position:72% 46%; }
+}
+.ri26-contact-hero h1 {
+  margin-top:20px;
+  color:#fff;
+  font-size:clamp(38px,5vw,68px);
+  font-weight:770;
+  letter-spacing:-.06em;
+  line-height:1.0;
+}
+.ri26-contact-hero h1 em { color:#6fd9e4; font-style:normal; }
+
+.ri26-contact { background:linear-gradient(180deg,#fbfdfe 0%,#f6fbfd 54%,#fbfdfe 100%); }
+.ri26-contact-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);
+  align-items:stretch;
+  gap:clamp(30px,3.6vw,64px);
+}
+/* The details column is a flex column so the map can take the slack. */
+.ri26-contact-details { display:flex; flex-direction:column; }
+.ri26-contact-details h2 {
+  margin-top:15px;
+  color:var(--ri26-ink);
+  font-size:clamp(28px,3.2vw,42px);
+  font-weight:740;
+  letter-spacing:-.045em;
+  line-height:1.08;
+}
+.ri26-contact-details h2 em { color:#0d7fb8; font-style:normal; }
+
+/* The emergency line leads, as the only route answered around the clock. */
+.ri26-contact-primary {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-top:26px;
+  padding:20px 22px;
+  border:1px solid #bcdcec;
+  border-radius:18px;
+  background:linear-gradient(168deg,#f2fafd 0%,#eaf6fb 100%);
+  transition:border-color .28s, transform .28s, box-shadow .28s;
+}
+.ri26-contact-primary:hover {
+  border-color:#59c6e4;
+  transform:translateY(-2px);
+  box-shadow:0 1px 2px rgba(9,42,64,.05), 0 16px 32px -14px rgba(9,42,64,.22);
+}
+.ri26-contact-primary > span {
+  display:grid; place-items:center;
+  width:52px; height:52px; flex:none;
+  border-radius:14px;
+  background:#0a6187;
+  color:#fff;
+}
+.ri26-contact-primary > span svg { width:23px; height:23px; }
+.ri26-contact-primary small {
+  display:block;
+  color:#4a6072;
+  font-size:11px;
+  font-weight:780;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.ri26-contact-primary b {
+  display:block;
+  margin-top:4px;
+  color:var(--ri26-ink);
+  font-size:clamp(21px,2.3vw,27px);
+  font-weight:760;
+  letter-spacing:-.035em;
+}
+.ri26-contact-primary > div > span {
+  display:block;
+  margin-top:3px;
+  color:#5d707c;
+  font-size:12.5px;
+  font-weight:540;
+}
+
+.ri26-contact-list { margin:8px 0 0; padding:0; list-style:none; }
+.ri26-contact-list > li {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  column-gap:16px;
+  padding:20px 0;
+  border-bottom:1px solid #dce8ed;
+}
+.ri26-contact-list > li:last-child { border-bottom:0; padding-bottom:0; }
+.ri26-contact-mark {
+  display:grid; place-items:center;
+  width:42px; height:42px;
+  border:1px solid #cfdfe9;
+  border-radius:12px;
+  background:#fff;
+  color:#0b7391;
+}
+.ri26-contact-mark svg { width:18px; height:18px; }
+.ri26-contact-list b {
+  display:block;
+  color:var(--ri26-ink);
+  font-size:14.5px;
+  font-weight:740;
+  letter-spacing:-.022em;
+}
+.ri26-contact-list > li > div > a {
+  display:inline-block;
+  margin-top:5px;
+  color:#0a6187;
+  font-size:14.5px;
+  font-weight:620;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.ri26-contact-list > li > div > p {
+  margin:5px 0 0;
+  color:#4a6072;
+  font-size:14px;
+  font-weight:540;
+  line-height:1.6;
+}
+.ri26-contact-list small {
+  display:block;
+  margin-top:5px;
+  color:#5d707c;
+  font-size:12.5px;
+  line-height:1.55;
+}
+/* The covered cities, as plain inline links rather than another card grid. */
+.ri26-contact-areas {
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px 8px;
+  margin:11px 0 0;
+  padding:0;
+  list-style:none;
+}
+.ri26-contact-areas a {
+  display:inline-flex;
+  padding:5px 11px;
+  border:1px solid #cfdfe9;
+  border-radius:999px;
+  background:#fff;
+  color:#30495b;
+  font-size:12px;
+  font-weight:640;
+  transition:border-color .22s, background .22s, color .22s;
+}
+.ri26-contact-areas a:hover { border-color:#59c6e4; background:#f2fafd; color:#06688f; }
+
+/* The form sits in the same panel treatment the request section uses. */
+.ri26-contact-form {
+  display:flex;
+  flex-direction:column;
+  padding:clamp(22px,2.4vw,30px);
+  border:1px solid #cfdfe9;
+  border-radius:22px;
+  background:#fff;
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.05),
+    0 18px 40px -18px rgba(9,42,64,.2),
+    0 44px 80px -40px rgba(9,42,64,.18);
+}
+.ri26-contact-form-head { margin-bottom:18px; }
+.ri26-contact-form-head b {
+  display:block;
+  color:var(--ri26-ink);
+  font-size:17px;
+  font-weight:740;
+  letter-spacing:-.03em;
+}
+.ri26-contact-form-head small {
+  display:block;
+  margin-top:5px;
+  color:#5d707c;
+  font-size:13px;
+  line-height:1.55;
+}
+/* The form has its own panel, so the inner one is flattened. */
+.ri26-contact-form .ri26-form {
+  flex:1;
+  /* Rows: two field pairs, the message (which takes the slack), the button
+     and the note. The 1fr row is what lets the panel fill its cell. */
+  grid-template-rows:auto auto auto auto minmax(110px,1fr) auto auto;
+  padding:0;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+}
+.ri26-contact-form .ri26-form textarea { height:100%; min-height:120px; }
+.ri26-form-note a { color:#0a6187; font-weight:700; text-decoration:underline; text-underline-offset:2px; }
+
+@media(min-width:1001px){
+  .ri26-contact .voda-wrap { width:min(1340px,calc(100% - 72px)); }
+}
+@media(max-width:1000px){
+  .ri26-contact-grid { grid-template-columns:1fr; gap:30px; }
+}
+@media(max-width:620px){
+  /* Stacked: the wash runs bottom-up so the copy keeps its ground. */
+  .ri26-contact-hero .ri26-hero-shade {
+    background:linear-gradient(0deg,#06243c 0%,rgba(6,36,60,.9) 46%,rgba(6,36,60,.6) 76%,rgba(6,36,60,.4) 100%);
+  }
+  .ri26-contact-primary { gap:13px; padding:17px 16px; }
+  .ri26-contact-primary > span { width:46px; height:46px; border-radius:12px; }
+  .ri26-contact-list > li { grid-template-columns:auto minmax(0,1fr); column-gap:13px; padding:17px 0; }
+  .ri26-contact-mark { width:38px; height:38px; border-radius:11px; }
+  .ri26-contact-form { padding:18px 16px; border-radius:18px; }
+  .ri26-contact-hero .voda-actions { display:grid; gap:10px; }
+  .ri26-contact-hero .voda-btn { justify-content:center; }
+}
+
+/* Google embed on the contact page. Framed like the gallery and expertise
+   shots so it reads as part of the page rather than a dropped-in iframe. */
+.ri26-contact-map {
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  min-height:clamp(230px,24vw,300px);
+  margin:clamp(22px,2.6vw,32px) 0 0;
+  overflow:hidden;
+  border:1px solid #cfdfe9;
+  border-radius:18px;
+  background:#e8eff4;
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.05),
+    0 14px 32px -16px rgba(9,42,64,.2);
+}
+.ri26-contact-map iframe {
+  display:block;
+  width:100%;
+  flex:1;
+  min-height:220px;
+  border:0;
+  /* The default embed is brighter than the page; pull it into line. */
+  filter:saturate(.92) contrast(.98);
+}
+.ri26-contact-map figcaption {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:13px 16px;
+  border-top:1px solid #e3edf2;
+  background:#fff;
+  color:#30495b;
+  font-size:13px;
+  font-weight:620;
+}
+.ri26-contact-map figcaption > svg { width:15px; height:15px; flex:none; color:#0b7391; }
+.ri26-contact-map figcaption > span { min-width:0; }
+.ri26-contact-map figcaption a {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-left:auto;
+  flex:none;
+  color:#0a6187;
+  font-size:12.5px;
+  font-weight:700;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.ri26-contact-map figcaption a svg { width:13px; height:13px; }
+@media(max-width:560px){
+  .ri26-contact-map figcaption { flex-wrap:wrap; gap:7px 9px; padding:12px 14px; font-size:12.5px; }
+  .ri26-contact-map figcaption a { margin-left:0; }
+}
+
+/* ── Custom form controls ─────────────────────────────────────────────────
+   The select and the radios were rendering as OS defaults — a blue system
+   dropdown and grey platform circles — which looked nothing like the rest of
+   the form. Both are rebuilt from the site's own tokens. Scoped to the
+   contact form so the request form is untouched. */
+
+/* Select. appearance:none removes the platform widget; the chevron is an
+   inline SVG so it matches the nav's chevron rather than the OS arrow. */
+/* The open list is drawn by the OS and cannot be styled; setting the option
+   colours at least stops the stark system blue on most platforms. */
+
+/* Radios. The native input is hidden from paint but kept in the accessibility
+   tree and focusable; the ring and dot are drawn with a pseudo-element. */
+.ri26-contact-form .ri26-choice-row label {
+  position:relative;
+  min-height:46px;
+  gap:10px;
+  padding:0 16px;
+  border:1px solid #cfdfe5;
+  border-radius:10px;
+  background:#fafdfe;
+  color:#30495b;
+  font-size:13px;
+  font-weight:620;
+  transition:border-color .2s, background .2s, color .2s;
+}
+.ri26-contact-form .ri26-choice-row label:hover { border-color:#9fc9da; background:#f4fafc; }
+.ri26-contact-form .ri26-choice-row input {
+  /* Not display:none — that removes it from the tab order and the a11y tree. */
+  position:absolute;
+  opacity:0;
+  width:0;
+  height:0;
+  margin:0;
+  pointer-events:none;
+}
+.ri26-contact-form .ri26-choice-row label::before {
+  content:"";
+  width:17px; height:17px;
+  flex:none;
+  border:1.5px solid #6e8c9d;
+  border-radius:50%;
+  background:#fff;
+  transition:border-color .2s, box-shadow .2s;
+}
+/* Checked: the ring thickens to the brand teal and an inset shadow fills the
+   centre, which keeps the dot perfectly concentric at any size. */
+.ri26-contact-form .ri26-choice-row label:has(input:checked) {
+  border-color:#1cabbc;
+  background:#f2fafd;
+  color:#06688f;
+}
+.ri26-contact-form .ri26-choice-row label:has(input:checked)::before {
+  border-color:#079eb5;
+  box-shadow:inset 0 0 0 4px #079eb5;
+}
+/* Keyboard focus lands on the hidden input, so the ring is drawn on the label. */
+.ri26-contact-form .ri26-choice-row label:has(input:focus-visible) {
+  border-color:#1cabbc;
+  box-shadow:0 0 0 3px rgba(28,171,188,.12);
+}
+
+/* The legend sits tighter to its row than a default fieldset allows. */
+.ri26-contact-form fieldset { min-width:0; margin:0; padding:0; border:0; }
+
+/* ── Custom listbox ───────────────────────────────────────────────────────
+   A native select's open list is drawn by the OS and cannot be styled, so the
+   control is rebuilt as a button plus a listbox we draw ourselves. The closed
+   state matches the text inputs exactly; the open panel matches the nav
+   dropdown, so nothing new is introduced visually. */
+.ri26-select-field > span {
+  display:block;
+  margin-bottom:7px;
+  color:#27495d;
+  font-size:11px;
+  font-weight:760;
+}
+.ri26-select-field > span b { color:#d74848; }
+
+.ri26-select { position:relative; }
+.ri26-select-button {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  width:100%;
+  height:46px;
+  padding:0 13px;
+  border:1px solid #cfdfe5;
+  border-radius:10px;
+  background:#fafdfe;
+  color:#102c40;
+  font-size:14px;
+  font-weight:500;
+  text-align:left;
+  cursor:pointer;
+  transition:border-color .2s, box-shadow .2s;
+}
+.ri26-select-button:hover { border-color:#9fc9da; }
+.ri26-select-button:focus-visible {
+  border-color:#1cabbc;
+  box-shadow:0 0 0 3px rgba(28,171,188,.12);
+  outline:0;
+}
+.ri26-select-button > span {
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.ri26-select-button > svg {
+  width:16px; height:16px; flex:none;
+  color:#30495b;
+  transition:transform .2s;
+}
+.ri26-select-button[aria-expanded="true"] { border-color:#1cabbc; }
+.ri26-select-button[aria-expanded="true"] > svg { transform:rotate(180deg); }
+
+/* The panel borrows the nav dropdown's chrome. */
+.ri26-select-list {
+  position:absolute;
+  z-index:30;
+  top:calc(100% + 7px);
+  left:0; right:0;
+  max-height:264px;
+  overflow-y:auto;
+  margin:0;
+  padding:7px;
+  border:1px solid rgba(190,215,226,.92);
+  border-radius:14px;
+  background:rgba(252,254,255,.98);
+  box-shadow:0 20px 48px rgba(3,24,42,.2);
+  backdrop-filter:blur(16px);
+  list-style:none;
+}
+.ri26-select-list li {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  min-height:38px;
+  padding:0 11px;
+  border-radius:9px;
+  color:#24475c;
+  font-size:13px;
+  font-weight:620;
+  cursor:pointer;
+  transition:background .16s, color .16s;
+}
+/* One highlight, driven by the active index, so pointer and keyboard agree. */
+.ri26-select-list li.is-active { background:#eaf8fa; color:#06688f; }
+.ri26-select-list li[aria-selected="true"] { color:#06688f; font-weight:720; }
+.ri26-select-list li > svg { width:15px; height:15px; flex:none; color:#079eb5; }
+
+@media(prefers-reduced-motion:reduce){
+  .ri26-select-button,
+  .ri26-select-button > svg,
+  .ri26-select-list li { transition:none; }
+}
+
+/* Contact form on small screens. The grid already collapses to one column at
+   700px, but the field heights, paddings and type stayed at desktop scale, so
+   the panel ran very tall. Scoped to the contact form; the request form on the
+   homepage keeps its own sizing. */
+@media(max-width:700px){
+  .ri26-contact-form { padding:18px 16px; border-radius:18px; }
+  .ri26-contact-form-head { margin-bottom:14px; }
+  .ri26-contact-form-head b { font-size:16px; }
+  .ri26-contact-form-head small { font-size:12.5px; }
+
+  .ri26-contact-form .ri26-form { gap:13px; }
+  /* Labels and fields both tighten; 16px on inputs keeps iOS from zooming
+     the viewport when a field takes focus. */
+  .ri26-contact-form .ri26-form label > span,
+  .ri26-contact-form .ri26-form legend,
+  .ri26-contact-form .ri26-select-field > span { margin-bottom:5px; font-size:10.5px; }
+  .ri26-contact-form .ri26-form input:not([type=radio]),
+  .ri26-contact-form .ri26-form textarea { padding:10px 12px; font-size:16px; }
+  .ri26-contact-form .ri26-form input:not([type=radio]) { height:44px; }
+  .ri26-contact-form .ri26-form textarea { min-height:96px; }
+  .ri26-contact-form .ri26-select-button { height:44px; padding:0 12px; font-size:16px; }
+
+  /* Three contact-method pills across one row rather than full-width stacks. */
+  .ri26-contact-form .ri26-choice-row { gap:7px; }
+  .ri26-contact-form .ri26-choice-row label {
+    flex:1;
+    justify-content:center;
+    min-height:42px;
+    padding:0 8px;
+    gap:8px;
+    font-size:12.5px;
+  }
+  .ri26-contact-form .ri26-choice-row label::before { width:15px; height:15px; }
+  .ri26-contact-form .ri26-choice-row label:has(input:checked)::before { box-shadow:inset 0 0 0 3.5px #079eb5; }
+
+  .ri26-contact-form .voda-btn { height:46px; }
+  .ri26-contact-form .ri26-form-note { font-size:10.5px; line-height:1.5; }
+  /* The message row stops taking slack once the panel is no longer matching a
+     second column. */
+  .ri26-contact-form .ri26-form { grid-template-rows:none; }
+  .ri26-contact-form .ri26-message-grid textarea { height:auto; }
+}
+@media(max-width:380px){
+  .ri26-contact-form { padding:15px 13px; }
+  .ri26-contact-form .ri26-choice-row label { font-size:11.5px; padding:0 6px; gap:6px; }
+}
+
+/* The message is two boxes side by side, matching the field-pair rhythm above
+   it. Both stretch to the row so they stay level regardless of label length. */
+.ri26-contact-form .ri26-message-grid { align-items:stretch; }
+.ri26-contact-form .ri26-message-grid > label {
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr);
+  gap:7px;
+  min-height:0;
+}
+.ri26-contact-form .ri26-message-grid textarea {
+  height:100%;
+  min-height:104px;
+  resize:vertical;
+}
+@media(max-width:700px){
+  /* Stacked: two boxes in a column would run tall, so each is shorter. */
+  .ri26-contact-form .ri26-message-grid textarea { min-height:84px; }
+}
+
+/* The shared rule collapses every .ri26-field-grid to one column at 700px, so
+   the contact form became six full-width rows and ran very tall. The pairs
+   stay side by side here — these are short fields and two fit comfortably
+   even at 360px. Only the message pair stacks, since two textareas side by
+   side would each be too narrow to type in. */
+@media(max-width:700px){
+  .ri26-contact-form .ri26-field-grid { grid-template-columns:1fr 1fr; gap:10px; }
+  .ri26-contact-form .ri26-message-grid { grid-template-columns:1fr; gap:11px; }
+
+  /* Tighter again now that two fields share each row. */
+  .ri26-contact-form .ri26-form { gap:11px; }
+  .ri26-contact-form .ri26-form label > span,
+  .ri26-contact-form .ri26-form legend,
+  .ri26-contact-form .ri26-select-field > span { margin-bottom:4px; font-size:10px; }
+  /* 44px is the minimum comfortable tap target; these were 42 and 38. */
+  .ri26-contact-form .ri26-form input:not([type=radio]) { height:44px; }
+
+  .ri26-contact-form .ri26-message-grid textarea { min-height:76px; }
+  .ri26-contact-form .ri26-choice-row label { min-height:44px; font-size:12px; }
+  .ri26-contact-form .voda-btn { height:46px; }
+}
+@media(max-width:400px){
+  /* Labels wrap awkwardly below this, so the optional hints are dropped. */
+  .ri26-contact-form .ri26-form label > span small { display:none; }
+  .ri26-contact-form .ri26-field-grid { gap:8px; }
+}
+
+/* On mobile the form leads. The details column comes first in source so the
+   desktop layout reads left-to-right, and because it is the more useful order
+   for a screen reader; `order` only moves the visual position, which is safe
+   here since both are independent landmarks rather than a reading sequence. */
+@media(max-width:1000px){
+  .ri26-contact-grid { display:flex; flex-direction:column; }
+  .ri26-contact-form { order:-1; }
+  /* Nothing to match heights with once stacked, so the map stops stretching. */
+  .ri26-contact-map { flex:none; }
+}
+
+/* The hero keeps the shared .ri26-detail-hero height. On mobile the copy was
+   pinned to the top of that box, leaving the gap under the buttons, so the
+   block is pushed down roughly a quarter of the hero instead. */
+@media(max-width:700px){
+  .ri26-contact-hero {
+    padding-top:clamp(258px,46vw,310px);
+    padding-bottom:clamp(88px,16vw,112px);
+  }
+}
+
+/* ══ Uniform service page ═════════════════════════════════════════════════
+   Every service page now runs the same spine: hero, intro, what we handle,
+   one signature section, how it works, CTA, FAQ. The intro states what the
+   service covers; the scope grid lists what is included. Both reuse the
+   existing card and heading treatments rather than introducing new ones. */
+
+.ri26-svc-scope { background:linear-gradient(180deg,#f4f9fc 0%,#eef5f9 56%,#f4f9fc 100%); }
+
+@media(min-width:1001px){
+  .ri26-svc-intro .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+  .ri26-svc-scope .voda-wrap { width:min(1720px,calc(100% - 96px)); }
+}
+
+/* The service intro. The heading now runs at the site's own h2 scale rather
+   than the reduced one it had, and the section carries the service photo and
+   the losses it answers so it is a real band instead of a thin strip. */
+
+/* The losses this service answers, under a hairline. */
+
+/* ── Service intro ────────────────────────────────────────────────────────
+   Deliberately not the service-area arrangement (copy left, framed photo
+   right) — that is what made these pages read as area pages. Here the heading
+   runs the full width and the supporting copy sits in three columns beneath
+   it, divided by rules. Used on all ten service pages and nowhere else. */
+
+/* ── Service intro ────────────────────────────────────────────────────────
+   Two even columns divided by a vertical rule: the heading and its lede on
+   the left, the explanation and the losses stacked on the right. Not the
+   service-area arrangement (copy beside a framed photo) — these pages have
+   their own look, shared across all ten. */
+.ri26-svc-intro {
+  position:relative;
+  isolation:isolate;
+  background:#fbfdfe;
+}
+.ri26-svc-intro-split {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+  gap:clamp(28px,3.6vw,64px);
+}
+/* The rule sits in the gutter: the padding is cancelled by an equal negative
+   margin, so the text does not shift. */
+.ri26-svc-intro-detail {
+  padding-left:clamp(28px,3.6vw,64px);
+  margin-left:calc(clamp(28px,3.6vw,64px) * -1);
+  border-left:1px solid #dce8ed;
+}
+
+.ri26-svc-intro-lead { margin-top:clamp(-116px,-8.1vw,-66px); }
+.ri26-svc-intro-lead h2 {
+  margin-top:16px;
+  color:var(--ri26-ink);
+  font-size:clamp(44px,6.4vw,92px);
+  font-weight:780;
+  letter-spacing:-.068em;
+  line-height:.94;
+}
+.ri26-svc-intro-lead h2 em { color:#0d7fb8; font-style:normal; }
+.ri26-svc-intro-lede {
+  max-width:24ch;
+  margin:26px 0 0;
+  color:#2d4556;
+  font-size:clamp(21px,2.7vw,32px);
+  font-weight:620;
+  letter-spacing:-.028em;
+  line-height:1.38;
+}
+
+.ri26-svc-intro-facts {
+  margin:clamp(26px,3vw,38px) 0 0;
+  padding:clamp(18px,2vw,24px) 0 0;
+  border-top:1px solid #dce8ed;
+}
+.ri26-svc-intro-facts > div {
+  display:grid;
+  grid-template-columns:minmax(0,86px) minmax(0,1fr);
+  column-gap:18px;
+  padding:9px 0;
+}
+.ri26-svc-intro-facts dt {
+  color:#7d93a1;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  line-height:1.5;
+}
+.ri26-svc-intro-facts dd {
+  margin:0;
+  color:#2d4556;
+  font-size:14.5px;
+  font-weight:600;
+  letter-spacing:-.012em;
+  line-height:1.5;
+}
+
+.ri26-svc-intro-body {
+  margin:0;
+  color:#4a6072;
+  font-size:17px;
+  font-weight:500;
+  line-height:1.74;
+}
+.ri26-svc-intro-causes {
+  margin-top:clamp(22px,2.4vw,30px);
+  padding-top:clamp(20px,2.2vw,26px);
+  border-top:1px solid #dce8ed;
+}
+.ri26-svc-intro-causes > b {
+  display:block;
+  color:#30495b;
+  font-size:11.5px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.ri26-svc-intro-causes ul {
+  margin:13px 0 0;
+  padding:0;
+  list-style:none;
+}
+.ri26-svc-intro-causes li {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  column-gap:13px;
+  padding:14px 0;
+  border-bottom:1px solid #eef4f7;
+}
+.ri26-svc-intro-causes li::before {
+  content:"";
+  width:9px; height:9px;
+  margin-top:6px;
+  border-radius:50%;
+  background:#0b3f63;
+  box-shadow:0 0 0 4px rgba(11,63,99,.1);
+}
+/* The cause, then what it involves. */
+.ri26-svc-intro-causes li b {
+  grid-column:2;
+  display:block;
+  color:var(--ri26-ink);
+  font-size:19px;
+  font-weight:780;
+  letter-spacing:-.042em;
+  line-height:1.16;
+  text-transform:none;
+}
+.ri26-svc-intro-causes li span {
+  grid-column:2;
+  display:block;
+  margin-top:7px;
+  color:#5d707c;
+  font-size:13.5px;
+  font-weight:500;
+  line-height:1.6;
+}
+.ri26-svc-intro-causes li:last-child { border-bottom:0; padding-bottom:0; }
+@media(max-width:1000px){
+  .ri26-svc-intro-split { grid-template-columns:1fr; gap:26px; }
+  .ri26-svc-intro-lead { margin-top:0; }
+  /* Stacked: the vertical rule becomes a horizontal one. */
+  .ri26-svc-intro-detail {
+    padding-left:0;
+    margin-left:0;
+    padding-top:26px;
+    border-left:0;
+    border-top:1px solid #dce8ed;
+  }
+  .ri26-svc-intro-lede { max-width:none; }
+}
+@media(max-width:620px){
+  .ri26-svc-intro-lead h2 br { display:none; }
+  .ri26-svc-intro-facts > div { grid-template-columns:minmax(0,74px) minmax(0,1fr); column-gap:14px; }
+  .ri26-svc-intro-facts dd { font-size:13.5px; }
+  .ri26-svc-intro-lede { font-size:18px; }
+  .ri26-svc-intro-body { font-size:15.5px; }
+  .ri26-svc-intro-causes li { padding:12px 0; column-gap:11px; }
+  .ri26-svc-intro-causes li::before { width:8px; height:8px; margin-top:7px; }
+  .ri26-svc-intro-causes li b { font-size:17px; }
+  .ri26-svc-intro-causes li span { font-size:13px; }
+}
+
+/* ── How we help ──────────────────────────────────────────────────────────
+   Three columns, matching the supplied reference: a large heading with a lede
+   on the left, the floor-plan diagram in the middle, and a stat card on the
+   right. Identical layout on all ten service pages; only the copy, the plan
+   and the figure change. */
+.ri26-help { background:#fbfdfe; }
+.ri26-help-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.04fr) minmax(0,.86fr);
+  align-items:center;
+  gap:clamp(24px,3vw,52px);
+}
+
+.ri26-help-copy h2 {
+  margin-top:16px;
+  color:var(--ri26-ink);
+  font-size:clamp(40px,5.2vw,72px);
+  font-weight:780;
+  letter-spacing:-.065em;
+  line-height:.99;
+}
+.ri26-help-copy h2 em { color:#0d7fb8; font-style:normal; }
+.ri26-help-copy > p {
+  max-width:46ch;
+  margin:24px 0 0;
+  color:#4a6072;
+  font-size:16.5px;
+  font-weight:500;
+  line-height:1.74;
+}
+
+/* The plan sits on the page ground rather than in a frame, as the reference
+   has it — the drawing is the object, not a photo in a card. */
+.ri26-help-plan {
+  position:relative;
+  margin:0;
+  aspect-ratio:1;
+  overflow:hidden;
+  border-radius:16px;
+  background:#fff;
+}
+/* Diagrams are shown whole, never cropped. */
+.ri26-help-plan img { object-fit:contain; padding:6px; }
+
+/* The stat card. Soft tinted panel, no heavy border. */
+.ri26-help-stat {
+  align-self:center;
+  display:flex;
+  flex-direction:column;
+  padding:clamp(32px,3.4vw,44px);
+  border:1px solid #e3eef5;
+  border-radius:18px;
+  background:#f2f8fc;
+}
+.ri26-help-stat > b {
+  color:#1f3d52;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  line-height:1.5;
+}
+.ri26-help-figure {
+  margin-top:14px;
+  color:#0d7fb8;
+  font-size:clamp(64px,7.2vw,96px);
+  font-weight:800;
+  letter-spacing:-.055em;
+  line-height:.86;
+}
+.ri26-help-stat > p {
+  margin:14px 0 0;
+  color:#2d4556;
+  font-size:18.5px;
+  font-weight:540;
+  line-height:1.58;
+}
+/* The closing note, set off by a rule with a droplet mark. */
+.ri26-help-note {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  align-items:center;
+  column-gap:14px;
+  margin-top:22px;
+  padding-top:22px;
+  border-top:1px solid #dbe9f1;
+}
+.ri26-help-note > span {
+  display:grid; place-items:center;
+  width:55px; height:55px;
+  border-radius:50%;
+  background:#dbeefa;
+  color:#0d7fb8;
+}
+.ri26-help-note > span svg { width:25px; height:25px; }
+.ri26-help-note p {
+  margin:0;
+  color:#2d4556;
+  font-size:17.5px;
+  font-weight:540;
+  line-height:1.55;
+}
+
+@media(min-width:1001px){
+  .ri26-help .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+}
+@media(max-width:1000px){
+  /* Heading across the top, then the plan and the card side by side. */
+  .ri26-help-grid {
+    grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+    align-items:start;
+    gap:26px 24px;
+  }
+  .ri26-help-copy { grid-column:1 / -1; }
+  .ri26-help-stat { align-self:start; }
+}
+@media(max-width:820px){
+  /* minmax(0,1fr), not 1fr: .voda-wrap and .ri26-help-grid are the same
+     element, so a track that floors at min-content drags the wrap itself
+     past the gutter and clips the whole section on the right. */
+  .ri26-help-grid { grid-template-columns:minmax(0,1fr); gap:22px; }
+  .ri26-help-copy,
+  .ri26-help-plan,
+  .ri26-help-stat { min-width:0; }
+  .ri26-help-copy > p { max-width:none; font-size:14.5px; }
+  .ri26-help-stat { padding:20px 18px; border-radius:17px; }
+  .ri26-help-note > span { width:34px; height:34px; }
+}
+/* The heading's 40px floor is wider than a narrow phone track once a long
+   word like "removed." cannot break, which is what forced the overflow.
+   Let it scale down and wrap instead. */
+@media(max-width:480px){
+  .ri26-help-copy h2 { font-size:clamp(27px,8.4vw,36px); overflow-wrap:break-word; }
+  /* The source files are square but the drawing inside sits landscape with
+     its own margins, so at phone width it runs nearly edge to edge. A little
+     more inset gives it room either side without cropping the drawing. */
+  .ri26-help-plan img { padding:10px 16px; }
+  /* The figure is a word on most pages ("Documented", "Item by item",
+     "Category 3"), not a short number, and its 64px floor is wider than the
+     card on a phone. Scale it with the viewport and let it wrap. */
+  .ri26-help-figure {
+    font-size:clamp(34px,10.5vw,52px);
+    overflow-wrap:break-word;
+    hyphens:auto;
+  }
+  .ri26-help-stat > p { font-size:15.5px; }
+}
+
+
+/* ── Drying progress ──────────────────────────────────────────────────────
+   Built to the supplied reference: heading and photo on the left, a navy
+   "why readings matter" card plus two light cards on the right, and the day
+   timeline across the bottom. Sized to fit one viewport. */
+.ri26-dry { background:#fbfdfe; padding:clamp(34px,3.6vw,52px) 0; }
+.ri26-dry-top {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 338px;
+  align-items:stretch;
+  gap:clamp(22px,2.6vw,38px);
+}
+.ri26-dry-main { display:flex; flex-direction:column; }
+.ri26-dry-main h2 {
+  margin-top:14px;
+  color:var(--ri26-ink);
+  font-size:clamp(30px,3.6vw,50px);
+  font-weight:780;
+  letter-spacing:-.055em;
+  line-height:1.04;
+}
+.ri26-dry-main h2 em { color:#0d7fb8; font-style:normal; }
+.ri26-dry-lede {
+  max-width:58ch;
+  margin:16px 0 0;
+  color:#5d707c;
+  font-size:15.5px;
+  font-weight:500;
+  line-height:1.66;
+}
+.ri26-dry-shot {
+  position:relative;
+  margin:14px 0 0;
+  /* Grows to fill whatever height the side column sets. */
+  flex:1;
+  min-height:300px;
+  aspect-ratio:auto;
+  overflow:hidden;
+  border-radius:18px;
+  background:#e4eef3;
+  box-shadow:0 1px 2px rgba(9,42,64,.06), 0 18px 40px -20px rgba(9,42,64,.24);
+}
+
+.ri26-dry-side {
+  display:flex;
+  flex-direction:column;
+  align-self:start;
+  margin-left:-34px;
+  gap:11px;
+}
+/* Cards size to their content rather than absorbing the column slack. */
+.ri26-dry-side > * { flex:none; }
+
+/* The navy card. */
+.ri26-dry-why {
+  padding:17px;
+  border-radius:18px;
+  box-shadow:
+    0 1px 2px rgba(5,28,48,.16),
+    0 12px 28px -12px rgba(5,28,48,.4);
+  background:radial-gradient(120% 140% at 100% 0%, #11456b 0%, #0a2d48 55%, #072137 100%);
+  color:#fff;
+}
+.ri26-dry-figure {
+  display:block;
+  margin-top:12px;
+  font-size:31px;
+  font-weight:800;
+  letter-spacing:-.05em;
+  line-height:1;
+}
+.ri26-dry-figure-note {
+  margin:8px 0 0;
+  padding-bottom:16px;
+  border-bottom:1px solid rgba(255,255,255,.16);
+  color:#6fd9e4;
+  font-size:17.5px;
+  font-weight:700;
+  letter-spacing:-.02em;
+  line-height:1.4;
+}
+.ri26-dry-why ul { margin:16px 0 0; padding:0; list-style:none; }
+.ri26-dry-why li {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  column-gap:12px;
+  padding:8px 0;
+  color:#d2e4ee;
+  font-size:14px;
+  font-weight:520;
+  line-height:1.5;
+}
+.ri26-dry-why li span {
+  display:grid; place-items:center;
+  width:22px; height:22px;
+  border-radius:50%;
+  background:#1b8fd0;
+  color:#fff;
+}
+.ri26-dry-why li span svg { width:13px; height:13px; }
+
+/* The two light cards. */
+.ri26-dry-record,
+.ri26-dry-target {
+  padding:13px;
+  border:1px solid #d9e8f1;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.07),
+    0 10px 24px -12px rgba(9,42,64,.22);
+}
+.ri26-dry-record > header {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+.ri26-dry-record-mark,
+.ri26-dry-target-mark {
+  display:grid; place-items:center;
+  flex:none;
+  border-radius:11px;
+  background:#dcf0fb;
+  color:#0a5f93;
+}
+.ri26-dry-record-mark { width:40px; height:40px; }
+.ri26-dry-record-mark svg { width:19px; height:19px; }
+/* Larger on the target card, where it is the only mark. */
+.ri26-dry-target-mark { width:66px; height:66px; border-radius:16px; }
+.ri26-dry-target-mark svg { width:36px; height:36px; stroke-width:2.2; }
+.ri26-dry-record ul { margin:12px 0 0; padding:0; list-style:none; display:grid; gap:8px; }
+.ri26-dry-record li {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  column-gap:12px;
+  padding:12px 13px;
+  border-bottom:1px solid #e8f1f6;
+  border:1px solid #e8f1f6;
+  border-radius:12px;
+  background:#fcfeff;
+}
+.ri26-dry-record li:last-child { border-bottom:0; padding-bottom:12px; }
+.ri26-dry-record-ico {
+  display:grid; place-items:center;
+  width:30px; height:30px;
+  border-radius:9px;
+  background:#e7f6fe;
+  color:#0878b7;
+}
+.ri26-dry-record-ico svg { width:21px; height:21px; stroke-width:2.2; }
+.ri26-dry-record b {
+  color:var(--ri26-ink);
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:-.018em;
+}
+.ri26-dry-record-val { color:#5d707c; font-size:12.5px; font-weight:580; }
+
+.ri26-dry-target {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:18px;
+}
+.ri26-dry-target strong {
+  display:block;
+  margin-top:8px;
+  color:var(--ri26-ink);
+  font-size:44px;
+  font-weight:800;
+  letter-spacing:-.05em;
+  line-height:1;
+}
+.ri26-dry-target p {
+  margin:8px 0 0;
+  color:#5d707c;
+  font-size:12px;
+  font-weight:500;
+  line-height:1.55;
+}
+
+/* The day timeline across the bottom. */
+.ri26-dry-track {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(14px,1.9vw,26px);
+  margin:18px 0 0;
+  padding:0;
+  list-style:none;
+  position:relative;
+}
+.ri26-dry-track > li {
+  padding:16px 17px 15px;
+  border:1px solid #d9e8f1;
+  border-radius:14px;
+  background:#fff;
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.07),
+    0 10px 24px -12px rgba(9,42,64,.2);
+  position:relative;
+}
+.ri26-dry-day {
+  display:inline-flex;
+  align-items:center;
+  min-height:24px;
+  padding:0 11px;
+  border-radius:999px;
+  background:#e7f6fe;
+  color:#0a6187;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:-.01em;
+}
+.ri26-dry-track b {
+  display:block;
+  margin-top:11px;
+  color:var(--ri26-ink);
+  font-size:14.5px;
+  font-weight:740;
+  letter-spacing:-.022em;
+  line-height:1.3;
+}
+.ri26-dry-track p {
+  margin:5px 0 0;
+  color:#5d707c;
+  font-size:12.5px;
+  font-weight:500;
+  line-height:1.5;
+}
+.ri26-dry-meter {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  column-gap:11px;
+  margin-top:12px;
+}
+.ri26-dry-bar {
+  display:block;
+  height:6px;
+  overflow:hidden;
+  border-radius:999px;
+  background:#e7eff4;
+}
+.ri26-dry-bar i {
+  display:block;
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,#1b8fd0,#45c3e6);
+}
+.ri26-dry-meter > span {
+  color:#30495b;
+  font-size:13px;
+  font-weight:720;
+  font-variant-numeric:tabular-nums;
+}
+
+@media(min-width:1001px){
+  .ri26-dry .voda-wrap { width:min(1440px,calc(100% - 72px)); }
+}
+@media(max-width:1000px){
+  /* minmax(0,1fr), not 1fr: a bare 1fr floors at min-content, so a long
+     unbreakable word in the cards pushes the track wider than the wrap and
+     the whole column overflows to the right. */
+  .ri26-dry-top { grid-template-columns:minmax(0,1fr); gap:22px; }
+  .ri26-dry-track { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  /* The side column deliberately overlaps the photo on desktop. Once the top
+     grid stacks there is nothing to overlap, so the pull-left would hang the
+     cards off the left edge of the wrap. */
+  .ri26-dry-side { margin-left:0; align-self:stretch; min-width:0; }
+  .ri26-dry-main { min-width:0; }
+}
+
+/* Tablet / large phone: keep the bento rather than letting the three side
+   cards run as one tall column. The navy card leads across both columns,
+   the record and target cards pair beneath it. Mirrors the desktop
+   composition at a smaller size; below 600px it stacks. */
+@media(max-width:1000px) and (min-width:601px){
+  .ri26-dry-side {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    align-content:start;
+    gap:11px;
+  }
+  .ri26-dry-why { grid-column:1 / -1; }
+  /* The paired cards share a row, so they match height instead of each
+     sizing to its own copy. */
+  .ri26-dry-record,
+  .ri26-dry-target { min-width:0; }
+  .ri26-dry-target { align-content:center; }
+}
+/* 600px, not 620px: the bento above ends at 601px, so this has to pick up
+   exactly where it leaves off or the stacking rules would fight the bento
+   across a 20px sliver. */
+@media(max-width:600px){
+  .ri26-dry-track { grid-template-columns:minmax(0,1fr); }
+  .ri26-dry-shot { aspect-ratio:4/3; }
+  .ri26-dry-target { grid-template-columns:minmax(0,1fr); }
+  /* Every card is a grid/flex child; without this they keep a min-content
+     floor and the stack overflows the wrap on the right. */
+  .ri26-dry-why,
+  .ri26-dry-record,
+  .ri26-dry-target { min-width:0; }
+  .ri26-dry-why li,
+  .ri26-dry-record li { min-width:0; }
+  .ri26-dry-why li,
+  .ri26-dry-record b { overflow-wrap:anywhere; }
+}
+
+/* Stage cards sit one per row from 600px down, which leaves the desktop
+   padding and type oversized on a phone. Tightened from 420px, where the
+   cards get narrow enough for the slack to show. */
+@media(max-width:420px){
+  .ri26-dry-track { gap:9px; margin-top:14px; }
+  .ri26-dry-track > li { padding:12px 13px 11px; border-radius:12px; }
+  .ri26-dry-day { min-height:21px; padding:0 9px; font-size:10.5px; }
+  .ri26-dry-track b { margin-top:8px; font-size:13.5px; }
+  .ri26-dry-track p { margin-top:4px; font-size:11.5px; line-height:1.45; }
+  .ri26-dry-meter { margin-top:9px; column-gap:9px; }
+  .ri26-dry-bar { height:5px; }
+  .ri26-dry-meter > span { font-size:11.5px; }
+}
+
+/* ── Drying section: corrections against the reference ────────────────────
+   Three differences the first pass missed: the record rows are bordered pills
+   with a chevron rather than hairline-separated rows with a value, the target
+   card's copy column is narrower, and the stepper cards are joined by a dot
+   and line connector. */
+
+/* Record rows: each one its own pill. */
+.ri26-dry-record-go { width:15px; height:15px; color:#9ec4d6; }
+
+/* Target card: the copy column is narrower, the mark sits closer. Capped only
+   while the card is two columns; below 620px it stacks and 30ch can overflow
+   the phone track, so the cap lifts there. */
+@media(min-width:621px){
+  .ri26-dry-target > div { max-width:30ch; }
+}
+
+/* Stepper: cards joined by a dot and line, as the reference draws them. */
+.ri26-dry-track > li + li::before {
+  content:"";
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  left:calc(clamp(14px,1.9vw,26px) * -1);
+  width:clamp(14px,1.9vw,26px);
+  height:1px;
+  background:#8fb6cc;
+}
+.ri26-dry-track > li + li::after {
+  content:"";
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  left:calc(clamp(14px,1.9vw,26px) / -2 - 3.5px);
+  width:7px; height:7px;
+  border-radius:50%;
+  background:#1472a8;
+  box-shadow:0 0 0 3px #fbfdfe;
+}
+/* A thinner bar, as in the reference. */
+
+@media(max-width:1000px){
+  /* Connectors only make sense along one unbroken row. */
+  .ri26-dry-track > li + li::before,
+  .ri26-dry-track > li + li::after { content:none; }
+}
+
+
+/* ── Service steps: the "what we handle" card design ──────────────────────
+   Same cards as the scope grid above — bordered, centred, circular icon,
+   thin divider in the gutter — laid out five across for the five stages.
+   The "when" pill is kept, since the steps carry timing the scope cards do
+   not. Scoped to .ri26-steps-grid; the batch 2 rail is untouched. */
+.ri26-steps-grid {
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,240px));
+  justify-content:center;
+  gap:clamp(18px,2.4vw,36px);
+  margin:clamp(28px,3.2vw,44px) 0 0;
+  padding:0;
+  list-style:none;
+}
+.ri26-steps-grid > li { grid-column:auto; display:flex; }
+.ri26-steps-grid article {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+  text-align:center;
+  padding:26px 18px 24px;
+  border:1px solid #d5e4ec;
+  border-radius:18px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.05),
+    0 10px 22px -8px rgba(9,42,64,.14),
+    0 26px 48px -20px rgba(9,42,64,.16);
+  transition:border-color .28s, box-shadow .28s, transform .28s;
+}
+.ri26-steps-grid article:hover {
+  border-color:#7fd3e8;
+  transform:translateY(-2px);
+  box-shadow:
+    0 1px 2px rgba(9,42,64,.05),
+    0 16px 30px -10px rgba(9,42,64,.2),
+    0 36px 60px -26px rgba(9,42,64,.22);
+}
+/* The thin divider sits in the gutter, as between the scope cards. */
+.ri26-steps-grid > li + li::before {
+  content:"";
+  position:absolute;
+  top:18%; bottom:18%;
+  left:calc(clamp(18px,2.4vw,36px) / -2);
+  width:1px;
+  background:linear-gradient(180deg,transparent,#c3d6e0 28%,#c3d6e0 72%,transparent);
+}
+.ri26-steps-grid > li { position:relative; }
+
+/* Number and timing stack above the icon. */
+.ri26-steps-grid header {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  padding-bottom:0;
+  border-bottom:0;
+}
+.ri26-steps-grid .ri26-steps-n {
+  color:#0a6187;
+  font-size:11.5px;
+  font-weight:800;
+  letter-spacing:.14em;
+  font-variant-numeric:tabular-nums;
+}
+.ri26-steps-grid .ri26-steps-when {
+  padding:3px 10px;
+  border:1px solid #cfe3ee;
+  border-radius:999px;
+  background:#f4fafd;
+  color:#2f7596;
+  font-size:10px;
+  font-weight:720;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.ri26-steps-grid .ri26-steps-ico {
+  display:grid;
+  place-items:center;
+  flex:none;
+  margin-top:16px;
+  width:56px; height:56px;
+  border:1px solid #0878b7;
+  border-radius:50%;
+  background:#e7f6fe;
+  color:#0878b7;
+}
+.ri26-steps-grid .ri26-steps-ico svg { width:21px; height:21px; }
+.ri26-steps-grid b {
+  display:block;
+  margin-top:18px;
+  color:var(--ri26-ink);
+  font-size:17px;
+  font-weight:740;
+  letter-spacing:-.025em;
+  line-height:1.3;
+}
+.ri26-steps-grid b em { color:#0878b7; font-style:normal; }
+.ri26-steps-grid p {
+  margin:9px 0 0;
+  color:#5d707c;
+  font-size:14.5px;
+  font-weight:500;
+  line-height:1.62;
+}
+
+@media(max-width:1000px){
+  .ri26-steps-grid { grid-template-columns:repeat(3,minmax(0,240px)); gap:clamp(20px,2.8vw,34px); }
+  /* A divider between wrapped rows would separate non-adjacent stages. */
+  .ri26-steps-grid > li + li::before { content:none; }
+}
+@media(max-width:700px){
+  .ri26-steps-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+  /* Five cards over two columns leave the fifth alone with a hole beside it.
+     The last one spans the full width instead: 2 + 2 + 1 wide. Its copy is
+     capped so the centred text does not strand itself across the wider card. */
+  .ri26-steps-grid > li:last-child { grid-column:1 / -1; }
+  .ri26-steps-grid > li:last-child p { max-width:34ch; }
+  .ri26-steps-grid article { padding:20px 14px 18px; border-radius:15px; }
+  .ri26-steps-grid .ri26-steps-ico { width:48px; height:48px; margin-top:13px; }
+  .ri26-steps-grid .ri26-steps-ico svg { width:19px; height:19px; }
+  .ri26-steps-grid b { margin-top:14px; font-size:15.5px; }
+  .ri26-steps-grid p { font-size:13.5px; }
+}
+/* Below 463px two columns get too narrow for the card copy, so the bento
+   gives way to a single stack. The last-child span above is inert here. */
+@media(max-width:462px){
+  .ri26-steps-grid { grid-template-columns:minmax(0,1fr); }
+}
+
+
+/* ── What we handle ───────────────────────────────────────────────────────
+   The heading sits in a sticky left column and the nine points run two across
+   beside it, so the section fills its width instead of leaving margins either
+   side of a centred grid. Rows are rules rather than cards — the card
+   treatment is carried by the steps section below, and two card grids in one
+   page read as repetition. */
+.ri26-svc-scope-split {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.78fr);
+  align-items:start;
+  gap:clamp(30px,4.2vw,66px);
+}
+.ri26-svc-scope-head {
+  position:sticky;
+  top:clamp(96px,10vw,132px);
+}
+.ri26-svc-scope-head h2 {
+  margin:14px 0 0;
+  color:var(--ri26-ink);
+  font-size:clamp(34px,5.2vw,74px);
+  font-weight:700;
+  letter-spacing:-.048em;
+  line-height:.97;
+}
+.ri26-svc-scope-head h2 em { color:#0878b7; font-style:normal; }
+.ri26-svc-scope-head > p {
+  max-width:none;
+  margin:26px 0 0;
+  color:#5d707c;
+  font-size:16.5px;
+  font-weight:450;
+  line-height:1.72;
+}
+
+.ri26-svc-scope-foot {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  row-gap:18px;
+  column-gap:clamp(20px,2.4vw,34px);
+  margin:clamp(30px,3.4vw,46px) 0 0;
+  padding:clamp(22px,2.4vw,30px) 0 0;
+  border-top:1px solid #cfe0ea;
+}
+.ri26-svc-scope-count {
+  position:relative;
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.ri26-svc-scope-count + .ri26-svc-scope-count::before {
+  content:"";
+  position:absolute;
+  top:2px; bottom:2px;
+  left:calc(clamp(20px,2.4vw,34px) / -2);
+  width:1px;
+  background:linear-gradient(180deg,transparent,#c3d6e0 24%,#c3d6e0 76%,transparent);
+}
+/* The button keeps the site treatment; only the wrapping is set here. */
+.ri26-svc-scope-count b {
+  flex:none;
+  color:#0878b7;
+  font-size:clamp(34px,3.2vw,46px);
+  font-weight:700;
+  letter-spacing:-.04em;
+  line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+.ri26-svc-scope-count span {
+  color:#5d707c;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:.01em;
+  line-height:1.5;
+}
+
+.ri26-svc-scope-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0 clamp(30px,3.4vw,58px);
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+/* Each point is a row with a hairline above it, so the list reads as a
+   schedule. The first row of each column needs no rule. */
+.ri26-svc-scope-grid > li {
+  display:grid;
+  grid-template-columns:auto auto minmax(0,1fr);
+  align-items:start;
+  gap:0 20px;
+  padding:clamp(24px,2.9vw,40px) 0;
+  border:0;
+  border-top:1px solid #dbe7ee;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+  transition:border-color .24s;
+}
+.ri26-svc-scope-grid > li:nth-child(-n+2) { border-top:0; padding-top:0; }
+.ri26-svc-scope-grid > li:hover { border-top-color:#9fc9db; }
+.ri26-svc-scope-grid > li::before,
+.ri26-svc-scope-grid > li::after { content:none; }
+
+.ri26-svc-scope-n {
+  padding-top:5px;
+  color:#8aa8b7;
+  font-size:12px;
+  font-weight:750;
+  letter-spacing:.1em;
+  font-variant-numeric:tabular-nums;
+}
+.ri26-svc-scope-ico {
+  display:grid;
+  place-items:center;
+  flex:none;
+  width:42px; height:42px;
+  margin:-7px 0 0;
+  border:1px solid #bcdcee;
+  border-radius:50%;
+  background:#eff8fd;
+  color:#0878b7;
+}
+.ri26-svc-scope-ico svg { width:19px; height:19px; }
+.ri26-svc-scope-grid b {
+  display:block;
+  color:var(--ri26-ink);
+  font-size:18.5px;
+  font-weight:650;
+  letter-spacing:-.024em;
+  line-height:1.3;
+}
+.ri26-svc-scope-grid p {
+  margin:8px 0 0;
+  color:#5d707c;
+  font-size:14.5px;
+  font-weight:430;
+  line-height:1.68;
+}
+
+/* Tablet: the heading returns above the list, which keeps the rows wide
+   enough for the detail line to sit on two lines rather than four. */
+@media(max-width:1000px){
+  .ri26-svc-scope-split { grid-template-columns:1fr; gap:clamp(24px,3.4vw,34px); }
+  .ri26-svc-scope-head { position:static; }
+  .ri26-svc-scope-foot { margin-top:clamp(22px,2.6vw,30px); }
+  .ri26-svc-scope-head > p { max-width:62ch; }
+  .ri26-svc-scope-grid > li:nth-child(1),
+  .ri26-svc-scope-grid > li:nth-child(2) { border-top:0; padding-top:0; }
+}
+@media(max-width:700px){
+  .ri26-svc-scope-grid { grid-template-columns:1fr; }
+  .ri26-svc-scope-foot { display:grid; gap:0; }
+  .ri26-svc-scope-count + .ri26-svc-scope-count {
+    margin-top:16px;
+    padding-top:16px;
+    border-top:1px solid #dbe7ee;
+  }
+  .ri26-svc-scope-count + .ri26-svc-scope-count::before { content:none; }
+  /* One column, so only the very first row skips its rule. */
+  .ri26-svc-scope-grid > li:nth-child(2) { border-top:1px solid #dbe7ee; padding-top:16px; }
+  .ri26-svc-scope-grid > li { gap:0 14px; padding:17px 0; }
+  .ri26-svc-scope-ico { width:34px; height:34px; margin-top:-3px; }
+  .ri26-svc-scope-ico svg { width:16px; height:16px; }
+  .ri26-svc-scope-grid b { font-size:16px; }
+  .ri26-svc-scope-grid p { font-size:13.5px; margin-top:5px; }
+}
+
+
+/* ── Service page rhythm ──────────────────────────────────────────────────
+   5% off the standard section padding, so the bands sit closer together.
+   Listed explicitly because .ri26-section is shared with the service-area
+   and contact pages, which keep the original spacing. */
+.ri26-section.ri26-category,
+.ri26-section.ri26-dry,
+.ri26-section.ri26-help,
+.ri26-section.ri26-mats,
+.ri26-section.ri26-paths,
+.ri26-section.ri26-residue,
+.ri26-section.ri26-rwork,
+.ri26-section.ri26-steps,
+.ri26-section.ri26-svc-intro,
+.ri26-section.ri26-svc-scope,
+.ri26-section.ri26-zones {
+  padding:clamp(95px,8.55vw,128px) 0;
+}
+@media(max-width:700px){
+.ri26-section.ri26-category,
+.ri26-section.ri26-dry,
+.ri26-section.ri26-help,
+.ri26-section.ri26-mats,
+.ri26-section.ri26-paths,
+.ri26-section.ri26-residue,
+.ri26-section.ri26-rwork,
+.ri26-section.ri26-steps,
+.ri26-section.ri26-svc-intro,
+.ri26-section.ri26-svc-scope,
+.ri26-section.ri26-zones {
+    padding:74px 0;
+  }
+}
+
+
+/* ── Area gallery: rail, stage pill and heading badge ─────────────────────
+   Restored: the caption beneath each image was simplified, but the timeline
+   rail, the stage label and the badge beside the heading are unchanged. */
+.ri26-gallery-rail {
+  position:relative;
+  height:11px;
+  margin-bottom:18px;
+}
+.ri26-gallery-rail::before {
+  content:"";
+  position:absolute;
+  left:0; right:calc(-1 * clamp(20px,2.4vw,38px));
+  top:5px;
+  border-top:1px dashed #b9ccd4;
+}
+.ri26-gallery-track > li:last-child .ri26-gallery-rail::before { right:0; }
+.ri26-gallery-node {
+  position:absolute;
+  left:0; top:0;
+  width:9px; height:9px;
+  border-radius:50%;
+  background:#0878b7;
+}
+.ri26-gallery-stage {
+  display:block;
+  margin-bottom:14px;
+  color:#0a6ea6;
+  font-size:11px;
+  font-weight:750;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-variant-numeric:tabular-nums;
+}
+.ri26-gallery-badge {
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:14px 20px 14px 15px;
+  border:1px solid #cfdfe9;
+  border-radius:15px;
+  background:#fff;
+  box-shadow:0 1px 2px rgba(9,42,64,.05), 0 14px 30px -16px rgba(9,42,64,.22);
+}
+.ri26-gallery-badge > span {
+  display:grid; place-items:center;
+  width:42px; height:42px; flex:none;
+  border:1px solid #0a6ea6;
+  border-radius:50%;
+  background:#e7f6fe;
+  color:#0a6ea6;
+}
+.ri26-gallery-badge svg { width:19px; height:19px; }
+.ri26-gallery-badge b { display:block; color:#0b2438; font-size:14px; letter-spacing:-.02em; }
+.ri26-gallery-badge small { display:block; margin-top:2px; color:#5d707c; font-size:11px; }
+.ri26-gallery-stage { display:block; margin-bottom:14px; }
+.ri26-gallery-stage span {
+  display:block;
+  color:#0a6ea6;
+  font-size:11px;
+  font-weight:750;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-variant-numeric:tabular-nums;
+}
+.ri26-gallery-stage em {
+  display:block;
+  margin-top:4px;
+  color:#7b8e9a;
+  font-style:normal;
+  font-size:11.5px;
+}
+
+@media(max-width:860px){
+  .ri26-gallery-rail::before { right:0; }
+  .ri26-gallery-rail { position:absolute; left:0; top:4px; width:11px; height:100%; margin:0; }
+  .ri26-gallery-rail::before {
+      left:5px; right:auto; top:14px; bottom:-34px;
+      width:0; border-top:0; border-left:1px dashed #b9ccd4;
+    }
+  .ri26-gallery-track > li:last-child .ri26-gallery-rail::before { bottom:auto; height:0; }
+  .ri26-gallery-rail::before { border-left:1px solid #d3e2ea; }
+}
+
+@media(max-width:700px){
+  .ri26-gallery-badge { width:100%; }
+}
+
+@media(min-width:861px){
+  .ri26-gallery-rail { height:9px; margin-bottom:20px; }
+  .ri26-gallery-rail::before { top:4px; border-top:1px solid #d3e2ea; }
+  .ri26-gallery-track > li:last-child .ri26-gallery-rail::before { display:none; }
+}
+
+
+/* ── Area gallery: stage title ────────────────────────────────────────────
+   The title sits 30% larger than the line beneath it, with the dark blue
+   bullet used elsewhere on the site. */
+.ri26-gallery-track figcaption b {
+  position:relative;
+  padding-left:22px;
+  font-size:21.9px;
+  line-height:1.22;
+  letter-spacing:-.03em;
+}
+.ri26-gallery-track figcaption b::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:.52em;
+  width:10px; height:10px;
+  margin-top:-5px;
+  border-radius:50%;
+  background:#0b3f63;
+  box-shadow:0 0 0 4px rgba(11,63,99,.1);
+}
+/* The supporting line aligns under the title, clear of the bullet. */
+.ri26-gallery-track figcaption span { padding-left:22px; }
+
+@media(max-width:700px){
+  .ri26-gallery-track figcaption b { padding-left:20px; font-size:20.7px; }
+  .ri26-gallery-track figcaption b::before { width:9px; height:9px; margin-top:-4.5px; }
+  .ri26-gallery-track figcaption span { padding-left:20px; }
+}
+
+
+/* ── About page ───────────────────────────────────────────────────────────
+   Heading left, the explanation and the facts right, divided by a rule —
+   the same arrangement the service pages use for their intro. */
+.ri26-about-intro { background:#fbfdfe; }
+.ri26-about-intro-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);
+  align-items:start;
+  gap:clamp(28px,4vw,72px);
+}
+.ri26-about-intro-grid h2 {
+  margin-top:15px;
+  color:var(--ri26-ink);
+  font-size:clamp(32px,4.4vw,58px);
+  font-weight:740;
+  letter-spacing:-.05em;
+  line-height:1;
+}
+.ri26-about-intro-grid h2 em { color:#0878b7; font-style:normal; }
+.ri26-about-intro-copy > p {
+  margin:0 0 18px;
+  color:#4a6072;
+  font-size:16.5px;
+  font-weight:450;
+  line-height:1.76;
+}
+.ri26-about-intro-copy > p:last-of-type { margin-bottom:0; }
+
+.ri26-about-facts {
+  margin:clamp(24px,2.8vw,34px) 0 0;
+  padding:clamp(20px,2.2vw,26px) 0 0;
+  border-top:1px solid #dce8ed;
+}
+.ri26-about-facts > div {
+  display:grid;
+  grid-template-columns:minmax(0,118px) minmax(0,1fr);
+  column-gap:18px;
+  padding:10px 0;
+}
+.ri26-about-facts dt {
+  color:#7d93a1;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  line-height:1.5;
+}
+.ri26-about-facts dd {
+  margin:0;
+  color:#2d4556;
+  font-size:14.5px;
+  font-weight:600;
+  letter-spacing:-.012em;
+  line-height:1.5;
+}
+
+@media(max-width:900px){
+  .ri26-about-intro-grid { grid-template-columns:1fr; gap:24px; }
+  .ri26-about-intro-copy > p { font-size:15.5px; }
+}
+@media(max-width:620px){
+  .ri26-about-facts > div { grid-template-columns:minmax(0,96px) minmax(0,1fr); column-gap:14px; }
+  .ri26-about-facts dd { font-size:13.5px; }
+}
+
+
+/* iOS Safari zooms the viewport when a focused field is under 16px. This
+   covers the homepage request form as well as the contact page. */
+@media(max-width:700px){
+  .ri26-form input:not([type=radio]),
+  .ri26-form textarea,
+  .ri26-form select { font-size:16px; }
+}
+
+
+/* ── No horizontal scroll, anywhere ───────────────────────────────────────
+   The section wrappers clip their own full-bleed children; this is the
+   backstop. Set on html so sticky positioning inside the page still works. */
+html { overflow-x:hidden; }
+body { overflow-x:clip; }
+
+
+/* ── About page hero ──────────────────────────────────────────────────────
+   Matches the contact hero, which is the treatment for a page without the
+   service pages split layout. */
+.ri26-about-hero {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  /* Bottom clears the wave so the buttons are never under it. */
+  padding:clamp(140px,13vw,190px) 0 clamp(156px,15vw,210px);
+  background:#0b2e4a;
+}
+.ri26-about-hero .ri26-hero-shade {
+  background:linear-gradient(90deg,#06243c 0%,rgba(6,36,60,.97) 42%,rgba(6,36,60,.86) 60%,rgba(6,36,60,.42) 100%);
+}
+.ri26-about-hero .ri26-hero-photo img {
+  filter:brightness(.84) saturate(.94);
+  object-position:center 48%;
+}
+.ri26-about-hero h1 {
+  margin-top:20px;
+  color:#fff;
+  font-size:clamp(38px,5vw,68px);
+  font-weight:770;
+  letter-spacing:-.06em;
+  line-height:1.0;
+}
+.ri26-about-hero h1 em { color:#6fd9e4; font-style:normal; }
+
+@media(max-width:700px){
+  .ri26-about-hero { padding-top:clamp(206px,34vw,250px); padding-bottom:clamp(88px,16vw,112px); }
+  .ri26-about-hero .ri26-hero-photo img { object-position:66% 44%; }
+}
+@media(max-width:620px){
+  .ri26-about-hero .ri26-hero-shade {
+    background:linear-gradient(0deg,#06243c 0%,rgba(6,36,60,.9) 46%,rgba(6,36,60,.6) 76%,rgba(6,36,60,.35) 100%);
+  }
+  .ri26-about-hero .voda-actions { display:grid; gap:10px; }
+  .ri26-about-hero .voda-btn { justify-content:center; }
+}
+
+
+/* ── Mobile drawer: scrolling nav ─────────────────────────────────────────
+   The link list outgrew every device once the services and areas were listed
+   in full. The sheet is a fixed-height column; the nav scrolls within it and
+   the header and actions stay put. */
+.voda-mobile-sheet {
+  /* A flex child will not shrink below its content without this. */
+  min-height:0;
+  overflow:hidden;
+  height:100vh;
+  height:100dvh;
+  max-height:100dvh;
+}
+.voda-mobile-nav {
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  /* Room for the fade and the scrollbar, so links are not clipped. */
+  padding-right:4px;
+  scrollbar-width:thin;
+  scrollbar-color:#bcd4e0 transparent;
+}
+.voda-mobile-nav::-webkit-scrollbar { width:4px; }
+.voda-mobile-nav::-webkit-scrollbar-thumb { border-radius:4px; background:#bcd4e0; }
+.voda-mobile-nav::-webkit-scrollbar-track { background:transparent; }
+
+/* The actions keep their place at the foot without stretching the column. */
+.voda-mobile-sheet-actions {
+  flex:none;
+  margin-top:0;
+  border-top:1px solid #dcebf1;
+}
+.voda-mobile-sheet-kicker { flex:none; }
+.voda-mobile-sheet [data-slot="sheet-header"] { flex:none; }
+
+/* Short viewports: tighten the rows so more of the list is visible at once. */
+@media(max-height:720px){
+  .voda-mobile-nav-link { min-height:50px; }
+  .voda-mobile-area-links { gap:5px; padding:10px 2px 14px; }
+  .voda-mobile-area-links a { min-height:33px; }
+  .voda-mobile-sheet-kicker { margin-top:22px; }
+  .voda-mobile-sheet-actions a { min-height:48px; }
+}
+
+
+/* The stacked step rows run to the full width of the wrap; a measure cap is
+   only wanted on the wider tablet sizes, where a line would otherwise run
+   too long to scan. */
+
+
+/* ── Trust strip: wrapped labels ──────────────────────────────────────────
+   Between the phone layout and the full desktop row the cells are too narrow
+   for the longest label on one line, so the text wraps. Top-aligned so the
+   titles line up across cells regardless of how many lines each takes. */
+@media(min-width:701px) and (max-width:1199px){
+  .voda-trust-strip-row { grid-template-columns:1fr 1fr; }
+  .voda-trust-strip-row > div { justify-content:flex-start; padding:20px 22px; }
+  /* Two rows of two: the right cell of each pair has no divider, and the
+     bottom pair no underline. */
+  .voda-trust-strip-row > div:nth-child(2n) { border-right:0; }
+  .voda-trust-strip-row > div:nth-child(-n+2) { border-bottom:1px solid #dfebef; }
+  .voda-trust-strip-logo { justify-content:center; }
 }
