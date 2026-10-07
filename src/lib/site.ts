@@ -19,12 +19,17 @@ export const site = {
     areas: serviceAreas.map((area) => area.name),
     radius: "Ventura County and nearby communities",
     hours: "24/7 emergency line",
+    officeHours: "Mon-Fri, 8am-5pm",
+    /* Shown on the contact page and used to centre the Google Maps embed.
+       Replace with the real street address — the map keys off this string, so
+       nothing else needs changing when it does. */
+    address: "Camarillo, CA 93010",
     response: "Call for current arrival guidance",
   },
   nav: [
     { label: "Services", href: "/#services" },
-    { label: "Our process", href: "/#process" },
-    { label: "Why RestoreIQ", href: "/#why-us" },
+    { label: "About us", href: "/about" },
     { label: "Service areas", href: "/#coverage" },
+    { label: "Contact", href: "/contact" },
   ],
 } as const;
