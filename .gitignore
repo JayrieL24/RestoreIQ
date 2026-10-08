@@ -29,3 +29,4 @@ tsconfig.tsbuildinfo
 # Local code-assistant project state
 .serena/
 .env*.local
+/output/responsive-audit/

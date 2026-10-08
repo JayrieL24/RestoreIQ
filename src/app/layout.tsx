@@ -6,6 +6,8 @@ import "./globals.css";
 import "./about-story.css";
 import "./voda-rebuild.css";
 import "./revision-2026.css";
+import "./about-reference.css";
+import "./responsive-fixes.css";
 
 import { site } from "@/lib/site";
 import { Providers } from "@/components/providers";

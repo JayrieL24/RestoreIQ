@@ -10713,10 +10713,12 @@ main:has(.ri26-paths) .ri26-cause-list .ri26-cause-no { color:rgba(255,255,255,.
   grid-column:2;
   display:block;
   color:var(--ri26-ink);
-  font-size:19px;
-  font-weight:780;
-  letter-spacing:-.042em;
-  line-height:1.16;
+  /* The cause is the heading of its row; at 19px against 13.5px body it did
+     not carry. Scales with the viewport so it stays dominant everywhere. */
+  font-size:clamp(26px,2.5vw,34px);
+  font-weight:800;
+  letter-spacing:-.045em;
+  line-height:1.14;
   text-transform:none;
 }
 .ri26-svc-intro-causes li span {
@@ -10742,15 +10744,38 @@ main:has(.ri26-paths) .ri26-cause-list .ri26-cause-no { color:rgba(255,255,255,.
   }
   .ri26-svc-intro-lede { max-width:none; }
 }
+/* Stacked, the list runs the full width on its own and the hairline rows read
+   as bare. Cards give it the same weight as the card sections around it.
+   Mobile and tablet only: on desktop the list sits beside the stat column,
+   where the plain treatment is deliberate. */
+@media(max-width:1000px){
+  .ri26-svc-intro-causes ul { display:grid; gap:10px; margin-top:15px; }
+  .ri26-svc-intro-causes li {
+    padding:15px 16px;
+    border:1px solid #e3edf3;
+    border-bottom:1px solid #e3edf3;
+    border-radius:14px;
+    background:#fff;
+    box-shadow:
+      0 1px 2px rgba(9,42,64,.05),
+      0 10px 22px -14px rgba(9,42,64,.18);
+  }
+  /* The hairline divider belonged to the flat list; cards carry their own. */
+  .ri26-svc-intro-causes li:last-child { padding-bottom:15px; }
+}
 @media(max-width:620px){
   .ri26-svc-intro-lead h2 br { display:none; }
   .ri26-svc-intro-facts > div { grid-template-columns:minmax(0,74px) minmax(0,1fr); column-gap:14px; }
   .ri26-svc-intro-facts dd { font-size:13.5px; }
   .ri26-svc-intro-lede { font-size:18px; }
   .ri26-svc-intro-body { font-size:15.5px; }
-  .ri26-svc-intro-causes li { padding:12px 0; column-gap:11px; }
-  .ri26-svc-intro-causes li::before { width:8px; height:8px; margin-top:7px; }
-  .ri26-svc-intro-causes li b { font-size:17px; }
+  .ri26-svc-intro-causes ul { gap:8px; }
+  .ri26-svc-intro-causes li { padding:13px 13px; column-gap:11px; border-radius:12px; }
+  .ri26-svc-intro-causes li:last-child { padding-bottom:13px; }
+  .ri26-svc-intro-causes li::before { width:9px; height:9px; margin-top:8px; }
+  /* Still the dominant element on a phone: the clamp floor would land at
+     26px here, and this keeps it there rather than dropping back down. */
+  .ri26-svc-intro-causes li b { font-size:26px; }
   .ri26-svc-intro-causes li span { font-size:13px; }
 }
 
@@ -11382,7 +11407,11 @@ main:has(.ri26-paths) .ri26-cause-list .ri26-cause-no { color:rgba(255,255,255,.
 }
 
 @media(max-width:1000px){
-  .ri26-steps-grid { grid-template-columns:repeat(3,minmax(0,240px)); gap:clamp(20px,2.8vw,34px); }
+  /* Two columns, not three: five cards over three left 04 and 05 on a ragged
+     half-empty row. Two up with the last spanning both reads as 2 + 2 + 1. */
+  .ri26-steps-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(20px,2.8vw,34px); }
+  .ri26-steps-grid > li:last-child { grid-column:1 / -1; }
+  .ri26-steps-grid > li:last-child p { max-width:34ch; }
   /* A divider between wrapped rows would separate non-adjacent stages. */
   .ri26-steps-grid > li + li::before { content:none; }
 }
@@ -11692,8 +11721,50 @@ main:has(.ri26-paths) .ri26-cause-list .ri26-cause-no { color:rgba(255,255,255,.
   .ri26-gallery-rail::before { border-left:1px solid #d3e2ea; }
 }
 
+/* The two badges sit side by side at their own content width — the same size
+   the single card was — rather than stretching to fill the row. */
+.ri26-gallery-badges {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  flex:none;
+}
+.ri26-gallery-badges .ri26-gallery-badge { width:fit-content; }
+
+/* Below 1100px the pair wraps onto its own row beneath the heading and
+   centres there, rather than being squeezed beside it. */
+/* Below 1340px the pair drops onto its own row under the heading and centres
+   there; above that there is room for it beside the heading. */
+@media(max-width:1340px){
+  .ri26-gallery-head { justify-content:center; }
+  .ri26-gallery-head > div:first-child { max-width:none; flex:1 1 100%; }
+  .ri26-gallery-badges { margin-inline:auto; justify-content:center; }
+}
+/* Under ~700px the pair can no longer hold its natural 290px, so the cards
+   share the row equally and shrink instead — the copy takes a second line,
+   which reads better than stacking one card above the other. */
 @media(max-width:700px){
-  .ri26-gallery-badge { width:100%; }
+  .ri26-gallery-badges {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+    width:100%;
+  }
+  .ri26-gallery-badges .ri26-gallery-badge {
+    width:auto;
+    align-items:flex-start;
+    gap:10px;
+    padding:12px 13px;
+  }
+  .ri26-gallery-badges .ri26-gallery-badge > span { width:34px; height:34px; }
+  .ri26-gallery-badges .ri26-gallery-badge svg { width:17px; height:17px; }
+  .ri26-gallery-badge b { font-size:13px; line-height:1.25; }
+  .ri26-gallery-badge small { font-size:10.5px; line-height:1.4; }
+}
+/* Below 452px two columns leave under ~110px of text each, which breaks the
+   copy into three or more lines — stacked is cleaner there. */
+@media(max-width:451px){
+  .ri26-gallery-badges { grid-template-columns:minmax(0,1fr); }
 }
 
 @media(min-width:861px){

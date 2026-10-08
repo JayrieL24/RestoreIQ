@@ -2662,6 +2662,32 @@
   .voda-equipment { top: 34%; }
 }
 
+/* 701-950px: the render kept its 390px width while the column shrank to
+   ~300-430px, so it spanned the full column and sat straight over the 24/7
+   badge (a 108x51px overlap at every width in the band). Scale it to the
+   column and lift the badge above its reach. */
+@media (min-width: 701px) and (max-width: 950px) {
+  .voda-equipment {
+    width: min(300px, 74%);
+    height: auto;
+    aspect-ratio: 510 / 330;
+    top: 38%;
+  }
+  /* The photo is a circle filling the column, so the badge has to clear its
+     arc as well as the render and the readout. Below the circle's base and
+     a touch past the column edge is the one position clear of all three;
+     96px keeps it off the render, which the 108px size overlapped. */
+  .voda-badge {
+    top: auto;
+    bottom: 60px;
+    right: -10px;
+    width: 96px;
+    height: 96px;
+  }
+  .voda-badge b { font-size: 18px; }
+  .voda-badge small { font-size: 8px; max-width: 70px; }
+}
+
 /* ── Work: ground ───────────────────────────────────────────────────────
    The last light section still on flat #fff with no texture. Same three
    layers as .voda-services and .voda-why: tinted pooling, the 74px
@@ -2883,8 +2909,20 @@
    the 950px two-column tablet layout must be repeated here. */
 @media (max-width: 950px) {
   .voda-response-copy .voda-feature-list {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 20px 26px;
+  }
+}
+
+/* Three items in two columns: the third spans the row and is centred under
+   the pair above, rather than sitting in column one beside an empty cell.
+   Bounded at 701px — below that the list is a single column, where a
+   half-width centred row would just read as indented. */
+@media (min-width: 701px) and (max-width: 950px) {
+  .voda-response-copy .voda-feature-list > li:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - 13px);
+    margin-inline: auto;
   }
 }
 

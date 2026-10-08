@@ -1,0 +1,65 @@
+/* Comfortable touch targets without enlarging the visible pagination dots. */
+.home-page .home-section-cta { display:flex; justify-content:center; margin-top:28px; }
+.home-page .home-section-cta.is-left { justify-content:flex-start; }
+.home-page .home-request-actions { display:flex; align-items:flex-end; gap:20px; margin-top:28px; }
+.home-page .home-request-actions .voda-request-call { margin-top:0; flex-shrink:0; }
+.home-page .home-request-questions { flex:0 0 auto; min-width:max-content; }
+.home-page .home-request-questions .voda-btn { white-space:nowrap; }
+.home-page .home-request-questions > p { color:#c6d7df; font-size:14px; }
+.home-page .home-request-questions .home-section-cta { margin-top:10px; }
+@media(max-width:1200px) {
+  .home-page .home-request-actions { gap:12px; }
+  .home-page .home-request-actions .voda-request-call { gap:8px; padding:10px; }
+  .home-page .home-request-actions .voda-request-call > span { width:34px; height:34px; }
+  .home-page .home-request-actions .voda-request-call b { font-size:14px; }
+  .home-page .home-request-questions > p { font-size:12px; }
+  .home-page .home-request-questions .voda-btn { padding:12px; gap:6px; white-space:nowrap; }
+}
+@media(max-width:1100px) {
+  .home-page .voda-request-layout { grid-template-columns:minmax(0,1fr); }
+}
+@media(max-width:360px) {
+  .home-page .home-request-actions { gap:8px; }
+  .home-page .home-request-questions .voda-btn { padding-inline:10px; }
+}
+.home-page .home-section-cta .voda-btn { min-height:44px; height:auto; padding-block:14px; text-align:center; max-width:100%; }
+.home-page .home-section-cta .voda-btn svg { flex-shrink:0; }
+.home-page .voda-why-cta, .home-page .voda-faq-cta { flex-wrap:wrap; }
+.home-page .voda-faq-cta a.voda-btn.primary {
+  background:#0b3044; color:#fff; border:1px solid #0b3044;
+}
+.home-page .voda-faq-cta a.voda-btn.primary:hover { background:#12445d; border-color:#12445d; }
+.home-page .voda-faq-cta a.voda-faq-cta-alt {
+  background:#e6f7fb; color:#087fb3; border:1px solid #b8dfea;
+}
+.home-page .voda-faq-cta a.voda-faq-cta-alt:hover { background:#d4f0f7; color:#0b3044; border-color:#8acbdc; }
+.voda-nav-menu, .voda-nav-dropdown-trigger { min-height:44px; }
+.voda-nav-dropdown-panel a, .voda-mobile-area-links a { min-height:44px; }
+.ri26-choice-row label { min-height:44px; display:inline-flex; align-items:center; }
+.ri26-select-list [role="option"] { min-height:44px; }
+.ba-nav { width:44px; height:44px; }
+.ba-dots { gap:0; margin-top:4px; }
+.ba-dots button, .ba-dots button.active {
+  width:44px; height:44px; display:grid; place-items:center;
+  border-radius:0; background:transparent;
+}
+.ba-dots button::before { content:""; width:6px; height:6px; border-radius:50%; background:#cad7dc; }
+.ba-dots button.active::before { width:20px; border-radius:5px; background:#13cbd3; }
+.voda-nav-dropdown.is-open .voda-nav-dropdown-panel { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+.voda-nav-dropdown:not(.is-open) .voda-nav-dropdown-panel { opacity:0; visibility:hidden; pointer-events:none; }
+@media(min-width:701px) and (max-width:1100px) {
+  .voda-response-copy { min-width:0; transform:none; margin-right:0; }
+  .voda-response-grid { gap:40px; }
+  .voda-response-copy h2 { font-size:clamp(30px,4vw,42px); }
+  .voda-response-copy .voda-feature-list { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+  .voda-response-copy .voda-feature-list > li:last-child { grid-column:1 / -1; width:calc(50% - 10px); margin-inline:auto; }
+}
+@media(max-width:700px) {
+  .ri26-contact-hero { min-height:0; padding-top:150px; padding-bottom:110px; }
+}
+@media(max-width:480px) {
+  .ri26-contact-form .ri26-field-grid { grid-template-columns:1fr; }
+}
+@media(max-height:720px) {
+  .voda-mobile-area-links a { min-height:44px; }
+}
