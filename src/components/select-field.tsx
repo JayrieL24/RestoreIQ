@@ -126,7 +126,7 @@ export function SelectField({
               role="option"
               aria-selected={option === value}
               className={index === active ? "is-active" : undefined}
-              onPointerEnter={() => setActive(index)}
+              onPointerMove={() => setActive(index)}
               onClick={() => commit(index)}
             >
               <span>{option}</span>

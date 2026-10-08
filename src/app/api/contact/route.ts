@@ -27,15 +27,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: "Enter a valid email address." }, { status: 400 });
   }
 
-  const webhook = process.env.RESTOREIQ_LEAD_WEBHOOK_URL;
-  if (!webhook) {
-    return NextResponse.json({ message: "Online messages are not connected yet." }, { status: 503 });
-  }
-
   // A phone number is required when the reply should come by call or text.
   const preferredContact = text(body.preferredContact);
   if ((preferredContact === "Call" || preferredContact === "Text") && !text(body.phone)) {
     return NextResponse.json({ message: "Add a phone number when you prefer a call or text." }, { status: 400 });
+  }
+
+  const webhook = process.env.RESTOREIQ_LEAD_WEBHOOK_URL;
+  if (!webhook) {
+    return NextResponse.json({ message: "Online messages are not connected yet." }, { status: 503 });
   }
 
   const enquiry = {

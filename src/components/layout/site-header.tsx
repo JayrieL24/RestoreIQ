@@ -57,22 +57,12 @@ export function SiteHeader() {
 
           <nav aria-label="Main navigation" className="voda-desktop-nav">
             {site.nav.map((item) => {
-              if (item.label === "Service areas") return (
-                <div className="voda-nav-dropdown" key={item.href}>
-                  <Link href={item.href} className="voda-nav-link voda-nav-dropdown-trigger">{item.label}<ChevronDown aria-hidden /></Link>
-                  <div className="voda-nav-dropdown-panel" aria-label="Service area pages">
-                    {serviceAreas.map((area) => <Link href={`/service-areas/${area.slug}`} key={area.slug}>{area.name}<ArrowUpRight aria-hidden /></Link>)}
-                  </div>
-                </div>
-              );
-              if (item.label === "Services") return (
-                <div className="voda-nav-dropdown" key={item.href}>
-                  <Link href={item.href} className="voda-nav-link voda-nav-dropdown-trigger">{item.label}<ChevronDown aria-hidden /></Link>
-                  <div className="voda-nav-dropdown-panel is-wide" aria-label="Service pages">
-                    {services.map((service) => <Link href={`/services/${service.id}`} key={service.id}>{service.shortTitle}<ArrowUpRight aria-hidden /></Link>)}
-                  </div>
-                </div>
-              );
+              if (item.label === "Service areas" || item.label === "Services") {
+                const isServices = item.label === "Services";
+                return <NavDropdown key={item.href} label={item.label} wide={isServices} links={isServices
+                  ? services.map(service => ({ href: `/services/${service.id}`, label: service.shortTitle }))
+                  : serviceAreas.map(area => ({ href: `/service-areas/${area.slug}`, label: area.name }))} />;
+              }
               return <Link key={item.href} href={item.href} className="voda-nav-link">{item.label}</Link>;
             })}
           </nav>
@@ -86,7 +76,7 @@ export function SiteHeader() {
               </span>
             </a>
 
-            <Link className="voda-nav-cta" href="/contact">
+            <Link className="voda-nav-cta" href="/#request-service">
               {site.cta.request}
               <ArrowUpRight aria-hidden />
             </Link>
@@ -124,7 +114,7 @@ export function SiteHeader() {
                     <PhoneIcon aria-hidden />
                     {site.cta.call} · {site.phone}
                   </a>
-                  <Link href="/contact" onClick={() => setOpen(false)}>
+                  <Link href="/#request-service" onClick={() => setOpen(false)}>
                     {site.cta.request} <ArrowUpRight aria-hidden />
                   </Link>
                 </div>
@@ -136,8 +126,31 @@ export function SiteHeader() {
 
       <div className={`ri26-mobile-bar${open ? " is-hidden" : ""}`} aria-label="Emergency actions">
         <a href={tel}><PhoneIcon aria-hidden /> {site.cta.call}</a>
-        <Link href="/contact"><ArrowUpRight aria-hidden /> {site.cta.request}</Link>
+        <Link href="/#request-service"><ArrowUpRight aria-hidden /> {site.cta.request}</Link>
       </div>
     </>
   );
+}
+
+function NavDropdown({ label, links, wide }: { label: string; links: { href: string; label: string }[]; wide: boolean }) {
+  const [open, setOpen] = React.useState(false);
+  const id = React.useId();
+  const root = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    if (!open) return;
+    const closeOutside = (event: PointerEvent) => {
+      if (!root.current?.contains(event.target as Node)) setOpen(false);
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    return () => document.removeEventListener("pointerdown", closeOutside);
+  }, [open]);
+  return <div ref={root} className={`voda-nav-dropdown${open ? " is-open" : ""}`}
+    onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false); }}
+    onKeyDown={event => { if (event.key === "Escape") { setOpen(false); root.current?.querySelector("button")?.focus(); } }}>
+    <button type="button" className="voda-nav-link voda-nav-dropdown-trigger" aria-expanded={open} aria-controls={id}
+      onClick={() => setOpen(value => !value)}>{label}<ChevronDown aria-hidden /></button>
+    <div id={id} className={`voda-nav-dropdown-panel${wide ? " is-wide" : ""}`} aria-label={`${label} pages`}>
+      {links.map(link => <Link key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.label}<ArrowUpRight aria-hidden /></Link>)}
+    </div>
+  </div>;
 }

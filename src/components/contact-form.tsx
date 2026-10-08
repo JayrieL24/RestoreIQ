@@ -26,6 +26,7 @@ const SUBJECTS = [
 export function ContactForm() {
   const [status, setStatus] = React.useState<Status>("idle");
   const [message, setMessage] = React.useState("");
+  const [preferredContact, setPreferredContact] = React.useState("Email");
   const tel = site.phone.replace(/[^\d+]/g, "");
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
@@ -69,7 +70,7 @@ export function ContactForm() {
         <label><span>Email <b>*</b></span><input name="email" type="email" autoComplete="email" required /></label>
       </div>
       <div className="ri26-field-grid">
-        <label><span>Phone <small>(optional)</small></span><input name="phone" type="tel" inputMode="tel" autoComplete="tel" /></label>
+        <label><span>Phone {preferredContact === "Email" ? <small>(optional)</small> : <b>*</b>}</span><input name="phone" type="tel" inputMode="tel" autoComplete="tel" required={preferredContact !== "Email"} /></label>
         <label>
           <span>Property city <b>*</b></span>
           <input name="city" list="contact-area-cities" autoComplete="address-level2" required />
@@ -86,7 +87,7 @@ export function ContactForm() {
       <fieldset>
         <legend>Preferred contact method <b>*</b></legend>
         <div className="ri26-choice-row">
-          {["Call", "Text", "Email"].map((method) => <label key={method}><input type="radio" name="preferredContact" value={method} required defaultChecked={method === "Email"} /> {method}</label>)}
+          {["Call", "Text", "Email"].map((method) => <label key={method}><input type="radio" name="preferredContact" value={method} required checked={preferredContact === method} onChange={() => setPreferredContact(method)} /> {method}</label>)}
         </div>
       </fieldset>
       <div className="ri26-field-grid ri26-message-grid">
