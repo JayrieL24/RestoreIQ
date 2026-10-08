@@ -26,7 +26,7 @@ export default function AboutPage() {
           <div className="about-reference-copy">
             <p className="about-reference-eyebrow">About RestoreIQ</p>
             <h1><span>People. Response.</span><em>Restoration.</em></h1>
-            <p className="about-reference-description">We're a Ventura County restoration company helping homeowners and businesses recover from water, fire, smoke and other property damage, with expertise, compassion, and a commitment to doing things right.</p>
+            <p className="about-reference-description">We&apos;re a Ventura County restoration company helping homeowners and businesses recover from water, fire, smoke and other property damage, with expertise, compassion, and a commitment to doing things right.</p>
             <div className="about-reference-actions">
               <a className="about-reference-button primary" href={`tel:${tel}`}><Phone aria-hidden /> Call 24/7</a>
               <a className="about-reference-button outline" href="#our-story">Our story <ArrowRight aria-hidden /></a>
@@ -97,7 +97,7 @@ export default function AboutPage() {
             </article>
             <article className="about-standard-card">
               <h3><span className="about-standard-icon"><Phone aria-hidden /></span>24/7 Emergency</h3>
-              <p>We're ready around the clock, 365 days a year.</p>
+              <p>We&apos;re ready around the clock, 365 days a year.</p>
               <div className="about-standard-photo"><Image src="/about/standards-emergency.png" alt="RestoreIQ service van responding to a residential property at night" fill sizes="(max-width: 600px) 90vw, (max-width: 1100px) 40vw, 18vw" /></div>
             </article>
           </div>

@@ -53,10 +53,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="ri26-hero-copy-col">
           <p className="ri26-kicker"><Icon aria-hidden /> Ventura County &middot; 24/7</p>
           <h1>{service.title}</h1>
-          <p className="ri26-detail-copy">{service.subtitle} for homes and businesses across Ventura County.</p>
+          <p className="ri26-detail-copy">{service.subtitle} for homes and businesses.</p>
           <div className="voda-actions">
             <a className="voda-btn primary" href={`tel:${tel}`}><Phone aria-hidden /> {site.cta.call}</a>
-            <Link className="voda-btn glass" href="/contact">{site.cta.request} <ArrowRight aria-hidden /></Link>
+            <Link className="voda-btn glass" href="/#request-service">{site.cta.request} <ArrowRight aria-hidden /></Link>
           </div>
         </div>
       </div>
@@ -71,8 +71,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <div className="voda-wrap ri26-svc-intro-split">
         <div className="ri26-svc-intro-lead">
           <span className="voda-eyebrow">What this covers</span>
-          <h2 id="intro-heading">{intro.lineOne}<br />{intro.lineTwo}<br /><em>{intro.accent}</em></h2>
-          <p className="ri26-svc-intro-lede">{service.subtitle}.</p>
+          {/* The spaces matter: below 620px the <br> are display:none, and
+              without them the lines run together ("damageyou", "rarelyall"). */}
+          <h2 id="intro-heading">{intro.lineOne}<br />{" "}{intro.lineTwo}<br />{" "}<em>{intro.accent}</em></h2>
           <dl className="ri26-svc-intro-facts">
             <div>
               <dt>Response</dt>
@@ -80,7 +81,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </div>
             <div>
               <dt>Covering</dt>
-              <dd>{site.coverage.areas.length} Ventura County cities</dd>
+              <dd>{site.coverage.areas.length} local communities</dd>
             </div>
             <div>
               <dt>Insurance</dt>
@@ -113,7 +114,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </div>
             <div className="ri26-svc-scope-count">
               <b>24/7</b>
-              <span>emergency line, across<br />{site.coverage.areas.length} Ventura County cities</span>
+              <span>emergency line, across<br />{site.coverage.areas.length} local communities</span>
             </div>
           </div>
         </div>
@@ -137,7 +138,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="voda-wrap ri26-help-grid">
           <div className="ri26-help-copy">
             <span className="voda-eyebrow">How we help</span>
-            <h2 id="help-heading">{help.lineOne}<br />{help.lineTwo}<br /><em>{help.accent}</em></h2>
+            <h2 id="help-heading">{help.lineOne}<br />{" "}{help.lineTwo}<br />{" "}<em>{help.accent}</em></h2>
             <p>{help.lede}</p>
           </div>
           <figure className="ri26-help-plan">
@@ -269,7 +270,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <ul className="voda-cta-band-points">
               <li><Check aria-hidden />Most calls answered live</li>
               <li><Check aria-hidden />Insurance assistance</li>
-              <li><Check aria-hidden />Ventura County crews</li>
+              <li><Check aria-hidden />Local restoration crews</li>
             </ul>
           </div>
           <div className="voda-cta-band-actions">

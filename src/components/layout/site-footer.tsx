@@ -100,7 +100,7 @@ export function SiteFooter() {
           <p>
             &copy; {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
-          <p>24/7 emergency restoration &middot; Ventura County</p>
+          <p>Local restoration crews &middot; Available 24/7</p>
         </div>
       </div>
     </footer>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, BadgeCheck, Check, ClipboardCheck, Clock3, FileText, MapPin, Phone, ShieldCheck, Siren } from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 import { BeforeAfterShowcase } from "@/components/before-after-showcase";
@@ -15,7 +16,7 @@ import { site } from "@/lib/site";
 
 export default function HomePage() {
   const phone = site.phone.replace(/[^\d+]/g, "");
-  return <div className="voda-site">
+  return <div className="voda-site home-page">
     <section className="voda-hero">
       <Image src="/restoreiq-hero-tall-v5.jpg" alt="RestoreIQ technician setting professional drying equipment inside a home" fill priority className="voda-cover voda-hero-image" sizes="100vw" />
       <div className="voda-hero-wash" /><div aria-hidden className="voda-hero-orb" />
@@ -38,7 +39,7 @@ export default function HomePage() {
             <span className="voda-hero-float-icon" aria-hidden><Clock3 /></span>
             <span className="voda-hero-float-text">
               <b><i className="voda-hero-float-status" aria-hidden />Crews on call now</b>
-              <small>Ventura County · 24/7</small>
+              <small>Local team · 24/7</small>
               <em>Most calls answered live</em>
             </span>
           </div>
@@ -52,7 +53,7 @@ export default function HomePage() {
       <div className="voda-trust-strip-logo"><Image src="/logos/iicrc.png" alt="IICRC certification" width={150} height={71} /></div>
       <div><ShieldCheck aria-hidden /><span><b>We accept all insurance carriers</b><small>Insurance assistance available</small></span></div>
       <div><Clock3 aria-hidden /><span><b>24/7 availability</b><small>Emergency line open day and night</small></span></div>
-      <div><MapPin aria-hidden /><span><b>Ventura County</b><small>Local restoration service</small></span></div>
+      <div><MapPin aria-hidden /><span><b>Local team</b><small>Restoration specialists</small></span></div>
     </div></section>
 
     <section className="voda-process voda-process-brief" id="process"><div className="voda-wrap">
@@ -86,7 +87,7 @@ export default function HomePage() {
       <ServiceRail items={services.map(({ id, shortTitle, subtitle, icon: Icon }) => ({ title:shortTitle, copy:subtitle, icon:<Icon aria-hidden />, href:`/services/${id}` }))} />
     </div></section>
 
-    <WhyChoose />
+    <WhyChoose showAboutLink />
 
     <section className="voda-brief-insurance" id="insurance"><div className="voda-wrap">
       <Reveal className="voda-heading light-heading"><span className="voda-eyebrow cyan">Insurance assistance</span><h2>You choose your restoration company.</h2><p>RestoreIQ accepts all insurance carriers and can communicate directly with the adjuster when you authorize it.</p></Reveal>
@@ -98,6 +99,7 @@ export default function HomePage() {
       <p className="voda-insurance-footnote">Coverage and payment remain subject to the customer&apos;s policy and the carrier&apos;s decisions.</p>
       <p className="ri26-carrier-label">We accept all insurance carriers</p>
       <InsuranceBanner />
+      <HomeSectionLink href="/contact" light>Have Questions about insurance?</HomeSectionLink>
     </div></section>
 
     <section className="voda-work" id="work"><div className="voda-transform-wrap"><Reveal className="voda-heading voda-work-heading"><span className="voda-eyebrow">Before and after projects</span><h2>See the results<br /><em>for yourself.</em></h2><p>Drag each handle to compare the affected area with the completed restoration.</p></Reveal><BeforeAfterShowcase /></div></section>
@@ -117,7 +119,7 @@ export default function HomePage() {
           <ul className="voda-cta-band-points">
             <li><Check aria-hidden />Most calls answered live</li>
             <li><Check aria-hidden />Insurance assistance</li>
-            <li><Check aria-hidden />Ventura County crews</li>
+            <li><Check aria-hidden />Local restoration crews</li>
           </ul>
         </Reveal>
         <Reveal delay={0.08} className="voda-cta-band-actions">
@@ -136,11 +138,15 @@ export default function HomePage() {
       </div>
     </section>
 
-    <Faq />
+    <Faq showContactLink />
 
     <section className="voda-request-section" id="request-service"><Image src="/Real-life-images/MSP_7706.jpg" alt="RestoreIQ technician restoring a water-damaged home" fill className="voda-cover" sizes="100vw" /><div className="voda-final-wash" /><div className="voda-wrap voda-request-layout">
-      <Reveal className="voda-request-copy"><span className="voda-eyebrow light">Emergency help, day or night</span><h2>Can’t call? Send the essentials.</h2><p>The phone remains the fastest option when water is actively spreading. Otherwise, use the short request form and the team will follow up using your preferred method.</p><a className="voda-request-call" href={`tel:${phone}`}><span><Siren aria-hidden /></span><div><small>{site.cta.call}</small><b>{site.phone}</b></div></a></Reveal>
+      <Reveal className="voda-request-copy"><span className="voda-eyebrow light">Emergency help, day or night</span><h2>Can’t call? Send the essentials.</h2><p>The phone remains the fastest option when water is actively spreading. Otherwise, use the short request form and the team will follow up using your preferred method.</p><div className="home-request-actions"><a className="voda-request-call" href={`tel:${phone}`}><span><Siren aria-hidden /></span><div><small>{site.cta.call}</small><b>{site.phone}</b></div></a><div className="home-request-questions"><p>Still have questions?</p><HomeSectionLink href="/contact" light align="left">Contact us</HomeSectionLink></div></div></Reveal>
       <Reveal delay={.08}><RequestServiceForm /></Reveal>
     </div></section>
   </div>;
+}
+
+function HomeSectionLink({ href, children, light = false, align = "center" }: { href: string; children: React.ReactNode; light?: boolean; align?: "left" | "center" }) {
+  return <div className={`home-section-cta${align === "left" ? " is-left" : ""}`}><Link className={`voda-btn ${light ? "glass" : "primary"}`} href={href}>{children}<ArrowRight aria-hidden /></Link></div>;
 }
