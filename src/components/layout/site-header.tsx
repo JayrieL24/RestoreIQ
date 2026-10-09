@@ -136,6 +136,7 @@ function NavDropdown({ label, links, wide }: { label: string; links: { href: str
   const [open, setOpen] = React.useState(false);
   const id = React.useId();
   const root = React.useRef<HTMLDivElement>(null);
+  const mouseHover = React.useRef(false);
   React.useEffect(() => {
     if (!open) return;
     const closeOutside = (event: PointerEvent) => {
@@ -145,10 +146,12 @@ function NavDropdown({ label, links, wide }: { label: string; links: { href: str
     return () => document.removeEventListener("pointerdown", closeOutside);
   }, [open]);
   return <div ref={root} className={`voda-nav-dropdown${open ? " is-open" : ""}`}
+    onPointerEnter={event => { if (event.pointerType === "mouse") { mouseHover.current = true; setOpen(true); } }}
+    onPointerLeave={event => { if (event.pointerType === "mouse") { mouseHover.current = false; setOpen(false); } }}
     onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false); }}
     onKeyDown={event => { if (event.key === "Escape") { setOpen(false); root.current?.querySelector("button")?.focus(); } }}>
     <button type="button" className="voda-nav-link voda-nav-dropdown-trigger" aria-expanded={open} aria-controls={id}
-      onClick={() => setOpen(value => !value)}>{label}<ChevronDown aria-hidden /></button>
+      onClick={event => setOpen(value => event.detail > 0 && mouseHover.current ? true : !value)}>{label}<ChevronDown aria-hidden /></button>
     <div id={id} className={`voda-nav-dropdown-panel${wide ? " is-wide" : ""}`} aria-label={`${label} pages`}>
       {links.map(link => <Link key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.label}<ArrowUpRight aria-hidden /></Link>)}
     </div>
