@@ -19,28 +19,28 @@ const cases: Case[] = [
     slug: "carpet",
     beforeAlt: "Saturated carpet and wall after a supply line leak",
     afterAlt: "Dry restored carpet and repaired wall",
-    note: "Supply-line leak — extraction and structural drying.",
+    note: "Supply-line leak, extraction and structural drying.",
   },
   {
     title: "Drywall Restoration",
     slug: "drywall",
     beforeAlt: "Water-damaged bedroom wall before restoration",
     afterAlt: "Rebuilt and repainted bedroom wall",
-    note: "Plumbing loss — drywall repair and refinishing.",
+    note: "Plumbing loss, drywall repair and refinishing.",
   },
   {
     title: "Hardwood Recovery",
     slug: "hardwood",
     beforeAlt: "Cupped wet hardwood beside a leaking dishwasher",
     afterAlt: "Dry repaired hardwood and finished wall",
-    note: "Appliance leak — hardwood dried in place and saved.",
+    note: "Appliance leak, hardwood dried in place and saved.",
   },
   {
     title: "Mold Remediation",
     slug: "mould",
     beforeAlt: "Opened laundry wall with localized mold damage",
     afterAlt: "Rebuilt laundry wall after remediation",
-    note: "Localized moisture — contained removal and rebuild.",
+    note: "Localized moisture, contained removal and rebuild.",
   },
 ];
 

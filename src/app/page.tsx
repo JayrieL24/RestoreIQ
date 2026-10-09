@@ -83,7 +83,7 @@ export default function HomePage() {
     </section>
 
     <section className="voda-services" id="services"><div className="voda-wrap">
-      <Reveal className="voda-heading"><span className="voda-eyebrow">Emergency restoration services</span><h2>Focused help for damage<br /><em>that cannot wait.</em></h2><p>Water, fire, contaminated-water, contents, and reconstruction services—without unrelated home-service offerings.</p></Reveal>
+      <Reveal className="voda-heading"><span className="voda-eyebrow">Emergency restoration services</span><h2>Focused help for damage<br /><em>that cannot wait.</em></h2><p>Water, fire, contaminated-water, contents, and reconstruction services, without unrelated home-service offerings.</p></Reveal>
       <ServiceRail items={services.map(({ id, shortTitle, subtitle, icon: Icon }) => ({ title:shortTitle, copy:subtitle, icon:<Icon aria-hidden />, href:`/services/${id}` }))} />
     </div></section>
 

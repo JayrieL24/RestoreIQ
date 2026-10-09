@@ -29,9 +29,9 @@ export default function ContactPage() {
             <p className="ri26-kicker"><Phone aria-hidden /> Ventura County &middot; 24/7</p>
             <h1>Talk to <em>RestoreIQ.</em></h1>
             <p className="ri26-detail-copy">
-              Call the emergency line for an active loss. For everything else — insurance,
-              billing, scheduling or a question about work already underway — send a message
-              and we will come back to you.
+              Call the emergency line for an active loss. For insurance, billing,
+              scheduling or questions about work already underway, send a message
+              and we will get back to you.
             </p>
             <div className="voda-actions">
               <a className="voda-btn primary" href={`tel:${tel}`}><Phone aria-hidden /> {site.cta.call}</a>

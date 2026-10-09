@@ -48,7 +48,7 @@ export function HouseCutaway({ paths }: { paths: HiddenPath[] }) {
         </div>
 
         <figcaption className="ri26-cut-caption">
-          <span>{current?.zone}</span> — {current?.reach}
+          <span>{current?.zone}</span>: {current?.reach}
         </figcaption>
       </figure>
 

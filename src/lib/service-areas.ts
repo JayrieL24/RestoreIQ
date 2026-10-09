@@ -25,7 +25,7 @@ export interface ServiceArea {
 }
 
 export const serviceAreas: ServiceArea[] = [
-  { name: "Camarillo", slug: "camarillo", permitAuthority: "City of Camarillo Building and Safety", airDistrict: "Ventura County Air Pollution Control District", lat: 34.2230, lng: -119.0326, intro: "Emergency water-damage help for homes, businesses, and multifamily properties throughout Camarillo.", localContext: "From Mission Oaks and Village at the Park to the neighborhoods around Old Town, Camarillo properties include slab-on-grade homes, two-story developments, commercial suites, and agricultural buildings. A useful restoration scope accounts for the assembly that is wet—not just the room where water first appeared.", propertyNotes: ["Slab and hard-surface moisture migration", "Appliance and supply-line leaks", "Commercial suite and warehouse losses"], nearby: ["Somis", "Santa Rosa Valley", "Oxnard", "Moorpark"], image: "/Real-life-images/MSP_7706.jpg", terrain: "valley", gallery: ["/Real-life-images/MSP_7706.jpg", "/Real-life-images/IMG_6585.jpg", "/Real-life-images/MSP_7604.jpg"], resultImage: "/Real-life-images/results/result-01.jpg", heroImage: "/city-service-images/realistic/camarillo.png" },
+  { name: "Camarillo", slug: "camarillo", permitAuthority: "City of Camarillo Building and Safety", airDistrict: "Ventura County Air Pollution Control District", lat: 34.2230, lng: -119.0326, intro: "Emergency water-damage help for homes, businesses, and multifamily properties throughout Camarillo.", localContext: "From Mission Oaks and Village at the Park to the neighborhoods around Old Town, Camarillo properties include slab-on-grade homes, two-story developments, commercial suites, and agricultural buildings. A useful restoration scope accounts for the assembly that is wet, not just the room where water first appeared.", propertyNotes: ["Slab and hard-surface moisture migration", "Appliance and supply-line leaks", "Commercial suite and warehouse losses"], nearby: ["Somis", "Santa Rosa Valley", "Oxnard", "Moorpark"], image: "/Real-life-images/MSP_7706.jpg", terrain: "valley", gallery: ["/Real-life-images/MSP_7706.jpg", "/Real-life-images/IMG_6585.jpg", "/Real-life-images/MSP_7604.jpg"], resultImage: "/Real-life-images/results/result-01.jpg", heroImage: "/city-service-images/realistic/camarillo.png" },
   { name: "Ventura", slug: "ventura", permitAuthority: "City of Ventura Building and Safety", airDistrict: "Ventura County Air Pollution Control District", lat: 34.2675, lng: -119.2548, intro: "Water extraction, drying, and restoration documentation across Ventura’s coastal and hillside neighborhoods.", localContext: "Ventura’s mix of older bungalows, hillside homes, beach-area properties, and newer construction creates very different water pathways. Crawlspaces, raised foundations, plaster finishes, and wind-driven rain each call for a different inspection approach.", propertyNotes: ["Raised-foundation and crawlspace drying", "Coastal storm and window intrusion", "Older plumbing and finish assemblies"], nearby: ["Pierpont Bay", "Midtown", "East Ventura", "Oak View"], image: "/Real-life-images/IMG_2342.jpg", terrain: "coastal", gallery: ["/Real-life-images/IMG_2342.jpg", "/Real-life-images/MSP_7577.jpg", "/Real-life-images/IMG_2347.jpg"], resultImage: "/Real-life-images/results/result-04.jpg", heroImage: "/city-service-images/realistic/ventura.png" },
   { name: "Oxnard", slug: "oxnard", permitAuthority: "City of Oxnard Building Division", airDistrict: "Ventura County Air Pollution Control District", lat: 34.2008, lng: -119.2147, intro: "24/7 restoration response for Oxnard residences, coastal properties, industrial spaces, and retail buildings.", localContext: "Oxnard losses range from appliance leaks in dense residential neighborhoods to roof or plumbing failures in large commercial footprints. Coastal exposure can complicate building-envelope leaks, while large open spaces require deliberate equipment zoning and monitoring.", propertyNotes: ["Coastal and building-envelope water entry", "Multifamily and attached housing", "Industrial and commercial drying zones"], nearby: ["Channel Islands Harbor", "RiverPark", "Port Hueneme", "Camarillo"], image: "/Real-life-images/MSP_7577.jpg", terrain: "coastal", gallery: ["/Real-life-images/MSP_7577.jpg", "/Real-life-images/MSP_7710-Edit.jpg", "/Real-life-images/IMG_2342.jpg"], resultImage: "/Real-life-images/results/result-06.jpg", heroImage: "/city-service-images/realistic/oxnard.png" },
   { name: "Thousand Oaks", slug: "thousand-oaks", permitAuthority: "City of Thousand Oaks Building Division", airDistrict: "Ventura County Air Pollution Control District", lat: 34.1918, lng: -118.8749, intro: "Measured water-damage restoration for Thousand Oaks homes and commercial properties.", localContext: "Thousand Oaks includes hillside properties, planned neighborhoods, custom homes, and busy commercial corridors. Water may move between levels, along engineered flooring, or into concealed wall and cabinet assemblies before a leak is discovered.", propertyNotes: ["Multi-level water migration", "Hardwood and engineered-floor drying", "Cabinet and wall-cavity inspection"], nearby: ["Newbury Park", "Westlake Village", "Oak Park", "Santa Rosa Valley"], image: "/Real-life-images/IMG_2347.jpg", terrain: "hillside", gallery: ["/Real-life-images/IMG_2347.jpg", "/Real-life-images/MSP_7581-Edit.jpg", "/Real-life-images/MSP_7706.jpg"], resultImage: "/Real-life-images/results/result-02.jpg", heroImage: "/city-service-images/realistic/thousand-oaks.png" },
@@ -79,7 +79,7 @@ export const jobStages = [
     reading: { label: 'Typical starting reading', value: '99.9%', note: 'Saturated carpet and pad' },
   },
   {
-    stage: 'Day 1–2',
+    stage: 'Day 1 to 2',
     window: 'Same visit, once mapped',
     label: 'Extraction and setup',
     caption: 'Standing water removed, then air movers and dehumidifiers positioned to the drying plan.',
@@ -113,7 +113,7 @@ export function getAreaFaqs(area: ServiceArea) {
   return [
     {
       q: `How soon can a crew reach ${area.name}?`,
-      a: `RestoreIQ runs a 24/7 line for ${area.name} and the surrounding county. Call with the property address and you will get current availability and realistic arrival guidance rather than a fixed promise — traffic, time of day and how many jobs are active all affect it.`,
+      a: `RestoreIQ runs a 24/7 line for ${area.name} and the surrounding county. Call with the property address and you will get current availability and realistic arrival guidance rather than a fixed promise. Traffic, time of day and how many jobs are active all affect it.`,
     },
     {
       q: `What makes water damage in ${area.name} different?`,
@@ -121,11 +121,11 @@ export function getAreaFaqs(area: ServiceArea) {
     },
     {
       q: `Is my address inside the ${area.name} service area?`,
-      a: `Most likely. Call with the cross streets and you will get a straight answer — if a property sits outside the usual radius we say so rather than quote an arrival time we cannot meet.`,
+      a: `Most likely. Call with the cross streets and you will get a straight answer. If a property sits outside the usual radius we say so rather than quote an arrival time we cannot meet.`,
     },
     {
       q: `Will my insurance cover a ${area.name} water loss?`,
-      a: `Coverage and payment remain subject to your policy and the carrier's decisions, so that is not something a restoration company can promise. What RestoreIQ can do is document the loss properly — photographs, moisture readings and scope notes recorded as the work happens — so your carrier is reviewing evidence rather than estimates.`,
+      a: `Coverage and payment remain subject to your policy and the carrier's decisions, so that is not something a restoration company can promise. What RestoreIQ can do is document the loss properly with photographs, moisture readings and scope notes recorded as the work happens, so your carrier is reviewing evidence rather than estimates.`,
     },
     {
       q: `What should I do before the crew arrives in ${area.name}?`,

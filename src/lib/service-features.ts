@@ -133,7 +133,7 @@ export const waterCategories: WaterCategory[] = [
  * property owner can know early.
  */
 export const escalationNote =
-  "A clean-water loss does not stay clean. Sitting water picks up soils from building materials and warms, and a Category 1 loss can reach Category 2 or 3 within days — which changes what can be kept.";
+  "A clean-water loss does not stay clean. Sitting water picks up soils from building materials and warms, and a Category 1 loss can reach Category 2 or 3 within days, which changes what can be kept.";
 
 
 /**
@@ -150,7 +150,7 @@ export const featureImages: Record<string, { src: string; alt: string; caption: 
   "fire-smoke-damage": {
     src: "/services/features/smoke-residue.jpg",
     alt: "Smoke film on a kitchen cabinet with one stripe wiped clean by a dry sponge",
-    caption: "A dry sponge lifts the film first — wet-cleaning a dry residue sets it into the paint.",
+    caption: "A dry sponge lifts the film first. Wet-cleaning a dry residue sets it into the paint.",
   },
   "sewage-cleanup": {
     src: "/services/features/containment.jpg",
@@ -212,7 +212,7 @@ export const featureAside: Record<string, {
 }> = {
   "water-damage-restoration": {
     eyebrow: "Why speed matters",
-    stat: "24–48h",
+    stat: "24 to 48 hours",
     statLabel: "Before mould becomes likely on wet porous material",
     points: [
       "Water keeps moving after the puddle is gone",
@@ -223,7 +223,7 @@ export const featureAside: Record<string, {
       { value: "Daily", label: "Readings logged while equipment runs" },
       { value: "Control", label: "Target set against an unaffected area" },
     ],
-    foot: "Mapped, logged and dried to a target — not to a timer.",
+    foot: "Mapped, logged and dried to a target, not to a timer.",
   },
   "fire-smoke-damage": {
     eyebrow: "Before you clean",
@@ -243,7 +243,7 @@ export const featureAside: Record<string, {
   "sewage-cleanup": {
     eyebrow: "Keep clear",
     stat: "CAT 3",
-    statLabel: "Grossly contaminated water — keep people and pets out",
+    statLabel: "Grossly contaminated water. Keep people and pets out",
     points: [
       "Do not run fans; they move contaminants to clean rooms",
       "Affected porous materials are removed, not dried",
@@ -288,11 +288,11 @@ export const featureAside: Record<string, {
   "hardwood-floor-drying": {
     eyebrow: "Why speed is limited",
     stat: "Too fast",
-    statLabel: "Drying hardwood too quickly splits boards that could have been saved",
+    statLabel: "Rushed drying can split salvageable boards.",
     points: [
-      "Species and finish set how fast the boards can go",
-      "Cupping often relaxes as the subfloor comes down",
-      "The target comes from an unaffected area of the same floor",
+      "Species and finish set the pace",
+      "Cupping may ease as the subfloor dries",
+      "Targets use an unaffected floor sample",
     ],
     metrics: [
       { value: "Measured", label: "Boards and subfloor read as separate layers" },
@@ -486,10 +486,10 @@ export interface SignatureBand {
 export const signatureBand: Record<string, SignatureBand> = {
   "water-damage-restoration": {
     eyebrow: "Moisture monitoring",
-    headingTop: "Readings decide when drying stops —",
+    headingTop: "Readings decide when drying stops",
     headingAccent: "not the calendar.",
     lede: "We track moisture readings, compare them to drying targets, and document progress so you have a clear, defensible record from start to finish.",
-    target: { eyebrow: "Typical drying target", value: "≤ 12%", note: "Most building materials are considered dry when they reach 8–12% moisture content." },
+    target: { eyebrow: "Typical drying target", value: "≤ 12%", note: "Most building materials are considered dry when they reach 8 to 12% moisture content." },
     track: [
       { step: "Day 1", label: "Initial readings", detail: "Map moisture levels and set drying targets.", reading: "99.9%", progress: 4 },
       { step: "Day 2", label: "Progress check", detail: "Verify readings are trending down.", reading: "82%", progress: 26 },
@@ -499,10 +499,10 @@ export const signatureBand: Record<string, SignatureBand> = {
   },
   "fire-smoke-damage": {
     eyebrow: "Residue testing",
-    headingTop: "A test clean decides the method —",
+    headingTop: "A test clean decides the method",
     headingAccent: "not the whole room.",
     lede: "Every material is tested before it is cleaned, because the method that saves one surface will set the residue permanently into another.",
-    target: { eyebrow: "Cleaned, not sealed", value: "Clean first", note: "Sealers go on only once cleaning has done as much as it can — never to cover residue that could still come off." },
+    target: { eyebrow: "Cleaned, not sealed", value: "Clean first", note: "Sealers go on only once cleaning has done as much as it can, never to cover residue that could still come off." },
     track: [
       { step: "Stage 1", label: "Stabilise", detail: "Secure the building and stop residue spreading.", reading: "Contained", progress: 10 },
       { step: "Stage 2", label: "Test clean", detail: "A sample area on each material sets the method.", reading: "Method set", progress: 35 },
@@ -512,7 +512,7 @@ export const signatureBand: Record<string, SignatureBand> = {
   },
   "sewage-cleanup": {
     eyebrow: "Category control",
-    headingTop: "The category sets the scope —",
+    headingTop: "The category sets the scope",
     headingAccent: "before anything moves.",
     lede: "Contaminated water is classified under IICRC S500 before a scope is written, because the category decides what can be cleaned and what has to come out.",
     target: { eyebrow: "Category 3 protocol", value: "Remove", note: "Porous materials touched by Category 3 water are removed rather than cleaned, whatever they look like." },
@@ -525,7 +525,7 @@ export const signatureBand: Record<string, SignatureBand> = {
   },
   "burst-pipe-cleanup": {
     eyebrow: "Cavity tracing",
-    headingTop: "The readings decide where we open —",
+    headingTop: "The readings decide where we open",
     headingAccent: "not the guesswork.",
     lede: "A pressurised line pushes water along framing in every direction, so the cavity is mapped before anything is cut and logged before it is closed.",
     target: { eyebrow: "Typical drying target", value: "≤ 12%", note: "Cavities and framing are dried to the same target as the surfaces around them." },
@@ -538,7 +538,7 @@ export const signatureBand: Record<string, SignatureBand> = {
   },
   "appliance-leak-cleanup": {
     eyebrow: "Cavity drying",
-    headingTop: "The damage is behind the unit —",
+    headingTop: "The damage is behind the unit",
     headingAccent: "not in front of it.",
     lede: "An appliance leak is usually found by the damage rather than the water, so the unit comes out and the cavity underneath is read before anything is called dry.",
     target: { eyebrow: "Typical drying target", value: "≤ 12%", note: "Subfloor and cabinet carcasses are dried to the same target as the room around them." },
@@ -551,10 +551,10 @@ export const signatureBand: Record<string, SignatureBand> = {
   },
   "hardwood-floor-drying": {
     eyebrow: "Controlled drying",
-    headingTop: "Hardwood dries at its own pace —",
+    headingTop: "Hardwood dries at its own pace",
     headingAccent: "not at ours.",
     lede: "Pushed too fast, boards that could have been saved split instead. The target comes from an unaffected area of the same floor, and the pace follows the species.",
-    target: { eyebrow: "Typical target", value: "6 – 9%", note: "Hardwood sits lower than general building materials, and the control reading comes from the same floor." },
+    target: { eyebrow: "Typical target", value: "6 to 9%", note: "Hardwood sits lower than general building materials, and the control reading comes from the same floor." },
     track: [
       { step: "Day 1", label: "Control reading", detail: "Target set from an unaffected area.", reading: "Set", progress: 8 },
       { step: "Day 3", label: "Mats placed", detail: "Systems laid where readings are highest.", reading: "26%", progress: 34 },
@@ -564,7 +564,7 @@ export const signatureBand: Record<string, SignatureBand> = {
   },
   "crawlspace-drying": {
     eyebrow: "Confined-space drying",
-    headingTop: "The space holds damp —",
+    headingTop: "The space holds damp",
     headingAccent: "long after the ground dries.",
     lede: "A crawlspace does not clear on its own if the barrier is torn or the vents are blocked, so the cause is found before the drying plan is set.",
     target: { eyebrow: "Typical drying target", value: "≤ 15%", note: "Framing above the space is dried to target, and the space is re-read before it is closed." },
@@ -577,7 +577,7 @@ export const signatureBand: Record<string, SignatureBand> = {
   },
   "commercial-water-damage": {
     eyebrow: "Phased response",
-    headingTop: "The work is sequenced around trading —",
+    headingTop: "The work is sequenced around trading",
     headingAccent: "not the other way round.",
     lede: "Most commercial losses are managed around a business that cannot close, so zones, hours and access are agreed before equipment arrives.",
     target: { eyebrow: "Reporting cadence", value: "Daily", note: "Progress reaches the site contact and the adjuster as it happens, not in a report at the end." },
@@ -590,7 +590,7 @@ export const signatureBand: Record<string, SignatureBand> = {
   },
   "contents-protection": {
     eyebrow: "Inventory control",
-    headingTop: "Everything is documented —",
+    headingTop: "Everything is documented",
     headingAccent: "before it moves.",
     lede: "Condition is recorded while it can still be proven. Items are photographed in place, sorted by material, and reported on individually when they come back.",
     target: { eyebrow: "Storage standard", value: "Logged", note: "Off-site storage is climate-controlled, and every access to it is recorded against the inventory." },
@@ -603,7 +603,7 @@ export const signatureBand: Record<string, SignatureBand> = {
   },
   reconstruction: {
     eyebrow: "Scope control",
-    headingTop: "The scope is agreed —",
+    headingTop: "The scope is agreed",
     headingAccent: "before anything is ordered.",
     lede: "What was opened during drying sets what has to close. Materials are chosen with you, permits arranged first, and trades sequenced so the site is never waiting.",
     target: { eyebrow: "Handover standard", value: "In writing", note: "Workmanship and material warranties are handed over in writing at the completion walkthrough." },
@@ -652,7 +652,7 @@ export const expertise: Record<string, Expertise> = {
     lede: "Most water losses are not won by equipment count. They are won by finding every wet assembly on day one and proving each of them dry before the equipment leaves.",
     pillars: [
       { title: "Moisture mapping, not guessing", body: "Non-invasive meters and thermal imaging trace water through subfloor, wall cavity and insulation before a single air mover is placed.", icon: "scan", image: "/services/pillars/water-mapping.jpg", imageAlt: "Technician holding a moisture meter against a wall beside a baseboard" },
-      { title: "Readings against a control", body: "Every target is set from an unaffected area in the same building, so dry means dry for that property — not a number from a chart.", icon: "gauge", image: "/services/pillars/water-control.jpg", imageAlt: "Moisture meter display being read in a dry, unaffected room" },
+      { title: "Readings against a control", body: "Every target is set from an unaffected area in the same building, so dry means dry for that property, not a number from a chart.", icon: "gauge", image: "/services/pillars/water-control.jpg", imageAlt: "Moisture meter display being read in a dry, unaffected room" },
       { title: "Daily reposition, not set-and-leave", body: "If a monitored point stops falling, the equipment moves. Running fans at a stalled reading bills days without drying anything.", icon: "wind", image: "/services/pillars/water-reposition.jpg", imageAlt: "Technician moving an air mover to a new position against a wall" },
     ],
     callout: {
@@ -661,7 +661,7 @@ export const expertise: Record<string, Expertise> = {
       body: "Removing material is faster and easier to bill. Drying in place preserves the property but demands daily readings to justify. We document either way, so the decision is visible rather than assumed.",
     },
     proof: [
-      { value: "24–48h", label: "Window before mould risk rises sharply" },
+      { value: "24 to 48 hours", label: "Window before mould risk rises sharply" },
       { value: "Daily", label: "Logged readings through the drying plan" },
       { value: "S500", label: "Drying standard the targets follow" },
     ],
@@ -699,17 +699,17 @@ export const expertise: Record<string, Expertise> = {
     headingAccent: "It is a containment job first.",
     lede: "Contaminated water changes the rules. What can be saved, where crews may walk, and what happens to the air are all decided before anyone starts removing material.",
     pillars: [
-      { title: "Category confirmed on arrival", body: "Water is classified under IICRC S500 before scoping. The category — not the volume — decides what stays and what goes.", icon: "clipboard", image: "/services/pillars/sewage-category.jpg", imageAlt: "Technician inspecting standing water at a doorway before scoping" },
+      { title: "Category confirmed on arrival", body: "Water is classified under IICRC S500 before scoping. The category, not the volume, decides what stays and what goes.", icon: "clipboard", image: "/services/pillars/sewage-category.jpg", imageAlt: "Technician inspecting standing water at a doorway before scoping" },
       { title: "Containment before removal", body: "Barriers and negative air go up first. Moving material before containment pushes contaminants into rooms that were clean.", icon: "shield", image: "/services/pillars/sewage-containment.jpg", imageAlt: "Plastic sheeting taped across a doorway forming a containment barrier" },
       { title: "Documented removals", body: "Every removed material is photographed and logged, so the scope is defensible to the carrier and to you.", icon: "gauge", image: "/services/pillars/sewage-removals.jpg", imageAlt: "Removed sections of carpet pad bagged and labelled beside bare subfloor" },
     ],
     callout: {
       label: "The call that matters",
       claim: "Which porous materials come out?",
-      body: "In a Category 3 loss, affected porous materials are removed rather than dried. That is a standard, not a preference — and the line between affected and unaffected is where careful work shows.",
+      body: "In a Category 3 loss, affected porous materials are removed rather than dried. That is a standard, not a preference, and the line between affected and unaffected is where careful work shows.",
     },
     proof: [
-      { value: "CAT 1–3", label: "Classified before any scope is written" },
+      { value: "CAT 1 to 3", label: "Classified before any scope is written" },
       { value: "Sealed", label: "Containment before material is moved" },
       { value: "Logged", label: "Every removal photographed for the file" },
     ],
@@ -802,7 +802,7 @@ export const causeDetail: Record<string, string> = {
   "Contaminated-water losses": "Porous items in Category 3 water are documented rather than cleaned, because they cannot be returned to a safe standard.",
 
   // Reconstruction
-  "Post-mitigation repairs": "Drying leaves the room open — removed drywall, lifted flooring, missing trim. The rebuild puts back exactly what the file records.",
+  "Post-mitigation repairs": "Drying leaves the room open with removed drywall, lifted flooring and missing trim. The rebuild puts back exactly what the file records.",
   "Fire-damaged finishes": "Charred or heat-affected finishes are replaced rather than cleaned, and the substrate behind them is checked before anything new goes on.",
   "Contaminated material removal": "Material taken out under a Category 3 scope leaves a documented gap, which is what the repair is written against.",
   "Access opened for drying": "Inspection holes and removed sections are repairs in their own right, and they close only once the cavity reads dry.",
@@ -905,14 +905,14 @@ export const processSteps: Record<string, ProcessStep[]> = {
     { title: "Call", accent: "us", copy: "Tell us what happened and get safety guidance while we are on the way.", when: "Day or night", icon: "phone" },
     { title: "Stop and", accent: "map", copy: "The source is shut off and every wet assembly is traced before equipment goes in.", when: "On arrival", icon: "scan" },
     { title: "Extract", accent: "water", copy: "Standing water comes out and the starting condition is photographed.", when: "First visit", icon: "waves" },
-    { title: "Dry and", accent: "monitor", copy: "Readings are logged each visit and equipment moves if a point stalls.", when: "Daily, 3–5 days", icon: "wind" },
+    { title: "Dry and", accent: "monitor", copy: "Readings are logged each visit and equipment moves if a point stalls.", when: "Daily, 3 to 5 days", icon: "wind" },
     { title: "Repair and", accent: "restore", copy: "Once materials hit target, approved repairs bring the property back.", when: "After approval", icon: "house" },
   ],
   "fire-smoke-damage": [
     { title: "Call", accent: "us", copy: "Tell us what burned and what the fire service has already done.", when: "Day or night", icon: "phone" },
     { title: "Secure the", accent: "property", copy: "Openings are covered and the structure made safe to enter and work in.", when: "Within hours", icon: "shield" },
     { title: "Test the", accent: "residue", copy: "Each surface is tested so the cleaning method matches the residue type.", when: "Before cleaning", icon: "scan" },
-    { title: "Clean by", accent: "material", copy: "Room-by-room cleaning, with non-salvageable materials documented and removed.", when: "Days 1–5", icon: "layers" },
+    { title: "Clean by", accent: "material", copy: "Room-by-room cleaning, with non-salvageable materials documented and removed.", when: "Days 1 to 5", icon: "layers" },
     { title: "Treat the", accent: "odour", copy: "Odour is traced to its source rather than sealed over, then repairs begin.", when: "After cleaning", icon: "house" },
   ],
   "sewage-cleanup": [
@@ -920,7 +920,7 @@ export const processSteps: Record<string, ProcessStep[]> = {
     { title: "Confirm the", accent: "category", copy: "Water is classified under IICRC S500 before any scope is written.", when: "On arrival", icon: "clipboard" },
     { title: "Contain the", accent: "area", copy: "Barriers go up before anything moves, so contaminants stay out of clean rooms.", when: "Before removal", icon: "shield" },
     { title: "Remove and", accent: "clean", copy: "Affected porous materials come out and are logged; hard surfaces are cleaned.", when: "First visit", icon: "layers" },
-    { title: "Dry and", accent: "verify", copy: "The structure is dried to target and the finished condition documented.", when: "Days 2–5", icon: "gauge" },
+    { title: "Dry and", accent: "verify", copy: "The structure is dried to target and the finished condition documented.", when: "Days 2 to 5", icon: "gauge" },
   ],
 };
 
@@ -956,7 +956,7 @@ export const safetyGuides: Record<string, SafetyGuide> = {
     eyebrow: "Before we arrive",
     heading: "What helps in the",
     headingAccent: "first hour.",
-    lede: "Water keeps moving while you wait. A few things slow it down — and a few make the loss worse.",
+    lede: "Water keeps moving while you wait. A few things slow it down, and a few make the loss worse.",
     doList: [
       { text: "Shut off the supply valve if you can reach it safely", why: "Every minute of flow adds to the area that has to be dried.", icon: "valve" },
       { text: "Lift curtains, rugs and small contents clear of the water", why: "Dyes and finishes bleed into carpet within hours and the staining is permanent.", icon: "lift" },
@@ -976,7 +976,7 @@ export const safetyGuides: Record<string, SafetyGuide> = {
   },
   "fire-smoke-damage": {
     eyebrow: "Before we arrive",
-    heading: "What helps — and what",
+    heading: "What helps, and what",
     headingAccent: "makes it permanent.",
     lede: "Smoke residue is a chemistry problem. The wrong first move can set the damage into a surface for good.",
     doList: [
@@ -1090,7 +1090,7 @@ export const batch2Expertise: Record<string, Expertise> = {
       { title: "Opened only where needed", body: "Access holes go where the readings say, not along the whole wall. Less opened means less to put back.", icon: "layers", image: "/services/cutaway/wall-behind.jpg", imageAlt: "A wall opened only where the readings called for it" },
       { title: "Dried to a target", body: "Equipment runs until readings match an unaffected control area in the same building, not for a fixed number of days.", icon: "gauge", image: "/services/pillars/water-control.jpg", imageAlt: "Moisture reading taken against an unaffected control area" },
     ],
-    callout: { label: "The call that matters", claim: "Open it, or dry it closed?", body: "Drying a closed cavity is slower but keeps the wall intact. It only works if readings prove it is actually drying — which is why the readings are logged rather than estimated." },
+    callout: { label: "The call that matters", claim: "Open it, or dry it closed?", body: "Drying a closed cavity is slower but keeps the wall intact. It only works if readings prove it is actually drying, which is why the readings are logged rather than estimated." },
     proof: [
       { value: "Day 1", label: "Every wet assembly mapped before equipment goes in" },
       { value: "Daily", label: "Readings logged against a control area" },
@@ -1130,7 +1130,7 @@ export const batch2Expertise: Record<string, Expertise> = {
       { title: "Rate controlled, not rushed", body: "Too aggressive and the face dries while the core stays wet, so the boards crown and the finish checks.", icon: "gauge", image: "/services/pillars/water-mapping.jpg", imageAlt: "Moisture reading guiding the drying rate" },
       { title: "Subfloor read separately", body: "Boards can reach target while the subfloor beneath is still wet and ready to push moisture back up into them.", icon: "scan", image: "/services/cutaway/joists.jpg", imageAlt: "Subfloor metered separately from the boards above" },
     ],
-    callout: { label: "The call that matters", claim: "Dry it, or replace it?", body: "Boards that have cupped can usually be saved and sanded flat once dry. Boards that have crowned, delaminated or lifted at the tongue generally cannot — and drying them anyway only delays the answer." },
+    callout: { label: "The call that matters", claim: "Dry it, or replace it?", body: "Boards that have cupped can usually be saved and sanded flat once dry. Boards that have crowned, delaminated or lifted at the tongue generally cannot, and drying them anyway only delays the answer." },
     proof: [
       { value: "Weeks", label: "Typical drying time for wet hardwood, not days" },
       { value: "Two reads", label: "Boards and subfloor measured separately" },
@@ -1146,11 +1146,11 @@ export const batch2Expertise: Record<string, Expertise> = {
     headingAccent: "out of the building.",
     lede: "A wet crawlspace does not stay in the crawlspace. The air under the house moves up into it, carrying moisture into the floor structure and the rooms above.",
     pillars: [
-      { title: "Water out before air in", body: "Standing water is removed and the ground sheeting corrected first — drying a space that is still collecting water achieves nothing.", icon: "scan", image: "/services/features/containment.jpg", imageAlt: "Standing water removed before drying equipment is set" },
+      { title: "Water out before air in", body: "Standing water is removed and the ground sheeting corrected first. Drying a space that is still collecting water achieves nothing.", icon: "scan", image: "/services/features/containment.jpg", imageAlt: "Standing water removed before drying equipment is set" },
       { title: "Wet insulation comes out", body: "Saturated batts hold moisture indefinitely and will not dry in place. Leaving them is the most common reason a crawlspace stays damp.", icon: "layers", image: "/services/cutaway/subfloor-sheeting.jpg", imageAlt: "Saturated material removed rather than dried in place" },
       { title: "Structure read from below", body: "Joists and subfloor are metered from underneath, where the moisture actually is, rather than from the room above.", icon: "gauge", image: "/services/pillars/water-control.jpg", imageAlt: "Joists metered from underneath where the moisture is" },
     ],
-    callout: { label: "The call that matters", claim: "Dry it, or fix why it is wet?", body: "Drying a crawlspace that floods every winter buys a season. If the cause is drainage or grading, that gets stated plainly — even though it is outside what a drying job covers." },
+    callout: { label: "The call that matters", claim: "Dry it, or fix why it is wet?", body: "Drying a crawlspace that floods every winter buys a season. If the cause is drainage or grading, that gets stated plainly, even though it is outside what a drying job covers." },
     proof: [
       { value: "Upward", label: "Air moves from the crawlspace into the house above" },
       { value: "Removed", label: "Wet insulation taken out rather than dried in place" },
@@ -1169,28 +1169,28 @@ export const batch2Steps: Record<string, ProcessStep[]> = {
     { title: "Call", accent: "us", copy: "Shut the water off at the main if you can reach it safely, then call.", when: "Day or night", icon: "phone" },
     { title: "Trace the", accent: "spread", copy: "Thermal imaging and meters find every wet assembly, not just the visible one.", when: "On arrival", icon: "scan" },
     { title: "Extract and", accent: "open", copy: "Standing water comes out; cavities are opened only where readings require it.", when: "First visit", icon: "waves" },
-    { title: "Dry and", accent: "monitor", copy: "Equipment is placed against the mapped area and readings logged each visit.", when: "Daily, 3–5 days", icon: "wind" },
+    { title: "Dry and", accent: "monitor", copy: "Equipment is placed against the mapped area and readings logged each visit.", when: "Daily, 3 to 5 days", icon: "wind" },
     { title: "Close and", accent: "restore", copy: "Access holes are made good and finishes repaired once readings hit target.", when: "After approval", icon: "house" },
   ],
   "appliance-leak-cleanup": [
     { title: "Call", accent: "us", copy: "Turn off the supply valve behind the appliance if you can reach it.", when: "Day or night", icon: "phone" },
     { title: "Pull and", accent: "inspect", copy: "The appliance comes out and the cavity behind the kickboard is checked.", when: "On arrival", icon: "scan" },
     { title: "Assess the", accent: "cabinetry", copy: "Cabinet bases are metered to see whether they can be dried or have already swollen.", when: "First visit", icon: "clipboard" },
-    { title: "Inject and", accent: "dry", copy: "Airflow goes into the cavity itself rather than across the kitchen floor.", when: "Daily, 2–4 days", icon: "wind" },
+    { title: "Inject and", accent: "dry", copy: "Airflow goes into the cavity itself rather than across the kitchen floor.", when: "Daily, 2 to 4 days", icon: "wind" },
     { title: "Refit and", accent: "finish", copy: "The appliance goes back and any removed trim or panel is replaced.", when: "After approval", icon: "house" },
   ],
   "hardwood-floor-drying": [
     { title: "Call", accent: "us", copy: "Lift rugs and move furniture off the wet area if it is safe to do so.", when: "Day or night", icon: "phone" },
     { title: "Read the", accent: "boards", copy: "Boards and subfloor are metered separately, because they dry at different rates.", when: "On arrival", icon: "scan" },
     { title: "Set drying", accent: "mats", copy: "Mats pull moisture up through the boards rather than blowing air over a sealed face.", when: "First visit", icon: "layers" },
-    { title: "Control the", accent: "rate", copy: "Drying is paced so the face does not dry ahead of the core and crown the boards.", when: "1–3 weeks", icon: "gauge" },
+    { title: "Control the", accent: "rate", copy: "Drying is paced so the face does not dry ahead of the core and crown the boards.", when: "1 to 3 weeks", icon: "gauge" },
     { title: "Sand and", accent: "refinish", copy: "Once both readings reach target, cupped boards are flattened and refinished.", when: "After approval", icon: "house" },
   ],
   "crawlspace-drying": [
     { title: "Call", accent: "us", copy: "Describe what you can see or smell. Do not enter the space yourself.", when: "Day or night", icon: "phone" },
     { title: "Access and", accent: "assess", copy: "The space is entered, the water source identified and the ground checked.", when: "On arrival", icon: "scan" },
     { title: "Extract and", accent: "strip", copy: "Standing water is removed and saturated insulation taken out rather than dried.", when: "First visit", icon: "waves" },
-    { title: "Dry the", accent: "structure", copy: "Joists and subfloor are dried from below and metered where the moisture is.", when: "Daily, 3–7 days", icon: "wind" },
+    { title: "Dry the", accent: "structure", copy: "Joists and subfloor are dried from below and metered where the moisture is.", when: "Daily, 3 to 7 days", icon: "wind" },
     { title: "Reinstate and", accent: "advise", copy: "Barrier and insulation are replaced, and any drainage cause is stated plainly.", when: "After approval", icon: "house" },
   ],
 };
@@ -1216,7 +1216,7 @@ export const batch2Safety: Record<string, SafetyGuide> = {
     warning: "If water is near the electrical panel, the ceiling is sagging, or you smell gas, leave the property and call emergency services first.",
     image: "/services/pillars/water-reposition.jpg",
     imageAlt: "Air mover running against a wall during drying",
-    stat: "24–48h",
+    stat: "24 to 48 hours",
     statLabel: "Before mould becomes likely on wet porous material",
   },
   "appliance-leak-cleanup": {
@@ -1260,14 +1260,14 @@ export const batch2Safety: Record<string, SafetyGuide> = {
     warning: "If the floor is over a crawlspace or lower level, check below for water before assuming the loss is limited to the room you can see.",
     image: "/services/pillars/water-reposition.jpg",
     imageAlt: "Air mover set over a hardwood floor during drying",
-    stat: "1–3 wks",
+    stat: "1 to 3 weeks",
     statLabel: "Typical drying time for wet hardwood, not days",
   },
   "crawlspace-drying": {
     eyebrow: "Before we arrive",
     heading: "Stay out of the",
     headingAccent: "space itself.",
-    lede: "A flooded crawlspace carries real risks — confined space, standing water and live wiring in the same place. There is little to gain from going in.",
+    lede: "A flooded crawlspace carries real risks: confined space, standing water and live wiring in the same place. There is little to gain from going in.",
     doList: [
       { text: "Check for water at the access hatch only", why: "You can usually see the extent from the opening without entering.", icon: "door" },
       { text: "Isolate power to any circuits below the floor", why: "Crawlspace wiring and junctions often sit close to the ground.", icon: "plug" },
@@ -1416,7 +1416,7 @@ export const batch3Expertise: Record<string, Expertise> = {
     eyebrow: "Where the expertise shows",
     heading: "The building keeps trading.",
     headingAccent: "The work fits around that.",
-    lede: "A commercial loss is a scheduling problem as much as a drying one. The question is rarely how to dry it — it is how to dry it without closing the business.",
+    lede: "A commercial loss is a scheduling problem as much as a drying one. The question is rarely how to dry it. It is how to dry it without closing the business.",
     pillars: [
       { title: "Zoned before equipment arrives", body: "The property is divided into what stays open, what is restricted and what is closed, so trading continues where it safely can.", icon: "clipboard", image: "", imageAlt: "" },
       { title: "Out-of-hours where it helps", body: "Noisy or disruptive stages are scheduled around operating hours rather than imposed on them.", icon: "gauge", image: "", imageAlt: "" },
@@ -1481,21 +1481,21 @@ export const batch3Steps: Record<string, ProcessStep[]> = {
     { title: "Call", accent: "us", copy: "Tell us what is wet and, more importantly, what has to keep operating.", when: "Day or night", icon: "phone" },
     { title: "Zone the", accent: "building", copy: "Open, restricted and closed areas are agreed with facilities and marked up before equipment lands.", when: "On arrival", icon: "clipboard" },
     { title: "Contain and", accent: "extract", copy: "Barriers and negative air seal the closed zone so the rest of the floor stays usable.", when: "First visit", icon: "shield" },
-    { title: "Dry around", accent: "operations", copy: "Noisy and obstructive stages run out of hours, so daytime trading is not the thing that gives way.", when: "Days 3–7", icon: "wind" },
+    { title: "Dry around", accent: "operations", copy: "Noisy and obstructive stages run out of hours, so daytime trading is not the thing that gives way.", when: "Days 3 to 7", icon: "wind" },
     { title: "Hand back in", accent: "stages", copy: "Each zone reopens as it reaches target rather than waiting on the slowest room, with the record going to the carrier as it goes.", when: "Rolling", icon: "house" },
   ],
   "contents-protection": [
     { title: "Call", accent: "us", copy: "Tell us what is in the affected area and what matters most.", when: "Day or night", icon: "phone" },
     { title: "Photograph and", accent: "list", copy: "Everything is recorded in place before a single item is moved.", when: "On arrival", icon: "clipboard" },
     { title: "Sort by", accent: "material", copy: "Hard goods, textiles, documents and electronics each take their own route.", when: "First visit", icon: "layers" },
-    { title: "Clean or", accent: "store", copy: "Items are cleaned on site or taken off site, and the rest is stored clear of the work.", when: "Days 1–5", icon: "shield" },
+    { title: "Clean or", accent: "store", copy: "Items are cleaned on site or taken off site, and the rest is stored clear of the work.", when: "Days 1 to 5", icon: "shield" },
     { title: "Return and", accent: "reconcile", copy: "Contents come back against the same list they left on.", when: "After the work", icon: "house" },
   ],
   reconstruction: [
     { title: "Call", accent: "us", copy: "Share the mitigation file if the drying was carried out by someone else.", when: "Any time", icon: "phone" },
     { title: "Scope from the", accent: "record", copy: "The repair scope is written from what the file shows was removed.", when: "First visit", icon: "clipboard" },
     { title: "Agree and", accent: "schedule", copy: "Scope, materials and finishes are confirmed before anything is ordered.", when: "Before work", icon: "gauge" },
-    { title: "Rebuild the", accent: "structure", copy: "Framing and substrate go back and are checked dry before being closed.", when: "Weeks 1–3", icon: "layers" },
+    { title: "Rebuild the", accent: "structure", copy: "Framing and substrate go back and are checked dry before being closed.", when: "Weeks 1 to 3", icon: "layers" },
     { title: "Finish and", accent: "walk through", copy: "Trim, paint and flooring are matched, then reviewed with you before sign-off.", when: "Before handover", icon: "house" },
   ],
 };
@@ -1607,7 +1607,7 @@ export const stepsHeading: Record<string, StepsHeading> = {
     eyebrow: "What happens after you call",
     heading: "From stopping the supply",
     headingAccent: "to handing over the repair.",
-    lede: "Five stages. The water is stopped first, then traced — what gets opened is decided by readings, not by where the stain shows.",
+    lede: "Five stages. The water is stopped first, then traced. What gets opened is decided by readings, not by where the stain shows.",
   },
   "appliance-leak-cleanup": {
     eyebrow: "What happens after you call",
@@ -1862,7 +1862,7 @@ export const reconPage: ReconPage = {
     steps: [
       { title: "Documented removal", body: "Photos, measurements and notes from mitigation show what was taken out.", icon: "clipboard" },
       { title: "Reviewed repair scope", body: "We turn the documentation into a detailed scope of work and a plan that your insurer can approve.", icon: "file" },
-      { title: "Reconstruction work", body: "Our team rebuilds with quality materials and craftsmanship — drywall, trim, paint, flooring and more.", icon: "hammer" },
+      { title: "Reconstruction work", body: "Our team rebuilds with quality materials and craftsmanship, including drywall, trim, paint, flooring and more.", icon: "hammer" },
       { title: "Final walkthrough", body: "We review the work with you to make sure everything is complete and you're satisfied.", icon: "check" },
     ],
   },
@@ -1884,7 +1884,7 @@ export const reconPage: ReconPage = {
       { n: "01", title: "Trim and paint", body: "Baseboards, door casings, and trim are reinstalled and finished. We prime and paint to match existing colors as closely as possible.", image: "/services/reconstruction/work-trim.jpg", imageAlt: "Freshly painted room with new baseboards fitted" },
       { n: "02", title: "Drywall and insulation replacement", body: "We install new drywall, replace insulation where needed, and prepare walls and ceilings for a smooth, durable finish.", image: "/services/reconstruction/work-drywall.jpg", imageAlt: "New drywall sheets taped and ready for finishing" },
       { n: "03", title: "Flooring reset or replacement", body: "We reinstall flooring that was removed or replace it if needed, including hardwood, laminate, LVP, tile, or carpet.", image: "/services/reconstruction/work-flooring.jpg", imageAlt: "New plank flooring being laid in a restored room" },
-      { n: "04", title: "Finish carpentry and punch list", body: "We handle the final details — from adjustments, hardware caulking, touch-ups and a full walkthrough to make sure everything is complete.", image: "/services/reconstruction/work-carpentry.jpg", imageAlt: "Carpenter fitting door trim during finishing work" },
+      { n: "04", title: "Finish carpentry and punch list", body: "We handle the final details, from adjustments, hardware caulking, touch-ups and a full walkthrough to make sure everything is complete.", image: "/services/reconstruction/work-carpentry.jpg", imageAlt: "Carpenter fitting door trim during finishing work" },
     ],
   },
   materials: {
@@ -1958,12 +1958,12 @@ export interface HowWeHelp {
 export const howWeHelp: Record<string, HowWeHelp> = {
   "water-damage-restoration": {
     lineOne: "We find the water,", lineTwo: "track the impact,", accent: "and help you move forward.",
-    lede: "Our team documents the full story — from where the water traveled to which materials were affected — so you have a clear plan for drying, repairs and peace of mind.",
+    lede: "Our team documents the full story, from where the water traveled to which materials were affected, so you have a clear plan for drying, repairs and peace of mind.",
     image: "/services/plans/water-damage.jpg",
     imageAlt: "Floor plan showing water spreading from a bathroom through the living room and kitchen",
     statLabel: "A small leak can travel far", figure: "3×",
     statBody: "Water can travel up to 3× farther than you see on the surface.",
-    note: "That is why we trace the full path — not just what is visible.",
+    note: "That is why we trace the full path, not just what is visible.",
   },
   "fire-smoke-damage": {
     lineOne: "We follow the smoke,", lineTwo: "not just the burn,", accent: "and clean to the source.",
@@ -2030,7 +2030,7 @@ export const howWeHelp: Record<string, HowWeHelp> = {
   },
   "contents-protection": {
     lineOne: "We record what", lineTwo: "is there before", accent: "anything is moved.",
-    lede: "Your belongings are photographed and listed in place, then routed by material — hard goods, textiles, documents and electronics each take a different path through cleaning.",
+    lede: "Your belongings are photographed and listed in place, then routed by material. Hard goods, textiles, documents and electronics each take a different path through cleaning.",
     image: "/services/plans/contents.jpg",
     imageAlt: "Floor plan showing rooms marked for contents inventory and pack-out routes",
     statLabel: "Nothing leaves unlisted", figure: "Item by item",
@@ -2226,7 +2226,7 @@ export const batch3Context: Record<string, ContextBlock> = {
     lede: "A cheap sealed item often survives what destroys an expensive porous one. Here is the realistic picture before anything moves.",
     items: [
       { label: "Usually restorable", body: "Sealed surfaces, solid timber, metal, ceramics, glass.", icon: "check" },
-      { label: "Often restorable", body: "Upholstery, rugs and clothing — if they leave the property quickly rather than sitting in a wet room.", icon: "layers" },
+      { label: "Often restorable", body: "Upholstery, rugs and clothing, if they leave the property quickly rather than sitting in a wet room.", icon: "layers" },
       { label: "Depends on speed", body: "Documents, photographs, electronics. Day one matters more than the week after it.", icon: "clock" },
       { label: "Recorded as a loss", body: "Porous items in contaminated water. Documented in full, because they cannot be made safe.", icon: "alert" },
     ],
@@ -2235,7 +2235,7 @@ export const batch3Context: Record<string, ContextBlock> = {
     eyebrow: "Before you appoint anyone",
     heading: "Three things worth",
     headingAccent: "asking about.",
-    lede: "Whoever rebuilds, these are the questions that decide whether the repair holds up — and whether it stays tied to the claim.",
+    lede: "Whoever rebuilds, these are the questions that decide whether the repair holds up, and whether it stays tied to the claim.",
     items: [
       { label: "Where does the scope come from?", body: "A documented demolition record beats an estimate of what a room that size usually needs.", icon: "clipboard" },
       { label: "Who confirms it is dry?", body: "Closing a cavity without readings hides the problem. Ask what the moisture log shows before anything is covered.", icon: "gauge" },

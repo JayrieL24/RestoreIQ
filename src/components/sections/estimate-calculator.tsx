@@ -31,7 +31,7 @@ export function EstimateCalculator() {
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(
     "Estimate enquiry",
   )}&body=${encodeURIComponent(
-    `Hello,\n\nI used the estimate tool on your site and got ${formatMoney(low)}–${formatMoney(high)}.\n\nMy situation: ${summary}.\n\nPlease get in touch.\n`,
+    `Hello,\n\nI used the estimate tool on your site and got ${formatMoney(low)} to ${formatMoney(high)}.\n\nMy situation: ${summary}.\n\nPlease get in touch.\n`,
   )}`;
 
   return (
@@ -111,7 +111,7 @@ export function EstimateCalculator() {
       <div className="ri-calc-result">
         <span className="ri-calc-result-label">Indicative range</span>
         <p className="ri-calc-figure" aria-live="polite">
-          {formatMoney(low)} <i>&ndash;</i> {formatMoney(high)}
+          {formatMoney(low)} <i>to</i> {formatMoney(high)}
         </p>
         <p className="ri-calc-days">
           Typically around {days} days of drying, monitored daily.
@@ -131,7 +131,7 @@ export function EstimateCalculator() {
           <span>
             This is not a quote. What sits behind a wall or under a floor
             changes the job, so the real figure comes from an on-site survey
-            &mdash; and most losses like this are covered by insurance.
+            and most losses like this are covered by insurance.
           </span>
         </p>
 
