@@ -19,6 +19,16 @@ export function SiteFooter() {
         preserveAspectRatio="none"
         aria-hidden
       >
+        <path className="voda-footer-wave-transition cta-haze" d="M0 -12C220 -52 420 -56 720 -30C1020 -4 1240 18 1440 -16V120H0Z" />
+        <path className="voda-footer-wave-transition cta-soft" d="M0 -8C220 -48 420 -52 720 -26C1020 0 1240 22 1440 -12V120H0Z" />
+        <path className="voda-footer-wave-transition cta-blue" d="M0 -4C220 -44 420 -48 720 -22C1020 4 1240 26 1440 -8V120H0Z" />
+        <path className="voda-footer-wave-transition mist" d="M0 0C220 -40 420 -44 720 -18C1020 8 1240 30 1440 -4V120H0Z" />
+        <path className="voda-footer-wave-transition teal" d="M0 4C220 -36 420 -40 720 -14C1020 12 1240 34 1440 0V120H0Z" />
+        <path className="voda-footer-wave-transition slate" d="M0 8C220 -32 420 -36 720 -10C1020 16 1240 38 1440 4V120H0Z" />
+        <path className="voda-footer-wave-transition outer" d="M0 12C220 -28 420 -32 720 -6C1020 20 1240 42 1440 8V120H0Z" />
+        <path className="voda-footer-wave-transition inner" d="M0 20C220 -20 420 -24 720 2C1020 28 1240 50 1440 16V120H0Z" />
+        <path className="voda-footer-wave-transition deep" d="M0 28C220 -12 420 -16 720 10C1020 36 1240 58 1440 24V120H0Z" />
+        <path className="voda-footer-wave-transition navy" d="M0 36C220 -4 420 -8 720 18C1020 44 1240 66 1440 32V120H0Z" />
         <path d="M0 44C220 4 420 0 720 26C1020 52 1240 74 1440 40V120H0Z" />
       </svg>
 

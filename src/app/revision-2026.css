@@ -10581,7 +10581,7 @@ main:has(.ri26-paths) .ri26-cause-list .ri26-cause-no { color:rgba(255,255,255,.
 
 @media(min-width:1001px){
   .ri26-svc-intro .voda-wrap { width:min(1440px,calc(100% - 72px)); }
-  .ri26-svc-scope .voda-wrap { width:min(1720px,calc(100% - 96px)); }
+  .ri26-svc-scope .voda-wrap { width:min(1474.685px,calc(85.7375% - 82.308px)); }
 }
 
 /* The service intro. The heading now runs at the site's own h2 scale rather

@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { Faq } from "@/components/sections/faq";
 import { getService, services } from "@/lib/services";
 import { scopeDetail, howWeHelp, causeDetail, introHeadings, stepsHeading, batch3Steps, batch2Steps, processSteps, featureAside, featureAsideLower, featureImages, heroImages, signatureBand } from "@/lib/service-features";
+import { ServiceFeaturePhoto } from "@/components/service-feature-photo";
 import { site } from "@/lib/site";
 
 export function generateStaticParams() { return services.map(({ id }) => ({ slug: id })) }
@@ -166,14 +167,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <p className="ri26-dry-lede">{band.lede}</p>
               {feature && (
                 <figure className="ri26-dry-shot">
-                  <Image src={feature.src} alt={feature.alt} fill className="voda-cover" sizes="(max-width: 1000px) 92vw, 56vw" />
+                  <ServiceFeaturePhoto src={feature.src} alt={feature.alt} />
                 </figure>
               )}
             </div>
 
             <div className="ri26-dry-side">
               {aside && (
-                <div className="ri26-dry-why">
+                <div className="ri26-dry-why" data-service={service.id}>
                   <span className="voda-eyebrow cyan">{aside.eyebrow}</span>
                   <strong className="ri26-dry-figure">{aside.stat}</strong>
                   <p className="ri26-dry-figure-note">{aside.statLabel}</p>

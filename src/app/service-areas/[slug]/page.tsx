@@ -22,7 +22,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
   const area = getServiceArea((await params).slug);
   if (!area) notFound();
   const tel = site.phone.replace(/[^\d+]/g, "");
-  return <article className="voda-site ri26-detail">
+  return <article className="voda-site ri26-detail ri26-service-area-page">
     <header className="ri26-detail-hero ri26-detail-hero-map"><div className="ri26-hero-photo"><Image src={area.heroImage} alt={`RestoreIQ crew arriving at a property in ${area.name}`} fill priority sizes="100vw" className="voda-cover" /></div><div aria-hidden className="ri26-hero-grid" /><div className="ri26-hero-shade" /><div className="voda-wrap ri26-hero-split"><div className="ri26-hero-copy-col"><p className="ri26-kicker"><MapPin aria-hidden /> {area.name}, California</p><h1>Water Damage<br />Restoration<br />in {area.name}</h1><p className="ri26-detail-copy">{area.intro}</p><div className="voda-actions"><a className="voda-btn primary" href={`tel:${tel}`}><Phone aria-hidden /> {site.cta.call}</a><Link className="voda-btn glass" href="/#request-service">{site.cta.request} <ArrowRight aria-hidden /></Link></div></div></div><svg className="ri26-hero-wave" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true"><path d="M0 150V60C240 6 560 -12 860 22C1080 47 1280 76 1440 42V150Z" /></svg></header>
 
 
