@@ -218,7 +218,9 @@ main:has(.ri26-service-area-page) + .voda-footer .voda-footer-wave-transition.na
   fill:#0e2b46;
 }
 .ri26-service-area-page .ri26-area-cta .voda-cta-band-panel {
-  background:radial-gradient(120% 160% at 18% 0%,#093456 0%,#051b33 38%,#03111f 80%);
+  background:
+    linear-gradient(0deg,#0a2340 0px,#0a2340 32px,rgba(10,35,64,.92) 72px,rgba(10,35,64,.55) 124px,rgba(10,35,64,0) 188px),
+    radial-gradient(120% 160% at 18% 0%,#093456 0%,#051b33 38%,#03111f 80%);
   padding-block:clamp(40px,4vw,60px) calc(clamp(30px,3vw,44px) + clamp(56px,6vw,104px));
 }
 .ri26-service-area-page .ri26-area-cta .voda-cta-band-panel::before {
@@ -226,32 +228,21 @@ main:has(.ri26-service-area-page) + .voda-footer .voda-footer-wave-transition.na
     radial-gradient(ellipse 34% 132% at 0% 38%,rgba(42,182,200,.26),transparent 72%),
     radial-gradient(ellipse 34% 132% at 100% 62%,rgba(42,182,200,.19),transparent 72%),
     linear-gradient(180deg,rgba(255,255,255,.05),transparent 34%);
-  mask-image:none;
+  -webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 188px),rgba(0,0,0,.55) calc(100% - 124px),transparent calc(100% - 32px));
+  mask-image:linear-gradient(180deg,#000 calc(100% - 188px),rgba(0,0,0,.55) calc(100% - 124px),transparent calc(100% - 32px));
 }
 .ri26-service-area-page .ri26-area-cta .voda-cta-band-panel::after {
   display:block;
+  -webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 188px),rgba(0,0,0,.55) calc(100% - 124px),transparent calc(100% - 32px));
+  mask-image:linear-gradient(180deg,#000 calc(100% - 188px),rgba(0,0,0,.55) calc(100% - 124px),transparent calc(100% - 32px));
   background:
     radial-gradient(circle 32vw at 50% 50%,rgba(232,247,255,.20),rgba(232,247,255,.145) 26%,rgba(232,247,255,.085) 48%,rgba(232,247,255,.035) 68%,rgba(232,247,255,.012) 84%,transparent 100%);
 }
 .ri26-service-area-page .ri26-area-cta .voda-cta-band-mark {
   opacity:1;
+  -webkit-mask-image:linear-gradient(180deg,#000 45%,transparent 100%);
+  mask-image:linear-gradient(180deg,#000 45%,transparent 100%);
 }
-main:has(.ri26-service-area-page) + .voda-footer {
-  padding-top:clamp(28px,3vw,44px);
-}
-main:has(.ri26-service-area-page) + .voda-footer .voda-footer-wave {
-  display:block;
-  -webkit-mask-image:none;
-  mask-image:none;
-}
-main:has(.ri26-service-area-page) + .voda-footer .voda-footer-inner::before {
-  content:none;
-  display:block;
-  height:1px;
-  margin-bottom:clamp(32px,3.5vw,48px);
-  background:linear-gradient(to right,transparent,rgba(159,196,214,.2) 15%,rgba(159,196,214,.2) 85%,transparent);
-}
-
 .voda-step-grid-five .voda-step-timing {
   display:block;
   grid-column:2;
@@ -259,4 +250,22 @@ main:has(.ri26-service-area-page) + .voda-footer .voda-footer-inner::before {
   color:#6a7c86;
   font-size:11px;
   line-height:1.5;
+}
+
+main:has(.ri26-service-area-page) + .voda-footer {
+  padding-top:clamp(28px,3vw,44px);
+}
+main:has(.ri26-service-area-page) + .voda-footer .voda-footer-wave {
+  display:block;
+  /* Several wave paths begin above the SVG viewport. Fade the entire stack
+     in so clipping those paths cannot create a bright horizontal top edge. */
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.025) 12%,rgba(0,0,0,.1) 26%,rgba(0,0,0,.28) 44%,rgba(0,0,0,.55) 64%,rgba(0,0,0,.82) 82%,#000 100%);
+  mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.025) 12%,rgba(0,0,0,.1) 26%,rgba(0,0,0,.28) 44%,rgba(0,0,0,.55) 64%,rgba(0,0,0,.82) 82%,#000 100%);
+}
+main:has(.ri26-service-area-page) + .voda-footer .voda-footer-inner::before {
+  content:none;
+  display:block;
+  height:1px;
+  margin-bottom:clamp(32px,3.5vw,48px);
+  background:linear-gradient(to right,transparent,rgba(159,196,214,.2) 15%,rgba(159,196,214,.2) 85%,transparent);
 }

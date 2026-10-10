@@ -9,6 +9,7 @@ import "./revision-2026.css";
 import "./about-reference.css";
 import "./responsive-fixes.css";
 import "./why-open-rows.css";
+import "./section-transitions.css";
 
 import { site } from "@/lib/site";
 import { Providers } from "@/components/providers";

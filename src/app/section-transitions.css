@@ -1,0 +1,117 @@
+/* Blend only adjacent light sections. Dark bands retain their existing edges.
+   These background layers stay visible independently of content reveals. */
+
+/* The service-area hero wave is pure white. Keep that same color at the
+   intro's top edge before bringing in the cyan pool behind the photos. */
+.ri26-detail-hero + .ri26-area-intro {
+  background:
+    linear-gradient(180deg,#fff 0px,rgba(255,255,255,.96) 16px,
+      rgba(255,255,255,.82) 40px,rgba(255,255,255,.5) 80px,
+      rgba(255,255,255,.16) 130px,rgba(255,255,255,0) 180px),
+    radial-gradient(74% 56% at 88% 6%,rgba(19,203,211,.07),transparent 62%),
+    linear-gradient(180deg,#fff 0%,#fbfdfe 46%,#f4f9fc 100%);
+}
+.ri26-detail-hero + .ri26-area-intro::before {
+  -webkit-mask-image:
+    linear-gradient(180deg,transparent 0px,rgba(0,0,0,.18) 40px,rgba(0,0,0,.5) 80px,#000 180px),
+    radial-gradient(68% 70% at 14% 20%,#000 0%,rgba(0,0,0,.4) 46%,transparent 78%);
+  mask-image:
+    linear-gradient(180deg,transparent 0px,rgba(0,0,0,.18) 40px,rgba(0,0,0,.5) 80px,#000 180px),
+    radial-gradient(68% 70% at 14% 20%,#000 0%,rgba(0,0,0,.4) 46%,transparent 78%);
+  -webkit-mask-composite:source-in;
+  mask-composite:intersect;
+}
+
+/* Two white sections should read as one surface, without a divider shadow. */
+.voda-trust-strip:has(+ .voda-process) {
+  border-bottom-color:transparent;
+  box-shadow:none;
+}
+
+/* The intro already ends at #f4f9fc. Keep the scope's blue center, then
+   settle into the #fbfdfe used by every following service content section. */
+.ri26-svc-scope:has(+ :is(.ri26-help, .ri26-dry, .ri26-steps)) {
+  background:linear-gradient(180deg,
+    #f4f9fc 0%, #eef5f9 56%, #f2f7fa 76%, #f7fafc 90%, #fbfdfe 100%);
+}
+
+/* The services background already returns to white. Ease into the existing
+   Why RestoreIQ color pools on desktop and mobile without a tinted top edge. */
+:is(.voda-services, .about-process) + .voda-why {
+  background:
+    linear-gradient(180deg,#fff 0px,rgba(255,255,255,.94) 36px,
+      rgba(255,255,255,.6) 84px,rgba(255,255,255,0) 160px),
+    radial-gradient(46% 38% at 6% 30%,rgba(190,222,244,.42),transparent 70%),
+    radial-gradient(42% 34% at 96% 38%,rgba(198,227,246,.36),transparent 70%),
+    radial-gradient(52% 40% at 18% 96%,rgba(186,219,242,.34),transparent 72%),
+    linear-gradient(180deg,#fff 0%,#fbfdfe 42%,#f6fbfd 74%,#eef7fc 100%);
+}
+
+/* Fade the decorative grids as well, so a texture cannot draw a seam
+   over backgrounds whose edge colors match. Preserve the side masks. */
+.voda-services:has(+ .voda-why)::before {
+  -webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 160px),transparent 100%);
+  mask-image:linear-gradient(180deg,#000 calc(100% - 160px),transparent 100%);
+}
+
+.voda-services:has(+ .voda-why)::after,
+.voda-work:has(+ .voda-area-section)::before {
+  --section-grid-fade:linear-gradient(180deg,#000 calc(100% - 140px),transparent 100%);
+}
+
+:is(.voda-services, .about-process) + .voda-why::before {
+  --section-grid-fade:linear-gradient(180deg,transparent 0px,#000 140px);
+}
+
+.voda-services:has(+ .voda-why)::after,
+:is(.voda-services, .about-process) + .voda-why::before,
+.voda-work:has(+ .voda-area-section)::before {
+  -webkit-mask-image:
+    var(--section-grid-fade),
+    linear-gradient(90deg,#000 0%,rgba(0,0,0,.35) 18%,transparent 42%,transparent 58%,rgba(0,0,0,.35) 82%,#000 100%);
+  mask-image:
+    var(--section-grid-fade),
+    linear-gradient(90deg,#000 0%,rgba(0,0,0,.35) 18%,transparent 42%,transparent 58%,rgba(0,0,0,.35) 82%,#000 100%);
+  -webkit-mask-composite:source-in;
+  mask-composite:intersect;
+}
+
+/* Results → local map: meet the map section's existing grey-blue ground. */
+.voda-work:has(+ .voda-area-section) {
+  background:linear-gradient(0deg,#f3f8fa 0px,#f7fafb 56px,#fcfdfe 112px,#fff 168px);
+}
+
+/* Coverage → claims: start on the map section's ground, then gradually
+   reveal the existing white/cyan claims background. */
+.ri26-coverage + .ri26-claims {
+  background:
+    linear-gradient(180deg,#f3f8fa 0px,rgba(243,248,250,.92) 36px,
+      rgba(243,248,250,.52) 84px,rgba(243,248,250,0) 160px),
+    radial-gradient(74% 56% at 88% 6%,rgba(19,203,211,.07),transparent 62%),
+    linear-gradient(180deg,#fff 0%,#fbfdfe 46%,#f4f9fc 100%);
+}
+
+/* Map imagery and decorative shading also settle into that same edge color.
+   Only the bottom is blended; the preceding dark standards band is untouched. */
+.ri26-coverage:has(+ .ri26-claims)::before {
+  -webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 160px),transparent 100%);
+  mask-image:linear-gradient(180deg,#000 calc(100% - 160px),transparent 100%);
+}
+
+.ri26-coverage:has(+ .ri26-claims) .ri26-coverage-map::after {
+  width:100%;
+  background:
+    linear-gradient(0deg,#f3f8fa 0px,rgba(243,248,250,.92) 36px,
+      rgba(243,248,250,.52) 84px,rgba(243,248,250,0) 160px),
+    linear-gradient(90deg,#f3f8fa 0px,rgba(243,248,250,.78) 40px,transparent 145px);
+}
+
+/* Gallery → FAQ: mask the cyan bloom at the edge and arrive at the FAQ's
+   existing #eff7fc, rather than switching suddenly from #f6fafc. */
+.ri26-area-gallery-section:has(+ .voda-faq) {
+  background:
+    linear-gradient(0deg,#eff7fc 0px,rgba(239,247,252,.92) 36px,
+      rgba(239,247,252,.52) 84px,rgba(239,247,252,0) 160px),
+    radial-gradient(62% 54% at 10% 100%,rgba(19,203,211,.06),transparent 62%),
+    linear-gradient(180deg,#fff 0%,#f6fafc 100%);
+}
