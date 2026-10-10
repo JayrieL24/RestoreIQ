@@ -169,6 +169,10 @@
   .ri26-contact-hero .ri26-hero-photo img { object-position:center top; }
 }
 
+@media(min-width:805px) {
+  .ri26-contact-hero .ri26-detail-copy { max-width:44ch; }
+}
+
 /* Contact uses its own content spacing rather than the service photo spacer.
    Reserve room for navigation, the bottom wave, and device safe areas. */
 @media(max-width:1024px) {
