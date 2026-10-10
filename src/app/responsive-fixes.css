@@ -169,6 +169,25 @@
   .ri26-contact-hero .ri26-hero-photo img { object-position:center top; }
 }
 
+/* Contact uses its own content spacing rather than the service photo spacer.
+   Reserve room for navigation, the bottom wave, and device safe areas. */
+@media(max-width:1024px) {
+  .ri26-contact-hero {
+    min-height:100vh;
+    min-height:100svh;
+    align-items:center;
+    padding-top:clamp(220px,32vh,340px);
+    padding-top:max(clamp(220px,32svh,340px),calc(120px + env(safe-area-inset-top,0px)));
+    padding-bottom:clamp(110px,14vh,160px);
+    padding-bottom:max(clamp(110px,14svh,160px),calc(90px + env(safe-area-inset-bottom,0px)));
+  }
+  .ri26-contact-hero .ri26-hero-copy-col {
+    padding-top:0;
+    padding-bottom:0;
+    transform:none;
+  }
+}
+
 .voda-footer-wave-transition { display:none; }
 @media(max-width:400px) {
   .ri26-dry-top { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
