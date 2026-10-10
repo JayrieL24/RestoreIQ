@@ -35,7 +35,7 @@ export default function ContactPage() {
             </p>
             <div className="voda-actions">
               <a className="voda-btn primary" href={`tel:${tel}`}><Phone aria-hidden /> {site.cta.call}</a>
-              <a className="voda-btn glass" href="/#request-service">{site.cta.request} <ArrowRight aria-hidden /></a>
+              <Link className="voda-btn glass" href="/#request-service">{site.cta.request} <ArrowRight aria-hidden /></Link>
             </div>
           </div>
         </div>

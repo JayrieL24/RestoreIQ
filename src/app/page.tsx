@@ -71,7 +71,7 @@ export default function HomePage() {
           <div className="voda-badge"><span className="voda-badge-icon"><Siren aria-hidden /></span><b>24/7</b><small>Emergency response</small></div>
           <div className="voda-readout"><span className="voda-readout-dot" aria-hidden /><div><b>Mapped</b><small>Room-by-room moisture readings</small></div><span className="voda-readout-tag">LOGGED</span></div>
         </Reveal>
-        <Reveal delay={.08} className="voda-response-copy">
+        <Reveal className="voda-response-copy">
           <span className="voda-eyebrow cyan">Fast help. Careful decisions.</span>
           <h2>We find the water<br /><em>you cannot see.</em></h2>
           <p>RestoreIQ maps moisture through floors, walls, and finishes, then builds a drying plan around what the readings show.</p>
@@ -122,7 +122,7 @@ export default function HomePage() {
             <li><Check aria-hidden />Local restoration crews</li>
           </ul>
         </Reveal>
-        <Reveal delay={0.08} className="voda-cta-band-actions">
+        <Reveal className="voda-cta-band-actions">
           <a className="voda-btn primary" href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>
             {site.cta.call} <ArrowRight aria-hidden />
           </a>
@@ -142,7 +142,7 @@ export default function HomePage() {
 
     <section className="voda-request-section" id="request-service"><Image src="/Real-life-images/MSP_7706.jpg" alt="RestoreIQ technician restoring a water-damaged home" fill className="voda-cover" sizes="100vw" /><div className="voda-final-wash" /><div className="voda-wrap voda-request-layout">
       <Reveal className="voda-request-copy"><span className="voda-eyebrow light">Emergency help, day or night</span><h2>Can’t call? Send the essentials.</h2><p>The phone remains the fastest option when water is actively spreading. Otherwise, use the short request form and the team will follow up using your preferred method.</p><div className="home-request-actions"><a className="voda-request-call" href={`tel:${phone}`}><span><Siren aria-hidden /></span><div><small>{site.cta.call}</small><b>{site.phone}</b></div></a><div className="home-request-questions"><p>Still have questions?</p><HomeSectionLink href="/contact" light align="left">Contact us</HomeSectionLink></div></div></Reveal>
-      <Reveal delay={.08}><RequestServiceForm /></Reveal>
+      <Reveal><RequestServiceForm /></Reveal>
     </div></section>
   </div>;
 }

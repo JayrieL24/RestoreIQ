@@ -8,9 +8,11 @@ import "./voda-rebuild.css";
 import "./revision-2026.css";
 import "./about-reference.css";
 import "./responsive-fixes.css";
+import "./why-open-rows.css";
 
 import { site } from "@/lib/site";
 import { Providers } from "@/components/providers";
+import { ScrollAnimations } from "@/components/scroll-animations";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Toaster } from "@/components/ui/sonner";
@@ -122,6 +124,7 @@ export default function RootLayout({
           <div className="flex min-h-dvh flex-col">
             <SiteHeader />
             <main className="flex-1" id="main-content">{children}</main>
+            <ScrollAnimations />
             <SiteFooter />
           </div>
           <Toaster />

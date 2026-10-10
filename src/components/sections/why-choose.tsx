@@ -83,7 +83,7 @@ export function WhyChoose({ referenceCollage = false, showAboutLink = false }: {
               </div>
             </Reveal>
           ) : (
-          <Reveal className="voda-why-list">
+          <Reveal className="voda-why-list voda-why-open-list">
             {features.map((feature, i) => {
               return (
                 <div
@@ -111,14 +111,14 @@ export function WhyChoose({ referenceCollage = false, showAboutLink = false }: {
           )}
 
           {referenceCollage ? (
-            <Reveal delay={0.08} className="voda-why-collage why-reference-collage">
+            <Reveal className="voda-why-collage why-reference-collage">
               <div className="why-reference-photo why-reference-main"><Image src="/about/why-air-mover.png" alt="Blue air mover on a damaged subfloor beside a window" fill sizes="(max-width: 1000px) 52vw, 380px" /></div>
               <div className="why-reference-photo why-reference-meter"><Image src="/about/why-meter.png" alt="Gloved hand holding a moisture meter beside a wood doorway" fill sizes="(max-width: 1000px) 32vw, 240px" /></div>
               <div className="why-reference-photo why-reference-technician"><Image src="/about/why-technician.png" alt="Restoration technician kneeling to adjust an air mover" fill sizes="(max-width: 1000px) 36vw, 260px" /></div>
               <div className="why-reference-photo why-reference-dehumidifier"><Image src="/about/why-dehumidifier.png" alt="Blue industrial dehumidifier and air mover inside an affected room" fill sizes="(max-width: 1000px) 40vw, 300px" /></div>
             </Reveal>
           ) : (
-          <Reveal delay={0.08} className="voda-why-collage">
+          <Reveal className="voda-why-collage">
             {/* Tall portrait frame, as in the reference. */}
             <div className="voda-why-photo main">
               <Image
