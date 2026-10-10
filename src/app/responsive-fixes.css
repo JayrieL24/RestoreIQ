@@ -251,3 +251,12 @@ main:has(.ri26-service-area-page) + .voda-footer .voda-footer-inner::before {
   margin-bottom:clamp(32px,3.5vw,48px);
   background:linear-gradient(to right,transparent,rgba(159,196,214,.2) 15%,rgba(159,196,214,.2) 85%,transparent);
 }
+
+.voda-step-grid-five .voda-step-timing {
+  display:block;
+  grid-column:2;
+  margin-top:12px;
+  color:#6a7c86;
+  font-size:11px;
+  line-height:1.5;
+}

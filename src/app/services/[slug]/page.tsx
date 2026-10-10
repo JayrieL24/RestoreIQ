@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Box, FileText, Camera, Clock3, Plug, Users, Check, ClipboardCheck, Droplet, Flame, Gauge, HousePlus, Layers, Phone, ScanSearch, ShieldCheck, WavesArrowDown, Wind } from "lucide-react";
 import { notFound } from "next/navigation";
 import { Faq } from "@/components/sections/faq";
+import { RevealGroup, RevealItem } from "@/components/reveal";
 import { getService, services } from "@/lib/services";
 import { scopeDetail, howWeHelp, causeDetail, introHeadings, stepsHeading, batch3Steps, batch2Steps, processSteps, featureAside, featureAsideLower, featureImages, heroImages, signatureBand } from "@/lib/service-features";
 import { ServiceFeaturePhoto } from "@/components/service-feature-photo";
@@ -245,12 +246,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             : <h2>A clear path from emergency <em>to restored.</em></h2>}
           <p>{stepsHead?.lede ?? "Five stages, each with a rough window so you know what comes next and when."}</p>
         </div>
-        <ol className="ri26-steps-grid">{steps.map(({ title, accent, copy, when, icon }, index) => { const StepIcon = stepIcon[icon]; return <li key={title}><article>
-          <header><span className="ri26-steps-n" aria-hidden>{String(index + 1).padStart(2, "0")}</span><span className="ri26-steps-when">{when}</span></header>
-          <span className="ri26-steps-ico" aria-hidden><StepIcon /></span>
-          <b>{title} <em>{accent}</em></b>
+        <RevealGroup className="voda-step-grid voda-step-grid-five">{steps.map(({ title, accent, copy, when, icon }, index) => { const StepIcon = stepIcon[icon]; return <RevealItem key={title}><article>
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <div><StepIcon aria-hidden /></div>
+          <h3>{title} <em>{accent}</em></h3>
           <p>{copy}</p>
-        </article></li>; })}</ol>
+          <small className="voda-step-timing">{when}</small>
+        </article></RevealItem>; })}</RevealGroup>
       </div></section>
     )}
 

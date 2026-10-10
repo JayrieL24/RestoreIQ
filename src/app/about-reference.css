@@ -295,3 +295,55 @@
   .about-text-cards article{width:82%;max-width:400px;justify-self:start;text-align:center}
   .about-text-cards article:nth-child(even){justify-self:end}
 }
+
+/* Open floating copy above a smaller shared card of team principles. */
+.about-page .about-text-apart {
+  background:none;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  padding:0 0 12px;
+}
+.about-page .about-text-note { border:0; }
+
+/* One shared card containing the three team principles. */
+.about-page .about-text-cards {
+  width:92%;
+  max-width:780px;
+  margin-inline:auto;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;
+  padding:20px;
+  background:linear-gradient(168deg,#fff 0%,#fdfeff 52%,#f4f9fc 100%);
+  border:1px solid #d5e4ec;
+  border-radius:18px;
+  box-shadow:0 1px 2px rgba(9,42,64,.05),0 10px 22px -8px rgba(9,42,64,.14),0 26px 48px -20px rgba(9,42,64,.16);
+}
+.about-page .about-text-cards article {
+  width:100%;
+  max-width:none;
+  justify-self:stretch;
+  padding:0 16px;
+  border:0;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+  text-align:left;
+}
+.about-page .about-text-cards article:first-child { padding-left:0; }
+.about-page .about-text-cards article:last-child { padding-right:0; }
+.about-page .about-text-cards article + article { border-left:1px solid #d5e4ec; }
+.about-page .about-text-cards .about-text-icon { width:34px; height:34px; margin:0 0 12px; }
+.about-page .about-text-cards .about-text-icon svg { width:17px; height:17px; }
+.about-page .about-text-cards h3 { font-size:15px; }
+.about-page .about-text-cards p { max-width:none; margin-inline:0; font-size:13px; line-height:1.6; }
+@media(max-width:700px) {
+  .about-page .about-text-cards { grid-template-columns:minmax(0,1fr); }
+  .about-page .about-text-cards article { padding:0; }
+  .about-page .about-text-cards article + article {
+    border-left:0;
+    border-top:1px solid #d5e4ec;
+    margin-top:16px;
+    padding-top:16px;
+  }
+}
