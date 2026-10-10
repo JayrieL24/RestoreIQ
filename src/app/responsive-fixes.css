@@ -204,6 +204,17 @@
   .ri26-contact-hero .ri26-hero-copy-col { padding-bottom:0; padding-left:10%; }
 }
 
+/* Full desktop navigation starts above 1200px. Use a wider three-line
+   paragraph and move left from the tablet inset without clipping the copy. */
+@media(min-width:1201px) {
+  .ri26-contact-hero .ri26-detail-copy { width:560px; max-width:100%; }
+  .ri26-contact-hero .ri26-hero-copy-col {
+    padding-left:0;
+    position:relative;
+    left:max(-5%,calc((100% - 100vw) / 2 + 24px));
+  }
+}
+
 .voda-footer-wave-transition { display:none; }
 @media(max-width:400px) {
   .ri26-dry-top { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
