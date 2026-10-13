@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import Link from "next/link";
-import { ArrowRight, Box, FileText, Camera, Clock3, Plug, Users, Check, ClipboardCheck, Droplet, Flame, Gauge, HousePlus, Layers, Phone, ScanSearch, ShieldCheck, WavesArrowDown, Wind } from "lucide-react";
+import { ArrowRight, Box, Camera, Clock3, Plug, Users, Check, ClipboardCheck, Droplet, Flame, Gauge, HousePlus, Layers, LocateFixed, Map, MapPin, Phone, ScanSearch, ShieldCheck, WavesArrowDown, Wind } from "lucide-react";
 import { notFound } from "next/navigation";
 import { Faq } from "@/components/sections/faq";
 import { RevealGroup, RevealItem } from "@/components/reveal";
 import { getService, services } from "@/lib/services";
-import { scopeDetail, howWeHelp, causeDetail, introHeadings, stepsHeading, batch3Steps, batch2Steps, processSteps, featureAside, featureAsideLower, featureImages, heroImages, signatureBand } from "@/lib/service-features";
+import { scopeDetail, howWeHelp, causeDetail, introHeadings, stepsHeading, batch3Steps, batch2Steps, processSteps, featureAside, featureImages, heroImages, signatureBand } from "@/lib/service-features";
 import { ServiceFeaturePhoto } from "@/components/service-feature-photo";
+import { ServiceCauseIcon } from "@/components/service-cause-icon";
 import { site } from "@/lib/site";
 
 export function generateStaticParams() { return services.map(({ id }) => ({ slug: id })) }
@@ -25,10 +26,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const Icon = service.icon;
   const feature = featureImages[service.id];
   const aside = featureAside[service.id];
-  const asideLower = featureAsideLower[service.id];
   const band = signatureBand[service.id];
   const hero = heroImages[service.id];
-  const isBatch2 = ["burst-pipe-cleanup", "appliance-leak-cleanup", "hardwood-floor-drying", "crawlspace-drying"].includes(service.id);
+  const mobileHero = hero ? getImageProps({ src: hero.portrait, alt: hero.alt, fill: true, sizes: "100vw" }).props : undefined;
   const scopeIcon = { waves: WavesArrowDown, scan: ScanSearch, wind: Wind, clipboard: ClipboardCheck, shield: ShieldCheck, flame: Flame, droplet: Droplet, layers: Layers, box: Box, gauge: Gauge, house: HousePlus, clock: Clock3, check: Check, camera: Camera, plug: Plug, users: Users };
   const help = howWeHelp[service.id];
   const intro = introHeadings[service.id] ?? { lineOne: service.title, lineTwo: "", accent: service.subtitle + "." };
@@ -39,11 +39,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   return <article className="voda-site ri26-detail">
     {/* Hero matches the service-area pages: full-bleed photo, grid pattern,
         navy wash and the single wave curve into the section below. */}
-    <header className={`ri26-detail-hero ri26-detail-hero-map ri26-service-hero${isBatch2 ? " ri26-hero-b2" : ""}${service.id === "reconstruction" ? " is-light-photo" : ""}`}>
+    <header className="ri26-detail-hero ri26-detail-hero-map ri26-service-hero ri26-action-hero">
       <div className="ri26-hero-photo">{hero ? (
         <picture>
-          <source media="(max-width: 860px)" srcSet={hero.portrait} />
-          <source media="(min-width: 861px)" srcSet={hero.src} />
+          <source media="(max-width: 1000px)" srcSet={mobileHero?.srcSet} sizes="100vw" />
+          <source media="(min-width: 1001px)" srcSet={hero.src} />
           <img src={hero.src} alt={hero.alt} className="voda-cover" fetchPriority="high" decoding="async" />
         </picture>
       ) : (
@@ -69,33 +69,31 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         editorial-spread style. Scope points run as an inline row under the
         lede rather than a tall side panel. */}
     {/* Intro: heading and lede left, body and causes right. */}
-    <section className="ri26-section ri26-svc-intro" aria-labelledby="intro-heading">
+    <section className="ri26-section ri26-svc-intro ri26-svc-intro-aligned" aria-labelledby="intro-heading">
       <div className="voda-wrap ri26-svc-intro-split">
         <div className="ri26-svc-intro-lead">
-          <span className="voda-eyebrow">What this covers</span>
           {/* The spaces matter: below 620px the <br> are display:none, and
               without them the lines run together ("damageyou", "rarelyall"). */}
           <h2 id="intro-heading">{intro.lineOne}<br />{" "}{intro.lineTwo}<br />{" "}<em>{intro.accent}</em></h2>
           <dl className="ri26-svc-intro-facts">
             <div>
-              <dt>Response</dt>
+              <dt><Clock3 aria-hidden />Response</dt>
               <dd>{site.coverage.hours}</dd>
             </div>
             <div>
-              <dt>Covering</dt>
+              <dt><MapPin aria-hidden />Covering</dt>
               <dd>{site.coverage.areas.length} local communities</dd>
             </div>
             <div>
-              <dt>Insurance</dt>
+              <dt><ShieldCheck aria-hidden />Insurance</dt>
               <dd>Documentation for your claim</dd>
             </div>
           </dl>
         </div>
         <div className="ri26-svc-intro-detail">
-          <p className="ri26-svc-intro-body">{service.body}</p>
           <div className="ri26-svc-intro-causes">
             <b>Most often called out for</b>
-            <ul>{service.causes.map((cause) => <li key={cause}><b>{cause}</b>{causeDetail[cause] ? <span>{causeDetail[cause]}</span> : null}</li>)}</ul>
+            <ul>{service.causes.map((cause) => <li key={cause}><ServiceCauseIcon cause={cause} /><b>{cause}</b>{causeDetail[cause] ? <span>{causeDetail[cause]}</span> : null}</li>)}</ul>
           </div>
         </div>
       </div>
@@ -105,24 +103,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     <section className="ri26-section ri26-svc-scope" aria-labelledby="scope-heading">
       <div className="voda-wrap ri26-svc-scope-split">
         <div className="ri26-svc-scope-head">
-          <span className="voda-eyebrow">What we handle</span>
-          <h2 id="scope-heading">Included in <em>every job.</em></h2>
-          <p>Nine things are covered on every job of this type. Nothing on this list is
-            an upsell or a line item you have to ask for.</p>
-          <div className="ri26-svc-scope-foot">
-            <div className="ri26-svc-scope-count">
-              <b>{service.points.length}</b>
-              <span>items included as standard,<br />on every job we take</span>
-            </div>
-            <div className="ri26-svc-scope-count">
-              <b>24/7</b>
-              <span>emergency line, across<br />{site.coverage.areas.length} local communities</span>
-            </div>
-          </div>
+          <h2 id="scope-heading" className="ri26-svc-scope-heading-three"><span>Included in</span><em><span>every restoration</span><span>job.</span></em></h2>
+          <p>We explain the scope before work begins and keep you informed as the project progresses.</p>
+          <Link className="voda-btn primary ri26-svc-scope-cta" href="/#request-service">{site.cta.request} <ArrowRight aria-hidden /></Link>
         </div>
         <ul className="ri26-svc-scope-grid">{service.points.map((point, index) => {
           const entry = scopeDetail[point];
-          const ScopeIcon = entry ? scopeIcon[entry.icon] : Check;
+          const ScopeIcon = point === "Source identification" ? LocateFixed : point === "Moisture mapping" ? Map : entry ? scopeIcon[entry.icon] : Check;
           return <li key={point}>
             <span className="ri26-svc-scope-n" aria-hidden>{String(index + 1).padStart(2, "0")}</span>
             <span className="ri26-svc-scope-ico" aria-hidden><ScopeIcon /></span>
@@ -136,39 +123,44 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     </section>
     {/* How we help: heading, floor-plan diagram and a stat card. */}
     {help && (
-      <section className="ri26-section ri26-help" aria-labelledby="help-heading">
+      <section className="ri26-section ri26-help ri26-help-reference" aria-labelledby="help-heading">
         <div className="voda-wrap ri26-help-grid">
           <div className="ri26-help-copy">
             <span className="voda-eyebrow">How we help</span>
-            <h2 id="help-heading">{help.lineOne}<br />{" "}{help.lineTwo}<br />{" "}<em>{help.accent}</em></h2>
-            <p>{help.lede}</p>
+            <h2 id="help-heading" className="ri26-help-reference-heading"><span>{help.lineOne} {help.lineTwo}</span><em>{help.accent}</em></h2>
           </div>
           <figure className="ri26-help-plan">
-            {help.image ? <Image src={help.image} alt={help.imageAlt} fill className="voda-cover" sizes="(max-width: 1000px) 92vw, 36vw" /> : <span className="ri26-ph" aria-hidden />}
+            {help.image ? <Image src={help.image} alt={help.imageAlt} fill className="voda-cover" sizes="(max-width: 600px) 92vw, 50vw" /> : <span className="ri26-ph" aria-hidden />}
           </figure>
           <aside className="ri26-help-stat">
             <b>{help.statLabel}</b>
-            <strong className="ri26-help-figure">{help.figure}</strong>
-            <p>{help.statBody}</p>
+            <div className="ri26-help-stat-summary">
+              <strong className={`ri26-help-figure${help.figure.length > 3 ? " ri26-help-figure-text" : ""}`}>{help.figure}</strong>
+              <p>{help.statBody}</p>
+            </div>
             <div className="ri26-help-note">
               <span aria-hidden><Droplet /></span>
               <p>{help.note}</p>
+            </div>
+            <div className="ri26-help-stat-actions">
+              <Link className="voda-btn primary" href="/#request-service">{site.cta.request} <ArrowRight aria-hidden /></Link>
+              <a className="voda-btn ri26-help-stat-secondary" href={`tel:${tel}`}><Phone aria-hidden /> {site.cta.call}</a>
             </div>
           </aside>
         </div>
       </section>
     )}
     {band && (
-      <section className="ri26-section ri26-dry" aria-labelledby="dry-heading">
+      <section className="ri26-section ri26-dry ri26-dry-aligned ri26-dry-reference" data-service={service.id} aria-labelledby="dry-heading">
         <div className="voda-wrap">
           <div className="ri26-dry-top">
             <div className="ri26-dry-main">
-              <span className="voda-eyebrow">{band.eyebrow}</span>
-              <h2 id="dry-heading">{band.headingTop}<br /><em>{band.headingAccent}</em></h2>
+              <h2 id="dry-heading">{band.headingTop}{service.id === "water-damage-restoration" ? "." : <><br /><em>{band.headingAccent}</em></>}</h2>
               <p className="ri26-dry-lede">{band.lede}</p>
               {feature && (
                 <figure className="ri26-dry-shot">
                   <ServiceFeaturePhoto src={feature.src} alt={feature.alt} />
+                  <figcaption><span>{band.eyebrow}</span>{feature.caption}</figcaption>
                 </figure>
               )}
             </div>
@@ -176,41 +168,21 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <div className="ri26-dry-side">
               {aside && (
                 <div className="ri26-dry-why" data-service={service.id}>
-                  <span className="voda-eyebrow cyan">{aside.eyebrow}</span>
                   <strong className="ri26-dry-figure">{aside.stat}</strong>
                   <p className="ri26-dry-figure-note">{aside.statLabel}</p>
                   <ul>{aside.points.map((point) => <li key={point}><span aria-hidden><Check /></span>{point}</li>)}</ul>
+                  <div className="ri26-dry-standard"><span>{band.target.eyebrow}</span><p>{band.target.note}</p></div>
                 </div>
               )}
-              {asideLower && (
-                <div className="ri26-dry-record">
-                  <header><span className="voda-eyebrow">{asideLower.eyebrow}</span><span className="ri26-dry-record-mark" aria-hidden><FileText /></span></header>
-                  <ul>{asideLower.rows.map((row, i) => {
-                    const RowIcon = [Gauge, Camera, ClipboardCheck][i] ?? ClipboardCheck;
-                    return <li key={row.label}>
-                      <span className="ri26-dry-record-ico" aria-hidden><RowIcon /></span>
-                      <b>{row.label}</b>
-                      <ArrowRight className="ri26-dry-record-go" aria-hidden />
-                    </li>;
-                  })}</ul>
-                </div>
-              )}
-              <div className="ri26-dry-target">
-                <div>
-                  <span className="voda-eyebrow">{band.target.eyebrow}</span>
-                  <strong>{band.target.value}</strong>
-                  <p>{band.target.note}</p>
-                </div>
-                <span className="ri26-dry-target-mark" aria-hidden><Gauge /></span>
-              </div>
             </div>
           </div>
 
-          <ol className="ri26-dry-track">{band.track.map((stage) => (
+          <ol className="ri26-dry-track" aria-label="Restoration progress">{band.track.map((stage, index) => (
             <li key={stage.step}>
-              <span className="ri26-dry-day">{stage.step}</span>
+              <span className="ri26-dry-stage-number">Stage {String(index + 1).padStart(2, "0")}</span>
               <b>{stage.label}</b>
-              <p>{stage.detail}</p>
+              <span className="ri26-dry-stage-icon" aria-hidden>{index === 0 ? <ShieldCheck /> : index === 1 ? <ScanSearch /> : index === 2 ? <Layers /> : <ClipboardCheck />}</span>
+              <p className="ri26-dry-stage-detail">{stage.detail}</p>
               <div className="ri26-dry-meter">
                 <span className="ri26-dry-bar" aria-hidden><i style={{ width: `${stage.progress}%` }} /></span>
                 <span>{stage.reading}</span>
@@ -221,26 +193,20 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </section>
     )}
 
-    
-    
     {/* Batch 2 signature: where the water goes after it leaves the
         source. Shared by the four plumbing-failure services, with
         per-service paths. */}
-    
     {/* Commercial signature: which parts of the property keep trading. */}
-    
     {/* Contents signature: what happens to each category of belongings. */}
 
     {/* Shared: related causes. */}
 
     {/* Process: same markup and classes as the homepage's process
         section, with a sequence written for this service. */}
-    
-    
     {steps && (
       <section className="ri26-section ri26-steps"><div className="voda-wrap">
         <div className="voda-heading">
-          <span className="voda-eyebrow">{stepsHead?.eyebrow ?? "What happens after you call"}</span>
+          <span className="voda-eyebrow">Process</span>
           {stepsHead
             ? <h2>{stepsHead.heading} <em>{stepsHead.headingAccent}</em></h2>
             : <h2>A clear path from emergency <em>to restored.</em></h2>}
@@ -268,7 +234,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <span className="voda-cta-band-mark right ri26-area-cta-mark" aria-hidden>RestoreIQ</span>
         <div className="voda-wrap voda-cta-band-inner">
           <div className="voda-cta-band-copy">
-            <span className="voda-eyebrow cyan">Need help now?</span>
             <h2 id="service-cta-heading">Call before the damage <em>spreads farther.</em></h2>
             <ul className="voda-cta-band-points">
               <li><Check aria-hidden />Most calls answered live</li>
@@ -287,7 +252,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </div>
     </section>
 
-    <Faq items={service.faqs.map(({ question, answer }) => ({ q: question, a: answer }))} eyebrow="Service questions" heading={<>Before the work <em>begins</em></>} />
+    <Faq items={service.faqs.map(({ question, answer }) => ({ q: question, a: answer }))} heading={<>Before the work <em>begins</em></>} />
 
   </article>;
 }
