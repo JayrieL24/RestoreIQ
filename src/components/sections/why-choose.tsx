@@ -52,7 +52,6 @@ export function WhyChoose({ referenceCollage = false, showAboutLink = false }: {
     <section className="voda-why" id="why-us" aria-labelledby="why-heading">
       <div className="voda-wrap">
         <Reveal className="voda-heading">
-          <span className="voda-eyebrow">About RestoreIQ</span>
           <h2 id="why-heading">
             Local restoration, built around<br />
             <em>clear decisions.</em>
@@ -69,14 +68,14 @@ export function WhyChoose({ referenceCollage = false, showAboutLink = false }: {
             <Reveal className="voda-why-list about-method-list">
               <div className="about-method-body">
               {[
-                { Icon: ShieldCheck, stage: 'Protect', details: ['Access planning', 'Belongings', 'Unaffected rooms'], title: 'Care for the whole property', body: 'We consider access, belongings, and unaffected rooms when planning work around the damage.' },
-                { Icon: ClipboardCheck, stage: 'Plan', details: ['Drying options', 'Material condition', 'Scope explained'], title: 'Explain the options first', body: 'We walk you through what can be dried, what needs attention, and the reasons behind the proposed scope.' },
-                { Icon: MessageCircle, stage: 'Update', details: ['Work in progress', 'Checks', 'Next steps'], title: 'Keep the next step clear', body: 'You know what the crew is working on, what we are checking, and what comes next.' },
-                { Icon: FileCheck2, stage: 'Handover', details: ['Job photos', 'Readings', 'Progress notes'], title: 'Finish with a useful handover', body: 'Job photos, readings, and progress notes help you understand the work and discuss it with your adjuster.' },
+                { Icon: ShieldCheck, stage: 'Protect', title: 'Care for the whole property', body: 'We consider access, belongings, and unaffected rooms when planning work around the damage.' },
+                { Icon: ClipboardCheck, stage: 'Plan', title: 'Explain the options first', body: 'We walk you through what can be dried, what needs attention, and the reasons behind the proposed scope.' },
+                { Icon: MessageCircle, stage: 'Update', title: 'Keep the next step clear', body: 'You know what the crew is working on, what we are checking, and what comes next.' },
+                { Icon: FileCheck2, stage: 'Handover', title: 'Finish with a useful handover', body: 'Job photos, readings, and progress notes help you understand the work and discuss it with your adjuster.' },
               ].map((feature, index) => (
                 <article className="about-method-row" key={feature.title}>
                   <span className="about-method-icon" aria-hidden><feature.Icon strokeWidth={2} /></span>
-                  <div className="about-method-content"><h3>{feature.title}</h3><p>{feature.body}</p><ul className="about-method-details" aria-label="What this includes">{feature.details.map(detail => <li key={detail}>{detail}</li>)}</ul></div>
+                  <div className="about-method-content"><h3>{feature.title}</h3><p>{feature.body}</p></div>
                   <span className="about-method-number"><b aria-hidden>{String(index + 1).padStart(2, '0')}</b><small>{feature.stage}</small></span>
                 </article>
               ))}

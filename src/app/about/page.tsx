@@ -24,7 +24,7 @@ export default function AboutPage() {
         <div className="about-reference-shade" />
         <div className="voda-wrap about-reference-hero-inner">
           <div className="about-reference-copy">
-            <p className="about-reference-eyebrow">About RestoreIQ</p>
+            <p className="about-reference-eyebrow">About us</p>
             <h1><span>People. Response.</span><em>Restoration.</em></h1>
             <p className="about-reference-description">We&apos;re a Ventura County restoration company helping homeowners and businesses recover from water, fire, smoke and other property damage, with expertise, compassion, and a commitment to doing things right.</p>
             <div className="about-reference-actions">
@@ -45,10 +45,8 @@ export default function AboutPage() {
       <section className="about-text-story" id="our-story" aria-labelledby="about-story-heading">
         <div className="about-text-layout">
           <div className="about-text-intro">
-            <p className="voda-eyebrow">Who we are</p>
             <h2 id="about-story-heading">A local team<br />with a<br /><em>higher standard.</em></h2>
             <p>Restoration isn’t just about equipment and repairs; it’s about people. We’re a local, hands-on team that treats every property like our own.</p>
-            <p>From the first call to the final walkthrough, we bring experience, clear communication, and an unwavering commitment to doing what’s right for our community.</p>
           </div>
           <div className="about-text-right">
             <div className="about-text-apart">
@@ -71,7 +69,7 @@ export default function AboutPage() {
       <section className="about-standards" aria-labelledby="about-standards-heading">
         <div className="about-standards-layout">
           <div className="about-standards-copy">
-            <p className="about-reference-eyebrow">Credentials &amp; standards</p>
+            <p className="about-reference-eyebrow">Standards</p>
             <h2 id="about-standards-heading">Professional.<br />Certified. <em>Prepared.</em></h2>
             <p>We follow industry-leading standards and maintain the certifications, documentation, and equipment needed to restore your property the right way.</p>
             <a className="about-reference-button story-button" href="#process">Our Standards <ArrowRight aria-hidden /></a>
@@ -108,9 +106,8 @@ export default function AboutPage() {
       <section className="ri26-section voda-process voda-process-brief about-process" id="process" aria-labelledby="about-process-heading">
         <div className="voda-wrap">
           <div className="voda-heading">
-            <span className="voda-eyebrow">What happens after you call</span>
+            <span className="voda-eyebrow">Process</span>
             <h2 id="about-process-heading">A clear path from emergency<br /><em>to restored.</em></h2>
-            <p>Five straightforward stages so you always know what comes next.</p>
           </div>
           <div className="voda-step-grid voda-step-grid-five">
             {process.map(({ title, accent, copy, icon: Icon }, index) => (
@@ -134,7 +131,6 @@ export default function AboutPage() {
           <span className="voda-cta-band-mark right ri26-area-cta-mark" aria-hidden>RestoreIQ</span>
           <div className="voda-wrap voda-cta-band-inner">
             <div className="voda-cta-band-copy">
-              <span className="voda-eyebrow cyan">Ready when you need us</span>
               <h2 id="about-cta-heading">Let’s get your property<br /><em>back on track.</em></h2>
               <ul className="voda-cta-band-points">
                 <li><Check aria-hidden />24/7 emergency line</li>
@@ -154,7 +150,6 @@ export default function AboutPage() {
       </section>
 
       <Faq
-        eyebrow="About RestoreIQ"
         heading={<>Get to know <em>RestoreIQ.</em></>}
         items={[
           { q: "Who is RestoreIQ?", a: "RestoreIQ is a local emergency restoration company. We help homeowners and businesses recover from property damage with careful planning, clear communication, and documented work." },

@@ -57,7 +57,7 @@ export function ServiceAreaMap() {
   }, []);
 
   return <section className="voda-area-section" id="coverage" aria-labelledby="coverage-heading"><div className="voda-area-layout voda-wrap">
-    <div className="voda-area-copy"><span className="voda-eyebrow">Serving Ventura County</span><h2 id="coverage-heading">Emergency restoration close to home.</h2><p>Select a city to locate it on the map. Use the navigation or footer to open its local service page.</p>
+    <div className="voda-area-copy"><span className="voda-eyebrow">Service areas</span><h2 id="coverage-heading">Emergency restoration close to home.</h2><p>Select a city to locate it on the map. Use the navigation or footer to open its local service page.</p>
       <ul className="voda-area-list">{serviceAreas.map((area, index) => <li key={area.slug}><button type="button" disabled={status === "loading"} aria-pressed={selected === index} onClick={() => actions.current?.focus(index)}><MapPin aria-hidden /><span>{area.name}</span><ArrowUpRight aria-hidden /></button></li>)}</ul>
       <p className="voda-area-help">Don&apos;t see your location? <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>Call {site.phone}</a></p>
     </div>

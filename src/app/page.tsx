@@ -31,7 +31,6 @@ export default function HomePage() {
         />
       </div>
       <div className="voda-wrap voda-hero-inner"><Reveal className="voda-hero-copy">
-        <span className="voda-hero-kicker"><i />Local emergency restoration</span>
         <h1>24/7 Water Damage Restoration <em>in Ventura County</em></h1>
         <p>Rapid water extraction, structural drying and moisture detection from a local restoration team. Call now for immediate arrival guidance.</p>
         <div className="voda-actions"><a className="voda-btn primary" href={`tel:${phone}`}>{site.cta.call} <Phone /></a><a className="voda-btn glass" href="#request-service">{site.cta.request} <ArrowRight /></a>
@@ -57,7 +56,7 @@ export default function HomePage() {
     </div></section>
 
     <section className="voda-process voda-process-brief" id="process"><div className="voda-wrap">
-      <Reveal className="voda-heading"><span className="voda-eyebrow">What happens after you call</span><h2>A clear path from emergency<br /><em>to restored.</em></h2><p>Five straightforward stages so you always know what comes next.</p></Reveal>
+      <Reveal className="voda-heading"><span className="voda-eyebrow">Process</span><h2>A clear path from emergency<br /><em>to restored.</em></h2></Reveal>
       <RevealGroup className="voda-step-grid voda-step-grid-five">{process.map(({ title, accent, copy, icon: Icon }, index) => <RevealItem key={title}><article><span>0{index + 1}</span><div><Icon aria-hidden /></div><h3>{title} <em>{accent}</em></h3><p>{copy}</p></article></RevealItem>)}</RevealGroup>
     </div></section>
 
@@ -72,7 +71,6 @@ export default function HomePage() {
           <div className="voda-readout"><span className="voda-readout-dot" aria-hidden /><div><b>Mapped</b><small>Room-by-room moisture readings</small></div><span className="voda-readout-tag">LOGGED</span></div>
         </Reveal>
         <Reveal className="voda-response-copy">
-          <span className="voda-eyebrow cyan">Fast help. Careful decisions.</span>
           <h2>We find the water<br /><em>you cannot see.</em></h2>
           <p>RestoreIQ maps moisture through floors, walls, and finishes, then builds a drying plan around what the readings show.</p>
           <ResponseFeatureList />
@@ -83,14 +81,14 @@ export default function HomePage() {
     </section>
 
     <section className="voda-services" id="services"><div className="voda-wrap">
-      <Reveal className="voda-heading"><span className="voda-eyebrow">Emergency restoration services</span><h2>Focused help for damage<br /><em>that cannot wait.</em></h2><p>Water, fire, contaminated-water, contents, and reconstruction services, without unrelated home-service offerings.</p></Reveal>
+      <Reveal className="voda-heading"><span className="voda-eyebrow">Services</span><h2>Focused help for damage<br /><em>that cannot wait.</em></h2></Reveal>
       <ServiceRail items={services.map(({ id, shortTitle, subtitle, icon: Icon }) => ({ title:shortTitle, copy:subtitle, icon:<Icon aria-hidden />, href:`/services/${id}` }))} />
     </div></section>
 
     <WhyChoose showAboutLink />
 
     <section className="voda-brief-insurance" id="insurance"><div className="voda-wrap">
-      <Reveal className="voda-heading light-heading"><span className="voda-eyebrow cyan">Insurance assistance</span><h2>You choose your restoration company.</h2><p>RestoreIQ accepts all insurance carriers and can communicate directly with the adjuster when you authorize it.</p></Reveal>
+      <Reveal className="voda-heading light-heading"><span className="voda-eyebrow cyan">Insurance</span><h2>You choose your restoration company.</h2><p>RestoreIQ accepts all insurance carriers and can communicate directly with the adjuster when you authorize it.</p></Reveal>
       <RevealGroup className="voda-insurance-grid">
         <RevealItem><div><BadgeCheck aria-hidden /><h3>Your choice</h3><p>The homeowner selects the restoration provider; the carrier can be kept informed throughout the loss.</p></div></RevealItem>
         <RevealItem><div><ClipboardCheck aria-hidden /><h3>Documented progress</h3><p>Moisture readings, photographs, equipment, and job progress can be organized for claim review.</p></div></RevealItem>
@@ -102,7 +100,7 @@ export default function HomePage() {
       <HomeSectionLink href="/contact" light>Have Questions about insurance?</HomeSectionLink>
     </div></section>
 
-    <section className="voda-work" id="work"><div className="voda-transform-wrap"><Reveal className="voda-heading voda-work-heading"><span className="voda-eyebrow">Before and after projects</span><h2>See the results<br /><em>for yourself.</em></h2><p>Drag each handle to compare the affected area with the completed restoration.</p></Reveal><BeforeAfterShowcase /></div></section>
+    <section className="voda-work" id="work"><div className="voda-transform-wrap"><Reveal className="voda-heading voda-work-heading"><h2>See the results<br /><em>for yourself.</em></h2><p>Drag each handle to compare the affected area with the completed restoration.</p></Reveal><BeforeAfterShowcase /></div></section>
 
     <ServiceAreaMap />
 
@@ -114,7 +112,6 @@ export default function HomePage() {
       <span className="voda-cta-band-mark right" aria-hidden>24/7</span>
       <div className="voda-wrap voda-cta-band-inner">
         <Reveal className="voda-cta-band-copy">
-          <span className="voda-eyebrow cyan">Water spreading right now?</span>
           <h2 id="cta-band-heading">Every hour matters <em>after water damage.</em></h2>
           <ul className="voda-cta-band-points">
             <li><Check aria-hidden />Most calls answered live</li>
@@ -141,7 +138,7 @@ export default function HomePage() {
     <Faq showContactLink />
 
     <section className="voda-request-section" id="request-service"><Image src="/Real-life-images/MSP_7706.jpg" alt="RestoreIQ technician restoring a water-damaged home" fill className="voda-cover" sizes="100vw" /><div className="voda-final-wash" /><div className="voda-wrap voda-request-layout">
-      <Reveal className="voda-request-copy"><span className="voda-eyebrow light">Emergency help, day or night</span><h2>Can’t call? Send the essentials.</h2><p>The phone remains the fastest option when water is actively spreading. Otherwise, use the short request form and the team will follow up using your preferred method.</p><div className="home-request-actions"><a className="voda-request-call" href={`tel:${phone}`}><span><Siren aria-hidden /></span><div><small>{site.cta.call}</small><b>{site.phone}</b></div></a><div className="home-request-questions"><p>Still have questions?</p><HomeSectionLink href="/contact" light align="left">Contact us</HomeSectionLink></div></div></Reveal>
+      <Reveal className="voda-request-copy"><h2>Can’t call? Send the essentials.</h2><p>The phone remains the fastest option when water is actively spreading. Otherwise, use the short request form and the team will follow up using your preferred method.</p><div className="home-request-actions"><a className="voda-request-call" href={`tel:${phone}`}><span><Siren aria-hidden /></span><div><small>{site.cta.call}</small><b>{site.phone}</b></div></a><div className="home-request-questions"><p>Still have questions?</p><HomeSectionLink href="/contact" light align="left">Contact us</HomeSectionLink></div></div></Reveal>
       <Reveal><RequestServiceForm /></Reveal>
     </div></section>
   </div>;
