@@ -115,3 +115,18 @@
     radial-gradient(62% 54% at 10% 100%,rgba(19,203,211,.06),transparent 62%),
     linear-gradient(180deg,#fff 0%,#f6fafc 100%);
 }
+
+/* Soften the coverage map's top edge into the results section's ground.
+   Keep this below Leaflet markers and controls so they remain clear. */
+.voda-area-section .voda-area-map::before {
+  content:"";
+  position:absolute;
+  z-index:450;
+  inset:0 0 auto;
+  height:clamp(90px,8vw,140px);
+  pointer-events:none;
+  background:linear-gradient(180deg,
+    #f3f8fa 0%,rgba(243,248,250,.96) 12%,
+    rgba(243,248,250,.78) 32%,rgba(243,248,250,.44) 56%,
+    rgba(243,248,250,.14) 78%,rgba(243,248,250,0) 100%);
+}
