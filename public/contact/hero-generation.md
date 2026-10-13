@@ -1,0 +1,7 @@
+# Contact hero
+
+Generated with the built-in image generation tool. Final asset: `restoreiq-technician-hero-v1.png`.
+
+## Prompt
+
+Use case: photorealistic-natural. Asset type: wide 16:9 contact-page website hero background photograph, 1536x1024 or wider landscape. Recreate the hero photograph composition in the user's RestoreIQ contact-page reference, not the webpage itself. Inside a water-damaged Southern California home, a male restoration technician is viewed from behind, leaning forward with both hands on a blue centrifugal floor air mover. Technician occupies the right 45% of the wide frame, head near upper right, blue air mover at lower center-right. Dark navy work polo, dark charcoal work trousers, short dark hair, realistic natural anatomy. On upper back of polo a small white water-drop/house emblem above exact white text "RestoreIQ" and smaller "WATER DAMAGE". Left 50% is quiet unobstructed interior negative space for webpage text; no people or equipment there. Muted grey walls, translucent containment plastic and window light behind worker. Professional natural documentary photo, detailed cloth, realistic machine grille, cool soft daylight, restrained blue-grey palette. Keep full head and hands visible, equipment clearly visible, allow generous safe margins top and bottom for responsive cropping. Do not bake a dark navy overlay into the photo, that will be added in CSS. No webpage text, no buttons, no navigation, no borders, no watermark.

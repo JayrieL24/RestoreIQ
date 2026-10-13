@@ -1,0 +1,220 @@
+.ri26-contact-reference { --contact-ink:#103249; --contact-blue:#0088bd; }
+.ri26-contact-reference .voda-wrap { width:min(1280px,calc(100% - 64px)); }
+.ri26-contact-reference .ri26-contact-hero {
+  display:flex; align-items:center; min-height:700px; padding:175px 0 125px;
+  background:#06243c;
+}
+.ri26-contact-reference .ri26-hero-photo { position:absolute; inset:0; z-index:-3; }
+.ri26-contact-reference .ri26-hero-photo img { object-position:center; filter:saturate(.8); }
+.ri26-contact-reference .ri26-hero-shade {
+  position:absolute; inset:0; z-index:-2;
+  background:linear-gradient(90deg,#06243c 0%,rgba(6,36,60,.96) 25%,rgba(6,36,60,.82) 47%,rgba(6,36,60,.38) 72%,rgba(6,36,60,.48)),linear-gradient(0deg,rgba(6,36,60,.78),transparent 65%);
+}
+.ri26-contact-reference .ri26-hero-grid { width:42%; opacity:.16; }
+.ri26-contact-reference .ri26-hero-copy-col { max-width:550px; }
+.ri26-contact-reference .ri26-kicker { display:flex; align-items:center; gap:13px; font-size:11px; font-weight:750; letter-spacing:.12em; text-transform:uppercase; }
+.ri26-contact-reference .ri26-kicker::before { content:""; width:28px; height:2px; background:#37d8e7; }
+.ri26-contact-reference .ri26-contact-hero h1 { margin:22px 0 0; font-size:clamp(54px,6.4vw,80px); line-height:1; letter-spacing:-.055em; }
+.ri26-contact-reference .ri26-contact-hero h1 em { display:block; color:#42d9e9; }
+.ri26-contact-reference .ri26-detail-copy { max-width:530px; font-size:17px; line-height:1.65; color:#e1edf3; margin:22px 0 0; }
+.ri26-contact-reference .voda-actions { display:flex; gap:14px; margin-top:27px; }
+.ri26-contact-reference .voda-btn { min-height:50px; border-radius:8px; font-size:14px; padding:0 23px; }
+.ri26-contact-reference .voda-btn.primary { background:#3bd5e5; color:#06243c; border:1px solid #3bd5e5; box-shadow:none; }
+.ri26-contact-reference .voda-btn.primary:hover { background:#72e6f0; }
+.ri26-contact-reference .voda-btn.glass { background:rgba(255,255,255,.06); border:1px solid #b4d6e4; color:white; }
+.ri26-contact-hero-benefits { display:flex; padding:0; margin:36px 0 0; list-style:none; gap:24px; }
+.ri26-contact-hero-benefits li { display:flex; align-items:center; gap:12px; color:#c7dfe9; font-size:12px; line-height:1.6; }
+.ri26-contact-hero-benefits li + li { padding-left:24px; border-left:1px solid rgba(163,220,236,.25); }
+.ri26-contact-hero-benefits svg { flex:none; width:34px; height:34px; color:#45dcea; stroke-width:1.5; }
+.ri26-contact-reference .ri26-hero-wave { height:80px; fill:#fff; }
+.ri26-contact-reference .ri26-contact { padding:52px 0 76px; background:radial-gradient(ellipse at 12% 60%,#eef9fd,transparent 65%),linear-gradient(#fff,#f7fcff); }
+.ri26-contact-intro { margin-bottom:28px; }
+.ri26-contact-intro h2 { margin:17px 0 0; font-size:clamp(36px,4vw,52px); line-height:1.12; letter-spacing:-.05em; color:var(--contact-ink); font-weight:780; }
+.ri26-contact-intro h2 em,.ri26-contact-form-head h2 em { color:var(--contact-blue); font-style:normal; }
+.ri26-contact-intro p { margin:15px 0 0; max-width:620px; font-size:16px; line-height:1.6; color:#426078; }
+.ri26-contact-reference .ri26-contact-grid { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,1fr); gap:24px; align-items:start; }
+.ri26-contact-reference .ri26-contact-primary { margin:0; padding:24px; gap:20px; border-color:#9bdcf1; border-radius:16px; background:linear-gradient(120deg,#f3fbff,#eaf8fd); }
+.ri26-contact-reference .ri26-contact-primary > span { background:#007fac; width:58px; height:58px; border-radius:15px; }
+.ri26-contact-reference .ri26-contact-primary > div { flex:1; min-width:0; }
+.ri26-contact-reference .ri26-contact-primary small { color:#064675; font-size:11px; }
+.ri26-contact-reference .ri26-contact-primary b { font-size:27px; }
+.ri26-contact-reference .ri26-contact-primary > div > span { font-size:13px; line-height:1.6; margin-top:9px; }
+.ri26-contact-card-arrow { width:20px; height:20px; flex:none; color:#009dce; align-self:center; }
+.ri26-contact-reference .ri26-contact-list { display:grid; gap:14px; margin:14px 0 0; }
+.ri26-contact-reference .ri26-contact-list > li { grid-template-columns:58px minmax(0,1fr) auto; gap:20px; padding:24px; background:#fff; border:1px solid #e0ebf2; border-radius:16px; box-shadow:0 8px 26px rgba(14,59,88,.035); }
+.ri26-contact-reference .ri26-contact-mark { width:58px; height:58px; border:0; border-radius:15px; background:#e8f6fc; color:#008cc0; }
+.ri26-contact-reference .ri26-contact-mark svg { width:26px; height:26px; stroke-width:1.7; }
+.ri26-contact-reference .ri26-contact-list > li > div > b { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:#064675; }
+.ri26-contact-reference .ri26-contact-list > li > div > a { font-size:20px; text-decoration:none; overflow-wrap:anywhere; }
+.ri26-contact-reference .ri26-contact-list > li > div > p { font-size:17px; color:#103249; font-weight:650; }
+.ri26-contact-reference .ri26-contact-list small { font-size:13px; line-height:1.6; margin-top:8px; }
+.ri26-contact-reference .ri26-contact-areas { gap:7px; }
+.ri26-contact-reference .ri26-contact-areas a { background:#f6fafc; font-size:11px; font-weight:550; }
+.ri26-contact-reference .ri26-contact-map { margin:20px 0 0; border:1px solid #e0ebf2; border-radius:16px; overflow:hidden; box-shadow:0 8px 26px rgba(14,59,88,.05); }
+.ri26-contact-reference .ri26-contact-map iframe { display:block; width:100%; height:250px; border:0; }
+.ri26-contact-reference .ri26-contact-map figcaption { display:flex; align-items:center; gap:10px; padding:18px; background:#fff; font-size:12px; }
+.ri26-contact-reference .ri26-contact-map figcaption a { margin-left:auto; white-space:nowrap; }
+.ri26-contact-reference .ri26-contact-form { order:0; padding:32px; border:1px solid #e0ebf2; border-radius:20px; background:#fff; box-shadow:0 20px 48px rgba(14,59,88,.08); scroll-margin-top:110px; }
+.ri26-contact-reference .ri26-contact-form-head { margin-bottom:28px; }
+.ri26-contact-form-head h2 { margin:16px 0 10px; font-size:38px; line-height:1.15; letter-spacing:-.045em; color:var(--contact-ink); font-weight:780; }
+.ri26-contact-form-head p { color:#526d83; font-size:15px; line-height:1.65; margin:0; }
+.ri26-contact-reference .ri26-contact-form .ri26-form { display:flex; flex-direction:column; gap:21px; }
+.ri26-contact-reference .ri26-field-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.ri26-contact-reference .ri26-field-grid > label { min-width:0; }
+.ri26-contact-reference .ri26-form label > span,.ri26-contact-reference .ri26-form legend { font-size:12px; line-height:1.5; font-weight:650; color:#183b54; margin-bottom:7px; }
+.ri26-contact-reference .ri26-form label > span small { display:inline; font-size:11px; color:#6e8597; font-weight:450; }
+.ri26-contact-reference .ri26-form input:not([type=radio]),.ri26-contact-reference .ri26-form textarea { width:100%; min-width:0; height:48px; border:1px solid #d0dfe9; border-radius:10px; padding:12px 14px; background:#fbfdff; font-size:14px; color:#183b54; }
+.ri26-contact-reference .ri26-form input::placeholder,.ri26-contact-reference .ri26-form textarea::placeholder { color:#8ba1b3; }
+.ri26-contact-reference .ri26-form input:focus-visible,.ri26-contact-reference .ri26-form textarea:focus-visible { outline:2px solid #18b8db; outline-offset:2px; }
+.ri26-contact-subjects > div { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.ri26-contact-subjects label { position:relative; display:flex; align-items:center; flex-direction:column; justify-content:center; gap:10px; min-height:104px; padding:12px 8px; border:1px solid #d0dfe9; border-radius:12px; cursor:pointer; text-align:center; }
+.ri26-contact-subjects input { position:absolute; opacity:0; width:1px; height:1px; }
+.ri26-contact-subjects label:has(input:checked) { border-color:#15b4d8; background:#effaff; color:#0088b7; }
+.ri26-contact-subjects label:has(input:focus-visible) { outline:2px solid #18b8db; outline-offset:3px; }
+.ri26-contact-subjects svg { width:21px; height:21px; stroke-width:1.7; }
+.ri26-contact-reference .ri26-contact-subjects label > span { font-size:11px; line-height:1.4; font-weight:500; margin:0; }
+.ri26-contact-reference .ri26-message-grid { grid-template-columns:1fr; gap:16px; }
+.ri26-contact-reference .ri26-form textarea { height:150px; min-height:150px; resize:vertical; }
+.ri26-contact-reference .ri26-message-grid label:last-child textarea { height:90px; min-height:90px; }
+.ri26-contact-reference .ri26-form .voda-btn { width:100%; gap:12px; }
+.ri26-contact-reference .ri26-form-note { margin:0; font-size:11px; line-height:1.6; color:#587287; }
+.ri26-contact-trust { background:#edf9fd; padding:54px 0 100px; }
+.ri26-contact-trust > div { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:36px; }
+.ri26-contact-trust > div > div { display:flex; gap:18px; align-items:start; }
+.ri26-contact-trust > div > div > span { display:grid; place-items:center; flex:none; width:70px; height:70px; border-radius:50%; background:#d9f2fb; color:#0090c3; }
+.ri26-contact-trust svg { width:31px; height:31px; stroke-width:1.7; }
+.ri26-contact-trust h3 { color:#0c3859; font-size:17px; margin:8px 0; }
+.ri26-contact-trust p { font-size:14px; line-height:1.6; color:#426078; margin:0; }
+@media(max-width:1000px) {
+  .ri26-contact-reference .ri26-contact-grid { grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:18px; }
+  .ri26-contact-reference .ri26-contact-form { padding:24px; }
+  .ri26-contact-reference .ri26-contact-list > li,.ri26-contact-reference .ri26-contact-primary { padding:20px; gap:14px; }
+  .ri26-contact-reference .ri26-contact-list > li { grid-template-columns:44px minmax(0,1fr) auto; }
+  .ri26-contact-reference .ri26-contact-mark,.ri26-contact-reference .ri26-contact-primary > span { width:44px; height:44px; }
+  .ri26-contact-reference .ri26-contact-primary b { font-size:22px; }
+  .ri26-contact-reference .ri26-contact-list > li > div > a { font-size:17px; }
+  .ri26-contact-trust > div { gap:20px; }
+  .ri26-contact-trust > div > div { gap:12px; }
+  .ri26-contact-trust > div > div > span { width:50px; height:50px; }
+}
+@media(max-width:800px) {
+  .ri26-contact-reference .voda-wrap { width:calc(100% - 40px); }
+  .ri26-contact-reference .ri26-contact-hero { min-height:690px; padding:160px 0 110px; }
+  .ri26-contact-reference .ri26-hero-copy-col { max-width:480px; }
+  .ri26-contact-reference .ri26-hero-photo img { object-position:65% center; }
+  .ri26-contact-reference .ri26-hero-shade { background:linear-gradient(90deg,rgba(6,36,60,.98),rgba(6,36,60,.87) 48%,rgba(6,36,60,.55)),linear-gradient(0deg,#06243c,transparent 75%); }
+  .ri26-contact-reference .ri26-contact-grid { display:flex; flex-direction:column; gap:26px; }
+  .ri26-contact-reference .ri26-contact-form { order:-1; width:100%; }
+  .ri26-contact-reference .ri26-contact-details { width:100%; }
+  .ri26-contact-trust > div { grid-template-columns:1fr; gap:26px; }
+  .ri26-contact-trust { padding:40px 0 85px; }
+}
+@media(max-width:480px) {
+  .ri26-contact-reference .ri26-contact-hero { min-height:0; padding:155px 0 105px; }
+  .ri26-contact-reference .ri26-contact-hero h1 { font-size:clamp(48px,12vw,60px); }
+  .ri26-contact-reference .ri26-detail-copy { font-size:15px; }
+  .ri26-contact-reference .voda-actions { gap:10px; flex-wrap:wrap; }
+  .ri26-contact-reference .voda-btn { padding:0 16px; font-size:13px; }
+  .ri26-contact-hero-benefits { gap:12px; margin-top:28px; }
+  .ri26-contact-hero-benefits li { gap:7px; font-size:10px; }
+  .ri26-contact-hero-benefits li + li { padding-left:12px; }
+  .ri26-contact-hero-benefits svg { width:25px; height:25px; }
+  .ri26-contact-reference .ri26-hero-wave { height:48px; }
+  .ri26-contact-reference .ri26-contact { padding:34px 0 48px; }
+  .ri26-contact-reference .ri26-contact-form { padding:22px 18px; }
+  .ri26-contact-form-head h2 { font-size:34px; }
+  .ri26-contact-reference .ri26-field-grid { gap:12px; }
+  .ri26-contact-reference .ri26-form input:not([type=radio]),.ri26-contact-reference .ri26-form textarea { font-size:16px; }
+  .ri26-contact-subjects > div { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .ri26-contact-reference .ri26-contact-map figcaption { flex-wrap:wrap; }
+}
+@media(max-width:360px) {
+  .ri26-contact-reference .ri26-field-grid { grid-template-columns:1fr; }
+  .ri26-contact-hero-benefits { flex-wrap:wrap; }
+  .ri26-contact-hero-benefits li + li { border:0; padding-left:0; }
+}
+
+/* Four contact routes in a balanced grid, with the map underneath. */
+.ri26-contact-reference .ri26-contact-list {
+  grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:0;
+}
+.ri26-contact-reference .ri26-contact-list > li {
+  display:flex; flex-direction:column; align-items:flex-start;
+  position:relative; min-width:0; padding:20px; gap:16px;
+}
+.ri26-contact-reference .ri26-contact-list > li > div { min-width:0; width:100%; }
+.ri26-contact-reference .ri26-contact-list > li > div > a { font-size:17px; }
+.ri26-contact-reference .ri26-contact-list > li > div > p { font-size:16px; }
+.ri26-contact-reference .ri26-contact-list > li.ri26-contact-emergency-card {
+  display:block; padding:0; border:0; background:transparent; box-shadow:none;
+}
+.ri26-contact-reference .ri26-contact-emergency-card .ri26-contact-primary {
+  flex-direction:column; align-items:flex-start; height:100%; padding:20px; gap:16px; position:relative;
+}
+.ri26-contact-reference .ri26-contact-emergency-card .ri26-contact-primary > div { flex:none; width:100%; }
+.ri26-contact-reference .ri26-contact-emergency-card .ri26-contact-primary b { font-size:22px; }
+.ri26-contact-reference .ri26-contact-list .ri26-contact-card-arrow { position:absolute; top:34px; right:20px; }
+.ri26-contact-reference .ri26-contact-mark,
+.ri26-contact-reference .ri26-contact-emergency-card .ri26-contact-primary > span { width:48px; height:48px; }
+.ri26-contact-reference .ri26-contact-areas a { padding:5px 8px; }
+.ri26-contact-reference .ri26-contact-map { width:100%; flex:none; }
+@media(max-width:480px) {
+  .ri26-contact-reference .ri26-contact-list { grid-template-columns:minmax(0,1fr); }
+}
+
+/* Ease from the white contact section into a roomier support band. */
+.ri26-contact-reference .ri26-contact {
+  background:linear-gradient(0deg,#fff 0%,rgba(255,255,255,0) 24%),
+    radial-gradient(ellipse at 12% 60%,#eef9fd,transparent 65%),linear-gradient(#fff,#f7fcff);
+}
+.ri26-contact-trust {
+  display:flex; align-items:center; min-height:330px; padding:90px 0 120px;
+  background:linear-gradient(180deg,#fff 0%,#f7fcfe 24%,#edf9fd 65%,#edf9fd 100%);
+}
+.ri26-contact-trust > div { gap:40px; }
+.ri26-contact-trust > div > div { align-items:center; gap:20px; }
+.ri26-contact-trust > div > div > span {
+  width:76px; height:76px; background:linear-gradient(145deg,#e6f8fe,#d7f0fa);
+  border:1px solid #c6e9f5;
+}
+.ri26-contact-trust h3 { margin:0 0 9px; font-size:19px; line-height:1.3; }
+.ri26-contact-trust p { max-width:28ch; font-size:15px; line-height:1.65; }
+
+/* Compact the form while keeping comfortable controls and all existing fields. */
+.ri26-contact-reference .ri26-contact-form { padding:28px; }
+.ri26-contact-reference .ri26-contact-form-head { margin-bottom:20px; }
+.ri26-contact-form-head h2 { margin:12px 0 8px; }
+.ri26-contact-reference .ri26-contact-form .ri26-form { gap:15px; }
+.ri26-contact-reference .ri26-field-grid { gap:12px; }
+.ri26-contact-reference .ri26-form label > span,
+.ri26-contact-reference .ri26-form legend { margin-bottom:5px; }
+.ri26-contact-reference .ri26-form input:not([type=radio]) { height:44px; padding:10px 12px; }
+.ri26-contact-subjects > div { gap:8px; }
+.ri26-contact-subjects label { min-height:72px; padding:10px 8px; gap:7px; }
+.ri26-contact-subjects svg { width:18px; height:18px; }
+.ri26-contact-reference .ri26-message-grid textarea { min-height:110px; height:110px; }
+.ri26-contact-extra { border:1px solid #e0ebf2; border-radius:10px; background:#f8fbfd; }
+.ri26-contact-extra summary { cursor:pointer; padding:12px 14px; font-size:12px; font-weight:600; color:#31536c; }
+.ri26-contact-extra summary > span { font-weight:400; color:#6e8597; }
+.ri26-contact-extra > div { display:grid; gap:14px; padding:4px 14px 14px; }
+.ri26-contact-reference .ri26-contact-extra textarea { height:84px; min-height:84px; }
+@media(max-width:1000px) {
+  .ri26-contact-trust > div { gap:24px; }
+  .ri26-contact-trust > div > div { gap:14px; }
+  .ri26-contact-trust > div > div > span { width:60px; height:60px; }
+  .ri26-contact-trust h3 { font-size:17px; }
+  .ri26-contact-reference .ri26-contact-form { padding:24px; }
+}
+@media(max-width:800px) {
+  .ri26-contact-trust { min-height:0; padding:70px 0 110px; }
+  .ri26-contact-trust > div { gap:32px; }
+  .ri26-contact-trust > div > div > span { width:68px; height:68px; }
+  .ri26-contact-trust p { max-width:40ch; }
+}
+@media(max-width:480px) {
+  .ri26-contact-reference .ri26-contact-form { padding:22px 18px; }
+  .ri26-contact-reference .ri26-contact-form .ri26-form { gap:16px; }
+  .ri26-contact-trust { padding:64px 0 100px; }
+  .ri26-contact-trust > div > div > span { width:58px; height:58px; }
+  .ri26-contact-trust p { font-size:14px; }
+}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Clock3, Mail, MapPin, Phone, Siren } from "lucide-react";
+import { ArrowRight, Building2, ChevronRight, Clock3, Mail, MapPin, Phone, ShieldCheck, Users, Zap } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { serviceAreas } from "@/lib/service-areas";
 import { site } from "@/lib/site";
@@ -15,65 +15,74 @@ export default function ContactPage() {
   const tel = site.phone.replace(/[^\d+]/g, "");
 
   return (
-    <article className="voda-site ri26-detail">
-      {/* Hero: same treatment as the service and area pages, without a photo
-          since there is nothing to show — the navy ground carries it. */}
+    <article className="voda-site ri26-detail ri26-contact-reference">
       <header className="ri26-detail-hero ri26-contact-hero">
         <div className="ri26-hero-photo">
-          <Image src="/Real-life-images/MSP_7581-Edit.jpg" alt="" fill priority sizes="100vw" className="voda-cover" />
+          <Image src="/contact/restoreiq-technician-hero-v1.png" alt="RestoreIQ technician positioning a blue air mover inside a home" fill priority sizes="100vw" className="voda-cover" />
         </div>
         <div aria-hidden className="ri26-hero-grid" />
         <div className="ri26-hero-shade" />
         <div className="voda-wrap">
           <div className="ri26-hero-copy-col">
-            <p className="ri26-kicker"><Phone aria-hidden /> Ventura County &middot; 24/7</p>
+            <p className="ri26-kicker">Ventura County &middot; 24/7</p>
             <h1>Talk to <em>RestoreIQ.</em></h1>
             <p className="ri26-detail-copy">
               Call the emergency line for an active loss. For insurance, billing,
-              scheduling or questions about work already underway, send a message
-              and we will get back to you.
+              scheduling or general enquiries, send a message and we’ll get
+              back to you as soon as possible.
             </p>
             <div className="voda-actions">
               <a className="voda-btn primary" href={`tel:${tel}`}><Phone aria-hidden /> {site.cta.call}</a>
-              <Link className="voda-btn glass" href="/#request-service">{site.cta.request} <ArrowRight aria-hidden /></Link>
+              <a className="voda-btn glass" href="#contact-form">Send a message <ArrowRight aria-hidden /></a>
             </div>
+            <ul className="ri26-contact-hero-benefits">
+              <li><Zap aria-hidden /><span>Fast response<br />times</span></li>
+              <li><ShieldCheck aria-hidden /><span>Experienced<br />local team</span></li>
+              <li><Users aria-hidden /><span>Here for our<br />community</span></li>
+            </ul>
           </div>
         </div>
         <svg className="ri26-hero-wave" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true"><path d="M0 150V60C240 6 560 -12 860 22C1080 47 1280 76 1440 42V150Z" /></svg>
       </header>
 
       <section className="ri26-section ri26-contact" aria-labelledby="contact-heading">
+        <div className="voda-wrap ri26-contact-intro">
+          <span className="voda-eyebrow">Get in touch</span>
+          <h2 id="contact-heading">We’re here <em>to help.</em></h2>
+          <p>Whether you’re dealing with an active water, fire or smoke loss, or just have a question, our team is ready to help. Choose the best way to reach us or send a message using the form.</p>
+        </div>
         <div className="voda-wrap ri26-contact-grid">
           <div className="ri26-contact-details">
-            <span className="voda-eyebrow">How to reach us</span>
-            <h2 id="contact-heading">Four ways to <em>get hold of us.</em></h2>
 
             {/* The emergency line leads: it is the only route that is answered
                 around the clock, and the one that matters during a loss. */}
+            <ul className="ri26-contact-list">
+              <li className="ri26-contact-emergency-card">
             <a className="ri26-contact-primary" href={`tel:${tel}`}>
-              <span aria-hidden><Siren /></span>
+              <span aria-hidden><Phone /></span>
               <div>
                 <small>{site.coverage.hours}</small>
                 <b>{site.phone}</b>
-                <span>{site.coverage.response}</span>
+                <span>Call for active water, fire or smoke damage.<br />{site.coverage.response}.</span>
               </div>
+              <ChevronRight className="ri26-contact-card-arrow" aria-hidden />
             </a>
-
-            <ul className="ri26-contact-list">
+              </li>
               <li>
                 <span className="ri26-contact-mark" aria-hidden><Mail /></span>
                 <div>
                   <b>Email</b>
                   <a href={`mailto:${site.email}`}>{site.email}</a>
-                  <small>Replies during office hours</small>
+                  <small>General enquiries, insurance, billing and scheduling. We’ll get back to you during office hours.</small>
                 </div>
+                <ChevronRight className="ri26-contact-card-arrow" aria-hidden />
               </li>
               <li>
                 <span className="ri26-contact-mark" aria-hidden><Clock3 /></span>
                 <div>
                   <b>Office hours</b>
                   <p>{site.coverage.officeHours}</p>
-                  <small>The emergency line runs {site.coverage.hours.toLowerCase()}</small>
+                  <small>Our office team is available during regular business hours. The emergency line runs 24/7.</small>
                 </div>
               </li>
               <li>
@@ -112,11 +121,19 @@ export default function ContactPage() {
 
           <div className="ri26-contact-form" id="contact-form">
             <div className="ri26-contact-form-head">
-              <b>Send a message</b>
-              <small>For enquiries that are not an active emergency.</small>
+              <span className="voda-eyebrow">Send a message</span>
+              <h2>Get in <em>touch</em></h2>
+              <p>Fill out the form below and our team will get back to you as soon as possible.</p>
             </div>
             <ContactForm />
           </div>
+        </div>
+      </section>
+      <section className="ri26-contact-trust" aria-label="Why contact RestoreIQ">
+        <div className="voda-wrap">
+          <div><span aria-hidden><ShieldCheck /></span><div><h3>Trusted local team</h3><p>Proudly serving Ventura County and surrounding areas.</p></div></div>
+          <div><span aria-hidden><Users /></span><div><h3>Fast, friendly support</h3><p>Real people, ready to help when you need it.</p></div></div>
+          <div><span aria-hidden><Building2 /></span><div><h3>Insurance experience</h3><p>Help with documentation and insurance claim questions.</p></div></div>
         </div>
       </section>
     </article>
