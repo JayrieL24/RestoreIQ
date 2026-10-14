@@ -1959,7 +1959,7 @@ export const howWeHelp: Record<string, HowWeHelp> = {
   "water-damage-restoration": {
     lineOne: "We find the water,", lineTwo: "track the impact,", accent: "and help you move forward.",
     lede: "Our team documents the full story, from where the water traveled to which materials were affected, so you have a clear plan for drying, repairs and peace of mind.",
-    image: "/services/plans/water-damage.jpg",
+    image: "/services/plans/water-damage-white-floor-v1.png",
     imageAlt: "Floor plan showing water spreading from a bathroom through the living room and kitchen",
     statLabel: "A small leak can travel far", figure: "3×",
     statBody: "Water can travel up to 3× farther than you see on the surface.",
@@ -1968,7 +1968,7 @@ export const howWeHelp: Record<string, HowWeHelp> = {
   "fire-smoke-damage": {
     lineOne: "We follow the smoke,", lineTwo: "not just the burn,", accent: "and clean to the source.",
     lede: "Smoke moves through a property long after the fire is out. We map where residue settled, test each surface, and clean by material rather than treating every room the same.",
-    image: "/services/plans/fire-smoke.jpg",
+    image: "/services/plans/fire-smoke-white-floor-v1.png",
     imageAlt: "Floor plan showing smoke spreading from a kitchen through hallways into bedrooms",
     statLabel: "Smoke reaches further than fire", figure: "Every room",
     statBody: "Residue travels on air currents into spaces the flames never touched.",
@@ -1977,7 +1977,7 @@ export const howWeHelp: Record<string, HowWeHelp> = {
   "sewage-cleanup": {
     lineOne: "We classify first,", lineTwo: "contain second,", accent: "and clean to standard.",
     lede: "Contaminated water is a health decision before it is a drying one. The category is confirmed on arrival, the area is contained, and porous materials are removed rather than dried.",
-    image: "/services/plans/sewage.jpg",
+    image: "/services/plans/sewage-white-floor-v1.png",
     imageAlt: "Floor plan showing a contained bathroom and hallway with a sealed work zone",
     statLabel: "Under IICRC S500", figure: "Category 3",
     statBody: "Grossly contaminated water. Porous materials it has touched are not salvageable.",
@@ -1986,7 +1986,7 @@ export const howWeHelp: Record<string, HowWeHelp> = {
   "burst-pipe-cleanup": {
     lineOne: "We stop the source,", lineTwo: "then find where", accent: "the water went.",
     lede: "A burst pipe empties into cavities and subfloors long before it shows on the surface. We trace the spread through the structure rather than drying only what is obvious.",
-    image: "/services/plans/burst-pipe.jpg",
+    image: "/services/plans/burst-pipe-white-floor-v1.png",
     imageAlt: "Floor plan showing water from a wall cavity spreading under flooring across two rooms",
     statLabel: "Behind the wall", figure: "Hours",
     statBody: "A supply line can release hundreds of litres before anyone notices.",
@@ -1995,7 +1995,7 @@ export const howWeHelp: Record<string, HowWeHelp> = {
   "appliance-leak-cleanup": {
     lineOne: "We pull the unit,", lineTwo: "check behind it,", accent: "and dry the cavity.",
     lede: "Appliance leaks are slow and hidden. The damage is usually under the kickboard and behind the cabinet, where it has had weeks to spread before anything appears on the floor.",
-    image: "/services/plans/appliance-leak.jpg",
+    image: "/services/plans/appliance-leak-white-floor-v1.png",
     imageAlt: "Floor plan of a kitchen showing water spreading from behind an appliance under the cabinet run",
     statLabel: "Slow leaks run unseen", figure: "Weeks",
     statBody: "A pinhole behind a dishwasher can wet the subfloor long before it reaches the room.",
@@ -2004,7 +2004,7 @@ export const howWeHelp: Record<string, HowWeHelp> = {
   "hardwood-floor-drying": {
     lineOne: "We dry the boards,", lineTwo: "not just the room,", accent: "while they can still be saved.",
     lede: "Hardwood cups as it takes on moisture and can flatten again if it is dried in time. We set mats and monitor each board rather than writing the floor off on sight.",
-    image: "/services/plans/hardwood.jpg",
+    image: "/services/plans/hardwood-white-floor-v1.png",
     imageAlt: "Floor plan showing drying mats laid across a hardwood living room floor",
     statLabel: "Act before it sets", figure: "Days",
     statBody: "Cupping can often be reversed if drying starts early enough.",
@@ -2013,7 +2013,7 @@ export const howWeHelp: Record<string, HowWeHelp> = {
   "crawlspace-drying": {
     lineOne: "We work under", lineTwo: "the floor so it", accent: "does not reach the house.",
     lede: "Moisture under a property rises into the floor above and the air you breathe. We dry the space, check the joists and subfloor, and deal with the vapour barrier.",
-    image: "/services/plans/crawlspace.jpg",
+    image: "/services/plans/crawlspace-white-floor-v1.png",
     imageAlt: "Sectional floor plan showing a damp crawlspace beneath the ground floor rooms",
     statLabel: "It does not stay down there", figure: "Upward",
     statBody: "Damp air under a floor moves into the rooms above it.",
@@ -2022,7 +2022,7 @@ export const howWeHelp: Record<string, HowWeHelp> = {
   "commercial-water-damage": {
     lineOne: "We zone the building,", lineTwo: "contain the loss,", accent: "and keep you trading.",
     lede: "A commercial loss is a scheduling problem as much as a drying one. The property is divided into open, restricted and contained areas before any equipment is unloaded.",
-    image: "/services/plans/commercial.jpg",
+    image: "/services/plans/commercial-white-floor-v1.png",
     imageAlt: "Commercial floor plan divided into open, restricted and contained zones",
     statLabel: "Most of the floor stays open", figure: "Zoned",
     statBody: "Only the contained area stops trading. Everything outside it carries on.",
@@ -2031,7 +2031,7 @@ export const howWeHelp: Record<string, HowWeHelp> = {
   "contents-protection": {
     lineOne: "We record what", lineTwo: "is there before", accent: "anything is moved.",
     lede: "Your belongings are photographed and listed in place, then routed by material. Hard goods, textiles, documents and electronics each take a different path through cleaning.",
-    image: "/services/plans/contents.jpg",
+    image: "/services/plans/contents-white-floor-v1.png",
     imageAlt: "Floor plan showing rooms marked for contents inventory and pack-out routes",
     statLabel: "Nothing leaves unlisted", figure: "Item by item",
     statBody: "Everything that leaves the property is photographed and recorded first.",
@@ -2040,7 +2040,7 @@ export const howWeHelp: Record<string, HowWeHelp> = {
   reconstruction: {
     lineOne: "We rebuild from", lineTwo: "the record of", accent: "what was removed.",
     lede: "The demolition record becomes the repair scope. What came out is what goes back, documented room by room so nothing is missed and the work can be approved before it starts.",
-    image: "/services/plans/reconstruction.jpg",
+    image: "/services/plans/reconstruction-white-floor-v1.png",
     imageAlt: "Floor plan marking which walls and flooring were removed and are being rebuilt",
     statLabel: "Scope from the record", figure: "Documented",
     statBody: "Every removed material was photographed and measured during mitigation.",
