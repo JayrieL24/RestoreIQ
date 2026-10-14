@@ -3833,7 +3833,7 @@ html { scroll-padding-top: 96px; }
 /* SheetHeader renders a div, not a <header>; keep the wordmark row flush with the nav and clear of the close button. */
 .voda-mobile-sheet [data-slot="sheet-header"] { padding: 0 56px 0 0; }
 /* The stock close control is a 16px icon at 70% opacity: invisible on the off-white drawer and too small to tap. */
-.voda-mobile-sheet .voda-mobile-sheet-close { top: 30px; right: 18px; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #cfe3ea; border-radius: 12px; background: #fff; color: #123b55; opacity: 1; box-shadow: 0 6px 16px rgba(7,29,53,.08); transition: background .2s ease, transform .2s ease; }
+.voda-mobile-sheet .voda-mobile-sheet-close { top: 30px; right: 18px; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #cfe3ea; border-radius: 12px; background: #fff; color: #123b55; opacity: 1; box-shadow: 0 6px 16px rgba(7,29,53,.08); transition: background .2s ease, transform .2s ease; }
 .voda-mobile-sheet .voda-mobile-sheet-close:hover { background: #e9f8fb; }
 .voda-mobile-sheet .voda-mobile-sheet-close:active { transform: scale(.95); }
 .voda-mobile-sheet .voda-mobile-sheet-close svg { width: 18px; height: 18px; }
