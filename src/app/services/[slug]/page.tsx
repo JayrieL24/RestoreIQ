@@ -35,6 +35,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const scopeIcon = { waves: WavesArrowDown, scan: ScanSearch, wind: Wind, clipboard: ClipboardCheck, shield: ShieldCheck, flame: Flame, droplet: Droplet, layers: Layers, box: Box, gauge: Gauge, house: HousePlus, clock: Clock3, check: Check, camera: Camera, plug: Plug, users: Users };
   const help = howWeHelp[service.id];
   const planCallout = servicePlanCallouts[service.id];
+  // Where the callout label starts, in viewBox units left of the plan. Keep in
+  // step with the desktop stage inset in service-overview.css.
+  const labelX = -280;
   const introCard = serviceIntroCards[service.id];
   const overviewHeading = serviceOverviewHeadings[service.id] ?? ["Your restoration", "starts with", "a clear plan."];
   const steps = processSteps[service.id] ?? batch2Steps[service.id] ?? batch3Steps[service.id];
@@ -148,9 +151,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               {planCallout && <span className="ri26-plan-callout-label" style={{ top: `${(planCallout.y - 80) / 10}%` }} aria-hidden="true">{planCallout.lines.join(" ")}</span>}
               {help.image ? <Image src={help.image} alt={help.imageAlt} fill className="voda-cover" sizes="(max-width: 820px) 75vw, 45vw" /> : <span className="ri26-ph" aria-hidden />}
               {planCallout && <svg className="ri26-plan-callout" viewBox="0 0 1000 1000" role="img" aria-label={planCallout.lines.join(" ")}>
-                <text x="-310" y={planCallout.y - 140}><tspan x="-310">{planCallout.lines[0]}</tspan><tspan x="-310" dy="38">{planCallout.lines[1]}</tspan></text>
-                <path className="ri26-plan-callout-outline" d={`M-310 ${planCallout.y - 80} H${Math.max(0, planCallout.x - 90)} L${planCallout.x} ${planCallout.y}`} />
-                <path d={`M-310 ${planCallout.y - 80} H${Math.max(0, planCallout.x - 90)} L${planCallout.x} ${planCallout.y}`} />
+                <text x={labelX} y={planCallout.y - 140}><tspan x={labelX}>{planCallout.lines[0]}</tspan><tspan x={labelX} dy="38">{planCallout.lines[1]}</tspan></text>
+                <path className="ri26-plan-callout-outline" d={`M${labelX} ${planCallout.y - 80} H${Math.max(0, planCallout.x - 90)} L${planCallout.x} ${planCallout.y}`} />
+                <path d={`M${labelX} ${planCallout.y - 80} H${Math.max(0, planCallout.x - 90)} L${planCallout.x} ${planCallout.y}`} />
                 <circle className="ri26-plan-callout-halo" cx={planCallout.x} cy={planCallout.y} r="18" />
                 <circle className="ri26-plan-callout-dot" cx={planCallout.x} cy={planCallout.y} r="11" />
               </svg>}

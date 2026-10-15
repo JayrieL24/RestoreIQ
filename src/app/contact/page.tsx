@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Building2, ChevronRight, Clock3, Mail, MapPin, Phone, ShieldCheck, Users, Zap } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
+import { ContactAreaMap } from "@/components/contact-area-map";
 import { serviceAreas } from "@/lib/service-areas";
 import { site } from "@/lib/site";
 
@@ -99,22 +100,17 @@ export default function ContactPage() {
               </li>
             </ul>
 
-            {/* Google embed centred on the address in site config. The basic
-                embed needs no API key; lazy so it never blocks the page. */}
+            {/* The map shows the whole service area, every city pinned, rather
+                than a single office address: callers want to know whether we
+                come to them. */}
             <figure className="ri26-contact-map">
-              <iframe
-                title={`Map showing the ${site.name} service area around ${site.coverage.address}`}
-                src={`https://www.google.com/maps?q=${encodeURIComponent(site.coverage.address)}&output=embed`}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
+              <ContactAreaMap />
               <figcaption>
                 <MapPin aria-hidden />
-                <span>{site.coverage.address}</span>
-                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.coverage.address)}`} target="_blank" rel="noreferrer">
-                  Open in Maps <ArrowRight aria-hidden />
-                </a>
+                <span>{site.coverage.radius}: {site.coverage.areas.join(", ")}</span>
+                <Link href="/#coverage">
+                  All service areas <ArrowRight aria-hidden />
+                </Link>
               </figcaption>
             </figure>
           </div>

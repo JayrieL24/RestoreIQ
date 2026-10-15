@@ -1001,3 +1001,44 @@ main:has(.ri26-service-area-page) + .voda-footer .voda-footer-inner::before {
 @media(max-width:350px) {
   .ri26-dry-reference .ri26-dry-track { grid-template-columns:minmax(0,1fr); }
 }
+
+/* ══ Contact: compact hero so the form leads ═══════════════════════════════
+   The contact hero inherited the full detail-hero height (650px, and a full
+   viewport on phones), pushing the form and contact details below the fold.
+   On this page the hero is only a heading; the form is the content. These
+   rules win over every earlier breakpoint by specificity, so the hero is a
+   short band at all widths and the contact grid starts right under it. */
+.ri26-detail-hero.ri26-contact-hero {
+  min-height:0;
+  align-items:center;
+  padding-top:clamp(118px,11vw,148px);
+  padding-bottom:clamp(92px,9vw,122px);
+}
+.ri26-detail-hero.ri26-contact-hero .ri26-hero-copy-col {
+  position:static;
+  padding:0;
+  transform:none;
+}
+.ri26-detail-hero.ri26-contact-hero h1 {
+  margin-top:12px;
+  font-size:clamp(34px,4vw,52px);
+}
+.ri26-detail-hero.ri26-contact-hero .ri26-detail-copy {
+  width:auto;
+  max-width:520px;
+  margin-top:14px;
+  font-size:15px;
+}
+.ri26-detail-hero.ri26-contact-hero .voda-actions { margin-top:22px; }
+.ri26-detail-hero.ri26-contact-hero .ri26-hero-wave { height:72px; }
+/* The section under it no longer needs the deep top gap. */
+.ri26-contact.ri26-section { padding-top:clamp(40px,4vw,56px); }
+
+@media(max-width:700px){
+  .ri26-detail-hero.ri26-contact-hero {
+    padding-top:108px;
+    padding-bottom:78px;
+  }
+  .ri26-detail-hero.ri26-contact-hero .ri26-hero-wave { height:44px; }
+  .ri26-contact.ri26-section { padding-top:26px; }
+}

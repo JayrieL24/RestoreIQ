@@ -34,14 +34,6 @@ export default function HomePage() {
         <h1>24/7 Water Damage Restoration <em>in Ventura County</em></h1>
         <p>Rapid water extraction, structural drying and moisture detection from a local restoration team. Call now for immediate arrival guidance.</p>
         <div className="voda-actions"><a className="voda-btn primary" href={`tel:${phone}`}>{site.cta.call} <Phone /></a><a className="voda-btn glass" href="#request-service">{site.cta.request} <ArrowRight /></a>
-          <div className="voda-hero-float-card">
-            <span className="voda-hero-float-icon" aria-hidden><Clock3 /></span>
-            <span className="voda-hero-float-text">
-              <b><i className="voda-hero-float-status" aria-hidden />Crews on call now</b>
-              <small>Local team · 24/7</small>
-              <em>Most calls answered live</em>
-            </span>
-          </div>
         </div>
         <ul className="voda-hero-points"><li><Check aria-hidden /> Most calls answered live</li><li><Check aria-hidden /> Call for current arrival guidance</li></ul>
       </Reveal></div>
