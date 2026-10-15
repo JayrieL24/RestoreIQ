@@ -20,7 +20,7 @@ export default function AboutPage() {
   return (
     <article className="voda-site ri26-detail about-page">
       <header className="about-reference-hero">
-        <Image src="/about/about-hero-matte-v3.png" alt="Restoration technician setting up a blue air mover inside a home" fill priority sizes="100vw" className="about-reference-photo" />
+        <Image src="/about/about-hero-matte-v3.png" alt="Restoration technician setting up a blue air mover inside a home" fill priority quality={90} sizes="(max-width: 760px) 2172px, (max-width: 1100px) 1800px, 100vw" className="about-reference-photo" />
         <div className="about-reference-shade" />
         <div className="voda-wrap about-reference-hero-inner">
           <div className="about-reference-copy">
