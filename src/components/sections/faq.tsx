@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { Phone } from "lucide-react";
+import { Minus, Phone, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 import { Reveal } from "@/components/reveal";
@@ -30,7 +30,7 @@ export function Faq({ items, eyebrow, heading, showContactLink = false }: { item
   const tel = site.phone.replace(/[^\d+]/g, "");
   return <section className="voda-faq" aria-labelledby="faq-heading"><div className="voda-wrap">
     <Reveal className="voda-heading">{eyebrow ? <span className="voda-eyebrow">{eyebrow}</span> : null}<h2 id="faq-heading">{heading ?? <>Frequently Asked <em>Questions</em></>}</h2></Reveal>
-    <div className="voda-faq-list">{faqs.map((item, index) => { const isOpen = open === index; const panelId = `faq-panel-${index}`; const triggerId = `faq-trigger-${index}`; return <div key={item.q} className={cn("voda-faq-item", isOpen && "is-open")}><h3><button type="button" id={triggerId} onClick={() => setOpen(isOpen ? null : index)} aria-expanded={isOpen} aria-controls={panelId}><span className="voda-faq-mark" aria-hidden><QuestionMark /></span><span className="voda-faq-q">{item.q}</span><span className="voda-faq-toggle" aria-hidden><i /><i /></span></button></h3><AnimatePresence initial={false}>{isOpen ? <motion.div id={panelId} key="panel" role="region" aria-labelledby={triggerId} initial={reduceMotion ? { opacity:0 } : { height:0, opacity:0 }} animate={reduceMotion ? { opacity:1 } : { height:"auto", opacity:1 }} exit={reduceMotion ? { opacity:0 } : { height:0, opacity:0 }} transition={{ duration:.3, ease:[.22,1,.36,1] }} className="voda-faq-panel"><p>{item.a}</p></motion.div> : null}</AnimatePresence></div>; })}</div>
+    <div className="voda-faq-list">{faqs.map((item, index) => { const isOpen = open === index; const panelId = `faq-panel-${index}`; const triggerId = `faq-trigger-${index}`; return <div key={item.q} className={cn("voda-faq-item", isOpen && "is-open")}><h3><button type="button" id={triggerId} onClick={() => setOpen(isOpen ? null : index)} aria-expanded={isOpen} aria-controls={panelId}><span className="voda-faq-mark" aria-hidden><QuestionMark /></span><span className="voda-faq-q">{item.q}</span><span className="voda-faq-toggle" aria-hidden>{isOpen ? <Minus /> : <Plus />}</span></button></h3><AnimatePresence initial={false}>{isOpen ? <motion.div id={panelId} key="panel" role="region" aria-labelledby={triggerId} initial={reduceMotion ? { opacity:0 } : { height:0, opacity:0 }} animate={reduceMotion ? { opacity:1 } : { height:"auto", opacity:1 }} exit={reduceMotion ? { opacity:0 } : { height:0, opacity:0 }} transition={{ duration:.3, ease:[.22,1,.36,1] }} className="voda-faq-panel"><p>{item.a}</p></motion.div> : null}</AnimatePresence></div>; })}</div>
     <div className="voda-faq-cta">{showContactLink ? <Link className="voda-btn primary" href="/contact">Contact our team</Link> : null}<Link className="voda-faq-cta-alt" href="/#request-service">{site.cta.request}</Link><a className="voda-faq-cta-call" href={`tel:${tel}`}><Phone aria-hidden />{site.phone}</a></div>
   </div></section>;
 }

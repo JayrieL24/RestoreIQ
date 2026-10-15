@@ -1464,7 +1464,7 @@
 
 .voda-faq-item button {
   display: grid;
-  grid-template-columns: 26px 1fr 22px;
+  grid-template-columns: 26px minmax(0,1fr) 30px;
   align-items: start;
   gap: 13px;
   width: 100%;
@@ -1497,24 +1497,27 @@
 /* Plus that becomes a minus: the vertical bar scales to nothing rather
    than the whole icon spinning. */
 .voda-faq-toggle {
-  position: relative;
-  width: 18px;
-  height: 20px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border: 1px solid #cfe3ea;
+  border-radius: 50%;
+  background: #f1f9fc;
+  color: #123047;
   justify-self: end;
 }
-.voda-faq-toggle i {
-  position: absolute;
-  inset: 50% 0 auto;
-  height: 1.8px;
-  border-radius: 2px;
-  background: #123047;
-  transform: translateY(-50%);
-  transition: transform .28s cubic-bezier(.22,1,.36,1), background .24s;
+.voda-faq-toggle svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
 }
-.voda-faq-toggle i:last-child { transform: translateY(-50%) rotate(90deg); }
-.voda-faq-item.is-open .voda-faq-toggle i { background: #10b6bd; }
-.voda-faq-item.is-open .voda-faq-toggle i:last-child {
-  transform: translateY(-50%) rotate(90deg) scaleX(0);
+.voda-faq-item.is-open .voda-faq-toggle {
+  color: #087f91;
+  background: #e0f7fa;
+  border-color: #a6e4ec;
 }
 
 /* Answer aligns with the question text, not the icon. */
