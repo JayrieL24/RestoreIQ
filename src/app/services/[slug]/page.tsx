@@ -11,6 +11,7 @@ import { ServiceFeaturePhoto } from "@/components/service-feature-photo";
 import { serviceIntroCards, serviceOverviewHeadings } from "@/lib/service-intro-cards";
 import { serviceSolutionDetails } from "@/lib/service-solution-details";
 import { servicePlanCallouts } from "@/lib/service-plan-callouts";
+import { serviceBlueprintCards } from "@/lib/service-blueprint-cards";
 import { serviceResults, serviceResultsContext } from "@/lib/service-results";
 import { site } from "@/lib/site";
 
@@ -34,6 +35,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const mobileHero = hero ? getImageProps({ src: hero.portrait, alt: hero.alt, fill: true, sizes: "100vw" }).props : undefined;
   const scopeIcon = { waves: WavesArrowDown, scan: ScanSearch, wind: Wind, clipboard: ClipboardCheck, shield: ShieldCheck, flame: Flame, droplet: Droplet, layers: Layers, box: Box, gauge: Gauge, house: HousePlus, clock: Clock3, check: Check, camera: Camera, plug: Plug, users: Users };
   const help = howWeHelp[service.id];
+  const blueprintCard = serviceBlueprintCards[service.id] ?? { label: "A clear restoration plan", title: "Assess the affected area", description: "Document the damage and plan the next steps." };
   const planCallout = servicePlanCallouts[service.id];
   // Where the callout label starts, in viewBox units left of the plan. Keep in
   // step with the desktop stage inset in service-overview.css.
@@ -161,9 +163,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </figure>
           <aside className="ri26-help-stat ri26-help-panels">
             <div className="ri26-help-panel ri26-help-panel-lead">
-              <b>{help.statLabel}</b>
+              <b>{blueprintCard.label}</b>
               <div className="ri26-help-lead-visual">
-              <strong className={`ri26-help-figure${help.figure.length > 3 ? " ri26-help-figure-text" : ""}`}>{help.figure}</strong>
+              <div className="ri26-help-lead-message"><h3>{blueprintCard.title}</h3><p>{blueprintCard.description}</p></div>
                 <div className="ri26-help-path" aria-hidden="true">
                   <span><Icon /></span>
                   <svg viewBox="0 0 260 90" fill="none"><path d="M0 64C45 82 48 4 100 24S160 98 210 50S245 35 260 16" stroke="currentColor" strokeWidth="2.5" strokeDasharray="1 10" strokeLinecap="round" /></svg>
