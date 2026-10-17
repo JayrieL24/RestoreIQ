@@ -9,5 +9,5 @@ export const process = [
   { title: "Stop the", accent: "source", copy: "We shut off the water and map the damage.", icon: ScanSearch },
   { title: "Extract", accent: "water", copy: "Standing water comes out and gets documented.", icon: WavesArrowDown },
   { title: "Dry and", accent: "monitor", copy: "Daily readings guide the drying equipment.", icon: Wind },
-  { title: "Repair and", accent: "restore", copy: "Approved repairs bring your property back.", icon: HousePlus },
+  { title: "", accent: "Restore", copy: "Complete approved repairs.", icon: HousePlus },
 ] as const;
