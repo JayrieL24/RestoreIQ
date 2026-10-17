@@ -420,3 +420,15 @@
     object-position:24% 35%;
   }
 }
+
+.ri26-city-field { min-width:0; }
+.ri26-city-control { position:relative; }
+.ri26-form .ri26-city-control input { padding-right:42px; }
+.ri26-city-control > svg { position:absolute; right:14px; top:50%; width:18px; height:18px; transform:translateY(-50%); color:#0878b7; pointer-events:none; }
+.ri26-city-control > svg.is-open { transform:translateY(-50%) rotate(180deg); }
+.ri26-city-options { position:fixed; z-index:60; box-sizing:border-box; overflow-y:auto; overscroll-behavior:contain; margin:0; padding:6px; list-style:none; background:#fff; color:#183b54; border:1px solid #bcdcea; border-radius:12px; box-shadow:0 12px 32px rgba(8,44,65,.18); font-family:var(--font-inter),Arial,sans-serif; font-size:14px; }
+.ri26-city-options li { display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:44px; padding:10px 12px; border-radius:7px; cursor:pointer; }
+.ri26-city-options li.is-active { background:#eaf8fc; color:#006e98; }
+.ri26-city-options li[aria-selected=true] { font-weight:500; }
+.ri26-city-options svg { width:17px; height:17px; flex:none; color:#009cbd; }
+.ri26-city-options .ri26-city-empty { cursor:default; color:#526e82; overflow-wrap:anywhere; }

@@ -3,7 +3,7 @@
 import * as React from "react";
 import { AlertCircle, CheckCircle2, LoaderCircle, Phone } from "lucide-react";
 import { site } from "@/lib/site";
-import { serviceAreas } from "@/lib/service-areas";
+import { CityField } from "@/components/city-field";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -52,11 +52,7 @@ export function RequestServiceForm() {
         <label><span>Name <b>*</b></span><input name="name" autoComplete="name" required /></label>
         <label><span>Phone number <b>*</b></span><input name="phone" type="tel" inputMode="tel" autoComplete="tel" required /></label>
       </div>
-      <label>
-        <span>Property city <b>*</b></span>
-        <input name="city" list="service-area-cities" autoComplete="address-level2" required />
-        <datalist id="service-area-cities">{serviceAreas.map((area) => <option value={area.name} key={area.slug} />)}</datalist>
-      </label>
+      <CityField />
       <label><span>What happened? <b>*</b></span><textarea name="incident" rows={4} required placeholder="Tell us where the damage is and what you can see." /></label>
       <fieldset>
         <legend>Is water still entering the property? <b>*</b></legend>

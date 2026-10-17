@@ -3,7 +3,7 @@
 import * as React from "react";
 import { AlertCircle, ArrowRight, BriefcaseBusiness, CalendarDays, CheckCircle2, FileText, LoaderCircle, MessageCircle, Phone } from "lucide-react";
 import { site } from "@/lib/site";
-import { serviceAreas } from "@/lib/service-areas";
+import { CityField } from "@/components/city-field";
 
 /**
  * General enquiries. Separate from RequestServiceForm, which is for an active
@@ -71,11 +71,7 @@ export function ContactForm() {
       </div>
       <div className="ri26-field-grid">
         <label><span>Phone {preferredContact === "Email" ? <small>(optional)</small> : <b>*</b>}</span><input name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="(805) 555-0123" required={preferredContact !== "Email"} /></label>
-        <label>
-          <span>Property city <b>*</b></span>
-          <input name="city" list="contact-area-cities" autoComplete="address-level2" placeholder="Your property city" required />
-          <datalist id="contact-area-cities">{serviceAreas.map((area) => <option value={area.name} key={area.slug} />)}</datalist>
-        </label>
+        <CityField />
       </div>
       <fieldset className="ri26-contact-subjects">
         <legend>What is this about? <b>*</b></legend>

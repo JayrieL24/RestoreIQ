@@ -226,3 +226,23 @@
 .ri26-contact-reference .ri26-contact-map figcaption > span { min-width:0; line-height:1.5; }
 /* Same tile tint as the home-page service-area map. */
 .ri26-contact-reference .ri26-contact-area-map .leaflet-tile-pane { filter:saturate(.72) contrast(.94) brightness(1.04); }
+
+/* Let fields respond to the available form width, including tablet columns. */
+.ri26-contact-reference .ri26-field-grid {
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));
+  gap:16px;
+}
+@media(max-width:1100px) {
+  .ri26-contact-reference .ri26-form input:not([type=radio]) { height:52px; padding:14px 16px; font-size:16px; }
+  .ri26-contact-reference .ri26-form textarea { padding:14px 16px; font-size:16px; }
+  .ri26-contact-reference .ri26-message-grid textarea { height:140px; min-height:140px; }
+  .ri26-contact-reference .ri26-contact-extra textarea { height:110px; min-height:110px; }
+  .ri26-contact-reference .ri26-form label > span,
+  .ri26-contact-reference .ri26-form legend { font-size:13px; margin-bottom:7px; }
+  .ri26-contact-reference .ri26-choice-row label { min-height:48px; }
+}
+@media(min-width:801px) and (max-width:1100px) {
+  .ri26-contact-reference .ri26-contact-grid { display:flex; flex-direction:column; gap:26px; }
+  .ri26-contact-reference .ri26-contact-form { order:-1; width:100%; }
+  .ri26-contact-reference .ri26-contact-details { width:100%; }
+}
